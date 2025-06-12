@@ -1,0 +1,15 @@
+# Example template for CSV ingestion
+source:
+  type: file
+  config:
+    filename: /path/to/your.csv
+    file_format: csv
+    delimiter: ","
+    csv_header: infer
+    platform: csv
+    env: DEV
+
+sink:
+  type: datahub-rest
+  config:
+    server: http://localhost:8080

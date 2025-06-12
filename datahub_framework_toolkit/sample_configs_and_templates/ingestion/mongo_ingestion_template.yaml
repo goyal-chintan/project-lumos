@@ -1,0 +1,14 @@
+# Example template for MongoDB ingestion
+source:
+  type: mongo
+  config:
+    uri: mongodb://127.0.0.1:27017
+    database: sample_db
+    collection: your_collection
+    platform: mongodb
+    env: DEV
+
+sink:
+  type: datahub-rest
+  config:
+    server: http://localhost:8080

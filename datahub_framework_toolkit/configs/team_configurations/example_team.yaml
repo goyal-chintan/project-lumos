@@ -1,0 +1,8 @@
+# Example team-specific configuration
+team_name: example_team
+allowed_platforms:
+  - csv
+  - mongo
+  - avro
+default_tags:
+  - example

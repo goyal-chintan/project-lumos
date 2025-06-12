@@ -1,0 +1,5 @@
+# Example template for dataset lineage
+lineage:
+  upstreams:
+    - urn:li:dataset:(platform,upstream_name,env)
+  downstream: urn:li:dataset:(platform,downstream_name,env)
