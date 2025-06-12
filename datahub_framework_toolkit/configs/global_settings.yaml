@@ -1,0 +1,3 @@
+# Global settings for DataHub Framework Toolkit
+default_env: DEV
+datahub_gms: http://localhost:8080
