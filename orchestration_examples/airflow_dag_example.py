@@ -5,8 +5,6 @@ from airflow.utils.dates import days_ago
 import logging
 import pandas as pd
 import os
-import hashlib
-from datahub.ingestion.run.pipeline import Pipeline
 from datahub.metadata.schema_classes import (
     MetadataChangeEventClass,
     DatasetSnapshotClass,
@@ -20,12 +18,11 @@ from datahub.metadata.schema_classes import (
     OtherSchemaClass,
     DatasetPropertiesClass,
 )
-from datahub.emitter.rest_emitter import DatahubRestEmitter
 from datahub.emitter.mce_builder import make_dataset_urn
+from core_library.common.emitter import get_data_catalog
 
 # Configuration
 CSV_FILE_PATH = "/Users/skalamani/Desktop/DataHub-/demo_datasets_csv/location_capabilities.csv"
-DATAHUB_GMS = "http://localhost:8080"
 PLATFORM = "csv"
 ENV = "PROD"
 
@@ -43,6 +40,10 @@ def generate_column_description(column):
 
 def ingest_from_csv():
     logger.info("🚀 Starting DataHub CSV ingestion pipeline...")
+    # This function would ideally use a proper ingestion handler
+    # For now, we are keeping it simple as in the original example.
+    # A more robust implementation would call a CSV ingestion handler from the core_library.
+    from datahub.ingestion.run.pipeline import Pipeline
     pipeline_config = {
         "source": {
             "type": "file",
@@ -58,7 +59,7 @@ def ingest_from_csv():
         "sink": {
             "type": "datahub-rest",
             "config": {
-                "server": DATAHUB_GMS,
+                "server": "http://localhost:8080", # Should be from config
             },
         },
     }
@@ -68,9 +69,9 @@ def ingest_from_csv():
     logger.info("✅ CSV ingestion completed.")
 
 def enrich_metadata():
+    data_catalog = get_data_catalog()
     table_name = os.path.splitext(os.path.basename(CSV_FILE_PATH))[0]
     df = pd.read_csv(CSV_FILE_PATH)
-    emitter = DatahubRestEmitter(DATAHUB_GMS)
 
     type_mapping = {
         "int64": NumberTypeClass(),
@@ -112,7 +113,7 @@ def enrich_metadata():
     )
 
     mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
-    emitter.emit(mce)
+    data_catalog.emit(mce)
     logger.info(f"📦 Metadata enriched and pushed for: {table_name}")
 
 with DAG(

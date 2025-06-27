@@ -18,12 +18,11 @@ from datahub.metadata.schema_classes import (
     GlobalTagsClass,
     TagAssociationClass,
 )
-from datahub.emitter.rest_emitter import DatahubRestEmitter
 from datahub.emitter.mce_builder import make_dataset_urn
+from core_library.common.emitter import get_data_catalog
 
 MONGO_URI = "mongodb://127.0.0.1:27017"
 MONGO_DATABASE = "sample_db"
-DATAHUB_GMS = "http://localhost:8080"
 PLATFORM = "mongodb"
 ENV = "PROD"
 BASE_VERSION = 130
@@ -49,12 +48,12 @@ def map_python_type_to_datahub_type(py_type: str) -> SchemaFieldDataTypeClass:
     return SchemaFieldDataTypeClass(type=type_mapping.get(py_type, StringTypeClass()))
 
 def enrich_metadata():
+    data_catalog = get_data_catalog()
     try:
         client = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
         db = client[MONGO_DATABASE]
         print(f"✅ Connected to MongoDB database: {MONGO_DATABASE}")
 
-        emitter = DatahubRestEmitter(DATAHUB_GMS)
         collections = db.list_collection_names()
         print(f"📁 Found {len(collections)} collections in '{MONGO_DATABASE}': {collections}")
 
@@ -113,7 +112,7 @@ def enrich_metadata():
 
             try:
                 print(f"📤 Emitting metadata for '{coll_name}'...")
-                emitter.emit(mce)
+                data_catalog.emit(mce)
                 print(f"✅ Successfully emitted metadata for '{coll_name}' with version '{version}' and tag '{tag}'")
             except Exception as emit_err:
                 print(f"❌ Error emitting metadata for '{coll_name}': {emit_err}")
