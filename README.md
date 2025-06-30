@@ -1,4 +1,4 @@
-# DataHub Framework Toolkit
+# Lumos Framework Toolkit
 
 A modular and extensible framework for data ingestion, metadata management, and lineage tracking. The framework is designed to be platform-agnostic, allowing easy switching between different metadata platforms (e.g., DataHub, Databricks).
 
