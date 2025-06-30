@@ -1,5 +1,9 @@
-# Example template for dataset lineage
+# Example template for creating dataset lineage
 lineage:
+  # A list of upstream sources for the downstream dataset.
   upstreams:
-    - urn:li:dataset:(platform,upstream_name,env)
-  downstream: urn:li:dataset:(platform,downstream_name,env)
+    - urn: "urn:li:dataset:(urn:li:dataPlatform:csv,my-upstream-dataset,DEV)"
+    - urn: "urn:li:dataset:(urn:li:dataPlatform:mongodb,plume.my-mongo-collection,DEV)"
+  
+  # The single downstream dataset that is produced from the upstreams.
+  downstream: "urn:li:dataset:(urn:li:dataPlatform:hive,my_downstream_hive_table,PROD)"

@@ -1,70 +1,34 @@
-# Base class for ingestion handlers
-
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 import logging
-from ..common.utils import validate_config, generate_schema_hash
-from ..common.config_manager import ConfigManager
+from platform_services.metadata_platform_interface import MetadataPlatformInterface
 
 logger = logging.getLogger(__name__)
 
 class BaseIngestionHandler(ABC):
-    """Base class for all ingestion handlers."""
+    """
+    Abstract Base Class for all ingestion handlers.
+    LSP: Any subclass of BaseIngestionHandler can be used by IngestionService without issue.
+    OCP: The system is extended by creating new subclasses of this handler.
+    """
     
-    def __init__(self, config: Dict[str, Any], config_manager: Optional[ConfigManager] = None):
-        self.config = config
-        self.config_manager = config_manager or ConfigManager()
-        self.required_config_fields = ["source_type", "platform"]
+    def __init__(self, config: Dict[str, Any], platform_handler: MetadataPlatformInterface):
+        self.source_config = config.get("source", {})
+        self.sink_config = config.get("sink", {})
+        self.platform_handler = platform_handler
+        self.required_fields = ["type"]
         
-    def validate(self) -> bool:
-        """Validate the handler configuration."""
-        return validate_config(self.config, self.required_config_fields)
+    def validate_config(self) -> bool:
+        """Validate the handler's source configuration."""
+        is_valid = all(field in self.source_config for field in self.required_fields)
+        if not is_valid:
+            logger.error(f"Invalid config for handler. Missing required fields: {self.required_fields}")
+        return is_valid
         
     @abstractmethod
-    def extract_schema(self, source: Any) -> Dict[str, Any]:
-        """Extract schema from the source."""
-        pass
-        
-    @abstractmethod
-    def read_data(self, source: Any) -> Any:
-        """Read data from the source."""
-        pass
-        
-    def process_metadata(self, schema: Dict[str, Any]) -> Dict[str, Any]:
-        """Process and enrich schema metadata."""
-        schema_hash = generate_schema_hash(schema)
-        return {
-            "schema": schema,
-            "schema_hash": schema_hash,
-            "platform": self.config["platform"],
-            "source_type": self.config["source_type"]
-        }
-        
-    def ingest(self, source: Any, metadata: Optional[Dict[str, Any]] = None) -> bool:
-        """Main ingestion method."""
-        try:
-            if not self.validate():
-                raise ValueError("Invalid configuration")
-                
-            # Extract schema
-            schema = self.extract_schema(source)
-            
-            # Process metadata
-            processed_metadata = self.process_metadata(schema)
-            if metadata:
-                processed_metadata.update(metadata)
-                
-            # Read and process data
-            data = self.read_data(source)
-            
-            # Platform-specific ingestion
-            return self._platform_ingest(data, processed_metadata)
-            
-        except Exception as e:
-            logger.error(f"Error during ingestion: {str(e)}")
-            return False
-            
-    @abstractmethod
-    def _platform_ingest(self, data: Any, metadata: Dict[str, Any]) -> bool:
-        """Platform-specific ingestion implementation."""
+    def ingest(self) -> None:
+        """
+        Main ingestion method.
+        This method should orchestrate the extraction, transformation, and emission of metadata.
+        """
         pass
