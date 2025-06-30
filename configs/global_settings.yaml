@@ -1,3 +1,9 @@
-# Global settings for DataHub Framework Toolkit
+# Global settings for the Lumos Framework Toolkit
+
+# This new structure allows for configuring multiple platforms in the future.
+# The framework will look for a key matching the platform name (e.g., 'datahub').
+datahub:
+  # The DataHub GraphQL Management Service (GMS) server URL.
+  gms_server: http://localhost:8080
+
 default_env: DEV
-datahub_gms: http://localhost:8080

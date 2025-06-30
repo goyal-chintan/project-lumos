@@ -1,138 +1,84 @@
 from datetime import timedelta
-from airflow import DAG
-from airflow.operators.python import PythonOperator
+from airflow.decorators import dag, task
 from airflow.utils.dates import days_ago
 import logging
-import pandas as pd
-import os
-from datahub.metadata.schema_classes import (
-    MetadataChangeEventClass,
-    DatasetSnapshotClass,
-    SchemaMetadataClass,
-    SchemaFieldClass,
-    SchemaFieldDataTypeClass,
-    StringTypeClass,
-    NumberTypeClass,
-    BooleanTypeClass,
-    TimeTypeClass,
-    OtherSchemaClass,
-    DatasetPropertiesClass,
-)
-from datahub.emitter.mce_builder import make_dataset_urn
-from core_library.common.emitter import get_data_catalog
 
-# Configuration
-CSV_FILE_PATH = "/Users/skalamani/Desktop/DataHub-/demo_datasets_csv/location_capabilities.csv"
-PLATFORM = "csv"
-ENV = "PROD"
+# Set Airflow's logger to INFO level
+logging.basicConfig(level=logging.INFO)
 
-# Airflow default args
-default_args = {
-    "owner": "airflow",
-    "retries": 1,
-    "retry_delay": timedelta(minutes=1),
-}
+# --- Framework Imports ---
+# This demonstrates how an external system like Airflow would use the framework.
+# In a real-world scenario, the framework would be installed as a Python package.
+from core_library.ingestion_handlers.ingestion_service import IngestionService
+from core_library.common.config_manager import ConfigManager
+from platform_services.platform_factory import PlatformFactory
 
-logger = logging.getLogger(__name__)
+# --- Configuration ---
+# These paths would typically be managed via Airflow Variables or other config management.
+CSV_INGESTION_CONFIG_PATH = "sushant-runs/project-lumos/sushant-runs-project-lumos-82a1ffaaf772aa9e5a7dfeeba39745c2f5128624/sample_configs_and_templates/ingestion/csv_ingestion_template.yaml"
+MONGO_INGESTION_CONFIG_PATH = "sushant-runs/project-lumos/sushant-runs-project-lumos-82a1ffaaf772aa9e5a7dfeeba39745c2f5128624/sample_configs_and_templates/ingestion/mongo_ingestion_template.yaml"
 
-def generate_column_description(column):
-    return f"Column {column.replace('_', ' ').title()} contains relevant information."
+def setup_framework():
+    """A helper function to initialize and return the core framework services."""
+    config_manager = ConfigManager()
+    global_config = config_manager.get_global_config()
+    
+    # Assuming 'datahub' is the target platform for this DAG
+    platform_name = "datahub"
+    platform_config = global_config.get(platform_name, {})
+    if not platform_config:
+        raise ValueError(f"Configuration for platform '{platform_name}' not found in global_settings.yaml")
 
-def ingest_from_csv():
-    logger.info("🚀 Starting DataHub CSV ingestion pipeline...")
-    # This function would ideally use a proper ingestion handler
-    # For now, we are keeping it simple as in the original example.
-    # A more robust implementation would call a CSV ingestion handler from the core_library.
-    from datahub.ingestion.run.pipeline import Pipeline
-    pipeline_config = {
-        "source": {
-            "type": "file",
-            "config": {
-                "filename": CSV_FILE_PATH,
-                "file_format": "csv",
-                "delimiter": ",",
-                "csv_header": "infer",
-                "platform": PLATFORM,
-                "env": ENV,
-            },
-        },
-        "sink": {
-            "type": "datahub-rest",
-            "config": {
-                "server": "http://localhost:8080", # Should be from config
-            },
-        },
-    }
-    pipeline = Pipeline.create(pipeline_config)
-    pipeline.run()
-    pipeline.raise_from_status()
-    logger.info("✅ CSV ingestion completed.")
+    platform_handler = PlatformFactory.get_instance(platform_name, platform_config)
+    ingestion_service = IngestionService(config_manager, platform_handler)
+    
+    return ingestion_service
 
-def enrich_metadata():
-    data_catalog = get_data_catalog()
-    table_name = os.path.splitext(os.path.basename(CSV_FILE_PATH))[0]
-    df = pd.read_csv(CSV_FILE_PATH)
-
-    type_mapping = {
-        "int64": NumberTypeClass(),
-        "float64": NumberTypeClass(),
-        "bool": BooleanTypeClass(),
-        "object": StringTypeClass(),
-        "datetime64[ns]": TimeTypeClass(),
-    }
-
-    fields = []
-    for col in df.columns:
-        dtype = str(df[col].dtype)
-        dh_type = type_mapping.get(dtype, StringTypeClass())
-        description = generate_column_description(col)
-        fields.append(SchemaFieldClass(
-            fieldPath=col,
-            type=SchemaFieldDataTypeClass(type=dh_type),
-            nativeDataType=dtype,
-            description=description,
-        ))
-
-    schema_metadata = SchemaMetadataClass(
-        schemaName=table_name,
-        platform=f"urn:li:dataPlatform:{PLATFORM}",
-        version=0,
-        platformSchema=OtherSchemaClass(rawSchema=""),
-        fields=fields,
-        hash="",
-    )
-
-    dataset_properties = DatasetPropertiesClass(
-        name=table_name,
-        description=f"Metadata for CSV file: {table_name}",
-    )
-
-    snapshot = DatasetSnapshotClass(
-        urn=make_dataset_urn(PLATFORM, table_name, env=ENV),
-        aspects=[schema_metadata, dataset_properties],
-    )
-
-    mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
-    data_catalog.emit(mce)
-    logger.info(f"📦 Metadata enriched and pushed for: {table_name}")
-
-with DAG(
-    dag_id="datahub_metadata_release",
-    default_args=default_args,
+@dag(
+    dag_id="lumos_framework_orchestration_example",
+    default_args={"owner": "airflow", "retries": 1},
     start_date=days_ago(1),
+    schedule=timedelta(days=1),
     catchup=False,
-    schedule_interval=timedelta(days=1),
-    tags=["datahub", "csv"],
-) as dag:
+    tags=["lumos-framework", "example"],
+    doc_md="Example DAG showcasing how to use the Lumos Framework to orchestrate metadata ingestion."
+)
+def orchestration_dag():
+    """
+    This DAG demonstrates using the refactored Lumos framework to run ingestion jobs.
+    The framework's services encapsulate all the complex logic, keeping the DAG clean and readable.
+    """
+    
+    @task
+    def ingest_csv_metadata():
+        """
+        This task uses the framework's IngestionService to ingest metadata from a CSV source.
+        """
+        logging.info("Initializing framework for CSV ingestion task...")
+        ingestion_service = setup_framework()
+        
+        logging.info(f"Starting CSV ingestion using config: {CSV_INGESTION_CONFIG_PATH}")
+        success = ingestion_service.start_ingestion(CSV_INGESTION_CONFIG_PATH)
+        if not success:
+            raise RuntimeError("CSV ingestion task failed.")
+        logging.info("CSV ingestion task completed successfully.")
 
-    ingest = PythonOperator(
-        task_id="ingest_from_csv",
-        python_callable=ingest_from_csv,
-    )
+    @task
+    def ingest_mongo_metadata():
+        """
+        This task uses the framework's IngestionService to ingest metadata from a MongoDB source.
+        """
+        logging.info("Initializing framework for MongoDB ingestion task...")
+        ingestion_service = setup_framework()
+        
+        logging.info(f"Starting MongoDB ingestion using config: {MONGO_INGESTION_CONFIG_PATH}")
+        success = ingestion_service.start_ingestion(MONGO_INGESTION_CONFIG_PATH)
+        if not success:
+            raise RuntimeError("MongoDB ingestion task failed.")
+        logging.info("MongoDB ingestion task completed successfully.")
 
-    enrich = PythonOperator(
-        task_id="enrich_metadata",
-        python_callable=enrich_metadata,
-    )
+    # Define task dependencies
+    ingest_csv_metadata()
+    ingest_mongo_metadata()
 
-    ingest >> enrich
+orchestration_dag()
