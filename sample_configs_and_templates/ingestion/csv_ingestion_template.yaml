@@ -1,15 +1,13 @@
 # Example template for CSV ingestion
 source:
-  type: file
-  config:
-    filename: /path/to/your.csv
-    file_format: csv
-    delimiter: ","
-    csv_header: infer
-    platform: csv
-    env: DEV
+  type: csv
+  # Path to the source file
+  path: "/Users/skalamani/Downloads/DataHub-tasks.csv"
+  # Name for the dataset in the metadata platform
+  dataset_name: "catalog-tasks"
+  delimiter: ","
 
+# The sink specifies where the metadata should be sent.
 sink:
-  type: datahub-rest
-  config:
-    server: http://localhost:8080
+  type: datahub
+  env: DEV

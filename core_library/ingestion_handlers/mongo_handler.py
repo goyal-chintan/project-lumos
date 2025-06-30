@@ -1,132 +1,90 @@
 import pymongo
-import hashlib
 import logging
-from typing import List
-
+from typing import Dict, Any, List
+from .base_ingestion_handler import BaseIngestionHandler
+from platform_services.metadata_platform_interface import MetadataPlatformInterface
 from datahub.metadata.schema_classes import (
-    MetadataChangeEventClass,
-    DatasetSnapshotClass,
-    SchemaMetadataClass,
-    SchemaFieldClass,
-    SchemaFieldDataTypeClass,
-    StringTypeClass,
-    NumberTypeClass,
-    BooleanTypeClass,
-    TimeTypeClass,
-    OtherSchemaClass,
-    DatasetPropertiesClass,
-    GlobalTagsClass,
-    TagAssociationClass,
+    MetadataChangeEventClass, DatasetSnapshotClass, SchemaMetadataClass,
+    SchemaFieldClass, SchemaFieldDataTypeClass, StringTypeClass, NumberTypeClass,
+    BooleanTypeClass, TimeTypeClass, OtherSchemaClass, DatasetPropertiesClass
 )
 from datahub.emitter.mce_builder import make_dataset_urn
-from core_library.common.emitter import get_data_catalog
 
-MONGO_URI = "mongodb://127.0.0.1:27017"
-MONGO_DATABASE = "sample_db"
-PLATFORM = "mongodb"
-ENV = "PROD"
-BASE_VERSION = 130
-
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def generate_column_description(field_name: str) -> str:
-    return f"Column {field_name}"
+class MongoIngestionHandler(BaseIngestionHandler):
+    """Handler for MongoDB ingestion."""
+    
+    def __init__(self, config: Dict[str, Any], platform_handler: MetadataPlatformInterface):
+        super().__init__(config, platform_handler)
+        self.required_fields.extend(["uri", "database"])
 
-def generate_schema_hash(collection: str, field_names: List[str]) -> str:
-    schema_str = f"{collection}::{','.join(sorted(field_names))}"
-    return hashlib.sha256(schema_str.encode("utf-8")).hexdigest()
+    def _map_python_type_to_datahub_type(self, py_type: str) -> SchemaFieldDataTypeClass:
+        type_mapping = {
+            'str': StringTypeClass(), 'int': NumberTypeClass(), 'float': NumberTypeClass(),
+            'bool': BooleanTypeClass(), 'datetime': TimeTypeClass(),
+        }
+        return SchemaFieldDataTypeClass(type=type_mapping.get(py_type, StringTypeClass()))
 
-def map_python_type_to_datahub_type(py_type: str) -> SchemaFieldDataTypeClass:
-    type_mapping = {
-        'str': StringTypeClass(),
-        'int': NumberTypeClass(),
-        'float': NumberTypeClass(),
-        'bool': BooleanTypeClass(),
-        'datetime': TimeTypeClass(),
-    }
-    return SchemaFieldDataTypeClass(type=type_mapping.get(py_type, StringTypeClass()))
+    def ingest(self) -> None:
+        """Ingests metadata from a MongoDB database to the metadata platform."""
+        if not self.validate_config():
+            raise ValueError("MongoDB source config validation failed.")
 
-def enrich_metadata():
-    data_catalog = get_data_catalog()
-    try:
-        client = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
-        db = client[MONGO_DATABASE]
-        print(f"✅ Connected to MongoDB database: {MONGO_DATABASE}")
-
-        collections = db.list_collection_names()
-        print(f"📁 Found {len(collections)} collections in '{MONGO_DATABASE}': {collections}")
-
-        for coll_name in collections:
-            print(f"\n🔍 Processing collection: {coll_name}")
-            collection = db[coll_name]
-            sample = collection.find_one()
-
-            if not sample:
-                print(f"⚠️ No documents in '{coll_name}'. Skipping.")
-                continue
-
-            field_info = {field: type(value).__name__ for field, value in sample.items()}
-            print(f"🧬 Inferred fields for '{coll_name}': {field_info}")
-
-            dataset_urn = make_dataset_urn(PLATFORM, f"{MONGO_DATABASE}.{coll_name}", ENV)
-            field_names = list(field_info.keys())
-            schema_hash = generate_schema_hash(coll_name, field_names)
-
-            schema_fields = []
-            for field, py_type in field_info.items():
-                schema_fields.append(SchemaFieldClass(
-                    fieldPath=field,
-                    type=map_python_type_to_datahub_type(py_type),
-                    nativeDataType=py_type,
-                    description=generate_column_description(field),
-                ))
-
-            version = f"S-{BASE_VERSION}"
-            tag = version.lower().replace('-', '_')
-
-            schema_metadata = SchemaMetadataClass(
-                schemaName=coll_name,
-                platform=f"urn:li:dataPlatform:{PLATFORM}",
-                version=0,
-                platformSchema=OtherSchemaClass(rawSchema=""),
-                fields=schema_fields,
-                hash=schema_hash,
-            )
-
-            dataset_properties = DatasetPropertiesClass(
-                name=coll_name,
-                customProperties={"version": version}
-            )
-
-            global_tags = GlobalTagsClass(
-                tags=[TagAssociationClass(tag=f"urn:li:tag:{tag}")]
-            )
-
-            snapshot = DatasetSnapshotClass(
-                urn=dataset_urn,
-                aspects=[schema_metadata, dataset_properties, global_tags],
-            )
-
-            mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
-
-            try:
-                print(f"📤 Emitting metadata for '{coll_name}'...")
-                data_catalog.emit(mce)
-                print(f"✅ Successfully emitted metadata for '{coll_name}' with version '{version}' and tag '{tag}'")
-            except Exception as emit_err:
-                print(f"❌ Error emitting metadata for '{coll_name}': {emit_err}")
-
-    except pymongo.errors.ServerSelectionTimeoutError as mongo_err:
-        print(f"❌ Could not connect to MongoDB: {mongo_err}")
-    except Exception as err:
-        print(f"❌ Unexpected error: {err}")
-    finally:
+        uri = self.source_config["uri"]
+        database_name = self.source_config["database"]
+        env = self.sink_config.get("env", "PROD")
+        platform = "mongodb"
+        
         try:
-            client.close()
-            print("🔚 MongoDB connection closed.")
-        except Exception:
-            pass
+            client = pymongo.MongoClient(uri, serverSelectionTimeoutMS=5000)
+            client.server_info() # Validate connection
+            db = client[database_name]
+            logger.info(f"Connected to MongoDB database: {database_name}")
 
-if __name__ == "__main__":
-    enrich_metadata()
+            collections = self.source_config.get("collections", db.list_collection_names())
+            logger.info(f"Found {len(collections)} collections to process: {collections}")
+
+            for coll_name in collections:
+                self._ingest_collection(db, coll_name, platform, env)
+
+        except pymongo.errors.ServerSelectionTimeoutError as e:
+            logger.error(f"Could not connect to MongoDB at {uri}: {e}")
+            raise
+        finally:
+            if 'client' in locals():
+                client.close()
+
+    def _ingest_collection(self, db: Any, coll_name: str, platform: str, env: str):
+        logger.info(f"Processing collection: {coll_name}")
+        collection = db[coll_name]
+        sample = collection.find_one()
+
+        if not sample:
+            logger.warning(f"No documents found in collection '{coll_name}'. Skipping.")
+            return
+
+        field_info = {field: type(value).__name__ for field, value in sample.items()}
+        schema_fields = [
+            SchemaFieldClass(
+                fieldPath=field,
+                nativeDataType=py_type,
+                type=self._map_python_type_to_datahub_type(py_type)
+            ) for field, py_type in field_info.items()
+        ]
+
+        dataset_name = f"{db.name}.{coll_name}"
+        dataset_urn = make_dataset_urn(platform, dataset_name, env)
+
+        schema_metadata = SchemaMetadataClass(
+            schemaName=coll_name,
+            platform=f"urn:li:dataPlatform:{platform}",
+            version=0, hash="",
+            platformSchema=OtherSchemaClass(rawSchema=""),
+            fields=schema_fields
+        )
+        dataset_properties = DatasetPropertiesClass(name=coll_name)
+        snapshot = DatasetSnapshotClass(urn=dataset_urn, aspects=[schema_metadata, dataset_properties])
+        mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
+        
+        self.platform_handler.emit_mce(mce)
