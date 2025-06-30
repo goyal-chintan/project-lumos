@@ -1,108 +1,61 @@
-import json
 import logging
-from typing import Dict, List, Any, Optional
+from typing import Dict, Any
 from pathlib import Path
 from .base_ingestion_handler import BaseIngestionHandler
 from .csv_handler import CSVIngestionHandler
+from .mongo_handler import MongoIngestionHandler
+from .avro_handler import AvroIngestionHandler
 from ..common.config_manager import ConfigManager
+from platform_services.metadata_platform_interface import MetadataPlatformInterface
 
 logger = logging.getLogger(__name__)
 
 class IngestionService:
-    """Service to manage data ingestion across different platforms and sources."""
+    """
+    Manages and orchestrates the data ingestion process across different sources.
+    SRP: Its single responsibility is to manage the ingestion lifecycle.
+    OCP: Can be extended with new handlers without modifying the service's own code.
+    """
     
-    def __init__(self, config_manager: Optional[ConfigManager] = None):
-        self.config_manager = config_manager or ConfigManager()
-        self._handler_registry: Dict[str, type] = {
+    def __init__(self, config_manager: ConfigManager, platform_handler: MetadataPlatformInterface):
+        self.config_manager = config_manager
+        self.platform_handler = platform_handler
+        self._handler_registry: Dict[str, type[BaseIngestionHandler]] = {
             "csv": CSVIngestionHandler,
-            # Add more handlers here as needed
+            "mongodb": MongoIngestionHandler,
+            "avro": AvroIngestionHandler,
+            # To add support for a new source, register its handler here.
             # "parquet": ParquetIngestionHandler,
-            # "json": JsonIngestionHandler,
-            # "mongodb": MongoIngestionHandler,
         }
         
-    def get_handler(self, platform: str, config: Dict[str, Any]) -> Optional[BaseIngestionHandler]:
-        """Get the appropriate ingestion handler for a platform."""
-        handler_class = self._handler_registry.get(platform.lower())
+    def _get_handler(self, config: Dict[str, Any]) -> BaseIngestionHandler:
+        """Get the appropriate ingestion handler for a given configuration."""
+        source_type = config.get("source", {}).get("type")
+        if not source_type:
+            raise ValueError("Source 'type' not specified in configuration.")
+            
+        handler_class = self._handler_registry.get(source_type.lower())
         if not handler_class:
-            logger.error(f"No handler found for platform: {platform}")
-            return None
+            raise NotImplementedError(f"No handler found for source type: {source_type}")
             
-        try:
-            return handler_class(config, self.config_manager)
-        except Exception as e:
-            logger.error(f"Error creating handler for {platform}: {str(e)}")
-            return None
+        return handler_class(config, self.platform_handler)
             
-    def register_handler(self, platform: str, handler_class: type) -> None:
-        """Register a new ingestion handler."""
-        if not issubclass(handler_class, BaseIngestionHandler):
-            raise ValueError(f"Handler must inherit from BaseIngestionHandler")
-        self._handler_registry[platform.lower()] = handler_class
-        
     def start_ingestion(self, config_path: str) -> bool:
         """
-        Start ingestion process based on configuration files.
-        
-        Args:
-            config_path: Path to directory containing ingestion configuration files
-            
-        Returns:
-            bool: True if all ingestions were successful, False otherwise
+        Starts the ingestion process based on a given configuration file.
         """
         try:
-            config_dir = Path(config_path)
-            if not config_dir.exists():
-                raise ValueError(f"Config directory not found: {config_path}")
+            config = self.config_manager.load_config(config_path)
+            if not config:
+                raise ValueError(f"Could not load or parse config from {config_path}")
                 
-            # Get all JSON config files
-            config_files = list(config_dir.glob("**/*.json"))
-            if not config_files:
-                logger.warning(f"No JSON config files found in {config_path}")
-                return False
-                
-            success = True
-            for config_file in config_files:
-                try:
-                    # Load configuration
-                    with open(config_file, 'r') as f:
-                        config = json.load(f)
-                        
-                    # Validate required fields
-                    if not self._validate_config(config):
-                        logger.error(f"Invalid config in {config_file}")
-                        success = False
-                        continue
-                        
-                    # Get platform handler
-                    platform = config.get("platform")
-                    handler = self.get_handler(platform, config)
-                    if not handler:
-                        logger.error(f"Failed to get handler for {platform}")
-                        success = False
-                        continue
-                        
-                    # Start ingestion
-                    logger.info(f"Starting ingestion for {config_file}")
-                    if not handler.ingest(config.get("source"), config.get("metadata")):
-                        logger.error(f"Ingestion failed for {config_file}")
-                        success = False
-                        
-                except Exception as e:
-                    logger.error(f"Error processing {config_file}: {str(e)}")
-                    success = False
-                    
-            return success
+            handler = self._get_handler(config)
+            
+            logger.info(f"Starting ingestion using handler: {handler.__class__.__name__}")
+            handler.ingest()
+            
+            return True
             
         except Exception as e:
-            logger.error(f"Error in start_ingestion: {str(e)}")
+            logger.error(f"Fatal error during ingestion process for {config_path}: {e}", exc_info=True)
             return False
-            
-    def _validate_config(self, config: Dict[str, Any]) -> bool:
-        """Validate configuration has required fields."""
-        required_fields = ["platform", "source"]
-        return all(field in config for field in required_fields)
-        
-    def get_supported_platforms(self) -> List[str]:
-        """Get list of supported platforms."""
-        return list(self._handler_registry.keys()) 

@@ -1,101 +1,86 @@
 import os
-import time
+import logging
+from typing import Dict, Any
 from fastavro import reader
+from .base_ingestion_handler import BaseIngestionHandler
+from platform_services.metadata_platform_interface import MetadataPlatformInterface
 from datahub.metadata.schema_classes import (
-    DatasetSnapshotClass,
-    MetadataChangeEventClass,
-    DatasetPropertiesClass,
-    SchemaMetadataClass,
-    SchemaFieldClass,
-    SchemaFieldDataTypeClass,
-    StringTypeClass,
-    NumberTypeClass,
-    BooleanTypeClass,
-    AuditStampClass,
-    OtherSchemaClass,
+    MetadataChangeEventClass, DatasetSnapshotClass, SchemaMetadataClass,
+    SchemaFieldClass, SchemaFieldDataTypeClass, StringTypeClass, NumberTypeClass,
+    BooleanTypeClass, OtherSchemaClass, DatasetPropertiesClass
 )
 from datahub.emitter.mce_builder import make_dataset_urn
-from core_library.common.emitter import get_data_catalog
 
-def ingest_avro():
-    data_catalog = get_data_catalog()
-    DATAHUB_GMS_SERVER = "http://localhost:8080"
-    PLATFORM = "avro"
-    ENV = "DEV"
-    AVRO_DIR = "./demo_datasets_avro"
+logger = logging.getLogger(__name__)
 
-    avro_files = [f for f in os.listdir(AVRO_DIR) if f.endswith(".avro")]
+class AvroIngestionHandler(BaseIngestionHandler):
+    """Handler for Avro file ingestion."""
+    
+    def __init__(self, config: Dict[str, Any], platform_handler: MetadataPlatformInterface):
+        super().__init__(config, platform_handler)
+        self.required_fields.extend(["directory_path"])
 
-    if not avro_files:
-        print(f"No AVRO files found in directory: {AVRO_DIR}")
-        return
+    def ingest(self) -> None:
+        """Ingests metadata from all Avro files in a specified directory."""
+        if not self.validate_config():
+            raise ValueError("Avro source config validation failed.")
 
-    for avro_file in avro_files:
-        avro_path = os.path.join(AVRO_DIR, avro_file)
-        dataset_name = os.path.splitext(avro_file)[0]
-        dataset_urn = make_dataset_urn(platform=PLATFORM, name=dataset_name, env=ENV)
+        avro_dir = self.source_config["directory_path"]
+        env = self.sink_config.get("env", "PROD")
+        platform = "avro"
 
-        print(f"\n🚀 Processing: {dataset_name}")
+        if not os.path.isdir(avro_dir):
+            logger.error(f"Provided path is not a directory: {avro_dir}")
+            raise FileNotFoundError(f"Directory not found: {avro_dir}")
 
-        dataset_properties = DatasetPropertiesClass(
-            description=f"Dataset '{dataset_name}' ingested from AVRO file.",
-            customProperties={},
-        )
+        avro_files = [f for f in os.listdir(avro_dir) if f.endswith(".avro")]
+        if not avro_files:
+            logger.warning(f"No Avro files found in directory: {avro_dir}")
+            return
+            
+        logger.info(f"Found {len(avro_files)} Avro files to process in {avro_dir}.")
+        for avro_file in avro_files:
+            self._ingest_file(os.path.join(avro_dir, avro_file), platform, env)
 
-        schema_field_objs = []
-        with open(avro_path, "rb") as fo:
-            avro_reader = reader(fo)
-            avro_schema = avro_reader.writer_schema
+    def _ingest_file(self, file_path: str, platform: str, env: str):
+        """Processes a single Avro file."""
+        dataset_name = os.path.splitext(os.path.basename(file_path))[0]
+        logger.info(f"Processing Avro file: {dataset_name}")
+        
+        try:
+            with open(file_path, "rb") as fo:
+                avro_reader = reader(fo)
+                avro_schema = avro_reader.writer_schema
 
-            for field in avro_schema["fields"]:
-                name = field["name"]
-                dtype = field["type"]
-
-                if isinstance(dtype, list):
-                    dtype = [d for d in dtype if d != "null"][0]
-
-                if dtype == "string":
-                    data_type = StringTypeClass()
-                elif dtype in ["int", "long", "float", "double"]:
-                    data_type = NumberTypeClass()
-                elif dtype == "boolean":
-                    data_type = BooleanTypeClass()
-                else:
-                    data_type = StringTypeClass()
-
-                schema_field_objs.append(
-                    SchemaFieldClass(
-                        fieldPath=name,
-                        type=SchemaFieldDataTypeClass(type=data_type),
-                        nativeDataType=str(dtype),
-                        description=f"Field from AVRO: {name}",
-                        nullable=True,
-                    )
+                # 1. Create Schema Fields
+                schema_fields = []
+                type_mapping = {
+                    "string": StringTypeClass(), "int": NumberTypeClass(), "long": NumberTypeClass(),
+                    "float": NumberTypeClass(), "double": NumberTypeClass(), "boolean": BooleanTypeClass()
+                }
+                for field in avro_schema.get("fields", []):
+                    dtype = field["type"]
+                    if isinstance(dtype, list): # Handle nullable fields like ["null", "string"]
+                        dtype = next((t for t in dtype if t != "null"), "string")
+                    
+                    schema_fields.append(SchemaFieldClass(
+                        fieldPath=field["name"],
+                        nativeDataType=str(field["type"]),
+                        type=SchemaFieldDataTypeClass(type=type_mapping.get(dtype, StringTypeClass()))
+                    ))
+                
+                # 2. Create Aspects
+                dataset_urn = make_dataset_urn(platform, dataset_name, env)
+                schema_metadata = SchemaMetadataClass(
+                    schemaName=dataset_name, platform=f"urn:li:dataPlatform:{platform}", version=0, hash="",
+                    platformSchema=OtherSchemaClass(rawSchema=str(avro_schema)), fields=schema_fields
                 )
+                dataset_properties = DatasetPropertiesClass(name=dataset_name)
+                
+                # 3. Create and emit MCE
+                snapshot = DatasetSnapshotClass(urn=dataset_urn, aspects=[schema_metadata, dataset_properties])
+                mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
+                self.platform_handler.emit_mce(mce)
 
-        timestamp = int(time.time() * 1000)
-        audit_stamp = AuditStampClass(time=timestamp, actor="urn:li:corpuser:unknown")
-
-        schema_metadata = SchemaMetadataClass(
-            schemaName=dataset_name,
-            platform=f"urn:li:dataPlatform:{PLATFORM}",
-            version=0,
-            created=audit_stamp,
-            lastModified=audit_stamp,
-            hash="",
-            platformSchema=OtherSchemaClass(rawSchema=str(avro_schema)),
-            fields=schema_field_objs,
-        )
-
-        snapshot = DatasetSnapshotClass(
-            urn=dataset_urn,
-            aspects=[dataset_properties, schema_metadata],
-        )
-
-        mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
-        data_catalog.emit(mce)
-
-        print(f"✅ Ingested dataset: {dataset_name}")
-
-if __name__ == "__main__":
-    ingest_avro()
+        except Exception as e:
+            logger.error(f"Failed to process Avro file {file_path}: {e}", exc_info=True)
