@@ -7,12 +7,12 @@ class MetadataPlatformInterface(ABC):
     ISP: This interface defines the complete contract for platform interactions.
     DIP: High-level services depend on this abstraction, not on concrete implementations.
     """
-    
+
     @abstractmethod
     def __init__(self, config: Dict[str, Any]):
         """Initialize the platform handler with its specific configuration."""
         self.config = config
-    
+
     @abstractmethod
     def emit_mce(self, mce: Any) -> None:
         """Emit a Metadata Change Event (MCE)."""
@@ -22,8 +22,10 @@ class MetadataPlatformInterface(ABC):
     def emit_mcp(self, mcp: Any) -> None:
         """Emit a Metadata Change Proposal (MCP)."""
         pass
-        
+
     @abstractmethod
     def add_lineage(self, upstream_urn: str, downstream_urn: str) -> bool:
         """Add a lineage relationship between two entities."""
         pass
+
+        

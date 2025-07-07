@@ -1,8 +1,8 @@
 import pandas as pd
 import logging
 from typing import Dict, Any
-from .base_ingestion_handler import BaseIngestionHandler
-from platform_services.metadata_platform_interface import MetadataPlatformInterface
+from .base import BaseIngestionHandler
+from core.platform.interface import MetadataPlatformInterface
 from datahub.metadata.schema_classes import (
     MetadataChangeEventClass, DatasetSnapshotClass, SchemaMetadataClass,
     SchemaFieldClass, SchemaFieldDataTypeClass, StringTypeClass, NumberTypeClass,
@@ -14,11 +14,11 @@ logger = logging.getLogger(__name__)
 
 class CSVIngestionHandler(BaseIngestionHandler):
     """Handler for CSV file ingestion."""
-    
+
     def __init__(self, config: Dict[str, Any], platform_handler: MetadataPlatformInterface):
         super().__init__(config, platform_handler)
         self.required_fields.extend(["path", "dataset_name"])
-        
+
     def ingest(self) -> None:
         """Ingests metadata from a CSV file to the metadata platform."""
         if not self.validate_config():
@@ -30,7 +30,7 @@ class CSVIngestionHandler(BaseIngestionHandler):
         platform = "csv" # The platform of the source data itself
 
         logger.info(f"Reading CSV from {file_path} to generate metadata for dataset '{dataset_name}'.")
-        
+
         try:
             df = pd.read_csv(file_path, delimiter=self.source_config.get("delimiter", ","))
         except FileNotFoundError:
@@ -63,14 +63,14 @@ class CSVIngestionHandler(BaseIngestionHandler):
             name=dataset_name,
             description=f"Dataset ingested from CSV file: {file_path}"
         )
-        
+
         # 4. Create DatasetSnapshot
         dataset_urn = make_dataset_urn(platform, dataset_name, env)
         snapshot = DatasetSnapshotClass(
             urn=dataset_urn,
             aspects=[schema_metadata, dataset_properties]
         )
-        
+
         # 5. Create MCE and emit
         mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
         self.platform_handler.emit_mce(mce)

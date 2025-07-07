@@ -5,7 +5,7 @@ from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.metadata.schema_classes import UpstreamClass, UpstreamLineageClass, DatasetLineageTypeClass
 from datahub.emitter.mce_builder import make_dataset_urn
 
-from .metadata_platform_interface import MetadataPlatformInterface
+from ..interface import MetadataPlatformInterface
 
 logger = logging.getLogger(__name__)
 
