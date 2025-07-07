@@ -4,11 +4,9 @@ from typing import Dict, Any, List
 from .base_ingestion_handler import BaseIngestionHandler
 from platform_services.metadata_platform_interface import MetadataPlatformInterface
 from datahub.metadata.schema_classes import (
-    MetadataChangeEventClass, DatasetSnapshotClass, SchemaMetadataClass,
     SchemaFieldClass, SchemaFieldDataTypeClass, StringTypeClass, NumberTypeClass,
-    BooleanTypeClass, TimeTypeClass, OtherSchemaClass, DatasetPropertiesClass
+    BooleanTypeClass, TimeTypeClass
 )
-from datahub.emitter.mce_builder import make_dataset_urn
 
 logger = logging.getLogger(__name__)
 
@@ -34,11 +32,10 @@ class MongoIngestionHandler(BaseIngestionHandler):
         uri = self.source_config["uri"]
         database_name = self.source_config["database"]
         env = self.sink_config.get("env", "PROD")
-        platform = "mongodb"
         
         try:
             client = pymongo.MongoClient(uri, serverSelectionTimeoutMS=5000)
-            client.server_info() # Validate connection
+            client.server_info()
             db = client[database_name]
             logger.info(f"Connected to MongoDB database: {database_name}")
 
@@ -46,7 +43,7 @@ class MongoIngestionHandler(BaseIngestionHandler):
             logger.info(f"Found {len(collections)} collections to process: {collections}")
 
             for coll_name in collections:
-                self._ingest_collection(db, coll_name, platform, env)
+                self._ingest_collection(db, coll_name, "mongodb", env)
 
         except pymongo.errors.ServerSelectionTimeoutError as e:
             logger.error(f"Could not connect to MongoDB at {uri}: {e}")
@@ -64,6 +61,7 @@ class MongoIngestionHandler(BaseIngestionHandler):
             logger.warning(f"No documents found in collection '{coll_name}'. Skipping.")
             return
 
+        # 1. Create Schema Fields (Source-specific logic)
         field_info = {field: type(value).__name__ for field, value in sample.items()}
         schema_fields = [
             SchemaFieldClass(
@@ -73,18 +71,15 @@ class MongoIngestionHandler(BaseIngestionHandler):
             ) for field, py_type in field_info.items()
         ]
 
+        # 2. Define DatasetProperties (Source-specific logic)
         dataset_name = f"{db.name}.{coll_name}"
-        dataset_urn = make_dataset_urn(platform, dataset_name, env)
-
-        schema_metadata = SchemaMetadataClass(
-            schemaName=coll_name,
-            platform=f"urn:li:dataPlatform:{platform}",
-            version=0, hash="",
-            platformSchema=OtherSchemaClass(rawSchema=""),
-            fields=schema_fields
-        )
-        dataset_properties = DatasetPropertiesClass(name=coll_name)
-        snapshot = DatasetSnapshotClass(urn=dataset_urn, aspects=[schema_metadata, dataset_properties])
-        mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
+        dataset_properties = {"name": coll_name}
         
-        self.platform_handler.emit_mce(mce)
+        # 3. Call the shared method to build and emit
+        self._build_and_emit_mce(
+            platform=platform,
+            dataset_name=dataset_name,
+            env=env,
+            schema_fields=schema_fields,
+            dataset_properties=dataset_properties
+        )

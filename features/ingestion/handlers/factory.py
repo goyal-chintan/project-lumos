@@ -1,8 +1,8 @@
 # Import the concrete handlers you want the factory to know about
-from .csv_handler import CSVIngestionHandler
-from .mongo_handler import MongoIngestionHandler
-from .avro_handler import AvroIngestionHandler
-# from .parquet_handler import ParquetIngestionHandler # Example for the future
+from .csv import CSVIngestionHandler
+from .mongo import MongoIngestionHandler
+from .avro import AvroIngestionHandler
+# from .parquet import ParquetIngestionHandler # Example for the future
 
 class HandlerFactory:
     """
