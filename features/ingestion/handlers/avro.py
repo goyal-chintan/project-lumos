@@ -2,8 +2,8 @@ import os
 import logging
 from typing import Dict, Any
 from fastavro import reader
-from .base_ingestion_handler import BaseIngestionHandler
-from platform_services.metadata_platform_interface import MetadataPlatformInterface
+from .base import BaseIngestionHandler
+from core.platform.interface import MetadataPlatformInterface
 from datahub.metadata.schema_classes import (
     MetadataChangeEventClass, DatasetSnapshotClass, SchemaMetadataClass,
     SchemaFieldClass, SchemaFieldDataTypeClass, StringTypeClass, NumberTypeClass,
@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class AvroIngestionHandler(BaseIngestionHandler):
     """Handler for Avro file ingestion."""
-    
+
     def __init__(self, config: Dict[str, Any], platform_handler: MetadataPlatformInterface):
         super().__init__(config, platform_handler)
         self.required_fields.extend(["directory_path"])
@@ -37,7 +37,7 @@ class AvroIngestionHandler(BaseIngestionHandler):
         if not avro_files:
             logger.warning(f"No Avro files found in directory: {avro_dir}")
             return
-            
+
         logger.info(f"Found {len(avro_files)} Avro files to process in {avro_dir}.")
         for avro_file in avro_files:
             self._ingest_file(os.path.join(avro_dir, avro_file), platform, env)
@@ -46,7 +46,7 @@ class AvroIngestionHandler(BaseIngestionHandler):
         """Processes a single Avro file."""
         dataset_name = os.path.splitext(os.path.basename(file_path))[0]
         logger.info(f"Processing Avro file: {dataset_name}")
-        
+
         try:
             with open(file_path, "rb") as fo:
                 avro_reader = reader(fo)
@@ -62,13 +62,13 @@ class AvroIngestionHandler(BaseIngestionHandler):
                     dtype = field["type"]
                     if isinstance(dtype, list): # Handle nullable fields like ["null", "string"]
                         dtype = next((t for t in dtype if t != "null"), "string")
-                    
+
                     schema_fields.append(SchemaFieldClass(
                         fieldPath=field["name"],
                         nativeDataType=str(field["type"]),
                         type=SchemaFieldDataTypeClass(type=type_mapping.get(dtype, StringTypeClass()))
                     ))
-                
+
                 # 2. Create Aspects
                 dataset_urn = make_dataset_urn(platform, dataset_name, env)
                 schema_metadata = SchemaMetadataClass(
@@ -76,7 +76,7 @@ class AvroIngestionHandler(BaseIngestionHandler):
                     platformSchema=OtherSchemaClass(rawSchema=str(avro_schema)), fields=schema_fields
                 )
                 dataset_properties = DatasetPropertiesClass(name=dataset_name)
-                
+
                 # 3. Create and emit MCE
                 snapshot = DatasetSnapshotClass(urn=dataset_urn, aspects=[schema_metadata, dataset_properties])
                 mce = MetadataChangeEventClass(proposedSnapshot=snapshot)

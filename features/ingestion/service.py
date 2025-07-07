@@ -1,12 +1,12 @@
 import logging
 from typing import Dict, Any
 from pathlib import Path
-from .base_ingestion_handler import BaseIngestionHandler
-from .csv_handler import CSVIngestionHandler
-from .mongo_handler import MongoIngestionHandler
-from .avro_handler import AvroIngestionHandler
-from ..common.config_manager import ConfigManager
-from platform_services.metadata_platform_interface import MetadataPlatformInterface
+from .handlers.base import BaseIngestionHandler
+from .handlers.csv import CSVIngestionHandler
+from .handlers.mongo import MongoIngestionHandler
+from .handlers.avro import AvroIngestionHandler
+from core.common.config_manager import ConfigManager
+from core.platform.interface import MetadataPlatformInterface
 
 logger = logging.getLogger(__name__)
 
