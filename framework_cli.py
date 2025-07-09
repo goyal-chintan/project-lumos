@@ -1,7 +1,7 @@
 import argparse
 import logging
-from core.controllers import enrichment_controller
-from core.controllers import lineage_controller
+# from core.controllers import enrichment_controller
+# from core.controllers import lineage_controller
 from core.controllers import ingestion_controller
 
 # Configure basic logging for the CLI
@@ -33,17 +33,13 @@ def main():
 
     if args.command == "ingest":
         ingestion_controller.run_ingestion(args.config_path)
-    elif args.command == "add-lineage":
-        lineage_controller.run_add_lineage(args.config_path)
-    elif args.command == "enrich":
-        enrichment_controller.run_enrinchment(args.config_path)
+    # elif args.command == "add-lineage":
+    #     lineage_controller.run_add_lineage(args.config_path)
+    # elif args.command == "enrich":
+    #     enrichment_controller.run_enrinchment(args.config_path)
             # Placeholder for enrichment command
     else:
         logger.error(f"Unknown command: {args.command}")
 
 if __name__ == "__main__":
     main()
-
-
-
-# [Y[Specific Handler] -> DataHubHandler -> [Daou] -> framework_cli.py -> ConfigManager -> PlatformFactory -> IngestionService -> taHub]

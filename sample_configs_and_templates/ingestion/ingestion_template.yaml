@@ -1,11 +1,8 @@
-# Example template for CSV ingestion
+# Example template for directory-based ingestion.
+# The service will scan the specified directory and process all supported file types (e.g., .csv, .avro).
 source:
-  # type: csv
-  # Path to the source file
-  path: "/Users/skalamani/Downloads/abd/"
-  # Name for the dataset in the metadata platform
-  dataset_name: "catalog-tasks"
-  delimiter: ","
+  # Path to the directory containing the source files.
+  path: "/Users/skalamani/Downloads/abd"
 
 # The sink specifies where the metadata should be sent.
 sink:
