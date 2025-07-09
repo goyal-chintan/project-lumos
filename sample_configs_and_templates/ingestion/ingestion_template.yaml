@@ -1,8 +1,8 @@
 # Example template for CSV ingestion
 source:
-  type: csv
+  # type: csv
   # Path to the source file
-  path: "/Users/skalamani/Downloads/DataHub-tasks.csv"
+  path: "/Users/skalamani/Downloads/abd/"
   # Name for the dataset in the metadata platform
   dataset_name: "catalog-tasks"
   delimiter: ","
