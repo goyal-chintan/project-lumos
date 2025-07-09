@@ -1,8 +1,8 @@
 import pymongo
 import logging
 from typing import Dict, Any, List
-from .base_ingestion_handler import BaseIngestionHandler
-from platform_services.metadata_platform_interface import MetadataPlatformInterface
+from .base import BaseIngestionHandler
+from core.platform.interface import MetadataPlatformInterface
 from datahub.metadata.schema_classes import (
     SchemaFieldClass, SchemaFieldDataTypeClass, StringTypeClass, NumberTypeClass,
     BooleanTypeClass, TimeTypeClass
@@ -61,7 +61,6 @@ class MongoIngestionHandler(BaseIngestionHandler):
             logger.warning(f"No documents found in collection '{coll_name}'. Skipping.")
             return
 
-        # 1. Create Schema Fields (Source-specific logic)
         field_info = {field: type(value).__name__ for field, value in sample.items()}
         schema_fields = [
             SchemaFieldClass(
@@ -71,11 +70,9 @@ class MongoIngestionHandler(BaseIngestionHandler):
             ) for field, py_type in field_info.items()
         ]
 
-        # 2. Define DatasetProperties (Source-specific logic)
         dataset_name = f"{db.name}.{coll_name}"
         dataset_properties = {"name": coll_name}
         
-        # 3. Call the shared method to build and emit
         self._build_and_emit_mce(
             platform=platform,
             dataset_name=dataset_name,

@@ -1,14 +1,12 @@
+# feature/ingestion/handlers/csv.py
 import pandas as pd
 import logging
 from typing import Dict, Any
 from .base import BaseIngestionHandler
 from core.platform.interface import MetadataPlatformInterface
 from datahub.metadata.schema_classes import (
-    MetadataChangeEventClass, DatasetSnapshotClass, SchemaMetadataClass,
-    SchemaFieldClass, SchemaFieldDataTypeClass, StringTypeClass, NumberTypeClass,
-    OtherSchemaClass, DatasetPropertiesClass
+    SchemaFieldClass, SchemaFieldDataTypeClass, StringTypeClass, NumberTypeClass
 )
-from datahub.emitter.mce_builder import make_dataset_urn
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +25,7 @@ class CSVIngestionHandler(BaseIngestionHandler):
         file_path = self.source_config["path"]
         dataset_name = self.source_config["dataset_name"]
         env = self.sink_config.get("env", "PROD")
-        platform = "csv" # The platform of the source data itself
+        platform = "csv"
 
         logger.info(f"Reading CSV from {file_path} to generate metadata for dataset '{dataset_name}'.")
 
@@ -37,7 +35,7 @@ class CSVIngestionHandler(BaseIngestionHandler):
             logger.error(f"CSV file not found at {file_path}")
             raise
 
-        # 1. Create Schema Fields from DataFrame
+        # 1. Create Schema Fields from DataFrame (Handler-specific logic)
         type_mapping = {"int64": NumberTypeClass(), "float64": NumberTypeClass()}
         schema_fields = []
         for col_name, dtype in df.dtypes.items():
@@ -47,32 +45,18 @@ class CSVIngestionHandler(BaseIngestionHandler):
                 type=SchemaFieldDataTypeClass(type=type_mapping.get(str(dtype), StringTypeClass()))
             )
             schema_fields.append(field)
+        
+        # 2. Define DatasetProperties (Handler-specific logic)
+        dataset_properties = {
+            "name": dataset_name,
+            "description": f"Dataset ingested from CSV file: {file_path}"
+        }
 
-        # 2. Create SchemaMetadata aspect
-        schema_metadata = SchemaMetadataClass(
-            schemaName=dataset_name,
-            platform=f"urn:li:dataPlatform:{platform}",
-            version=0,
-            hash="",
-            platformSchema=OtherSchemaClass(rawSchema=""),
-            fields=schema_fields
+        # 3. Call the shared method from the base class to build and emit the MCE
+        self._build_and_emit_mce(
+            platform=platform,
+            dataset_name=dataset_name,
+            env=env,
+            schema_fields=schema_fields,
+            dataset_properties=dataset_properties
         )
-
-        # 3. Create DatasetProperties aspect
-        dataset_properties = DatasetPropertiesClass(
-            name=dataset_name,
-            description=f"Dataset ingested from CSV file: {file_path}"
-        )
-
-        # 4. Create DatasetSnapshot
-        dataset_urn = make_dataset_urn(platform, dataset_name, env)
-        snapshot = DatasetSnapshotClass(
-            urn=dataset_urn,
-            aspects=[schema_metadata, dataset_properties]
-        )
-
-        # 5. Create MCE and emit
-        mce = MetadataChangeEventClass(proposedSnapshot=snapshot)
-        self.platform_handler.emit_mce(mce)
-
-        logger.info(f"Successfully ingested metadata for CSV dataset: {dataset_name}")
