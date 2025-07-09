@@ -1,9 +1,9 @@
 import argparse
 import logging
-from core_library.common.config_manager import ConfigManager
-from core_library.ingestion_handlers.ingestion_service import IngestionService
-from core_library.lineage_services.dataset_lineage_service import DatasetLineageService
-from platform_services.platform_factory import PlatformFactory
+from core.common.config_manager import ConfigManager
+from feature.ingestion.service import IngestionService
+from feature.lineage.dataset_lineage_service import DatasetLineageService 
+from core.platform.factory import PlatformFactory
 
 # Configure basic logging for the CLI
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
