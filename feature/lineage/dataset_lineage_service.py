@@ -1,6 +1,6 @@
 import logging
 from typing import Dict, Any
-from platform_services.metadata_platform_interface import MetadataPlatformInterface
+from core.platform.interface import MetadataPlatformInterface
 
 logger = logging.getLogger(__name__)
 
