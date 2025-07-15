@@ -1,0 +1,10 @@
+{
+  "source": {
+    "type": "csv",
+    "path": "/Users/skalamani/Downloads/abd"
+  },
+  "sink": {
+    "type": "datahub",
+    "env": "DEV"
+  }
+}
