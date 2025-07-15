@@ -2,8 +2,17 @@
 lineage:
   # A list of upstream sources for the downstream dataset.
   upstreams:
-    - urn: "urn:li:dataset:(urn:li:dataPlatform:csv,my-upstream-dataset,DEV)"
-    - urn: "urn:li:dataset:(urn:li:dataPlatform:mongodb,plume.my-mongo-collection,DEV)"
-  
+    - urn: "urn:li:dataset:(urn:li:dataPlatform:csv,my-upstream-dataset,DEV)"  
   # The single downstream dataset that is produced from the upstreams.
   downstream: "urn:li:dataset:(urn:li:dataPlatform:hive,my_downstream_hive_table,PROD)"
+
+  # A list of column-level lineage relationships
+  column_lineage:
+    - source_dataset: "urn:li:dataset:(urn:li:dataPlatform:csv,my-upstream-dataset,DEV)"
+      target_dataset: "urn:li:dataset:(urn:li:dataPlatform:hive,my_downstream_hive_table,PROD)"
+      source_field: "upstream_column_1"
+      target_field: "downstream_column_a"
+    - source_dataset: "urn:li:dataset:(urn:li:dataPlatform:mongodb,plume.my-mongo-collection,DEV)"
+      target_dataset: "urn:li:dataset:(urn:li:dataPlatform:hive,my_downstream_hive_table,PROD)"
+      source_field: "mongo_field_x"
+      target_field: "hive_field_y"
