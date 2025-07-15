@@ -1,7 +1,7 @@
 import argparse
 import logging
 from core.common.config_manager import ConfigManager
-from feature.ingestion.service import IngestionService
+from feature.ingestion.ingestion_service import IngestionService
 from feature.lineage.dataset_lineage_service import DatasetLineageService 
 from core.platform.factory import PlatformFactory
 from core.controllers import ingestion_controller
