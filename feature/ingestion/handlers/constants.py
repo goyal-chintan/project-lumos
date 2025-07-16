@@ -1,0 +1,3 @@
+HANDLER_TYPE_CSV = "csv"
+HANDLER_TYPE_MONGO = "mongodb"
+HANDLER_TYPE_AVRO = "avro"
