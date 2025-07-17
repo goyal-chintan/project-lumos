@@ -38,10 +38,10 @@ class IngestionService:
             return False
         return True
 
-    def start_ingestion(self, config_path: str) -> None:
-        config = self.config_manager.load_config(config_path)
+    def start_ingestion(self, folder_path: str) -> None:
+        config = self.config_manager.load_config(folder_path)
         if not config:
-            raise ValueError(f"Could not load or parse config from {config_path}")
+            raise ValueError(f"Could not load or parse config from {folder_path}")
 
         source_config = config.get("source", {})
         source_path_str = source_config.get("path")
