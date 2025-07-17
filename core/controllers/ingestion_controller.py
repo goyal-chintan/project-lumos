@@ -43,14 +43,14 @@ def _validate_ingestion_config(config: Dict[str, Any]) -> None:
     logger.info("Configuration validation successful.")
 
 
-def run_ingestion(config_path: str):
+def run_ingestion(folder_path: str):
 
     logger.info("Initializing Ingestion...")
     try:
         config_manager = ConfigManager()
-        ingestion_config = config_manager.load_config(config_path)
+        ingestion_config = config_manager.load_config(folder_path)
         if not ingestion_config:
-            raise ValueError(f"Failed to load or parse the configuration from {config_path}")
+            raise ValueError(f"Failed to load or parse the configuration from {folder_path}")
 
         _validate_ingestion_config(ingestion_config)
 
@@ -61,8 +61,8 @@ def run_ingestion(config_path: str):
         
         ingestion_service = IngestionService(config_manager, platform_handler)
         
-        logger.info(f"Starting ingestion process for config: {config_path}")
-        ingestion_service.start_ingestion(config_path)
+        logger.info(f"Starting ingestion process for config: {folder_path}")
+        ingestion_service.start_ingestion(folder_path)
         
         logger.info("Ingestion process completed successfully.")
 
