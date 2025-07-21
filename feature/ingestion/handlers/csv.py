@@ -18,7 +18,7 @@ class CSVIngestionHandler(BaseIngestionHandler):
 
     def _get_schema_fields(self) -> List[SchemaFieldClass]:
         """Extracts schema fields from the CSV file."""
-        file_path = self.source_config["path"] # todo : MAKE FILE PATH COMMON 
+        file_path = self.source_config["path"] 
         logger.info(f"Reading CSV from {file_path} to generate schema.")
         try:
             df = pd.read_csv(
