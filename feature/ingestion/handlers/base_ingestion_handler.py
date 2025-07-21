@@ -23,7 +23,7 @@ class BaseIngestionHandler(ABC):
     """
 
     def __init__(self, config: Dict[str, Any]):
-        # **MODIFIED**: The platform_handler is removed.
+       
         self.source_config = config.get("source", {})
         self.sink_config = config.get("sink", {})
 
