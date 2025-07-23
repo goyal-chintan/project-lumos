@@ -1,10 +1,33 @@
-{
-  "source": {
-    "type": "csv",
-    "path": "/Users/skalamani/Downloads/abd"
-  },
-  "sink": {
-    "type": "datahub",
-    "env": "DEV"
+[{
+  "source_type": "s3",
+  "data_type": "avro",
+  "source_path": "s3://my-bucket/data/table",
+  "partitiioning_format": "year=YYYY/month=MM/day=dd",
+  "infer_schama": false,
+  "schema": {
+    "id": "int",
+    "name": "string",
+    "age": "int"
   }
-}
+},
+{
+  "source_type": "postgres",
+  "fully_qualified_source_name": "plume_prod.red_schema.wifi_table",
+  "infer_schama": false,
+  "schema": {
+    "id": "int",
+    "name": "string",
+    "age": "int"
+  }
+},
+  {
+    "source_type": "mongodb",
+    "fully_qualified_source_name": "plume_prod.NodeState",
+    "infer_schama": false,
+    "schema": {
+      "id": "int",
+      "name": "string",
+      "age": "int"
+    }
+  }
+]
