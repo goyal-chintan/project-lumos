@@ -31,3 +31,6 @@
     }
   }
 ]
+
+
+// our new ingestion code dosent work with this ingestion template so need to update the code with respect to this mainly sink snippet has to be removed

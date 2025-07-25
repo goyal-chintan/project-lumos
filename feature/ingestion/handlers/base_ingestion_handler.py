@@ -11,6 +11,11 @@ from datahub.metadata.schema_classes import (
     OtherSchemaClass,
     SchemaFieldClass,
     SchemaMetadataClass,
+    StringTypeClass,
+    NumberTypeClass,
+    BooleanTypeClass,
+    TimeTypeClass,
+    SchemaFieldDataTypeClass,
 )
 
 logger = logging.getLogger(__name__)
@@ -23,7 +28,6 @@ class BaseIngestionHandler(ABC):
     """
 
     def __init__(self, config: Dict[str, Any]):
-       
         self.source_config = config.get("source", {})
         self.sink_config = config.get("sink", {})
 
@@ -31,6 +35,39 @@ class BaseIngestionHandler(ABC):
     def _get_schema_fields(self) -> List[SchemaFieldClass]:
         """Handler-specific logic to extract schema fields from the source."""
         pass
+
+    def _parse_schema_from_config(self) -> List[SchemaFieldClass]:
+        """
+        Parses a schema provided in the 'schema' key of the source configuration.
+        """
+        logger.info("Using pre-defined schema from configuration.")
+        schema_fields = []
+        provided_schema = self.source_config.get("schema", {})
+        if not provided_schema:
+            logger.warning("`infer_schema` is false, but no schema was provided in the config.")
+            return []
+
+        type_mapping = {
+            "string": StringTypeClass(),
+            "int": NumberTypeClass(),
+            "long": NumberTypeClass(),
+            "float": NumberTypeClass(),
+            "double": NumberTypeClass(),
+            "boolean": BooleanTypeClass(),
+            "datetime": TimeTypeClass(),
+        }
+
+        for field_name, field_type in provided_schema.items():
+            field = SchemaFieldClass(
+                fieldPath=field_name,
+                nativeDataType=field_type,
+                type=SchemaFieldDataTypeClass(
+                    type=type_mapping.get(field_type.lower(), StringTypeClass())
+                ),
+            )
+            schema_fields.append(field)
+        return schema_fields
+
 
     def _get_dataset_properties(self) -> Dict[str, Any]:
         """Creates the dataset properties dictionary."""
