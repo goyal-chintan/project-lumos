@@ -17,27 +17,32 @@ class CSVIngestionHandler(BaseIngestionHandler):
     """Handler for CSV file ingestion."""
 
     def _get_schema_fields(self) -> List[SchemaFieldClass]:
-        """Extracts schema fields from the CSV file."""
-        file_path = self.source_config["path"] 
-        logger.info(f"Reading CSV from {file_path} to generate schema.")
-        try:
-            df = pd.read_csv(
-                file_path, delimiter=self.source_config.get("delimiter", ",")
-            )
-        except FileNotFoundError:
-            logger.error(f"CSV file not found at {file_path}")
-            raise
+        """
+        Extracts schema fields from the CSV file, either by inference
+        or from the configuration.
+        """
+        if self.source_config.get("infer_schema", True):
+            logger.info(f"Inferring schema from CSV: {self.source_config['path']}")
+            file_path = self.source_config["path"]
+            try:
+                df = pd.read_csv(
+                    file_path, delimiter=self.source_config.get("delimiter", ",")
+                )
+            except FileNotFoundError:
+                logger.error(f"CSV file not found at {file_path}")
+                raise
 
-        type_mapping = {"int64": NumberTypeClass(), "float64": NumberTypeClass()}
-        schema_fields = []
-        for col_name, dtype in df.dtypes.items():
-            field = SchemaFieldClass(
-                fieldPath=col_name,
-                nativeDataType=str(dtype),
-                type=SchemaFieldDataTypeClass(
-                    type=type_mapping.get(str(dtype), StringTypeClass())
-                ),
-            )
-            schema_fields.append(field)
-
-        return schema_fields
+            type_mapping = {"int64": NumberTypeClass(), "float64": NumberTypeClass()}
+            schema_fields = []
+            for col_name, dtype in df.dtypes.items():
+                field = SchemaFieldClass(
+                    fieldPath=col_name,
+                    nativeDataType=str(dtype),
+                    type=SchemaFieldDataTypeClass(
+                        type=type_mapping.get(str(dtype), StringTypeClass())
+                    ),
+                )
+                schema_fields.append(field)
+            return schema_fields
+        else:
+            return self._parse_schema_from_config()

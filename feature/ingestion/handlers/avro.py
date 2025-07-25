@@ -16,7 +16,11 @@ logger = logging.getLogger(__name__)
 
 
 class AvroIngestionHandler(BaseIngestionHandler):
-    """Handler for Avro file ingestion."""
+    """
+    Handler for Avro file ingestion.
+    Note: Avro files are self-describing; the schema is always read from the file itself.
+    The 'infer_schema' flag is ignored for this handler.
+    """
 
     def __init__(self, config, platform_handler):
         super().__init__(config, platform_handler)
@@ -36,6 +40,8 @@ class AvroIngestionHandler(BaseIngestionHandler):
 
     def _get_schema_fields(self) -> List[SchemaFieldClass]:
         """Extracts schema fields from the Avro file."""
+        # For Avro, the schema is always "inferred" from the file content.
+        # The `infer_schema` config flag is therefore not applicable.
         avro_schema = self._get_avro_schema()
         schema_fields = []
         type_mapping = {

@@ -28,6 +28,7 @@ def _validate_ingestion_config(config: Dict[str, Any]) -> None:
         "csv": ["path"],
         "avro": ["path"],
         "mongodb": ["uri", "database", "collection", "dataset_name"],
+        "s3": ["source_path", "data_type"]
     }
 
     required_fields = validation_map.get(source_type.lower())
@@ -72,4 +73,3 @@ def run_ingestion(folder_path: str):
         logger.error(f"File or directory not found: {fnfe}", exc_info=True)
     except Exception as e:
         logger.error(f"An unexpected error occurred during the ingestion process: {e}", exc_info=True)
-# todo  : create a repo which will contain the resources like ingestion sources, enrichment, lineage, etc. 

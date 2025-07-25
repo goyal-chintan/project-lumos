@@ -24,48 +24,54 @@ class MongoIngestionHandler(BaseIngestionHandler):
         self.required_fields = ["type", "uri", "database", "collection", "dataset_name"]
 
     def _get_schema_fields(self) -> List[SchemaFieldClass]:
-        """Extracts schema by sampling one document from the collection."""
-        uri = self.source_config["uri"]
-        database_name = self.source_config["database"]
-        collection_name = self.source_config["collection"]
+        """
+        Extracts schema by sampling one document from the collection or
+        uses a pre-defined schema from the configuration.
+        """
+        if self.source_config.get("infer_schema", True):
+            logger.info("Inferring schema from MongoDB by sampling one document.")
+            uri = self.source_config["uri"]
+            database_name = self.source_config["database"]
+            collection_name = self.source_config["collection"]
 
-        try:
-            client = pymongo.MongoClient(uri, serverSelectionTimeoutMS=5000)
-            db = client[database_name]
-            collection = db[collection_name]
-            logger.info(f"Sampling document from {database_name}.{collection_name}")
-            sample = collection.find_one()
-        except pymongo.errors.ServerSelectionTimeoutError as e:
-            logger.error(f"Could not connect to MongoDB at {uri}: {e}")
-            raise
-        finally:
-            if "client" in locals():
-                client.close()
+            try:
+                client = pymongo.MongoClient(uri, serverSelectionTimeoutMS=5000)
+                db = client[database_name]
+                collection = db[collection_name]
+                logger.info(f"Sampling document from {database_name}.{collection_name}")
+                sample = collection.find_one()
+            except pymongo.errors.ServerSelectionTimeoutError as e:
+                logger.error(f"Could not connect to MongoDB at {uri}: {e}")
+                raise
+            finally:
+                if "client" in locals():
+                    client.close()
 
-        if not sample:
-            logger.warning(
-                f"No documents found in collection '{collection_name}'. Skipping."
-            )
-            return []
+            if not sample:
+                logger.warning(
+                    f"No documents found in collection '{collection_name}'. Skipping."
+                )
+                return []
 
-        type_mapping = {
-            "str": StringTypeClass(),
-            "int": NumberTypeClass(),
-            "float": NumberTypeClass(),
-            "bool": BooleanTypeClass(),
-            "datetime": TimeTypeClass(),
-        }
+            type_mapping = {
+                "str": StringTypeClass(),
+                "int": NumberTypeClass(),
+                "float": NumberTypeClass(),
+                "bool": BooleanTypeClass(),
+                "datetime": TimeTypeClass(),
+            }
 
-        field_info = {field: type(value).__name__ for field, value in sample.items()}
-        schema_fields = [
-            SchemaFieldClass(
-                fieldPath=field,
-                nativeDataType=py_type,
-                type=SchemaFieldDataTypeClass(
-                    type=type_mapping.get(py_type, StringTypeClass())
-                ),
-            )
-            for field, py_type in field_info.items()
-        ]
-
-        return schema_fields
+            field_info = {field: type(value).__name__ for field, value in sample.items()}
+            schema_fields = [
+                SchemaFieldClass(
+                    fieldPath=field,
+                    nativeDataType=py_type,
+                    type=SchemaFieldDataTypeClass(
+                        type=type_mapping.get(py_type, StringTypeClass())
+                    ),
+                )
+                for field, py_type in field_info.items()
+            ]
+            return schema_fields
+        else:
+            return self._parse_schema_from_config()
