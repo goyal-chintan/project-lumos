@@ -49,7 +49,14 @@ class IngestionService:
 
         if not self._verify_path_exists(source_path_str):
             return
-
+        
+        # for s3
+        if source_type == 's3':
+            source_path = config.get("source_path", "")
+            partition_format = config.get("partitiioning_format", "")
+            source_path_str = f"{source_path}/{partition_format}"
+            print(f"Ingesting from S3: {source_path_str}")
+        
         if source_path_str and os.path.isdir(source_path_str):
             logger.info(f"Directory detected. Scanning {source_path_str} for '.{source_type}' files.")
             for filename in os.listdir(source_path_str):
@@ -64,3 +71,5 @@ class IngestionService:
             mce = handler.ingest()
             if mce:
                 self.platform_handler.emit_mce(mce)
+
+
