@@ -29,8 +29,25 @@
       "name": "string",
       "age": "int"
     }
+  },
+  {
+    "source_type": "csv",
+    "source_path": "/Users/skalamani/Downloads/abd",
+    "delimiter": ",",
+    "infer_schema": true,
+    "schema": {}
+  },
+  {
+    "source_type": "avro",
+    "source_path": "/path/to/your/avro_files/",
+    "infer_schema": true,
+    "schema": {}
+  },
+  {
+    "source_type": "parquet",
+    "source_path": "/path/to/your/parquet_files/",
+    "infer_schema": true,
+    "schema": {}
   }
 ]
 
-
-// our new ingestion code dosent work with this ingestion template so need to update the code with respect to this mainly sink snippet has to be removed
