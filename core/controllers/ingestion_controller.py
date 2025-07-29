@@ -1,7 +1,8 @@
 # now validate the configuration before proceeding with ingestion.
 
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, List
+import json
 
 from core.common.config_manager import ConfigManager
 from feature.ingestion.ingestion_service import IngestionService
@@ -11,23 +12,22 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 
-def _validate_ingestion_config(config: Dict[str, Any]) -> None:
+def _validate_ingestion_config(source_config: Dict[str, Any]) -> None:
     
     logger.info("Validating ingestion configuration...")
     
-    source_config = config.get("source")
-    if not source_config or not isinstance(source_config, dict):
-        raise ValueError("Configuration must contain a 'source' section.")
+    if not isinstance(source_config, dict):
+        raise ValueError("Source configuration must be a dictionary.")
 
-    source_type = source_config.get("type")
+    source_type = source_config.get("source_type")
     if not source_type:
-        raise ValueError("Source configuration must specify a 'type'.")
+        raise ValueError("Source configuration must specify a 'source_type'.")
 
     # Define required fields for each source type
     validation_map = {
         "csv": ["path"],
         "avro": ["path"],
-        "mongodb": ["uri", "database", "collection", "dataset_name"],
+        "mongodb": ["fully_qualified_source_name"],
         "s3": ["source_path", "data_type"]
     }
 
@@ -49,14 +49,26 @@ def run_ingestion(folder_path: str):
     logger.info("Initializing Ingestion...")
     try:
         config_manager = ConfigManager()
-        ingestion_config = config_manager.load_config(folder_path)
-        if not ingestion_config:
-            raise ValueError(f"Failed to load or parse the configuration from {folder_path}")
+        
+        # Load the ingestion config, which is now a list of sources in a JSON file
+        with open(folder_path, 'r') as f:
+            ingestion_configs = json.load(f)
+        
+        if not isinstance(ingestion_configs, list) or not ingestion_configs:
+            raise ValueError("Ingestion config must be a non-empty list.")
+
+        # As per the requirement, we process only the first config from the list
+        ingestion_config = ingestion_configs[0]
 
         _validate_ingestion_config(ingestion_config)
 
-        platform_name = ingestion_config.get("sink", {}).get("type", "datahub")
-        
+        # Platform is now determined from global settings, not the sink
+        global_config = config_manager.get_global_config()
+        platform_name = "datahub"  # Assuming datahub is the platform
+        platform_config = global_config.get(platform_name, {})
+        if not platform_config:
+            raise ValueError(f"No configuration found for platform '{platform_name}' in global_settings.yaml")
+
         logger.info(f"Targeting metadata platform: {platform_name}")
         platform_handler = PlatformFactory.get_instance(platform_name, config_manager)
         

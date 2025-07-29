@@ -1,6 +1,7 @@
 import logging
 import os
 import copy
+import json
 from typing import Dict, Any
 
 from .handlers.factory import HandlerFactory
@@ -39,22 +40,37 @@ class IngestionService:
         return True
 
     def start_ingestion(self, folder_path: str) -> None:
-        config = self.config_manager.load_config(folder_path)
-        if not config:
+        with open(folder_path, 'r') as f:
+            source_configs = json.load(f)
+        
+        if not source_configs:
             raise ValueError(f"Could not load or parse config from {folder_path}")
 
-        source_config = config.get("source", {})
-        source_path_str = source_config.get("path")
-        source_type = source_config.get("type")
+        source_config = source_configs[0]
 
-        if not self._verify_path_exists(source_path_str):
+        global_config = self.config_manager.get_global_config()
+        sink_config = global_config.get("datahub", {})
+        sink_config["env"] = global_config.get("default_env", "PROD")
+        
+        config = {
+            "source": source_config,
+            "sink": sink_config
+        }
+        
+        source_path_str = source_config.get("source_path") or source_config.get("path")
+        source_type = source_config.get("source_type") or source_config.get("type")
+
+        if source_path_str and not self._verify_path_exists(source_path_str):
             return
         
         # for s3
         if source_type == 's3':
-            source_path = config.get("source_path", "")
-            partition_format = config.get("partitiioning_format", "")
-            source_path_str = f"{source_path}/{partition_format}"
+            source_path = source_config.get("source_path", "")
+            partition_format = source_config.get("partitiioning_format", "")
+            if partition_format:
+                source_path_str = f"{source_path}/{partition_format}"
+            else:
+                source_path_str = source_path
             print(f"Ingesting from S3: {source_path_str}")
         
         if source_path_str and os.path.isdir(source_path_str):
@@ -71,5 +87,3 @@ class IngestionService:
             mce = handler.ingest()
             if mce:
                 self.platform_handler.emit_mce(mce)
-
-
