@@ -12,7 +12,7 @@ def run_test_ingestion():
     # NOTE: You must update the 'filename' to a real CSV file on your machine.
     csv_job_config = {
         "source": {
-            "type": "csv",
+            "data_type": "csv",
             "config": {
                 "filename": "/path/to/your/file.csv",  # <--- IMPORTANT: CHANGE THIS PATH
                 "platform": "csv",
