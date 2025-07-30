@@ -1,8 +1,9 @@
 # now allows chained operations 
-# python framework_cli.py ingest:sample_configs_and_templates/ingestion/test_ingestion.json add-lineage:sample_configs_and_templates/lineage/dataset_lineage_template.json 
+# python framework_cli.py ingest:sample_configs_and_templates/ingestion/test_ingestion.json 
+#python framework_cli.py add-lineage:sample_configs_and_templates/lineage/dataset_lineage_template.json 
 import argparse # 
 import logging
-from core.controllers import ingestion_controller
+from core.controllers import ingestion_controller, lineage_controller
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -28,8 +29,8 @@ def main():
 
             if operation.lower() == "ingest":
                 ingestion_controller.run_ingestion(folder_path)
-            # elif operation.lower() == "add-lineage":
-            #     lineage_controller.run_add_lineage(folder_path)
+            elif operation.lower() == "add-lineage":
+                lineage_controller.run_add_lineage(folder_path)
             # Add other operations like "enrich" here in the future
             else:
                 logger.error(f"Unknown operation: {operation}")
