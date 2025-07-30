@@ -1,7 +1,10 @@
-{
+[
+  {
     "source_type": "csv",
-    "source_path": "/Users/skalamani/Downloads/abd",
+    "type": "csv",
+    "source_path": "/Users/tojha/Downloads/csv_datasets",
     "delimiter": ",",
     "infer_schema": true,
     "schema": {}
   }
+]
