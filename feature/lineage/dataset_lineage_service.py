@@ -4,13 +4,13 @@ from typing import Dict, Any, List
 from core.common.config_manager import ConfigManager
 from core.platform.interface import MetadataPlatformInterface
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
-from datahub.metadata.schema_classes import (
-    UpstreamClass,
-    UpstreamLineageClass,
-    DatasetLineageTypeClass,
+from datahub.metadata.com.linkedin.pegasus2avro.dataset import (
+    DatasetLineageType,
     FineGrainedLineage,
     FineGrainedLineageDownstreamType,
     FineGrainedLineageUpstreamType,
+    Upstream,
+    UpstreamLineage,
 )
 from datahub.emitter.mce_builder import make_dataset_urn, make_schema_field_urn
 
@@ -102,8 +102,8 @@ class DatasetLineageService:
                 )
             ]
 
-            table_lineage = UpstreamClass(
-                dataset=source_dataset_urn, type=DatasetLineageTypeClass.TRANSFORMED
+            table_lineage = Upstream(
+                dataset=source_dataset_urn, type=DatasetLineageType.TRANSFORMED
             )
 
             full_lineage = UpstreamLineage(
