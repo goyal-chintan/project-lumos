@@ -1,0 +1,42 @@
+[
+    {
+      "lineage": {
+        "upstreams": [
+          {
+            "data_type": "csv",
+            "dataset": "my-upstream-dataset"
+          }
+        ],
+        "downstream": {
+          "data_type": "hive",
+          "dataset": "my_downstream_hive_table"
+        },
+        "column_lineage": [
+          {
+            "source": {
+              "data_type": "csv",
+              "dataset": "my-upstream-dataset",
+              "field": "upstream_column_1"
+            },
+            "target": {
+              "data_type": "hive",
+              "dataset": "my_downstream_hive_table",
+              "field": "downstream_column_a"
+            }
+          },
+          {
+            "source": {
+              "data_type": "mongodb",
+              "dataset": "sample.my-mongo-collection",
+              "field": "mongo_field_x"
+            },
+            "target": {
+              "data_type": "hive",
+              "dataset": "my_downstream_hive_table",
+              "field": "hive_field_y"
+            }
+          }
+        ]
+      }
+    }
+]
