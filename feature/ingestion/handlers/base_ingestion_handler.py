@@ -75,7 +75,7 @@ class BaseIngestionHandler(ABC):
             "name": self.source_config.get("dataset_name"),
             "description": f"Dataset from source: {self.source_config.get('path') or self.source_config.get('collection')}",
             "customProperties": {
-                "source_type": self.source_config.get("type"),
+                "source_type": self.source_config.get("data_type"),
                 "ingestion_timestamp": datetime.utcnow().isoformat(),
             },
         }

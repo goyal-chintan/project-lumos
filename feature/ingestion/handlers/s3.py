@@ -41,7 +41,7 @@ class S3IngestionHandler(BaseIngestionHandler):
             # Create a new config for the file-specific handler
             file_specific_config = {
                 "source": {
-                    "type": data_type,
+                    "data_type": data_type,
                     "path": f"s3://{bucket}/{key}",
                     "dataset_name": key.split("/")[-1].replace(f".{data_type}", "")
                 },
