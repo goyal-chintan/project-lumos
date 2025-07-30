@@ -42,7 +42,7 @@ class S3IngestionHandler(BaseIngestionHandler):
             file_specific_config = {
                 "source": {
                     "data_type": data_type,
-                    "path": f"s3://{bucket}/{key}",
+                    "source_path": f"s3://{bucket}/{key}",
                     "dataset_name": key.split("/")[-1].replace(f".{data_type}", "")
                 },
                 "sink": self.sink_config
