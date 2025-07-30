@@ -7,3 +7,4 @@ datahub:
   gms_server: http://localhost:8080
 
 default_env: DEV
+default_platform: datahub
