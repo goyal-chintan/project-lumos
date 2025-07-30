@@ -1,5 +1,5 @@
 # now allows chained operations 
-# python framework_cli.py ingest:sample_configs_and_templates/ingestion/ingestion_template.json add-lineage:sample_configs_and_templates/lineage/dataset_lineage_template.json 
+# python framework_cli.py ingest:sample_configs_and_templates/ingestion/test_ingestion.json add-lineage:sample_configs_and_templates/lineage/dataset_lineage_template.json 
 import argparse # 
 import logging
 from core.controllers import ingestion_controller
