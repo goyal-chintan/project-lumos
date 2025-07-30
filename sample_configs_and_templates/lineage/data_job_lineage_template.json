@@ -1,10 +1,10 @@
 [
     {
       "data_job": {
-        "orchestrator": "kafka",
-        "flow_id": "my_etl_flow",
-        "job_id": "my_etl_pipeline",
-        "name": "My ETL Pipeline",
+        "orchestrator": "airflow",
+        "flow_id": "csv_flow",
+        "job_id": "csv_pipeline",
+        "name": "csv Pipeline",
         "description": "This pipeline transforms location data into node data.",
         "type": "TRANSFORM",
         "properties": {
@@ -12,10 +12,10 @@
           "scheduler": "cron: @daily"
         },
         "inputs": [
-          { "data_type": "csv", "dataset": "location_master_dimension" }
+          { "data_type": "csv", "dataset": "demo_dataset1" }
         ],
         "outputs": [
-          { "data_type": "csv", "dataset": "node_master_dimension" }
+          { "data_type": "csv", "dataset": "demo_dataset2" }
         ]
       }
     }
