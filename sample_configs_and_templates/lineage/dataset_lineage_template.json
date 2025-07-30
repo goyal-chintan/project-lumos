@@ -4,38 +4,27 @@
         "upstreams": [
           {
             "data_type": "csv",
-            "dataset": "my-upstream-dataset"
+            "dataset": "demo_dataset1"
           }
         ],
         "downstream": {
-          "data_type": "hive",
-          "dataset": "my_downstream_hive_table"
+          "data_type": "csv",
+          "dataset": "demo_dataset2"
         },
         "column_lineage": [
           {
             "source": {
               "data_type": "csv",
-              "dataset": "my-upstream-dataset",
-              "field": "upstream_column_1"
+              "dataset": "demo_dataset1",
+              "field": "location_id"
             },
             "target": {
-              "data_type": "hive",
-              "dataset": "my_downstream_hive_table",
-              "field": "downstream_column_a"
-            }
-          },
-          {
-            "source": {
-              "data_type": "mongodb",
-              "dataset": "plume.my-mongo-collection",
-              "field": "mongo_field_x"
-            },
-            "target": {
-              "data_type": "hive",
-              "dataset": "my_downstream_hive_table",
-              "field": "hive_field_y"
+              "data_type": "csv",
+              "dataset": "demo_dataset2",
+              "field": "customer_id"
             }
           }
+          
         ]
       }
     }
