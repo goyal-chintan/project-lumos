@@ -1,11 +1,12 @@
+# feature/lineage/data_job_service.py
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, List, Optional
 from core.platform.interface import MetadataPlatformInterface
 from core.common.config_manager import ConfigManager
 from datahub.metadata.schema_classes import (
     UpstreamLineageClass, UpstreamClass, DatasetLineageTypeClass,
-    DataJobInputOutputClass, DataJobInfoClass
-)
+    DataJobInputOutputClass, DataJobInfoClass)
+from datahub.metadata.com.linkedin.pegasus2avro.dataset import FineGrainedLineage
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.emitter.mce_builder import make_dataset_urn, make_data_job_urn
 
@@ -24,9 +25,8 @@ class DataJobService:
         return make_dataset_urn(data_type, dataset_name, self.env)
 
     def update_lineage_and_job_from_config(self, config: Dict[str, Any]) -> bool:
-        """Creates and emits lineage and data job metadata from a config dict."""
+        """Creates and emits lineage and data job metadata from a config dict, merging with existing lineage."""
         try:
-            # 1. Extract info from config
             job_info_config = config["data_job"]
             flow_id = job_info_config["flow_id"]
             job_id = job_info_config["job_id"]
@@ -35,23 +35,36 @@ class DataJobService:
             input_datasets_config = job_info_config["inputs"]
             output_datasets_config = job_info_config["outputs"]
 
-            # 2. Build URNs
             data_job_urn = make_data_job_urn(orchestrator, flow_id, job_id)
             input_urns = [self._build_urn(ds["data_type"], ds["dataset"]) for ds in input_datasets_config]
             output_urns = [self._build_urn(ds["data_type"], ds["dataset"]) for ds in output_datasets_config]
             
-            # 3. Create Lineage Aspect (UpstreamLineage for each output dataset)
             for output_urn in output_urns:
-                lineage_aspect = UpstreamLineageClass(
-                    upstreams=[
-                        UpstreamClass(dataset=urn, type=DatasetLineageTypeClass.TRANSFORMED)
-                        for urn in input_urns
-                    ]
+                # 1. Fetch existing lineage
+                existing_lineage: Optional[UpstreamLineageClass] = self.platform_handler.get_aspect_for_urn(
+                    urn=output_urn, aspect_name="upstreamLineage"
                 )
+                
+                # 2. Prepare merged lists
+                final_upstreams = {upstream.dataset: upstream for upstream in (existing_lineage.upstreams if existing_lineage else [])}
+                final_fine_grained = {fg.downstreams[0]: fg for fg in (existing_lineage.fineGrainedLineages if existing_lineage and existing_lineage.fineGrainedLineages else [])}
+
+
+                # 3. Add new table-level lineage from the data job
+                for urn in input_urns:
+                    final_upstreams[urn] = UpstreamClass(dataset=urn, type=DatasetLineageTypeClass.TRANSFORMED)
+
+                # 4. Construct the new, merged lineage aspect
+                lineage_aspect = UpstreamLineageClass(
+                    upstreams=list(final_upstreams.values()),
+                    fineGrainedLineages=list(final_fine_grained.values()) if final_fine_grained else None,
+                )
+
+                # 5. Emit the merged lineage
                 lineage_mcp = MetadataChangeProposalWrapper(entityUrn=output_urn, aspect=lineage_aspect)
                 self.platform_handler.emit_mcp(lineage_mcp)
 
-            # 4. Create DataJob Aspects
+            # 6. Create and emit DataJob aspects as before
             job_info_aspect = DataJobInfoClass(
                 name=job_info_config.get("name", job_id),
                 type=job_info_config.get("type", "TRANSFORM"),
@@ -63,14 +76,13 @@ class DataJobService:
                 outputDatasets=output_urns
             )
 
-            # 5. Create and emit MCPs for the DataJob
             job_info_mcp = MetadataChangeProposalWrapper(entityUrn=data_job_urn, aspect=job_info_aspect)
             job_io_mcp = MetadataChangeProposalWrapper(entityUrn=data_job_urn, aspect=job_io_aspect)
             
             self.platform_handler.emit_mcp(job_info_mcp)
             self.platform_handler.emit_mcp(job_io_mcp)
 
-            logger.info(f"Successfully updated lineage and data job info for: {data_job_urn}")
+            logger.info(f"Successfully updated and merged lineage and data job info for: {data_job_urn}")
             return True
 
         except (KeyError, Exception) as e:

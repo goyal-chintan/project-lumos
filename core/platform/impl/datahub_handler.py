@@ -1,5 +1,6 @@
+# core/platform/impl/datahub_handler.py
 import logging
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 from datahub.emitter.rest_emitter import DatahubRestEmitter
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.metadata.schema_classes import UpstreamClass, UpstreamLineageClass, DatasetLineageTypeClass
@@ -61,3 +62,15 @@ class DataHubHandler(MetadataPlatformInterface):
         except Exception as e:
             logger.error(f"Failed to add lineage to DataHub: {e}")
             return False
+
+    def get_aspect_for_urn(self, urn: str, aspect_name: str) -> Optional[Any]:
+        """Gets a specific aspect for a given URN."""
+        try:
+            # aspect_name is for logging/debugging, aspect_type is the actual class
+            return self._emitter.get_latest_aspect_or_null(
+                entity_urn=urn,
+                aspect_type=UpstreamLineageClass
+            )
+        except Exception as e:
+            logger.error(f"Failed to get aspect {aspect_name} for URN {urn}: {e}")
+            return None
