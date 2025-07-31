@@ -136,7 +136,7 @@ Python
 
 
 
-from platform_services.data_catalog_factory import DataCatalogFactory
+from source_path.data_catalog_factory import DataCatalogFactory
 from configs.global_settings import GLOBAL_SETTINGS
 
 def get_data_catalog():
@@ -276,7 +276,7 @@ class DataCatalog(ABC):
         This can be used for platform-specific operations not covered by the interface.
         """
         pass
-(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/platform_services/data_catalog_interface.py)
+(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/source_path/data_catalog_interface.py)
 
 
 core/platform/factory.py
@@ -319,7 +319,7 @@ class PlatformFactory:
         instance = handler_class(config)
         PlatformFactory._instances[platform_lower] = instance
         return instance
-(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/platform_services/platform_factory.py)
+(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/source_path/platform_factory.py)
 
 
 core/platform/interface.py
@@ -358,7 +358,7 @@ class MetadataPlatformInterface(ABC):
     def add_lineage(self, upstream_urn: str, downstream_urn: str) -> bool:
         """Add a lineage relationship between two entities."""
         pass
-(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/platform_services/metadata_platform_interface.py)
+(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/source_path/metadata_platform_interface.py)
 
 
 core/platform/impl/__init__.py
@@ -439,7 +439,7 @@ class DataHubHandler(MetadataPlatformInterface):
         except Exception as e:
             logger.error(f"Failed to add lineage to DataHub: {e}")
             return False
-(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/platform_services/datahub_handler.py)
+(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/source_path/datahub_handler.py)
 
 
 core/platform/impl/datahub_service.py
@@ -467,7 +467,7 @@ class DataHubDataCatalog(DataCatalog):
 
     def get_emitter(self):
         return self._emitter
-(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/platform_services/datahub_service.py)
+(Source: sushant-runs/project-lumos/sushant-runs-project-lumos-722662ef0176e51c2de17a82200d72de41afcc73/source_path/datahub_service.py)
 
 
 features
@@ -552,7 +552,7 @@ Python
 
 import logging
 from typing import Dict, Any
-from platform_services.metadata_platform_interface import MetadataPlatformInterface
+from source_path.metadata_platform_interface import MetadataPlatformInterface
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.metadata.schema_classes import DatasetPropertiesClass
 
@@ -1405,7 +1405,7 @@ A modular and extensible framework for data ingestion, metadata management, and 
 
 The framework follows a modular architecture with clear separation of concerns:
 
-- `platform_services/`: Platform-specific implementations (DataHub, Databricks, etc.)
+- `source_path/`: Platform-specific implementations (DataHub, Databricks, etc.)
 - `core_library/`: Core framework components
   - `common/`: Shared utilities and interfaces
   - `ingestion_handlers/`: Data source ingestion handlers

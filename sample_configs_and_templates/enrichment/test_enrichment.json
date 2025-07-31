@@ -1,0 +1,16 @@
+[
+  {
+     "type": "properties",
+    "config": {
+      "data_type": "csv",
+      "dataset_name": "demo_dataset1",
+      "name": "Customer Sales Dataset",
+      "custom_properties": {
+        "data_owner": "John Doe",
+        "data_steward": "Jane Smith",
+        "update_frequency": "Daily",
+        "data_source": "Salesforce"
+      }
+    }
+  }
+]

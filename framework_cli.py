@@ -1,9 +1,8 @@
 # framework_cli.py
 import argparse
 import logging
-from core.controllers import ingestion_controller, lineage_controller, data_job_lineage_controller
+from core.controllers import ingestion_controller, lineage_controller, data_job_lineage_controller, enrichment_controller
 
-#python framework_cli.py add-data-job-lineage:sample_configs_and_templates/lineage/data_job_lineage_template.json
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -32,7 +31,8 @@ def main():
                 lineage_controller.run_add_lineage(folder_path)
             elif operation.lower() == "add-data-job-lineage":
                 data_job_lineage_controller.run_add_data_job_lineage(folder_path)
-            # Add other operations like "enrich" here in the future
+            elif operation.lower() == "enrich":
+                enrichment_controller.run_enrichment(folder_path)
             else:
                 logger.error(f"Unknown operation: {operation}")
 
