@@ -1,3 +1,4 @@
+# core/platform/interface.py
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional
 
@@ -28,4 +29,7 @@ class MetadataPlatformInterface(ABC):
         """Add a lineage relationship between two entities."""
         pass
 
-        
+    @abstractmethod
+    def get_aspect_for_urn(self, urn: str, aspect_name: str) -> Optional[Any]:
+        """Gets a specific aspect for a given URN."""
+        pass
