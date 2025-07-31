@@ -1,37 +1,37 @@
+# feature/enrichment/properties_service.py
 import logging
 from typing import Dict, Any
-from platform_services.metadata_platform_interface import MetadataPlatformInterface
+from .base_enrichment_service import BaseEnrichmentService
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.metadata.schema_classes import DatasetPropertiesClass
 
 logger = logging.getLogger(__name__)
 
-class PropertiesService:
+class PropertiesService(BaseEnrichmentService):
     """Service to manage dataset properties."""
 
-    def __init__(self, platform_handler: MetadataPlatformInterface):
-        self.platform_handler = platform_handler
+    def __init__(self, platform_handler: Any, config_manager: Any):
+        super().__init__(platform_handler, config_manager)
 
-    def update_properties(self, urn: str, config: Dict[str, Any]) -> bool:
+    def enrich(self, config: Dict[str, Any]) -> bool:
         """
         Updates the properties of a dataset.
-        
-        Args:
-            urn: The URN of the dataset to update.
-            config: A dictionary containing the new name, description, and custom properties.
         """
+        target_urn = None
         try:
+            target_urn = self._build_urn(config["data_type"], config["dataset_name"])
+            
             properties_aspect = DatasetPropertiesClass(
                 name=config.get("name"),
                 description=config.get("description"),
                 customProperties=config.get("custom_properties")
             )
             
-            mcp = MetadataChangeProposalWrapper(entityUrn=urn, aspect=properties_aspect)
+            mcp = MetadataChangeProposalWrapper(entityUrn=target_urn, aspect=properties_aspect)
             self.platform_handler.emit_mcp(mcp)
             
-            logger.info(f"Successfully submitted properties update for URN: {urn}")
+            logger.info(f"Successfully submitted properties update for URN: {target_urn}")
             return True
         except Exception as e:
-            logger.error(f"Failed to update properties for URN {urn}: {e}")
+            logger.error(f"Failed to update properties for URN {target_urn}: {e}")
             return False
