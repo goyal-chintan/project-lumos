@@ -7,10 +7,12 @@
         "name": "csv Pipeline",
         "description": "This pipeline transforms location data into node data.",
         "type": "TRANSFORM",
-        "properties": {
-          "pipeline_name": "my_etl_pipeline",
-          "scheduler": "cron: @daily"
-        },
+        "custom_properties": {
+        "data_owner": "John Doe",
+        "data_steward": "Jane Smith",
+        "update_frequency": "Daily",
+        "data_source": "Salesforce"
+      },
         "inputs": [
           { "data_type": "csv", "dataset": "demo_dataset1" }
         ],
