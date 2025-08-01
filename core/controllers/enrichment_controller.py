@@ -17,10 +17,14 @@ def run_enrichment(config_path: str):
         config_manager = ConfigManager()
 
         with open(config_path, 'r') as f:
-            enrichment_configs = json.load(f)
+            enrichment_config = json.load(f)
 
-        if not isinstance(enrichment_configs, list) or not enrichment_configs:
-            raise ValueError("Enrichment config must be a non-empty list.")
+        data_type = enrichment_config.get("data_type")
+        dataset_name = enrichment_config.get("dataset_name")
+        enrichments = enrichment_config.get("enrichments", [])
+
+        if not all([data_type, dataset_name, enrichments]):
+            raise ValueError("Enrichment config must contain 'data_type', 'dataset_name', and a non-empty 'enrichments' list.")
 
         global_config = config_manager.get_global_config()
         platform_name = global_config.get("default_platform")
@@ -30,12 +34,17 @@ def run_enrichment(config_path: str):
         logger.info(f"Targeting metadata platform: {platform_name}")
         platform_handler = PlatformFactory.get_instance(platform_name, config_manager)
 
-        for enrichment_config in enrichment_configs:
-            enrichment_type = enrichment_config.get("type")
-            config = enrichment_config.get("config")
+        for enrichment in enrichments:
+            enrichment_type = enrichment.get("enrichment_type")
+            config = enrichment.get("config", {})
+            
+            # Add common properties to the specific config
+            config["data_type"] = data_type
+            config["dataset_name"] = dataset_name
 
-            if not enrichment_type or not config:
-                logger.warning("Skipping enrichment due to missing 'type' or 'config'.")
+
+            if not enrichment_type:
+                logger.warning("Skipping enrichment due to missing 'enrichment_type'.")
                 continue
 
             try:
