@@ -24,10 +24,9 @@
     {
       "enrichment_type": "properties",
       "config": {
-        "name": "Customer Sales Dataset",
         "custom_properties": {
-          "data_owner": "John Doe",
-          "data_source": "Salesforce"
+          "replace_me": "John Doe",
+          "replace_me_too": "Salesforce"
         }
       }
     }
