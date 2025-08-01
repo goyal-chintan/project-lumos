@@ -1,0 +1,299 @@
+table: node_utilization_metrics
+description: The node_utilization_metrics table captures channel-wise utilization and interference information from Access Points (APs) every 15 minutes. It provides channel utilization data on a per-AP, per-channel basis, combining measurement data from both on-channel and off-channel survey reports. This is useful for understanding Wi-Fi channel congestion and interference at a granular level.
+documentation: The table is stored in S3 as Parquet files and is updated every 15 minutes.
+It is part of the Plume Data Warehouse schema and is used for analytics and monitoring of Wi-Fi network health and performance.
+The data is partitioned by time and other relevant fields for efficient querying (e.g., by location, node, channel, and time).
+The table is referenced in multiple internal documentation sources for both engineering and partner data exports 
+tags:Wi-Fi Channel Utilization
+Interference Analysis
+Access Point Monitoring
+Mesh Network Analytics
+Plume Data Warehouse
+Parquet Format
+15-minute Aggregation
+S3 Data Lake
+Adaptive Wi-Fi
+Network Health Metrics
+
+
+
+
+table: location_coverage_alarm_status
+Description:
+The location_coverage_alarm_status table provides daily, per-location information on Wi-Fi coverage alarms. It indicates whether a location was in a pod coverage alarm (issues with Plume Pods) or a client device coverage alarm (issues with client devices) by aggregating the alarm status of all pods and client devices at that location for each day. This aggregation helps identify locations experiencing Wi-Fi coverage issues, either due to poor pod placement or client device connectivity problems. Locations with only gateways (Ethernet-connected) do not report pod coverage alarms, as gateways alone cannot have Wi-Fi coverage issues 
+Documentation:
+The table is stored as Parquet files in S3 and is updated daily.
+It is part of the Plume Data Warehouse schema and is used for analytics, monitoring, and reporting on Wi-Fi coverage health at the location level.
+The data is partitioned by date and other relevant fields for efficient querying (e.g., by location, date).
+The table is referenced in internal documentation for engineering, partner exports, and customer support use cases 
+Used as a source for summary and chronic alarm analytics 
+Tags:
+Wi-Fi Coverage Alarms
+Pod Coverage Analysis
+Client Device Coverage Analysis
+Location Health Monitoring
+Mesh Network Analytics
+Plume Data Warehouse
+Parquet Format
+Daily Aggregation
+S3 Data Lake
+Network Quality Metrics
+Adaptive Wi-Fi
+Customer Experience Analytics
+
+
+
+---------------------------
+Here is a detailed summary for each of the requested tables, including **description, documentation, tags, and properties**:
+
+---
+
+### 1. **group_master_dimension.avro**
+- **Description:** Maps customers to groups (e.g., BetaTest, AB Test) for segmentation and analytics. Updated hourly, snapshot of current group assignments.
+- **Documentation:** [Plume Data Warehouse Schema](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Customer segmentation, group tagging, analytics, master dimension, S3 Avro, hourly snapshot.
+---
+
+### 2. **device_homepass.avro**
+- **Description:** Tracks device-level analytics for HomePass environments, including device access, enablement, and key management.
+- **Documentation:** [Spark Data Pipeline Table Schemas](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Device analytics, HomePass, access control, S3 Avro.
+
+---
+
+### 3. **location_master_dimension.avro**
+- **Description:** Master list of all locations with metadata (customer, account, ISP, geo, service, etc.). Updated hourly, no time-series.
+- **Documentation:** [Master Dimension Tables](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/13349421061/Master+Dimension+Tables)
+- **Tags:** Location metadata, master dimension, S3 Avro, hourly snapshot.
+
+---
+
+### 4. **qoe_metrics_dy.avro**
+- **Description:** Daily aggregated Quality of Experience (QoE) metrics for locations, nodes, and devices.
+- **Documentation:** [Pod Recommendation Tables](https://plumedesign.atlassian.net/wiki/spaces/DST/pages/14250639499/Pod+Recommendation+Tables)
+- **Tags:** QoE, Wi-Fi analytics, daily aggregation, S3 Avro.
+
+---
+
+### 5. **device_type_sp.avro**
+- **Description:** Device type details (category, brand, model, Wi-Fi capabilities) for advanced device typing and analytics.
+- **Documentation:** [Spark Data Pipeline Table Schemas](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Device typing, analytics, S3 Avro.
+
+---
+
+### 6. **lan_stats_dy.avro**
+- **Description:** Daily LAN statistics, including traffic, errors, and device counts per location/node.
+- **Documentation:** [Spark Data Pipeline Table Schemas](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** LAN analytics, network health, daily aggregation, S3 Avro.
+
+---
+
+### 7. **device_access_control.avro**
+- **Description:** Device access control settings/history, including block/allow status and parental controls.
+- **Documentation:** [Spark Data Pipeline Table Schemas](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Access control, parental controls, security, S3 Avro.
+
+---
+
+### 8. **node_master_dimension.avro**
+- **Description:** Master list of all nodes (Pods, Gateways, client devices) ever seen in a location. Updated hourly.
+- **Documentation:** [Master Dimension Tables](https://plumedesign.atlassian.net/wiki/spaces/13349421061/Master+Dimension+Tables)
+- **Tags:** Node inventory, master dimension, S3 Avro, hourly snapshot.
+
+---
+
+### 9. **node_peer_metrics_fact.avro**
+- **Description:** Peer-to-peer node interaction metrics for mesh link quality and throughput.
+- **Documentation:** [Plume Data Warehouse Schema](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Mesh analytics, peer metrics, S3 Avro.
+
+---
+
+### 10. **device_type_master.avro**
+- **Description:** Master device type mapping, providing the latest device typing information for all devices ever connected.
+- **Documentation:** [Device Type Master Table](https://confluence.plume.tech/pages/viewpage.action?pageId=33521684)
+- **Tags:** Device typing, master reference, S3 Avro.
+
+---
+
+### 11. **extraction.py**
+- **Description:** ETL script for data extraction and transformation from Avro files in S3, ensuring data quality and accessibility.
+- **Documentation:** Not a dataset; referenced in internal ETL documentation.
+- **Tags:** ETL, data pipeline, extraction, transformation, Python script.
+
+---
+
+### 12. **location_coverage_alarm_weekly.avro**
+- **Description:** Weekly Wi-Fi coverage alarm status per location, based on daily alarm aggregation (in alarm ≥3 days/week).
+- **Documentation:** [Coverage Alarms: Location/Pod/Client Device](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/13349325729)
+- **Tags:** Coverage alarms, weekly aggregation, network health, S3 Avro.
+
+---
+
+### 13. **steer_summary_dy.avro**
+- **Description:** Daily summary of client steering events (band/client steering) per location/node.
+- **Documentation:** [Spark Data Pipeline Table Schemas](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Wi-Fi steering, optimization, daily aggregation, S3 Avro.
+
+---
+
+### 14. **location_capability.avro**
+- **Description:** Lists all enabled capabilities at each location (e.g., band steering, client steering, device freeze, ISP speed test, etc.).
+- **Documentation:** [Plume Data Warehouse Schema](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Feature enablement, location capabilities, S3 Avro.
+
+---
+
+### 15. **device_type.avro**
+- **Description:** Device type information (category, brand, model, OS) for all devices, similar to device_type_master.
+- **Documentation:** [Spark Data Pipeline Table Schemas](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Device typing, analytics, S3 Avro.
+
+---
+
+### 16. **qoe_metrics.avro**
+- **Description:** 15-minute aggregated QoE metrics for access points and client devices, used for real-time and historical Wi-Fi quality analysis.
+- **Documentation:** [QoE Metrics Documentation](https://docs.google.com/document/d/15804fD5GtdAbmZRheAfYKgwMdgH2778MRvVV9TAltA8/edit)
+- **Tags:** QoE, Wi-Fi analytics, 15-min aggregation, S3 Avro.
+
+---
+
+### 17. **neighbour_report_daily.avro**
+- **Description:** Daily report of neighboring Wi-Fi networks detected by APs, including SSID, channel, signal strength, and whether the neighbor is a Plume device.
+- **Documentation:** [Plume Data Warehouse Schema](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Neighboring networks, interference analysis, daily aggregation, S3 Avro.
+
+---
+
+### 18. **device_security_websites.avro**
+- **Description:** Records websites accessed by devices, with security categorization for monitoring and parental controls.
+- **Documentation:** [Spark Data Pipeline Table Schemas](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Security, parental controls, web access, S3 Avro.
+
+---
+
+### 19. **node_utilization_metrics_dy.avro**
+- **Description:** Daily node utilization and interference metrics per AP/channel, supporting channel planning and network health monitoring.
+- **Documentation:** [Plume Data Warehouse Schema](https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema)
+- **Tags:** Channel utilization, interference, daily aggregation, S3 Avro.
+
+
+Properties for all tables are listed below
+
+Here’s a **brief summary** of each requested table, focusing on its purpose and main data captured:
+
+---
+
+### 1. **group_master_dimension.avro**
+- **Purpose:** Maps customers to groups (e.g., BetaTest, AB Test) for segmentation and analytics. Updated hourly, provides a snapshot of current group assignments.
+- **Key Data:** `customer_id`, `group_id`, `name` (group name)[1].
+
+---
+
+### 2. **device_homepass.avro**
+- **Purpose:** Tracks device-level analytics for HomePass environments, including device access, enablement, and key management.
+- **Key Data:** Device MAC, access zone, enablement status, timestamps[2].
+
+---
+
+### 3. **location_master_dimension.avro**
+- **Purpose:** Master list of all locations with metadata (customer, account, ISP, geo, service, etc.). Updated hourly, no time-series.
+- **Key Data:** `location_id`, `customer_id`, `account_id`, service and geo info, number of nodes[3].
+
+---
+
+### 4. **qoe_metrics_dy.avro**
+- **Purpose:** Daily aggregated Quality of Experience (QoE) metrics for locations, nodes, and devices.
+- **Key Data:** Location, device/node IDs, frequency band, bytes transferred, RSSI percentiles, alarm counts[2].
+
+---
+
+### 5. **device_type_sp.avro**
+- **Purpose:** Device type details (category, brand, model, Wi-Fi capabilities) for advanced device typing and analytics.
+- **Key Data:** Device MAC, type, brand, model, capabilities[4].
+
+---
+
+### 6. **lan_stats_dy.avro**
+- **Purpose:** Daily LAN statistics, including traffic, errors, and device counts per location/node.
+- **Key Data:** Source/destination MACs, byte/packet counts, flow times[2].
+
+---
+
+### 7. **device_access_control.avro**
+- **Purpose:** Device access control settings/history, including block/allow status and parental controls.
+- **Key Data:** Location, MAC, freeze profile, person ID, access zone[2].
+
+---
+
+### 8. **node_master_dimension.avro**
+- **Purpose:** Master list of all nodes (Pods, Gateways, client devices) ever seen in a location. Updated hourly.
+- **Key Data:** `location_id`, node/device ID, version, type, first seen date, is_device flag[3].
+
+---
+
+### 9. **node_peer_metrics_fact.avro**
+- **Purpose:** Peer-to-peer node interaction metrics for mesh link quality and throughput.
+- **Key Data:** Mesh link stats between nodes (details may vary)[5].
+
+---
+
+### 10. **device_type_master.avro**
+- **Purpose:** Master device type mapping, providing the latest device typing information for all devices ever connected.
+- **Key Data:** MAC, category, brand, model, OS, Wi-Fi capabilities[6].
+
+---
+
+### 11. **extraction.py**
+- **Purpose:** ETL script for data extraction and transformation from Avro files in S3, ensuring data quality and accessibility.
+- **Key Data:** Not a table; it’s a Python script for ETL[7].
+
+---
+
+### 12. **location_coverage_alarm_weekly.avro**
+- **Purpose:** Weekly Wi-Fi coverage alarm status per location, based on daily alarm aggregation (in alarm ≥3 days/week).
+- **Key Data:** Location, claimed nodes, weekly alarm flags for pods/devices, week index[3].
+
+---
+
+### 13. **steer_summary_dy.avro**
+- **Purpose:** Daily summary of client steering events (band/client steering) per location/node.
+- **Key Data:** Location, device, steering type, attempts, successes, failures, troubles[2].
+
+---
+
+### 14. **location_capability.avro**
+- **Purpose:** Lists all enabled capabilities at each location (e.g., band steering, client steering, device freeze, ISP speed test, etc.).
+- **Key Data:** Location, capability flags (booleans for each feature)[3].
+
+---
+
+### 15. **device_type.avro**
+- **Purpose:** Device type information (category, brand, model, OS) for all devices, similar to device_type_master.
+- **Key Data:** MAC, location, category, brand, model, OS[2].
+
+---
+
+### 16. **qoe_metrics.avro**
+- **Purpose:** 15-minute aggregated QoE metrics for access points and client devices, used for real-time and historical Wi-Fi quality analysis.
+- **Key Data:** Location, device/node, frequency band, channel, parent node, QoE scores[1].
+
+---
+
+### 17. **neighbour_report_daily.avro**
+- **Purpose:** Daily report of neighboring Wi-Fi networks detected by APs, including SSID, channel, signal strength, and whether the neighbor is a Plume device.
+- **Key Data:** Location, timestamp, array of neighbor details (SSID, channel, RSSI, etc.)[3].
+
+---
+
+### 18. **device_security_websites.avro**
+- **Purpose:** Records websites accessed by devices, with security categorization for monitoring and parental controls.
+- **Key Data:** Location, MAC, website, type, rule, provider, whitelist/blacklist, timestamp[2].
+
+---
+
+### 19. **node_utilization_metrics_dy.avro**
+- **Purpose:** Daily node utilization and interference metrics per AP/channel, supporting channel planning and network health monitoring.
+- **Key Data:** Location, node, frequency band, channel, utilization/interference stats, noise, reported minutes[2].
+
