@@ -1,6 +1,6 @@
 {
   "data_type": "csv",
-  "dataset_name": "my-dataset",
+  "dataset_name": "node_master_dimension",
   "enrichments": [
     {
       "enrichment_type": "description",
