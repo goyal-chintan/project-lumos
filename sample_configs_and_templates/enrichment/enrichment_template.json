@@ -1,39 +1,35 @@
-[
-  {
-    "type": "description",
-    "config": {
-      "data_type": "csv",
-      "dataset_name": "my-dataset",
-      "description": "This is a detailed description of my dataset, which contains customer information and sales data."
-    }
-  },
-  {
-    "type": "tags",
-    "config": {
-      "data_type": "csv",
-      "dataset_name": "my-dataset",
-      "tags": ["PII", "Finance", "Tier1", "CustomerData"]
-    }
-  },
-  {
-    "type": "documentation",
-    "config": {
-      "data_type": "csv",
-      "dataset_name": "my-dataset",
-      "doc_url": "https://www.example.com/docs/my-dataset",
-      "description": "Official documentation for the customer sales dataset."
-    }
-  },
-  {
-    "type": "properties",
-    "config": {
-      "data_type": "csv",
-      "dataset_name": "my-dataset",
-      "name": "Customer Sales Dataset",
-      "custom_properties": {
-        "data_owner": "John Doe",
-        "data_source": "Salesforce"
+{
+  "data_type": "csv",
+  "dataset_name": "my-dataset",
+  "enrichments": [
+    {
+      "enrichment_type": "description",
+      "config": {
+        "description": "This is a detailed description of my dataset, which contains customer information and sales data."
+      }
+    },
+    {
+      "enrichment_type": "tags",
+      "config": {
+        "tags": ["PII", "Finance", "Tier1", "CustomerData"]
+      }
+    },
+    {
+      "enrichment_type": "documentation",
+      "config": {
+        "doc_url": "https://www.example.com/docs/my-dataset",
+        "description": "Official documentation for the customer sales dataset."
+      }
+    },
+    {
+      "enrichment_type": "properties",
+      "config": {
+        "name": "Customer Sales Dataset",
+        "custom_properties": {
+          "data_owner": "John Doe",
+          "data_source": "Salesforce"
+        }
       }
     }
-  }
-]
+  ]
+}
