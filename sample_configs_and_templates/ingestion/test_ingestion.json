@@ -1,8 +1,7 @@
 [
   {
-    "source_type": "avro",
-    "data_type": "avro",
-    "path": "/Users/tojha/Downloads/avrofolders",
+    "source_type": "csv",
+    "source_path": "/Users/tojha/Downloads/csv_datasets",
     "delimiter": ",",
     "infer_schema": true,
     "schema": {}

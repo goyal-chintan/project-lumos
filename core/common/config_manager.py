@@ -26,7 +26,7 @@ class ConfigManager:
         if absolute_path_str in self._config_cache:
             return self._config_cache[absolute_path_str]
             
-        if not folder_path.exists():
+        if not folder_path.exists() or not folder_path.is_file():
             logger.error(f"Configuration file not found at: {folder_path_str}")
             return {}
 
