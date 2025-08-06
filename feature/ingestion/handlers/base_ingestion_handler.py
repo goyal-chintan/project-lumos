@@ -2,7 +2,6 @@ import logging
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
 from datetime import datetime
-
 from datahub.emitter.mce_builder import make_dataset_urn
 from datahub.metadata.schema_classes import (
     DatasetPropertiesClass,
@@ -17,25 +16,19 @@ from datahub.metadata.schema_classes import (
     TimeTypeClass,
     SchemaFieldDataTypeClass,
 )
-
 logger = logging.getLogger(__name__)
-
-
 class BaseIngestionHandler(ABC):
     """
     Abstract Base Class for all ingestion handlers. Its responsibility is to
     transform source metadata into a MetadataChangeEvent object.
     """
-
     def __init__(self, config: Dict[str, Any]):
         self.source_config = config.get("source", {})
         self.sink_config = config.get("sink", {})
-
     @abstractmethod
     def _get_schema_fields(self) -> List[SchemaFieldClass]:
         """Handler-specific logic to extract schema fields from the source."""
         pass
-
     def _parse_schema_from_config(self) -> List[SchemaFieldClass]:
         """
         Parses a schema provided in the 'schema' key of the source configuration.
@@ -46,7 +39,6 @@ class BaseIngestionHandler(ABC):
         if not provided_schema:
             logger.warning("`infer_schema` is false, but no schema was provided in the config.")
             return []
-
         type_mapping = {
             "string": StringTypeClass(),
             "int": NumberTypeClass(),
@@ -56,7 +48,6 @@ class BaseIngestionHandler(ABC):
             "boolean": BooleanTypeClass(),
             "datetime": TimeTypeClass(),
         }
-
         for field_name, field_type in provided_schema.items():
             field = SchemaFieldClass(
                 fieldPath=field_name,
@@ -67,23 +58,19 @@ class BaseIngestionHandler(ABC):
             )
             schema_fields.append(field)
         return schema_fields
-
-
     def _get_dataset_properties(self) -> Dict[str, Any]:
         """Creates the dataset properties dictionary."""
         return {
             "name": self.source_config.get("dataset_name"),
-            "description": f"Dataset from source: {self.source_config.get('path') or self.source_config.get('collection')}",
+            "description": f"Dataset from source: {self.source_config.get('source_path') or self.source_config.get('collection')}",
             "customProperties": {
                 "source_type": self.source_config.get("data_type"),
                 "ingestion_timestamp": datetime.utcnow().isoformat(),
             },
         }
-
     def _get_raw_schema(self) -> str:
         """Returns the raw schema as a string (optional)."""
         return ""
-
     def _build_mce(
         self,
         platform: str,
@@ -114,7 +101,6 @@ class BaseIngestionHandler(ABC):
         except Exception as e:
             logger.error(f"Failed to build MCE for {dataset_name}: {e}", exc_info=True)
             return None
-
     def ingest(self) -> Optional[MetadataChangeEventClass]:
         """
         Main ingestion method that orchestrates the MCE creation process.
@@ -123,15 +109,12 @@ class BaseIngestionHandler(ABC):
         platform = self.source_config.get("type")
         dataset_name = self.source_config.get("dataset_name")
         env = self.sink_config.get("env", "PROD")
-
         if not dataset_name:
             logger.error("dataset_name not found in source config. Cannot create MCE.")
             return None
-
         schema_fields = self._get_schema_fields()
         dataset_properties = self._get_dataset_properties()
         raw_schema = self._get_raw_schema()
-
         return self._build_mce(
             platform=platform,
             dataset_name=dataset_name,

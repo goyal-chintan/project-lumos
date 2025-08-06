@@ -22,8 +22,8 @@ class CSVIngestionHandler(BaseIngestionHandler):
         or from the configuration.
         """
         if self.source_config.get("infer_schema", True):
-            logger.info(f"Inferring schema from CSV: {self.source_config['path']}")
-            file_path = self.source_config["path"]
+            logger.info(f"Inferring schema from CSV: {self.source_config['source_path']}")
+            file_path = self.source_config["source_path"]
             try:
                 df = pd.read_csv(
                     file_path, delimiter=self.source_config.get("delimiter", ",")
