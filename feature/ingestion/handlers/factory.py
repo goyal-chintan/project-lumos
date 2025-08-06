@@ -1,12 +1,10 @@
 # feature/ingestion/handlers/factory.py
-
 from typing import Dict, Any
 from .base_ingestion_handler import BaseIngestionHandler
 from .csv import CSVIngestionHandler
 from .mongo import MongoIngestionHandler
 from .avro import AvroIngestionHandler
 from . import constants
-
 class HandlerFactory:
     """
     Factory to create the appropriate ingestion handler based on configuration.
@@ -16,7 +14,6 @@ class HandlerFactory:
         constants.HANDLER_TYPE_MONGO: MongoIngestionHandler,
         constants.HANDLER_TYPE_AVRO: AvroIngestionHandler,
     }
-
     @staticmethod
     def get_handler(config: Dict[str, Any]) -> BaseIngestionHandler:
         """
@@ -25,9 +22,7 @@ class HandlerFactory:
         source_type = config.get("source", {}).get("type")
         if not source_type:
             raise ValueError("Source 'type' not specified in configuration.")
-
         handler_class = HandlerFactory._handler_registry.get(source_type.lower())
         if not handler_class:
             raise NotImplementedError(f"No handler found for source type: {source_type}")
-
         return handler_class(config)
