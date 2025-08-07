@@ -65,23 +65,84 @@ class AvroIngestionHandler(BaseIngestionHandler):
         }
 
         for field in avro_schema.get("fields", []):
-            dtype = field["type"]
-            if isinstance(dtype, list):  # Handle nullable fields like ["null", "string"]
-                dtype = next((t for t in dtype if t != "null"), "string")
-
+            field_name = field["name"]
+            field_type = field["type"]
+            
+            # Extract the actual type and determine if it's nullable
+            dtype, is_nullable = self._extract_field_type(field_type)
+            
+            # Get the appropriate DataHub type
+            datahub_type = type_mapping.get(dtype, StringTypeClass())
+            
             schema_fields.append(
                 SchemaFieldClass(
-                    fieldPath=field["name"],
-                    nativeDataType=str(field["type"]),
-                    type=SchemaFieldDataTypeClass(
-                        type=type_mapping.get(dtype, StringTypeClass())
-                    ),
-                    nullable=False,
+                    fieldPath=field_name,
+                    nativeDataType=str(field_type),
+                    type=SchemaFieldDataTypeClass(type=datahub_type),
+                    nullable=is_nullable,
                     recursive=False,
                     isPartOfKey=False,
                 )
             )
         return schema_fields
+    
+    def _extract_field_type(self, field_type):
+        """
+        Extracts the actual field type and nullability from Avro field type definition.
+        Handles simple types, union types, and complex types.
+        """
+        is_nullable = False
+        
+        if isinstance(field_type, str):
+            # Simple type like "string", "int"
+            return field_type, False
+            
+        elif isinstance(field_type, list):
+            # Union type like ["null", "string"] or ["string", "null"]
+            non_null_types = [t for t in field_type if t != "null"]
+            if "null" in field_type:
+                is_nullable = True
+            
+            if non_null_types:
+                # Take the first non-null type
+                actual_type = non_null_types[0]
+                if isinstance(actual_type, str):
+                    return actual_type, is_nullable
+                else:
+                    # Complex type in union
+                    return self._get_type_from_complex(actual_type), is_nullable
+            else:
+                return "string", True  # Default fallback
+                
+        elif isinstance(field_type, dict):
+            # Complex type like {"type": "record", ...} or {"type": "array", ...}
+            return self._get_type_from_complex(field_type), is_nullable
+            
+        else:
+            # Unknown type, fallback to string
+            logger.warning(f"Unknown Avro field type: {field_type}, defaulting to string")
+            return "string", False
+    
+    def _get_type_from_complex(self, type_def):
+        """
+        Extracts type from complex Avro type definitions.
+        """
+        if isinstance(type_def, dict):
+            avro_type = type_def.get("type", "unknown")
+            
+            if avro_type in ["record", "enum"]:
+                return "string"  # Treat complex records/enums as strings in DataHub
+            elif avro_type == "array":
+                return "string"  # Treat arrays as strings (could be enhanced to show array type)
+            elif avro_type == "map":
+                return "string"  # Treat maps as strings
+            elif avro_type in ["string", "int", "long", "float", "double", "boolean"]:
+                return avro_type
+            else:
+                logger.warning(f"Unknown complex Avro type: {avro_type}, defaulting to string")
+                return "string"
+        else:
+            return "string"
 
     def _get_raw_schema(self) -> str:
         """Returns the full Avro schema as a JSON string."""
