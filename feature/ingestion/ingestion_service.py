@@ -190,8 +190,18 @@ class IngestionService:
                 logger.info(f"Successfully processed {processed_files} {source_type} files from directory: {source_path_str}")
         else:
             logger.info("Single file source configuration detected.")
+            # For single file, extract dataset name from file path
+            if source_path_str:
+                filename = os.path.basename(source_path_str)
+                dataset_name = os.path.splitext(filename)[0]
+                config["source"]["dataset_name"] = dataset_name
+                config["source"]["path"] = source_path_str
+                logger.info(f"Processing single file: {filename}")
+            
             handler = HandlerFactory.get_handler(config)
             mce = handler.ingest()
             if mce:
                 self.platform_handler.emit_mce(mce)
                 logger.info("Successfully ingested single source")
+            else:
+                logger.warning("No MCE generated for single source")
