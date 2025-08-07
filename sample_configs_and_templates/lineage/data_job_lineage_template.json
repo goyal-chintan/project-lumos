@@ -14,10 +14,10 @@
         "data_source": "Salesforce"
       },
         "inputs": [
-          { "data_type": "csv", "dataset": "demo_dataset1" }
+          { "data_type": "csv", "dataset": "olist_geolocation_dataset" }
         ],
         "outputs": [
-          { "data_type": "csv", "dataset": "demo_dataset2" }
+          { "data_type": "csv", "dataset": "olist_order_items_dataset" }
         ]
       }
     }
