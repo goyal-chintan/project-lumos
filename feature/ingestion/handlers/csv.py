@@ -22,14 +22,19 @@ class CSVIngestionHandler(BaseIngestionHandler):
         or from the configuration.
         """
         if self.source_config.get("infer_schema", True):
-            logger.info(f"Inferring schema from CSV: {self.source_config['source_path']}")
-            file_path = self.source_config["source_path"]
+            file_path = self.source_config.get("source_path") or self.source_config.get("path")
+            if not file_path:
+                raise ValueError("No file path specified in source configuration")
+                
+            logger.info(f"Inferring schema from CSV: {file_path}")
             try:
-                df = pd.read_csv(
-                    file_path, delimiter=self.source_config.get("delimiter", ",")
-                )
+                delimiter = self.source_config.get("delimiter", ",")
+                df = pd.read_csv(file_path, delimiter=delimiter)
             except FileNotFoundError:
                 logger.error(f"CSV file not found at {file_path}")
+                raise
+            except Exception as e:
+                logger.error(f"Failed to read CSV file {file_path}: {e}")
                 raise
 
             type_mapping = {"int64": NumberTypeClass(), "float64": NumberTypeClass()}
@@ -41,6 +46,9 @@ class CSVIngestionHandler(BaseIngestionHandler):
                     type=SchemaFieldDataTypeClass(
                         type=type_mapping.get(str(dtype), StringTypeClass())
                     ),
+                    nullable=False,
+                    recursive=False,
+                    isPartOfKey=False,
                 )
                 schema_fields.append(field)
             return schema_fields

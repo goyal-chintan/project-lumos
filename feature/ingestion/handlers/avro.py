@@ -1,6 +1,6 @@
 import json
 import logging
-from typing import List
+from typing import List, Dict, Any
 
 from fastavro import reader
 from .base_ingestion_handler import BaseIngestionHandler
@@ -22,8 +22,8 @@ class AvroIngestionHandler(BaseIngestionHandler):
     The 'infer_schema' flag is ignored for this handler.
     """
 
-    def __init__(self, config, platform_handler):
-        super().__init__(config, platform_handler)
+    def __init__(self, config: Dict[str, Any]):
+        super().__init__(config)
         self.avro_schema = None  # Cache the schema to avoid re-reading the file
 
     def _get_avro_schema(self):
@@ -31,11 +31,22 @@ class AvroIngestionHandler(BaseIngestionHandler):
         if self.avro_schema:
             return self.avro_schema
 
-        file_path = self.source_config["path"]
+        file_path = self.source_config.get("source_path") or self.source_config.get("path")
+        if not file_path:
+            raise ValueError("No file path specified in source configuration")
+            
         logger.info(f"Reading Avro schema from {file_path}")
-        with open(file_path, "rb") as fo:
-            avro_reader = reader(fo)
-            self.avro_schema = avro_reader.writer_schema
+        try:
+            with open(file_path, "rb") as fo:
+                avro_reader = reader(fo)
+                self.avro_schema = avro_reader.writer_schema
+        except FileNotFoundError:
+            logger.error(f"Avro file not found at {file_path}")
+            raise
+        except Exception as e:
+            logger.error(f"Failed to read Avro schema from {file_path}: {e}")
+            raise
+            
         return self.avro_schema
 
     def _get_schema_fields(self) -> List[SchemaFieldClass]:
@@ -65,6 +76,9 @@ class AvroIngestionHandler(BaseIngestionHandler):
                     type=SchemaFieldDataTypeClass(
                         type=type_mapping.get(dtype, StringTypeClass())
                     ),
+                    nullable=False,
+                    recursive=False,
+                    isPartOfKey=False,
                 )
             )
         return schema_fields

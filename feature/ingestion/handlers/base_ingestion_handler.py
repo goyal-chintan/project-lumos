@@ -15,7 +15,9 @@ from datahub.metadata.schema_classes import (
     BooleanTypeClass,
     TimeTypeClass,
     SchemaFieldDataTypeClass,
+    AuditStampClass,
 )
+from datahub.emitter.mcp import MetadataChangeProposalWrapper
 logger = logging.getLogger(__name__)
 class BaseIngestionHandler(ABC):
     """
@@ -55,6 +57,9 @@ class BaseIngestionHandler(ABC):
                 type=SchemaFieldDataTypeClass(
                     type=type_mapping.get(field_type.lower(), StringTypeClass())
                 ),
+                nullable=False,
+                recursive=False,
+                isPartOfKey=False,
             )
             schema_fields.append(field)
         return schema_fields
@@ -85,19 +90,41 @@ class BaseIngestionHandler(ABC):
         It no longer emits the MCE, but returns it.
         """
         try:
+            # Use a fixed reasonable timestamp that works with DataHub (January 2024)
+            # This avoids system clock issues that could generate invalid timestamps
+            import time
+            current_time = int(time.time() * 1000)
+            # Fallback to a known good timestamp if system time is unreasonable
+            if current_time > 1750000000000:  # If timestamp is beyond reasonable future
+                current_time = 1704067200000  # January 1, 2024 UTC
+            
+            audit_stamp = AuditStampClass(
+                time=current_time,
+                actor="urn:li:corpuser:datahub"
+            )
+            
             dataset_urn = make_dataset_urn(platform, dataset_name, env)
+            
             schema_metadata = SchemaMetadataClass(
                 schemaName=dataset_name,
                 platform=f"urn:li:dataPlatform:{platform}",
-                version=0, hash="",
+                version=0,
+                hash="",
+                created=audit_stamp,
+                lastModified=audit_stamp,
                 platformSchema=OtherSchemaClass(rawSchema=raw_schema),
                 fields=schema_fields,
             )
+            
             dataset_properties_aspect = DatasetPropertiesClass(**dataset_properties)
+            
             snapshot = DatasetSnapshotClass(
-                urn=dataset_urn, aspects=[schema_metadata, dataset_properties_aspect]
+                urn=dataset_urn, 
+                aspects=[schema_metadata, dataset_properties_aspect]
             )
+            
             return MetadataChangeEventClass(proposedSnapshot=snapshot)
+            
         except Exception as e:
             logger.error(f"Failed to build MCE for {dataset_name}: {e}", exc_info=True)
             return None
