@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "total_datasets": 51,
+    "fetched_at": "2025-08-21T12:15:58.402463",
+    "datahub_url": "http://localhost:8080"
+  },
+  "datasets": [
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,location_master_dimension,DEV)",
+      "name": "location_master_dimension",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:hive,SampleHiveDataset,PROD)",
+      "name": "SampleHiveDataset",
+      "platform": "hive",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,location_coverage_alarm_status,DEV)",
+      "name": "location_coverage_alarm_status",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:hdfs,SampleHdfsDataset,PROD)",
+      "name": "SampleHdfsDataset",
+      "platform": "hdfs",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:hive,fct_users_created,PROD)",
+      "name": "fct_users_created",
+      "platform": "hive",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:hive,fct_users_deleted,PROD)",
+      "name": "fct_users_deleted",
+      "platform": "hive",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:hive,logging_events,PROD)",
+      "name": "logging_events",
+      "platform": "hive",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:kafka,SampleKafkaDataset,PROD)",
+      "name": "SampleKafkaDataset",
+      "platform": "kafka",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,project/root/events/logging_events_bckp,PROD)",
+      "name": "project/root/events/logging_events_bckp",
+      "platform": "s3",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,olist_customers_dataset,DEV)",
+      "name": "olist_customers_dataset",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,device_access_control,PROD)",
+      "name": "device_access_control",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,device_homepass,PROD)",
+      "name": "device_homepass",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,device_security_websites,PROD)",
+      "name": "device_security_websites",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,device_type,PROD)",
+      "name": "device_type",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,device_type_master,PROD)",
+      "name": "device_type_master",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,device_type_sp,PROD)",
+      "name": "device_type_sp",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,group_master_dimension,PROD)",
+      "name": "group_master_dimension",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,lan_stats_dy,PROD)",
+      "name": "lan_stats_dy",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,location_capability,PROD)",
+      "name": "location_capability",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,location_coverage_alarm_status,PROD)",
+      "name": "location_coverage_alarm_status",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,location_coverage_alarm_weekly,PROD)",
+      "name": "location_coverage_alarm_weekly",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,location_master_dimension,PROD)",
+      "name": "location_master_dimension",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,neighbour_report_daily,PROD)",
+      "name": "neighbour_report_daily",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,node_master_dimension,PROD)",
+      "name": "node_master_dimension",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,node_peer_metrics_fact,PROD)",
+      "name": "node_peer_metrics_fact",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,node_utilization_metrics,DEV)",
+      "name": "node_utilization_metrics",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,node_utilization_metrics_dy,DEV)",
+      "name": "node_utilization_metrics_dy",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,qoe_metrics,DEV)",
+      "name": "qoe_metrics",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,qoe_metrics_dy,DEV)",
+      "name": "qoe_metrics_dy",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:avro,steer_summary_dy,DEV)",
+      "name": "steer_summary_dy",
+      "platform": "avro",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,catalog-tasks,DEV)",
+      "name": "catalog-tasks",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,connect alers,DEV)",
+      "name": "connect alers",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,connect_alerts,DEV)",
+      "name": "connect_alerts",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,group_master_dimension,DEV)",
+      "name": "group_master_dimension",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,license_count_daily_summary,DEV)",
+      "name": "license_count_daily_summary",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,location_capabilities,DEV)",
+      "name": "location_capabilities",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,location_metrics_fact,DEV)",
+      "name": "location_metrics_fact",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,node_coverage_alarm_status,DEV)",
+      "name": "node_coverage_alarm_status",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,node_master_dimension,DEV)",
+      "name": "node_master_dimension",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,node_speed_test_face,DEV)",
+      "name": "node_speed_test_face",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,node_speed_test_fact,DEV)",
+      "name": "node_speed_test_fact",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,node_utilization_metrics,DEV)",
+      "name": "node_utilization_metrics",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,olist_geolocation_dataset,DEV)",
+      "name": "olist_geolocation_dataset",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,olist_order_items_dataset,DEV)",
+      "name": "olist_order_items_dataset",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,olist_order_payments_dataset,DEV)",
+      "name": "olist_order_payments_dataset",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,olist_order_reviews_dataset,DEV)",
+      "name": "olist_order_reviews_dataset",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,olist_orders_dataset,DEV)",
+      "name": "olist_orders_dataset",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,olist_products_dataset,DEV)",
+      "name": "olist_products_dataset",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,olist_sellers_dataset,DEV)",
+      "name": "olist_sellers_dataset",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,product_category_name_translation,DEV)",
+      "name": "product_category_name_translation",
+      "platform": "csv",
+      "description": ""
+    },
+    {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:csv,qoe_metrics,DEV)",
+      "name": "qoe_metrics",
+      "platform": "csv",
+      "description": ""
+    }
+  ]
+}
