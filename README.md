@@ -312,4 +312,8 @@ For issues and questions:
 
 ---
 
+<<<<<<< HEAD
 **Built for Enterprise Data Teams** 🏢
+=======
+**Built for Enterprise Data Teams** 🏢
+>>>>>>> ab3e3ee93d8e54a01437e3fa61a9ffdcd682caa2
