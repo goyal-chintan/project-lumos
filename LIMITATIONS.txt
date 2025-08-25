@@ -1,0 +1,5 @@
+now working through script:
+    user assignment to groups is not working
+    new ownership type cannot be created
+    user assignment to role is not working
+    
