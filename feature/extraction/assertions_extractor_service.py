@@ -1,12 +1,3 @@
-#!/usr/bin/env python3
-"""
-Assertions Extraction Service
-============================
-
-Specialized service for extracting data quality assertions from DataHub.
-Focuses on data quality rules, validation checks, and assertion results.
-"""
-
 import json
 import logging
 from typing import Dict, List, Any

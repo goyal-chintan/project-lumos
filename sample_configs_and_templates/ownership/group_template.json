@@ -1,0 +1,39 @@
+{
+  "operation": "create_groups",
+  "description": "Create groups in DataHub",
+  "groups": [
+    {
+      "name": "data-platform",
+      "display_name": "Data Platform Team",
+      "description": "Team responsible for building and maintaining data infrastructure, pipelines, and platforms.",
+      "email": "data-platform@company.com",
+      "slack_channel": "#data-platform",
+      "picture_link": "https://avatars.company.com/data-platform.jpg",
+      "members": ["john.doe", "jane.smith"],
+      "admins": ["jane.smith"],
+      "parent_groups": ["engineering"]
+    },
+    {
+      "name": "analytics",
+      "display_name": "Analytics Team",
+      "description": "Team focused on data analysis, reporting, and business intelligence.",
+      "email": "analytics@company.com",
+      "slack_channel": "#analytics",
+      "picture_link": "https://avatars.company.com/analytics.jpg",
+      "members": ["john.doe"],
+      "admins": ["jane.smith"],
+      "parent_groups": ["data"]
+    },
+    {
+      "name": "engineering",
+      "display_name": "Engineering Division",
+      "description": "Top-level engineering organization.",
+      "email": "engineering@company.com",
+      "slack_channel": "#engineering",
+      "picture_link": "https://avatars.company.com/engineering.jpg",
+      "members": [],
+      "admins": ["jane.smith"],
+      "parent_groups": []
+    }
+  ]
+}
