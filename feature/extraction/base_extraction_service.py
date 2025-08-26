@@ -1,13 +1,3 @@
-#!/usr/bin/env python3
-"""
-Base Extraction Service Interface
-===============================
-
-Defines the interface for all extraction services in the framework.
-Extraction services are responsible for pulling comprehensive metadata
-from DataHub and other data platforms.
-"""
-
 from abc import ABC, abstractmethod
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass

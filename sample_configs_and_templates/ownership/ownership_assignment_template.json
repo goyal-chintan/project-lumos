@@ -1,0 +1,46 @@
+{
+  "operation": "assign_ownership",
+  "description": "Assign ownership to datasets",
+  "assignments": [
+    {
+      "owner_name": "john.doe",
+      "owner_category": "user",
+      "ownership_type": "TECHNICAL_OWNER",
+      "entity": {
+        "datatype": "csv",
+        "dataset_name": "user_behavior_data",
+        "env": "PROD"
+      }
+    },
+    {
+      "owner_name": "data-platform",
+      "owner_category": "group",
+      "ownership_type": "DATA_STEWARD",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "transaction_events",
+        "env": "PROD"
+      }
+    },
+    {
+      "owner_name": "jane.smith",
+      "owner_category": "user",
+      "ownership_type": "BUSINESS_OWNER",
+      "entity": {
+        "datatype": "parquet",
+        "dataset_name": "customer_demographics",
+        "env": "PROD"
+      }
+    },
+    {
+      "owner_name": "analytics",
+      "owner_category": "group",
+      "ownership_type": "CONSUMER",
+      "entity": {
+        "datatype": "json",
+        "dataset_name": "web_analytics_events",
+        "env": "STAGING"
+      }
+    }
+  ]
+}
