@@ -1,0 +1,49 @@
+{
+  "operation": "create_users",
+  "description": "Create users in DataHub",
+  "users": [
+    {
+      "username": "john.doe",
+      "display_name": "John Doe",
+      "first_name": "John",
+      "last_name": "Doe",
+      "full_name": "John Doe",
+      "email": "john.doe@company.com",
+      "title": "Senior Data Engineer",
+      "department_name": "Data Platform",
+      "department_id": "101",
+      "about_me": "Passionate about building scalable data platforms and enabling data-driven decisions.",
+      "teams": ["data-platform", "analytics"],
+      "skills": ["Python", "SQL", "Apache Spark", "Kafka", "DataHub"],
+      "picture_link": "https://avatars.company.com/john.doe.jpg",
+      "manager_urn": "urn:li:corpuser:jane.smith",
+      "country_code": "US",
+      "system": false,
+      "custom_properties": {
+        "employee_id": "EMP001",
+        "location": "San Francisco"
+      }
+    },
+    {
+      "username": "jane.smith",
+      "display_name": "Jane Smith",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "full_name": "Jane Smith",
+      "email": "jane.smith@company.com",
+      "title": "Data Platform Manager",
+      "department_name": "Data Platform",
+      "department_id": "101",
+      "about_me": "Leading the data platform team to deliver reliable and scalable data solutions.",
+      "teams": ["data-platform", "leadership"],
+      "skills": ["Leadership", "Data Strategy", "Python", "SQL"],
+      "picture_link": "https://avatars.company.com/jane.smith.jpg",
+      "country_code": "US",
+      "system": false,
+      "custom_properties": {
+        "employee_id": "EMP002",
+        "location": "San Francisco"
+      }
+    }
+  ]
+}
