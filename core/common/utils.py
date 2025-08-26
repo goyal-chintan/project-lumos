@@ -58,3 +58,16 @@ def get_platform_config(platform: str, config_path: str) -> Dict[str, Any]:
         logger.error(f"Error loading config for platform {platform}: {str(e)}")
         return {}
 
+def load_json_file(file_path: str, entity_type: str) -> Optional[List[Dict]]:
+    """Load data from JSON file."""
+    try:
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+            return data
+    except FileNotFoundError:
+        logger.warning(f"⚠️  {entity_type.title()} file '{file_path}' not found, skipping...")
+        return []
+    except json.JSONDecodeError as e:
+        logger.error(f"❌ Invalid JSON in '{file_path}': {e}")
+        return None
+

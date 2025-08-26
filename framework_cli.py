@@ -1,7 +1,7 @@
 # framework_cli.py
 import argparse
 import logging
-from core.controllers import ingestion_controller, lineage_controller, data_job_lineage_controller, enrichment_controller, version_controller
+from core.controllers import ingestion_controller, lineage_controller, data_job_lineage_controller, enrichment_controller, version_controller, ownership_controller
 from feature.extraction.extraction_factory import ExtractionFactory
 from feature.extraction.export.excel_exporter import ExcelExporter
 from feature.extraction.export.csv_exporter import CSVExporter
@@ -26,6 +26,11 @@ def main():
 
 🏷️ ENRICHMENT OPERATIONS:
   enrich:config.json                   Enrich datasets with tags, descriptions, properties, documentation
+
+👤 OWNERSHIP OPERATIONS:
+  create-users:config.json             Create users in DataHub
+  create-groups:config.json            Create groups in DataHub  
+  assign-ownership:config.json         Assign ownership to datasets
 
 📈 VERSIONING OPERATIONS:
   version-update                       Update cloud and schema versions for ALL datasets (S-311→S-312, 1.0.0→2.0.0)
@@ -105,6 +110,15 @@ def main():
                 
             elif operation.lower() == "enrich":
                 enrichment_controller.run_enrichment(config_path)
+                
+            elif operation.lower() == "create-users":
+                ownership_controller.run_create_users(config_path)
+                
+            elif operation.lower() == "create-groups":
+                ownership_controller.run_create_groups(config_path)
+                
+            elif operation.lower() == "assign-ownership":
+                ownership_controller.run_assign_ownership(config_path)
                 
             elif operation.lower() == "version-update":
                 # Update versions for all datasets in DataHub
