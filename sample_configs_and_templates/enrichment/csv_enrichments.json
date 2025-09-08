@@ -30,7 +30,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "The table is stored in S3 as Parquet files and is updated every 15 minutes. It is part of the Plume Data Warehouse schema and is used for analytics and monitoring of Wi-Fi network health and performance."
           }
         },
@@ -80,7 +79,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/13349325729",
             "description": "Used as a source for summary and chronic alarm analytics. The table is stored as Parquet files in S3 and is updated daily."
           }
         },
@@ -124,7 +122,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Plume Data Warehouse Schema documentation for group master dimension table."
           }
         },
@@ -164,7 +161,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Spark Data Pipeline Table Schemas documentation for HomePass device analytics."
           }
         },
@@ -203,7 +199,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/13349421061/Master+Dimension+Tables",
             "description": "Master Dimension Tables documentation for location master dimension."
           }
         },
@@ -243,7 +238,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/DST/pages/14250639499/Pod+Recommendation+Tables",
             "description": "Pod Recommendation Tables documentation for daily QoE metrics."
           }
         },
@@ -282,7 +276,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Spark Data Pipeline Table Schemas documentation for device type special processing."
           }
         },
@@ -321,7 +314,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Spark Data Pipeline Table Schemas documentation for daily LAN statistics."
           }
         },
@@ -361,7 +353,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Spark Data Pipeline Table Schemas documentation for device access control."
           }
         },
@@ -400,7 +391,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/13349421061/Master+Dimension+Tables",
             "description": "Master Dimension Tables documentation for node inventory management."
           }
         },
@@ -439,7 +429,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Plume Data Warehouse Schema documentation for peer-to-peer node metrics."
           }
         },
@@ -477,7 +466,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://confluence.plume.tech/pages/viewpage.action?pageId=33521684",
             "description": "Device Type Master Table documentation for device classification and typing."
           }
         },
@@ -516,7 +504,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/13349325729",
             "description": "Coverage Alarms: Location/Pod/Client Device documentation for weekly alarm aggregation."
           }
         },
@@ -556,7 +543,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Spark Data Pipeline Table Schemas documentation for daily steering summary."
           }
         },
@@ -595,7 +581,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Plume Data Warehouse Schema documentation for location capability tracking."
           }
         },
@@ -633,7 +618,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Spark Data Pipeline Table Schemas documentation for device type information."
           }
         },
@@ -672,7 +656,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://docs.google.com/document/d/15804fD5GtdAbmZRheAfYKgwMdgH2778MRvVV9TAltA8/edit",
             "description": "QoE Metrics Documentation for 15-minute aggregated quality metrics."
           }
         },
@@ -712,7 +695,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Plume Data Warehouse Schema documentation for neighbor network reporting."
           }
         },
@@ -752,7 +734,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Spark Data Pipeline Table Schemas documentation for device security and website access monitoring."
           }
         },
@@ -791,7 +772,6 @@
         {
           "enrichment_type": "documentation",
           "config": {
-            "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
             "description": "Plume Data Warehouse Schema documentation for daily node utilization metrics."
           }
         },
