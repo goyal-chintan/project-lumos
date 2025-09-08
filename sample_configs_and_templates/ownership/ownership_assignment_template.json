@@ -3,43 +3,203 @@
   "description": "Assign ownership to datasets",
   "assignments": [
     {
-      "owner_name": "john.doe",
+      "owner_name": "neville.longbottom",
       "owner_category": "user",
       "ownership_type": "TECHNICAL_OWNER",
       "entity": {
-        "datatype": "csv",
-        "dataset_name": "user_behavior_data",
-        "env": "PROD"
+        "datatype": "avro",
+        "dataset_name": "device_access_control",
+        "env": "DEV"
       }
     },
     {
-      "owner_name": "data-platform",
+      "owner_name": "mobile-dev",
+      "owner_category": "group",
+      "ownership_type": "CONSUMER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "device_homepass",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "harry.potter",
+      "owner_category": "user",
+      "ownership_type": "TECHNICAL_OWNER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "device_security_websites",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "data-engineering",
       "owner_category": "group",
       "ownership_type": "DATA_STEWARD",
       "entity": {
         "datatype": "avro",
-        "dataset_name": "transaction_events",
-        "env": "PROD"
+        "dataset_name": "device_type_master",
+        "env": "DEV"
       }
     },
     {
-      "owner_name": "jane.smith",
-      "owner_category": "user",
-      "ownership_type": "BUSINESS_OWNER",
+      "owner_name": "data-engineering",
+      "owner_category": "group",
+      "ownership_type": "DATA_STEWARD",
       "entity": {
-        "datatype": "parquet",
-        "dataset_name": "customer_demographics",
-        "env": "PROD"
+        "datatype": "avro",
+        "dataset_name": "device_type_sp",
+        "env": "DEV"
       }
     },
     {
-      "owner_name": "analytics",
+      "owner_name": "data-engineering",
+      "owner_category": "group",
+      "ownership_type": "DATA_STEWARD",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "device_type",
+        "env": "DEV"
+      }
+    },
+     {
+      "owner_name": "neville.longbottom",
+      "owner_category": "user",
+      "ownership_type": "TECHNICAL_OWNER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "group_master_dimension",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "ai-bulldog",
       "owner_category": "group",
       "ownership_type": "CONSUMER",
       "entity": {
-        "datatype": "json",
-        "dataset_name": "web_analytics_events",
-        "env": "STAGING"
+        "datatype": "avro",
+        "dataset_name": "lan_stats_dy",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "ron.weasley",
+      "owner_category": "user",
+      "ownership_type": "TECHNICAL_OWNER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "location_capability",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "ginny.weasley",
+      "owner_category": "user",
+      "ownership_type": "BUSINESS_OWNER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "location_coverage_alarm_status",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "mobile-dev",
+      "owner_category": "group",
+      "ownership_type": "CONSUMER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "location_coverage_alarm_weekly",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "data-engineering",
+      "owner_category": "group",
+      "ownership_type": "DATA_STEWARD",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "location_master_dimension",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "hermione.granger",
+      "owner_category": "user",
+      "ownership_type": "BUSINESS_OWNER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "neighbour_report_daily",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "data-engineering",
+      "owner_category": "group",
+      "ownership_type": "DATA_STEWARD",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "node_master_dimension",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "ai-bulldog",
+      "owner_category": "group",
+      "ownership_type": "CONSUMER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "node_peer_metrics_fact",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "harry.potter",
+      "owner_category": "user",
+      "ownership_type": "TECHNICAL_OWNER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "node_utilization_metrics_dy",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "ai-bulldog",
+      "owner_category": "group",
+      "ownership_type": "CONSUMER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "node_utilization_metrics",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "hermione.granger",
+      "owner_category": "user",
+      "ownership_type": "BUSINESS_OWNER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "qoe_metrics_dy",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "ai-bulldog",
+      "owner_category": "group",
+      "ownership_type": "CONSUMER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "qoe_metrics",
+        "env": "DEV"
+      }
+    },
+    {
+      "owner_name": "mobile-dev",
+      "owner_category": "group",
+      "ownership_type": "CONSUMER",
+      "entity": {
+        "datatype": "avro",
+        "dataset_name": "steer_summary_dy",
+        "env": "DEV"
       }
     }
   ]

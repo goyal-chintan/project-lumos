@@ -1,5 +1,5 @@
 {
-  "data_type": "csv",
+  "data_type": "avro",
   "dataset_name": "olist_customers_dataset",
   "enrichments": [
     {
