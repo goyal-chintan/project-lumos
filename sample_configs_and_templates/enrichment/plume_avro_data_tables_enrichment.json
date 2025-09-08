@@ -1,720 +1,811 @@
 {
-    "datasets": [
-      {
-        "data_type": "avro",
-        "dataset_name": "node_utilization_metrics",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "The node_utilization_metrics table captures channel-wise utilization and interference information from Access Points (APs) every 15 minutes. It provides channel utilization data on a per-AP, per-channel basis, combining measurement data from both on-channel and off-channel survey reports. This is useful for understanding Wi-Fi channel congestion and interference at a granular level."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Wi-Fi Channel Utilization", "Interference Analysis", "Access Point Monitoring", "Mesh Network Analytics", "Plume Data Warehouse", "Parquet Format", "15-minute Aggregation", "S3 Data Lake", "Adaptive Wi-Fi", "Network Health Metrics"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "The table is stored in S3 as Parquet files and is updated every 15 minutes. It is part of the Plume Data Warehouse schema and is used for analytics and monitoring of Wi-Fi network health and performance."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "update_frequency": "15 minutes",
-                "storage_format": "Parquet",
-                "storage_location": "S3",
-                "partitioning": "time, location, node, channel",
-                "data_source": "Access Points (APs)",
-                "measurement_type": "on-channel and off-channel survey reports"
-              }
+  "datasets": [
+    {
+      "data_type": "avro",
+      "dataset_name": "node_utilization_metrics",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "The node_utilization_metrics table captures channel-wise utilization and interference information from Access Points (APs) every 15 minutes. It provides channel utilization data on a per-AP, per-channel basis, combining measurement data from both on-channel and off-channel survey reports. This is useful for understanding Wi-Fi channel congestion and interference at a granular level."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Wi-Fi Channel Utilization",
+              "Interference Analysis",
+              "Access Point Monitoring",
+              "Mesh Network Analytics",
+              "Plume Data Warehouse",
+              "Parquet Format",
+              "15-minute Aggregation",
+              "S3 Data Lake",
+              "Adaptive Wi-Fi",
+              "Network Health Metrics"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "The table is stored in S3 as Parquet files and is updated every 15 minutes. It is part of the Plume Data Warehouse schema and is used for analytics and monitoring of Wi-Fi network health and performance."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "update_frequency": "15 minutes",
+              "storage_format": "Parquet",
+              "storage_location": "S3",
+              "partitioning": "time, location, node, channel",
+              "data_source": "Access Points (APs)",
+              "measurement_type": "on-channel and off-channel survey reports"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "location_coverage_alarm_status",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "The location_coverage_alarm_status table provides daily, per-location information on Wi-Fi coverage alarms. It indicates whether a location was in a pod coverage alarm (issues with Plume Pods) or a client device coverage alarm (issues with client devices) by aggregating the alarm status of all pods and client devices at that location for each day."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Wi-Fi Coverage Alarms", "Pod Coverage Analysis", "Client Device Coverage Analysis", "Location Health Monitoring", "Mesh Network Analytics", "Plume Data Warehouse", "Parquet Format", "Daily Aggregation", "S3 Data Lake", "Network Quality Metrics", "Adaptive Wi-Fi", "Customer Experience Analytics"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/13349325729",
-              "description": "Used as a source for summary and chronic alarm analytics. The table is stored as Parquet files in S3 and is updated daily."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "update_frequency": "daily",
-                "storage_format": "Parquet",
-                "storage_location": "S3",
-                "partitioning": "date, location",
-                "aggregation_level": "location",
-                "alarm_types": "pod coverage, client device coverage"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "location_coverage_alarm_status",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "The location_coverage_alarm_status table provides daily, per-location information on Wi-Fi coverage alarms. It indicates whether a location was in a pod coverage alarm (issues with Plume Pods) or a client device coverage alarm (issues with client devices) by aggregating the alarm status of all pods and client devices at that location for each day."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Wi-Fi Coverage Alarms",
+              "Pod Coverage Analysis",
+              "Client Device Coverage Analysis",
+              "Location Health Monitoring",
+              "Mesh Network Analytics",
+              "Plume Data Warehouse",
+              "Parquet Format",
+              "Daily Aggregation",
+              "S3 Data Lake",
+              "Network Quality Metrics",
+              "Adaptive Wi-Fi",
+              "Customer Experience Analytics"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Used as a source for summary and chronic alarm analytics. The table is stored as Parquet files in S3 and is updated daily."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "update_frequency": "daily",
+              "storage_format": "Parquet",
+              "storage_location": "S3",
+              "partitioning": "date, location",
+              "aggregation_level": "location",
+              "alarm_types": "pod coverage, client device coverage"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "group_master_dimension",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Maps customers to groups (e.g., BetaTest, AB Test) for segmentation and analytics. Updated hourly, snapshot of current group assignments."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Customer segmentation", "group tagging", "analytics", "master dimension", "S3 Avro", "hourly snapshot"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Plume Data Warehouse Schema documentation for group master dimension table."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "update_frequency": "hourly",
-                "table_type": "master dimension",
-                "key_fields": "customer_id, group_id, name",
-                "purpose": "customer segmentation and AB testing"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "group_master_dimension",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Maps customers to groups (e.g., BetaTest, AB Test) for segmentation and analytics. Updated hourly, snapshot of current group assignments."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Customer segmentation",
+              "group tagging",
+              "analytics",
+              "master dimension",
+              "S3 Avro",
+              "hourly snapshot"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Plume Data Warehouse Schema documentation for group master dimension table."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "update_frequency": "hourly",
+              "table_type": "master dimension",
+              "key_fields": "customer_id, group_id, name",
+              "purpose": "customer segmentation and AB testing"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "device_homepass",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Tracks device-level analytics for HomePass environments, including device access, enablement, and key management."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Device analytics", "HomePass", "access control", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Spark Data Pipeline Table Schemas documentation for HomePass device analytics."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "environment": "HomePass",
-                "key_fields": "Device MAC, access zone, enablement status, timestamps",
-                "analytics_type": "device-level"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "device_homepass",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Tracks device-level analytics for HomePass environments, including device access, enablement, and key management."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Device analytics",
+              "HomePass",
+              "access control",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Spark Data Pipeline Table Schemas documentation for HomePass device analytics."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "environment": "HomePass",
+              "key_fields": "Device MAC, access zone, enablement status, timestamps",
+              "analytics_type": "device-level"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "location_master_dimension",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Master list of all locations with metadata (customer, account, ISP, geo, service, etc.). Updated hourly, no time-series."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Location metadata", "master dimension", "S3 Avro", "hourly snapshot"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/13349421061/Master+Dimension+Tables",
-              "description": "Master Dimension Tables documentation for location master dimension."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "update_frequency": "hourly",
-                "table_type": "master dimension",
-                "key_fields": "location_id, customer_id, account_id, service and geo info, number of nodes",
-                "time_series": "false"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "location_master_dimension",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Master list of all locations with metadata (customer, account, ISP, geo, service, etc.). Updated hourly, no time-series."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Location metadata",
+              "master dimension",
+              "S3 Avro",
+              "hourly snapshot"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Master Dimension Tables documentation for location master dimension."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "update_frequency": "hourly",
+              "table_type": "master dimension",
+              "key_fields": "location_id, customer_id, account_id, service and geo info, number of nodes",
+              "time_series": "false"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "qoe_metrics_dy",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Daily aggregated Quality of Experience (QoE) metrics for locations, nodes, and devices."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["QoE", "Wi-Fi analytics", "daily aggregation", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/DST/pages/14250639499/Pod+Recommendation+Tables",
-              "description": "Pod Recommendation Tables documentation for daily QoE metrics."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "aggregation_level": "daily",
-                "metrics_type": "Quality of Experience (QoE)",
-                "key_fields": "Location, device/node IDs, frequency band, bytes transferred, RSSI percentiles, alarm counts",
-                "granularity": "location, node, device"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "qoe_metrics_dy",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Daily aggregated Quality of Experience (QoE) metrics for locations, nodes, and devices."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "QoE",
+              "Wi-Fi analytics",
+              "daily aggregation",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Pod Recommendation Tables documentation for daily QoE metrics."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "aggregation_level": "daily",
+              "metrics_type": "Quality of Experience (QoE)",
+              "key_fields": "Location, device/node IDs, frequency band, bytes transferred, RSSI percentiles, alarm counts",
+              "granularity": "location, node, device"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "device_type_sp",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Device type details (category, brand, model, Wi-Fi capabilities) for advanced device typing and analytics."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Device typing", "analytics", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Spark Data Pipeline Table Schemas documentation for device type special processing."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "purpose": "advanced device typing and analytics",
-                "key_fields": "Device MAC, type, brand, model, capabilities",
-                "data_includes": "Wi-Fi capabilities"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "device_type_sp",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Device type details (category, brand, model, Wi-Fi capabilities) for advanced device typing and analytics."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Device typing",
+              "analytics",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Spark Data Pipeline Table Schemas documentation for device type special processing."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "purpose": "advanced device typing and analytics",
+              "key_fields": "Device MAC, type, brand, model, capabilities",
+              "data_includes": "Wi-Fi capabilities"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "lan_stats_dy",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Daily LAN statistics, including traffic, errors, and device counts per location/node."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["LAN analytics", "network health", "daily aggregation", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Spark Data Pipeline Table Schemas documentation for daily LAN statistics."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "aggregation_level": "daily",
-                "network_layer": "LAN",
-                "key_fields": "Source/destination MACs, byte/packet counts, flow times",
-                "metrics_included": "traffic, errors, device counts"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "lan_stats_dy",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Daily LAN statistics, including traffic, errors, and device counts per location/node."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "LAN analytics",
+              "network health",
+              "daily aggregation",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Spark Data Pipeline Table Schemas documentation for daily LAN statistics."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "aggregation_level": "daily",
+              "network_layer": "LAN",
+              "key_fields": "Source/destination MACs, byte/packet counts, flow times",
+              "metrics_included": "traffic, errors, device counts"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "device_access_control",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Device access control settings/history, including block/allow status and parental controls."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Access control", "parental controls", "security", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Spark Data Pipeline Table Schemas documentation for device access control."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "security_feature": "access control and parental controls",
-                "key_fields": "Location, MAC, freeze profile, person ID, access zone",
-                "control_types": "block/allow status"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "device_access_control",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Device access control settings/history, including block/allow status and parental controls."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Access control",
+              "parental controls",
+              "security",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Spark Data Pipeline Table Schemas documentation for device access control."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "security_feature": "access control and parental controls",
+              "key_fields": "Location, MAC, freeze profile, person ID, access zone",
+              "control_types": "block/allow status"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "node_master_dimension",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Master list of all nodes (Pods, Gateways, client devices) ever seen in a location. Updated hourly."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Node inventory", "master dimension", "S3 Avro", "hourly snapshot"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/13349421061/Master+Dimension+Tables",
-              "description": "Master Dimension Tables documentation for node inventory management."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "update_frequency": "hourly",
-                "table_type": "master dimension",
-                "key_fields": "location_id, node/device ID, version, type, first seen date, is_device flag",
-                "node_types": "Pods, Gateways, client devices"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "node_master_dimension",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Master list of all nodes (Pods, Gateways, client devices) ever seen in a location. Updated hourly."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Node inventory",
+              "master dimension",
+              "S3 Avro",
+              "hourly snapshot"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Master Dimension Tables documentation for node inventory management."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "update_frequency": "hourly",
+              "table_type": "master dimension",
+              "key_fields": "location_id, node/device ID, version, type, first seen date, is_device flag",
+              "node_types": "Pods, Gateways, client devices"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "node_peer_metrics_fact",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Peer-to-peer node interaction metrics for mesh link quality and throughput."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Mesh analytics", "peer metrics", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Plume Data Warehouse Schema documentation for peer-to-peer node metrics."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "metrics_type": "peer-to-peer interaction",
-                "key_fields": "Mesh link stats between nodes",
-                "focus": "mesh link quality and throughput"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "node_peer_metrics_fact",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Peer-to-peer node interaction metrics for mesh link quality and throughput."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Mesh analytics",
+              "peer metrics",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Plume Data Warehouse Schema documentation for peer-to-peer node metrics."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "metrics_type": "peer-to-peer interaction",
+              "key_fields": "Mesh link stats between nodes",
+              "focus": "mesh link quality and throughput"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "device_type_master",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Master device type mapping, providing the latest device typing information for all devices ever connected."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Device typing", "master reference", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://confluence.plume.tech/pages/viewpage.action?pageId=33521684",
-              "description": "Device Type Master Table documentation for device classification and typing."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "table_type": "master reference",
-                "key_fields": "MAC, category, brand, model, OS, Wi-Fi capabilities",
-                "coverage": "all devices ever connected"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "device_type_master",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Master device type mapping, providing the latest device typing information for all devices ever connected."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Device typing",
+              "master reference",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Device Type Master Table documentation for device classification and typing."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "table_type": "master reference",
+              "key_fields": "MAC, category, brand, model, OS, Wi-Fi capabilities",
+              "coverage": "all devices ever connected"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "location_coverage_alarm_weekly",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Weekly Wi-Fi coverage alarm status per location, based on daily alarm aggregation (in alarm ≥3 days/week)."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Coverage alarms", "weekly aggregation", "network health", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/13349325729",
-              "description": "Coverage Alarms: Location/Pod/Client Device documentation for weekly alarm aggregation."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "aggregation_level": "weekly",
-                "alarm_threshold": "in alarm ≥3 days/week",
-                "key_fields": "Location, claimed nodes, weekly alarm flags for pods/devices, week index",
-                "source": "daily alarm aggregation"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "location_coverage_alarm_weekly",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Weekly Wi-Fi coverage alarm status per location, based on daily alarm aggregation (in alarm ≥3 days/week)."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Coverage alarms",
+              "weekly aggregation",
+              "network health",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Coverage Alarms: Location/Pod/Client Device documentation for weekly alarm aggregation."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "aggregation_level": "weekly",
+              "alarm_threshold": "in alarm ≥3 days/week",
+              "key_fields": "Location, claimed nodes, weekly alarm flags for pods/devices, week index",
+              "source": "daily alarm aggregation"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "steer_summary_dy",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Daily summary of client steering events (band/client steering) per location/node."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Wi-Fi steering", "optimization", "daily aggregation", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Spark Data Pipeline Table Schemas documentation for daily steering summary."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "aggregation_level": "daily",
-                "steering_types": "band steering, client steering",
-                "key_fields": "Location, device, steering type, attempts, successes, failures, troubles",
-                "optimization_focus": "Wi-Fi performance"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "steer_summary_dy",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Daily summary of client steering events (band/client steering) per location/node."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Wi-Fi steering",
+              "optimization",
+              "daily aggregation",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Spark Data Pipeline Table Schemas documentation for daily steering summary."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "aggregation_level": "daily",
+              "steering_types": "band steering, client steering",
+              "key_fields": "Location, device, steering type, attempts, successes, failures, troubles",
+              "optimization_focus": "Wi-Fi performance"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "location_capability",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Lists all enabled capabilities at each location (e.g., band steering, client steering, device freeze, ISP speed test, etc.)."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Feature enablement", "location capabilities", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Plume Data Warehouse Schema documentation for location capability tracking."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "capability_types": "band steering, client steering, device freeze, ISP speed test",
-                "key_fields": "Location, capability flags (booleans for each feature)",
-                "granularity": "per location"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "location_capability",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Lists all enabled capabilities at each location (e.g., band steering, client steering, device freeze, ISP speed test, etc.)."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Feature enablement",
+              "location capabilities",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Plume Data Warehouse Schema documentation for location capability tracking."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "capability_types": "band steering, client steering, device freeze, ISP speed test",
+              "key_fields": "Location, capability flags (booleans for each feature)",
+              "granularity": "per location"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "device_type",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Device type information (category, brand, model, OS) for all devices, similar to device_type_master."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Device typing", "analytics", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Spark Data Pipeline Table Schemas documentation for device type information."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "key_fields": "MAC, location, category, brand, model, OS",
-                "similarity": "similar to device_type_master",
-                "device_attributes": "category, brand, model, OS"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "device_type",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Device type information (category, brand, model, OS) for all devices, similar to device_type_master."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Device typing",
+              "analytics",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Spark Data Pipeline Table Schemas documentation for device type information."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "key_fields": "MAC, location, category, brand, model, OS",
+              "similarity": "similar to device_type_master",
+              "device_attributes": "category, brand, model, OS"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "qoe_metrics",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "15-minute aggregated QoE metrics for access points and client devices, used for real-time and historical Wi-Fi quality analysis."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["QoE", "Wi-Fi analytics", "15-min aggregation", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://docs.google.com/document/d/15804fD5GtdAbmZRheAfYKgwMdgH2778MRvVV9TAltA8/edit",
-              "description": "QoE Metrics Documentation for 15-minute aggregated quality metrics."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "aggregation_level": "15-minute",
-                "metrics_type": "Quality of Experience (QoE)",
-                "key_fields": "Location, device/node, frequency band, channel, parent node, QoE scores",
-                "use_case": "real-time and historical Wi-Fi quality analysis"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "qoe_metrics",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "15-minute aggregated QoE metrics for access points and client devices, used for real-time and historical Wi-Fi quality analysis."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "QoE",
+              "Wi-Fi analytics",
+              "15-min aggregation",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "QoE Metrics Documentation for 15-minute aggregated quality metrics."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "aggregation_level": "15-minute",
+              "metrics_type": "Quality of Experience (QoE)",
+              "key_fields": "Location, device/node, frequency band, channel, parent node, QoE scores",
+              "use_case": "real-time and historical Wi-Fi quality analysis"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "neighbour_report_daily",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Daily report of neighboring Wi-Fi networks detected by APs, including SSID, channel, signal strength, and whether the neighbor is a Plume device."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Neighboring networks", "interference analysis", "daily aggregation", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Plume Data Warehouse Schema documentation for neighbor network reporting."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "aggregation_level": "daily",
-                "detection_source": "Access Points (APs)",
-                "key_fields": "Location, timestamp, array of neighbor details (SSID, channel, RSSI, etc.)",
-                "neighbor_attributes": "SSID, channel, signal strength, Plume device flag"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "neighbour_report_daily",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Daily report of neighboring Wi-Fi networks detected by APs, including SSID, channel, signal strength, and whether the neighbor is a Plume device."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Neighboring networks",
+              "interference analysis",
+              "daily aggregation",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Plume Data Warehouse Schema documentation for neighbor network reporting."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "aggregation_level": "daily",
+              "detection_source": "Access Points (APs)",
+              "key_fields": "Location, timestamp, array of neighbor details (SSID, channel, RSSI, etc.)",
+              "neighbor_attributes": "SSID, channel, signal strength, Plume device flag"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "device_security_websites",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Records websites accessed by devices, with security categorization for monitoring and parental controls."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Security", "parental controls", "web access", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Spark Data Pipeline Table Schemas documentation for device security and website access monitoring."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "security_focus": "website access monitoring and categorization",
-                "key_fields": "Location, MAC, website, type, rule, provider, whitelist/blacklist, timestamp",
-                "use_case": "monitoring and parental controls"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "device_security_websites",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Records websites accessed by devices, with security categorization for monitoring and parental controls."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Security",
+              "parental controls",
+              "web access",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Spark Data Pipeline Table Schemas documentation for device security and website access monitoring."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "security_focus": "website access monitoring and categorization",
+              "key_fields": "Location, MAC, website, type, rule, provider, whitelist/blacklist, timestamp",
+              "use_case": "monitoring and parental controls"
             }
           }
-        ]
-      },
-      {
-        "data_type": "avro",
-        "dataset_name": "node_utilization_metrics_dy",
-        "enrichments": [
-          {
-            "enrichment_type": "description",
-            "config": {
-              "description": "Daily node utilization and interference metrics per AP/channel, supporting channel planning and network health monitoring."
-            }
-          },
-          {
-            "enrichment_type": "tags",
-            "config": {
-              "tags": ["Channel utilization", "interference", "daily aggregation", "S3 Avro"]
-            }
-          },
-          {
-            "enrichment_type": "documentation",
-            "config": {
-              "doc_url": "https://plumedesign.atlassian.net/wiki/spaces/SCHEM/pages/10836975766/Plume+Data+Warehouse+Schema",
-              "description": "Plume Data Warehouse Schema documentation for daily node utilization metrics."
-            }
-          },
-          {
-            "enrichment_type": "properties",
-            "config": {
-              "custom_properties": {
-                "aggregation_level": "daily",
-                "metrics_type": "utilization and interference",
-                "key_fields": "Location, node, frequency band, channel, utilization/interference stats, noise, reported minutes",
-                "use_case": "channel planning and network health monitoring"
-              }
+        }
+      ]
+    },
+    {
+      "data_type": "avro",
+      "dataset_name": "node_utilization_metrics_dy",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Daily node utilization and interference metrics per AP/channel, supporting channel planning and network health monitoring."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": [
+              "Channel utilization",
+              "interference",
+              "daily aggregation",
+              "S3 Avro"
+            ]
+          }
+        },
+        {
+          "enrichment_type": "documentation",
+          "config": {
+            "description": "Plume Data Warehouse Schema documentation for daily node utilization metrics."
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "aggregation_level": "daily",
+              "metrics_type": "utilization and interference",
+              "key_fields": "Location, node, frequency band, channel, utilization/interference stats, noise, reported minutes",
+              "use_case": "channel planning and network health monitoring"
             }
           }
-        ]
-      }
-    ]
-  }
+        }
+      ]
+    }
+  ]
+}
