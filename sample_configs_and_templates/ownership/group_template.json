@@ -1,39 +1,39 @@
 {
   "operation": "create_groups",
-  "description": "Create groups in DataHub",
+  "description": "Creating groups in DataHub",
   "groups": [
     {
-      "name": "data-platform",
-      "display_name": "Data Platform Team",
-      "description": "Team responsible for building and maintaining data infrastructure, pipelines, and platforms.",
-      "email": "data-platform@company.com",
-      "slack_channel": "#data-platform",
-      "picture_link": "https://avatars.company.com/data-platform.jpg",
-      "members": ["john.doe", "jane.smith"],
-      "admins": ["jane.smith"],
+      "name": "data-engineering",
+      "display_name": "The Architects of Hogwarts",
+      "description": "Like the enchanted castle itself, this Data Engineering team is responsible for building and maintaining the foundational data infrastructure, pipelines, and platforms.",
+      "email": "data-engineering@example.com",
+      "slack_channel": "#data-engineering",
+      "picture_link": "https://avatars.company.com/data-engineering.jpg",
+      "members": ["kingsley.shacklebolt", "bill.weasley"],
+      "admins": ["chintan.goyal"],
       "parent_groups": ["engineering"]
     },
     {
-      "name": "analytics",
-      "display_name": "Analytics Team",
-      "description": "Team focused on data analysis, reporting, and business intelligence.",
-      "email": "analytics@company.com",
-      "slack_channel": "#analytics",
-      "picture_link": "https://avatars.company.com/analytics.jpg",
-      "members": ["john.doe"],
-      "admins": ["jane.smith"],
-      "parent_groups": ["data"]
+      "name": "ai-bulldog",
+      "display_name": "Dumbledore's Army",
+      "description": "A group of highly skilled individuals, this AI Bulldog team is training to tackle the most complex challenges with advanced techniques, much like Dumbledore's Army.",
+      "email": "ai-bulldog@example.com",
+      "slack_channel": "#ai-bulldog",
+      "picture_link": "https://avatars.company.com/ai-bulldog.jpg",
+      "members": ["harry.potter", "hermione.granger"],
+      "admins": ["filius.flitwick"],
+      "parent_groups": ["engineering"]
     },
     {
-      "name": "engineering",
-      "display_name": "Engineering Division",
-      "description": "Top-level engineering organization.",
-      "email": "engineering@company.com",
-      "slack_channel": "#engineering",
-      "picture_link": "https://avatars.company.com/engineering.jpg",
-      "members": [],
-      "admins": ["jane.smith"],
-      "parent_groups": []
+      "name": "mobile-dev",
+      "display_name": "The Weasley Wizards",
+      "description": "Inspired by 'Weasleys' Wizard Wheezes,' this Mobile Dev team creates innovative and slightly magical products that delight users.",
+      "email": "mobile-dev@example.com",
+      "slack_channel": "#mobile-dev",
+      "picture_link": "https://avatars.company.com/mobile-dev.jpg",
+      "members": ["fred.weasley", "george.weasley"],
+      "admins": ["naveen.ancha"],
+      "parent_groups": ["engineering"]
     }
   ]
 }
