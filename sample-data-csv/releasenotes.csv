@@ -1,0 +1,2135 @@
+"ts","product","version","text"
+"2020-09-21T16:23:18.336Z","signatures","1.34.10","New services:
+    - akamai_media_analytics
+    - akamai_mpulse
+    - costco
+    - lowes
+    - peloton
+    - star_maa
+    - subway_surfers
+    - tatasky
+    - voodoo
+
+Updated services:
+    - abc
+    - akamai
+    - analytics
+    - apns
+    - audible
+    - docusign
+    - facetime
+    - microsoft_azure
+    - minecraft"
+"2020-09-16T17:31:37.647Z","signatures","1.34.9","New services:
+    - apex_legends
+    - arms
+    - black_desert_online
+    - cadence_of_hyrule
+    - lego_worlds
+    - luigis_mansion_3
+    - mario_tennis_aces
+    - nes
+    - phantasy_star_online_2
+    - pokemon_lets_go
+    - splatoon_2
+    - super_smash_bros_ultimate
+
+Updated services:
+    - alicall
+    - ares
+    - cacaoweb
+    - call_of_duty
+    - camfrog
+    - coap
+    - dns
+    - electronic_arts
+    - garena_plus
+    - geforce_now
+    - global
+    - hai_ncp
+    - hot_vpn
+    - liquidsky
+    - main
+    - mango_tv
+    - netease_game
+    - openvpn
+    - quic
+    - rtcp
+    - rtp
+    - sip
+    - steam
+    - stun
+    - supercell
+    - telestar
+    - tls
+    - twitch
+    - udp
+    - uma
+    - vpn_robot
+    - webex
+    - wispi
+    - wyze_cam
+    - zero_vpn
+"
+"2020-09-08T18:34:10.984Z","signatures","1.34.8","Updated services:
+    - hotstar
+    - spotify
+"
+"2020-09-01T16:18:19.747Z","signatures","1.34.7","New services:
+    - animal_crossing
+    - anvilnext
+    - company_of_heroes
+    - dead_by_daylight
+    - dragon_quest_builders
+    - dragon_quest_builders_2
+    - fire_emblem_three_houses
+    - mario_kart_8
+    - mario_maker_2
+    - mario_odyssey
+    - mario_party
+    - pokemon_cafe_mix
+    - pokemon_home
+    - pokemon_sword_shield
+    - ringfit_adventure
+    - rocket_league
+    - snes
+    - super_kirby_clash
+    - terraria
+    - tetris_99
+
+Updated services:
+    - bhvr
+    - hirez_studio
+    - nintendo
+    - nintendo_switch
+    - steam
+    - ubisoft
+    - unity
+
+Removed services:
+    - team_fortress_2
+"
+"2020-08-24T19:29:36.103Z","signatures","1.34.6","New services:
+    - fetchrewards
+    - frostbite
+    - gearbox_software
+    - musi
+    - warframe
+    - xirsys
+    - zillow
+
+Updated services:
+    - battlefield
+    - steam
+    - stun
+    - tls
+    - vimeo
+"
+"2020-08-17T17:19:51.048Z","signatures","1.34.5","New services:
+    - bethesda
+    - brawlhalla
+    - cbcgem
+    - destiny_2
+    - klei
+    - rockstargames
+    - the_elder_scrolls_online
+
+Updated services:
+    - raknet
+    - steam
+"
+"2020-08-10T15:12:58.000Z","signatures","1.34.4","New services:
+    - _2k
+    - echelonfit
+    - gaijin
+    - hirez_studio
+    - smite
+    - star_wars_old_republic
+    - war_thunder
+
+Updated services:
+    - akamai
+    - hangouts
+    - sony_playstation
+    - wargaming
+
+Removed services:
+    - hangouts_meet
+    - worldoftanks"
+"2020-08-04T09:47:07.000Z","signatures","1.34.3","New services:
+    - alltrails
+    - cash_frenzy
+    - chapters
+    - drum_pad_machine
+    - faceapp
+    - hill_climb_racing
+    - loseit
+    - nike
+    - noaa_weather_radar_live
+    - paradox_interactive
+    - picturethis
+    - radish
+    - robokiller
+    - starbucks
+    - stardust
+    - subway
+    - tabletop_simulator
+    - tappytoon
+    - weightwatchers
+
+Updated services:
+    - microsoft
+    - nintendo_switch
+    - scopely
+    - spotify
+    - ssdp
+    - steam
+    - xbox_live"
+"2020-07-27T11:46:28.000Z","signatures","1.34.2","New services:
+    - disney_game
+    - dreame
+    - educationgalaxy
+    - flipgrid
+    - junior_einstein
+    - nextdoor
+    - offerup
+    - pokemonmasters
+    - shein
+    - stemscopes
+
+Updated services:
+    - akamai
+    - analytics
+    - doh
+    - glu_mobile
+    - vimeo"
+"2020-07-20T09:45:52.000Z","signatures","1.34.1","New services:
+    - beachbody
+    - eontv
+    - lexia
+    - mathgames
+    - quizizz
+    - typingclub
+    - xtramath
+Updated services:
+    - arlo
+    - moodle"
+"2020-07-13T11:44:22.000Z","signatures","2020-07-13_114422","New services:
+    - adventure_academy
+    - dreambox
+    - rachio
+    - readworks
+    - spellingcity
+    - unity
+    - verizon_media
+    - webkinz
+
+Updated services:
+    - agora
+    - amazon_device_metrics
+    - analytics
+    - box
+    - discord
+    - hbo
+    - holla
+    - ring
+    - steam
+
+Removed services:
+    - _7_days_to_die"
+"2020-07-06T12:35:46.000Z","signatures","2020-07-06_123546","New services:
+    - abcya
+    - brightcove
+    - demonware
+    - epic
+    - freckle
+    - klondike
+    - loom
+    - screencastify
+    - shawacademy
+    - skillshare
+
+Updated services:
+    - facetime
+    - kingsgroup
+    - ring
+    - rtcp
+    - rtp
+    - steam"
+"2020-06-29T09:53:50.000Z","signatures","2020-06-29_095350","New services:
+    - capstone_interactive
+    - microsoft_stream
+    - pebblego
+    - zearn
+
+Updated services:
+    - analytics
+    - battlenet
+    - blizzard
+    - main
+    - ring
+    - samsung
+    - sip
+    - skype
+    - whatsapp"
+"2020-06-23T10:35:52.000Z","signatures","2020-06-23_103532","New services:
+    - abc_pirat
+    - brainpop
+    - mathepirat
+    - padlet
+    - prowise
+    - purplemash
+    - schlaukopf
+    - sofatutor
+    - typing
+
+Updated services:
+    - connectivity_check
+    - epicgames
+    - hulu
+    - hydrawise
+    - microsoft_azure
+    - nintendo_switch
+    - nvidia
+    - tiktok
+    - tls
+    - unreal_engine
+    - webex
+    - wireguard
+    - zoom
+
+Removed services:
+    - anyconnect"
+"2020-06-15T11:50:53.000Z","signatures","2020-06-15_115053","New services:
+    - abcmouse
+    - anton
+    - http2
+    - ixl
+
+Updated services:
+    - messenger
+    - turbo_vpn"
+"2020-06-08T16:32:53.000Z","signatures","2020-06-08_163253","New services:
+    - basecamp
+    - confluence
+    - jira
+    - ptunnel
+
+Updated services:
+    - amazon
+    - amazon_alexa
+    - atlassian
+    - github
+    - google
+    - google_groups
+    - google_translate
+    - icmp
+    - ntp
+    - oto_global
+    - quic
+    - spotify
+    - tiktok
+"
+"2020-06-01T16:23:40.000Z","signatures","2020-06-01_162340","New services:
+    - amazon_device_metrics
+    - aws_console
+    - frostwire
+    - rocket_chat
+    - shareaza
+    - teamwork
+
+Updated services:
+    - amazon
+    - amazon_alexa
+    - amazon_pinpoint
+    - aws
+    - dhcp
+    - edonkey
+    - robinhood
+    - zello
+
+"
+"2020-05-25T13:02:09.000Z","signatures","2020-05-25_130209","New services:
+    - acorn_tv
+    - cloudflare
+    - jitsi
+    - raknet
+    - shudder
+    - sundancenow
+
+Updated services:
+    - albiononline
+    - analytics
+    - antichat
+    - cravetv
+    - hipchat
+    - houseparty
+    - minecraft
+    - roblox
+    - shaw_bluecurve_tv
+    - snapchat
+    - tiktok
+    - unreal_engine
+    - xbox
+
+Removed services:
+    - meerkat
+    - shaw_freerange_tv
+
+"
+"2020-05-18T10:30:11.000Z","signatures","2020-05-18_103011","New services:
+    - bootstrapcdn
+    - buncee
+    - commonsensemedia
+    - edpuzzle
+    - educaixa
+    - facebook_watch
+    - fandom
+    - fastly
+    - google_app_engine
+    - helpshift
+    - imgix
+    - limelight
+    - nearpod
+    - peardeck
+    - propertybrothers_hd
+    - shall_we_date
+    - squiglit
+    - stackpath
+    - thinglink
+
+Updated services:
+    - activecampaign
+    - amazon
+    - amazon_music
+    - analytics
+    - apple
+    - battlenet
+    - blizzard
+    - bytedance
+    - facebook
+    - google
+    - hexatech_vpn
+    - intercom
+    - itunes
+    - microsoft
+    - microsoft_azure
+    - rosetta_stone
+    - wayfair
+    - wikia
+    - wow
+    - xigua_video
+    - yahoo
+    - youtube
+
+"
+"2020-05-11T12:19:20.000Z","signatures","2020-05-11_121920","New services:
+    - akamai
+    - alibaba_cloud
+    - dlive
+    - firebase
+    - heroku
+    - lark
+    - mosoteach
+
+Updated services:
+    - alibaba
+    - analytics
+    - apple
+    - autodesk
+    - aws
+    - battlenet
+    - bittorrent
+    - doh
+    - flowroute
+    - google_groups
+    - google_translate
+    - itunes
+    - microsoft_outlook
+    - netflix
+    - turbo_vpn
+    - wikipedia
+    - ytv
+    - zoom
+
+Removed services:
+    - mosotech
+
+"
+"2020-05-04T10:40:18.000Z","signatures","2020-05-04_104018","New services:
+    - mosotech
+    - polyup
+    - quizlet
+    - siyavula
+    - smarthistory
+    - urlive
+
+Updated services:
+    - apple
+    - bbm
+    - bip_messenger
+    - bytedance
+    - cnn
+    - cyberlink
+    - ddchong
+    - dingtalk
+    - fongo
+    - global
+    - hangouts
+    - hipchat
+    - icq
+    - jiochat
+    - keku
+    - libon
+    - line2
+    - melon
+    - messenger
+    - oto_global
+    - pinger
+    - rabbit
+    - signal
+    - skype
+    - slack
+    - talkatone
+    - telestar
+    - textfree
+    - textnow
+    - tiktok
+    - tinychat
+    - viber
+    - vonage
+    - voxofon
+    - weapp
+    - wechat
+    - whatsapp
+    - whereby
+    - wire
+    - wispi
+    - yeecall
+    - zoom
+
+"
+"2020-04-27T11:53:06.000Z","signatures","2020-04-27_115306","New services:
+    - britishcouncil
+    - byjus
+    - code_org
+    - codeweek
+    - coursehero
+    - discovery_education
+    - futurelearn
+    - icourses
+    - labxchange
+    - mindspark
+
+Updated services:
+    - amazon
+    - amazon_alexa
+    - apple_music
+    - facebook
+    - google
+    - google_play
+
+"
+"2020-04-20T11:47:43.000Z","signatures","2020-04-20_114743","New services:
+    - alison
+    - coursera
+    - edx
+    - eneza_education
+    - europeanschoolnetacademy
+    - learningequality
+    - seesaw
+
+Updated services:
+    - gtp_c
+    - gtp_u
+    - itunes
+    - wechat
+
+"
+"2020-04-13T09:27:26.000Z","signatures","2020-04-13_092726","New services:
+    - albiononline
+    - arrive
+    - century_tech
+    - edmodo
+    - edraak
+    - ekstep
+    - google_stadia
+    - instacart
+    - moodle
+    - nafham
+    - quibi
+    - schoology
+    - tillster
+    - vizor
+
+Updated services:
+    - dropbox
+    - iperf
+    - zoom
+
+"
+"2020-04-06T10:07:15.000Z","signatures","2020-04-06_100715","New services:
+    - airtime
+    - dauntless
+    - easyanticheat
+    - mewe
+    - robinhood
+    - smartnews
+    - snap_pixel
+    - totally_reliable
+    - tuya
+    - voxeet
+    - world_war_z
+
+Updated services:
+    - analytics
+    - epicgames
+    - skype
+
+Removed services:
+    - airme
+
+"
+"2020-03-30T10:36:31.000Z","signatures","2020-03-30_103631","New services:
+    - arlo
+    - audible
+    - autodesk
+    - blink
+    - classting
+    - freeconference
+    - funimation
+    - icmp
+    - lifx
+    - msrpc
+    - on24
+    - rosetta_stone
+    - smb
+    - talkingpoints
+
+Updated services:
+    - alexa_voice_service
+    - facebook
+    - intuit
+    - kerberos
+    - minecraft
+    - philips_hue
+    - rpc
+    - super_unlimited_proxy
+    - unreal_engine
+    - vivox
+    - zendesk
+    - zoom
+
+Removed services:
+    - cifs
+    - dcerpc
+
+"
+"2020-03-23T11:46:24.000Z","signatures","2020-03-23_114624","New services:
+    - blackboard
+    - blindsidenetworks
+    - canvas
+    - goodrx
+    - hangouts_meet
+    - instructure
+    - kasa_smart
+    - mydlink
+    - myq
+    - netmarble
+    - philips
+    - philips_hue
+    - super_unlimited_proxy
+    - tesla
+    - the_seven_deadly_sins
+
+Updated services:
+    - ares
+    - bfd
+    - cigi
+    - easychat
+    - expedat
+    - hangouts
+    - intuit
+    - kaspersky
+    - minecraft
+    - netware
+    - nntp
+    - oovoo
+    - pcoip
+    - pdbox
+    - salesforce
+    - samsung
+    - uma
+    - youku
+
+"
+"2020-03-16T12:59:11.000Z","signatures","2020-03-16_125911","New services:
+    - firefox_send
+    - hero_wars
+    - hexatech_vpn
+    - mcdonalds
+    - monero
+
+"
+"2020-03-10T13:17:01.000Z","signatures","2020-03-10_131701","New services:
+    - 2gis
+    - 9ku
+    - trivago
+    - whereby
+    - xvpn
+
+Updated services:
+    - dns
+    - mdns
+    - messenger
+    - microsoft_office_365
+    - pinterest
+    - qihoo360
+    - supercell
+    - tiktok
+
+Removed services:
+    - appearin
+
+"
+"2020-02-28T10:08:15.000Z","signatures","2020-02-28_100815","New services:
+    - belkin
+    - turbo_vpn
+    - uusee
+    - weapp
+
+Updated services:
+    - amazon
+    - apple
+    - facebook
+    - facetime
+    - mdns
+    - messenger
+    - shaw_webmail
+    - stun
+    - tiktok
+    - wechat
+    - youku
+
+"
+"2020-02-18T12:10:58.000Z","signatures","2020-02-18_121058","New services:
+    - credit_karma
+    - fox_com
+    - iqiyi
+    - line_live
+    - line_tv
+    - mango_tv
+    - mercari
+    - showtime
+    - tencent_video
+    - transocks
+
+Updated services:
+    - adobe
+    - amazon_prime_video
+    - analytics
+    - apple_music
+    - foxnews
+    - line
+
+Removed services:
+    - ppstream
+    - qq_video
+
+"
+"2020-02-04T16:37:01.000Z","signatures","2020-02-04_163701","New services:
+    - earthcam
+    - flowroute
+    - kuaishou
+    - lgthinq
+    - mileiq
+    - path_of_exile
+    - poshmark
+    - stamen_map
+    - tunnelguru
+    - vrv
+
+Updated services:
+    - amazon
+    - amazon_alexa
+    - dropbox
+    - espn
+    - itunes
+    - sip
+
+"
+"2020-01-27T11:07:22.000Z","signatures","2020-01-27_110722","New services:
+    - matrix_vpn
+    - msp360
+    - ultraviewer
+    - veilduck_vpn
+
+Updated services:
+    - activision
+    - call_of_duty
+    - google_calendar
+    - ipsec
+    - playbattlegrounds
+    - qq_game
+    - supervpn
+    - wyze
+
+"
+"2020-01-17T10:44:37.000Z","signatures","2020-01-17_104437","New services:
+    - nintendo_switch
+    - udemy
+    - wayfair
+    - webnovel
+
+Updated services:
+    - gotomeeting
+    - http
+    - logmein
+    - nintendo_eshop
+    - whatsapp
+
+"
+"2019-12-19T16:16:32.000Z","signatures","2019-12-19_161632","New services:
+    - android_auto
+    - llmnr
+    - lucky_goal
+    - maplestory
+
+Updated services:
+    - amazon_music
+    - auto_rp
+    - aws
+    - dhcp
+    - google_photos
+    - hsrp
+    - imvu
+    - mdns
+    - minecraft
+    - ptp
+    - ring
+    - spotify
+    - srvloc
+    - ssdp
+    - steam
+    - udp
+    - xbox
+
+"
+"2019-12-13T12:46:04.000Z","signatures","2019-12-13_124604","New services:
+    - cbs
+    - cbs_all_access
+    - cbs_news
+    - cbs_sports
+    - headspace
+    - quickbooks
+    - sslv2
+    - textme
+    - toreba
+    - zedge
+
+Updated services:
+    - 126_mail
+    - 163_mail
+    - 1kxun
+    - 20minutes
+    - 4chan
+    - 9gag
+    - abc
+    - acap
+    - acrobat
+    - activecampaign
+    - activesync
+    - adobe
+    - aeria_games
+    - aim
+    - airwatch
+    - alibaba
+    - alipay
+    - amazon_music
+    - analytics
+    - aol
+    - aol_mail
+    - apple
+    - apple_software_update
+    - atlassian
+    - atom_vpn
+    - avg
+    - badoo
+    - baidu
+    - bbm
+    - bebo
+    - bigolive
+    - bing
+    - bitdefender
+    - bitmoji
+    - bittorrent
+    - boombeach
+    - box
+    - brawl_stars
+    - cactusvpn
+    - ccproxy
+    - cheetah
+    - cigi
+    - cisco_spark
+    - clashroyale
+    - clickmeeting
+    - clubbox
+    - com2us
+    - concur
+    - connections_mc
+    - craigslist
+    - crashplan
+    - creative_cloud
+    - cyberghost
+    - daum
+    - daum_mail
+    - deviantart
+    - device
+    - dhcp
+    - discord
+    - disney
+    - disqus
+    - dixa
+    - docusign
+    - douban
+    - douyutv
+    - dropbox
+    - dtcp
+    - duolingo
+    - easyprojects
+    - ebuddy
+    - elastic
+    - episode
+    - espn
+    - finchvpn
+    - flickr
+    - flipboard
+    - fongo
+    - forbes
+    - freshdesk
+    - ftp
+    - funshion
+    - github
+    - gmail
+    - gmx_mail
+    - gom
+    - google
+    - gotomeeting
+    - gotowebinar
+    - groupon
+    - hangouts
+    - hao123
+    - happyfox
+    - hay_day
+    - hbo
+    - hi5
+    - hipchat
+    - hola
+    - hooked
+    - hotspotshield
+    - hsrp
+    - http
+    - hubspot
+    - hulu
+    - hyperoffice
+    - ibvpn
+    - icq
+    - imdb
+    - ingress
+    - inke
+    - instagram
+    - intercom
+    - intuit
+    - invisionapp
+    - ipsec
+    - irc
+    - itunes
+    - itunes_u
+    - jiochat
+    - jobvite
+    - jotform
+    - jungledisk
+    - kahoot
+    - kakao
+    - kaseya
+    - kerberos
+    - kugou
+    - league_of_legends
+    - learningaz
+    - letv
+    - lifesize_cloud
+    - line
+    - linkedin
+    - livechat
+    - lively
+    - liveme
+    - lycos
+    - mail_com
+    - mail_ru
+    - manuscript
+    - meetme
+    - meetup
+    - meetville
+    - mega
+    - melon
+    - memcached
+    - messenger
+    - mgcp
+    - miaobo
+    - microsoft
+    - microsoft_azure
+    - microsoft_office_365
+    - microsoft_onedrive
+    - microsoft_outlook
+    - microsoft_sharepoint_online
+    - minecraft
+    - miniclip
+    - nate
+    - nate_mail
+    - nateon
+    - naverisk
+    - ncsoft
+    - netease
+    - netflix
+    - netweaver
+    - nexon
+    - next_digital
+    - nhl
+    - nicovideo
+    - nintendo
+    - nintendo_eshop
+    - nintendo_network
+    - nordvpn
+    - norton
+    - ntp
+    - nytimes
+    - ocsp
+    - openvpn
+    - paypal
+    - perfect_world_games
+    - perforce
+    - pexip
+    - pokec
+    - pokemongo
+    - pptv
+    - privatix
+    - protonmail
+    - purevpn
+    - qq
+    - qq_game
+    - qq_mail
+    - qq_video
+    - quake
+    - raidcall
+    - reddit
+    - rediff_mail
+    - ringcentral
+    - rpc
+    - rtsp
+    - salesforce
+    - samsung
+    - sap
+    - sapse
+    - scopely
+    - shaw_bluecurve_tv
+    - shazam
+    - signnow
+    - sina
+    - sina_mail
+    - sina_weibo
+    - skout
+    - slack
+    - snmp
+    - softether
+    - sohu
+    - soulseek
+    - speedify
+    - spotify
+    - square_enix
+    - starvpn
+    - steam
+    - stitcher
+    - streamtheworld
+    - stun
+    - summoners_war
+    - supercell
+    - surfeasy
+    - surrogafier
+    - switchvpn
+    - tableau
+    - talkatone
+    - tantan
+    - taobao
+    - ted
+    - textnow
+    - tinder
+    - tls
+    - tmall
+    - torguard
+    - trello
+    - trion_worlds
+    - tsp
+    - tunngle
+    - twitter
+    - typekit
+    - uwewe
+    - videotron
+    - vidyo
+    - vimeo
+    - visionhelpdesk
+    - vk
+    - vpnreactor
+    - vyprvpn
+    - wanmei
+    - war2glory
+    - way2sms
+    - webroot
+    - weiyun
+    - whatsapp
+    - whatscall
+    - wikidot
+    - wikipedia
+    - wordpress
+    - wsj
+    - wunderlist
+    - x25
+    - xbox
+    - xfinity_stream
+    - xiaomi
+    - xyq
+    - yandex
+    - yandex_mail
+    - yeecall
+    - youtube
+    - yy
+    - zendesk
+    - zenmate
+    - zhihu
+    - zoho
+    - zoho_mail
+    - zoom
+    - zscaler
+    - zynga
+
+"
+"2019-12-05T15:50:51.000Z","signatures","2019-12-05_155051","New services:
+    - bellmedia
+    - connectivity_check
+    - hpeprint
+    - sentry
+
+Updated services:
+    - analytics
+    - eskimi
+    - fandango
+    - global
+    - google_play_music
+    - http
+    - kiwi
+    - nest
+    - nimbuzz
+    - samsung
+    - vivox
+    - webex
+    - xiaomi
+    - xmpp
+
+"
+"2019-11-27T17:07:42.000Z","signatures","2019-11-27_170742","New services:
+    - alexa4business
+    - amazon_api_gateway
+    - amazon_app_stream2
+    - amazon_athena
+    - amazon_blockchain
+    - amazon_cloud_dir
+    - amazon_cloudfront
+    - amazon_cloudsearch
+    - amazon_cloudwatch
+    - amazon_cognito
+    - amazon_comprehend
+    - amazon_comprehend_med
+    - amazon_connect
+    - amazon_dlm
+    - amazon_dynamodb
+    - amazon_ec2
+    - amazon_ecr
+    - amazon_ecs
+    - amazon_eks
+    - amazon_elastic_fs
+    - amazon_elastic_lb
+    - amazon_elastic_tc
+    - amazon_elasticache
+    - amazon_elasticsearch
+    - amazon_emr
+    - amazon_eventbridge
+    - amazon_forecast
+    - amazon_fsx
+    - amazon_gamelift
+    - amazon_glacier
+    - amazon_guardduty
+    - amazon_inspector
+    - amazon_kinesis_analytics
+    - amazon_kinesis_data
+    - amazon_kinesis_firehose
+    - amazon_kinesis_video
+    - amazon_lex
+    - amazon_lightsail
+    - amazon_macie
+    - amazon_ml
+    - amazon_mq
+    - amazon_msk
+    - amazon_mturk
+    - amazon_personalize
+    - amazon_pinpoint
+    - amazon_polly
+    - amazon_qldb
+    - amazon_quicksight
+    - amazon_rds
+    - amazon_redshift
+    - amazon_rekognition
+    - amazon_route53
+    - amazon_s3
+    - amazon_sagemaker
+    - amazon_ses
+    - amazon_simpledb
+    - amazon_sns
+    - amazon_spectrum
+    - amazon_sqs
+    - amazon_swf
+    - amazon_textract
+    - amazon_transcribe
+    - amazon_translate
+    - amazon_workdocs
+    - amazon_worklink
+    - amazon_workmail
+    - amazon_workspaces
+    - aws
+    - aws_app_discovery
+    - aws_app_mesh
+    - aws_app_sync
+    - aws_auto_scaling
+    - aws_backup
+    - aws_batch
+    - aws_beanstalk
+    - aws_billing
+    - aws_cert_mgr
+    - aws_cloud9
+    - aws_cloud_map
+    - aws_cloudformation
+    - aws_cloudhsm
+    - aws_cloudtrail
+    - aws_codebuild
+    - aws_codecommit
+    - aws_codedeploy
+    - aws_codepipeline
+    - aws_codestar
+    - aws_config
+    - aws_data_xchng
+    - aws_datapipeline
+    - aws_datasync
+    - aws_deeplens
+    - aws_devicefarm
+    - aws_directconnect
+    - aws_directory_service
+    - aws_dms
+    - aws_firewall_mgr
+    - aws_global_accel
+    - aws_glue
+    - aws_groundstation
+    - aws_health
+    - aws_iam
+    - aws_iot_1click
+    - aws_iot_analytics
+    - aws_iot_core
+    - aws_iot_events
+    - aws_iot_greengrass
+    - aws_iot_things
+    - aws_key_mgt
+    - aws_lake_formation
+    - aws_lambda
+    - aws_license_mgr
+    - aws_marketplace
+    - aws_mediaconnect
+    - aws_mediaconvert
+    - aws_mediapkg
+    - aws_mediastore
+    - aws_mediatailor
+    - aws_migration_hub
+    - aws_opsworks
+    - aws_organizations
+    - aws_ram
+    - aws_resource_groups
+    - aws_robomaker
+    - aws_secrets_mgr
+    - aws_security_hub
+    - aws_serverless_repo
+    - aws_service_catalog
+    - aws_service_quotas
+    - aws_shield
+    - aws_sms
+    - aws_snowball
+    - aws_sso
+    - aws_step_fn
+    - aws_storage_gw
+    - aws_sts
+    - aws_support
+    - aws_systems_mgr
+    - aws_transfer
+    - aws_waf
+    - aws_xray
+    - hai_ncp
+    - leviton_cloud
+
+Updated services:
+    - 17
+    - abs_cbn_news
+    - activecampaign
+    - after_school
+    - age_of_warring_empire
+    - airdroid
+    - amazon_alexa
+    - amazon_music
+    - analytics
+    - anghami
+    - ankama
+    - anydesk
+    - anydo
+    - anygram
+    - anymeeting
+    - anyplace_control
+    - aol
+    - apple_maps
+    - apple_music
+    - apple_software_update
+    - apple_tv
+    - armorgames
+    - army_men_strike
+    - august
+    - battlenet
+    - bbc
+    - bbc_iplayer
+    - bebo
+    - behance
+    - big_fish_casino
+    - bingo_blitz
+    - blinksale
+    - blizzard
+    - blogtalkradio
+    - bugzilla
+    - cactusvpn
+    - candy_crush
+    - cash_app
+    - cheddar
+    - chegg
+    - choices
+    - clash_of_king
+    - classdojo
+    - clickmeeting
+    - cloudapp
+    - cnbc
+    - comixology
+    - concur
+    - curiositystream
+    - dazn
+    - design_home
+    - directvnow
+    - dispersy
+    - dns
+    - doh
+    - dragalia_lost
+    - dragoncity
+    - dropbox
+    - epic_seven
+    - espn
+    - facebook
+    - fam
+    - farmville
+    - fast_secure_vpn
+    - firechat
+    - foxnews
+    - foxnext
+    - free_fire
+    - frozenway
+    - glu_mobile
+    - gmail
+    - go90
+    - google_calendar
+    - google_classroom
+    - google_docs
+    - google_earth
+    - google_maps
+    - google_play
+    - google_play_music
+    - guns_of_glory
+    - hago
+    - happy_color
+    - happyfox
+    - hbo
+    - heart_of_vegas
+    - hidemyass
+    - hike
+    - holla
+    - hooked
+    - hopster
+    - hotspotshield
+    - hotstar
+    - house_of_fun
+    - hubspot
+    - huuuge_casino
+    - icloud
+    - icloud_calendar
+    - icloud_contacts
+    - icloud_fmf
+    - icloud_mail
+    - idrive
+    - ip
+    - ironsight
+    - itunes
+    - itunes_u
+    - jotform
+    - jott
+    - jumpshare
+    - jungledisk
+    - just_proxy
+    - king_of_avalon
+    - kiwi
+    - league_of_legends
+    - letgo
+    - libon
+    - lively
+    - liveme
+    - livestar
+    - love_nikki
+    - lucidchart
+    - machine_zone
+    - mafia_city
+    - main
+    - mariokarttour
+    - mcafee
+    - mediafire
+    - melon
+    - microsoft
+    - microsoft_office_365
+    - microsoft_onedrive
+    - microsoft_sharepoint_online
+    - monster_commander
+    - motor_world
+    - mplus
+    - nba
+    - netflix
+    - neverwinter
+    - newsmax
+    - niantic
+    - nimbuzz
+    - nogoumfm
+    - nordvpn
+    - norton
+    - operavpn
+    - path_talk
+    - periscope
+    - phantom_fex
+    - phantom_vpn
+    - pinger
+    - pixelberry
+    - playrix
+    - pocket
+    - postmates
+    - prodigy
+    - projectplace
+    - proxpn
+    - psiphon
+    - purevpn
+    - qq
+    - randomchat
+    - ring
+    - rise_of_civilizations
+    - roblox
+    - rtmfp
+    - shadowsocks
+    - shaw_bluecurve_tv
+    - shaw_webmail
+    - showmypc
+    - signal
+    - siriusxm
+    - site
+    - skype
+    - slack
+    - snapchat
+    - soundcloud
+    - splashtop
+    - spotify
+    - sproutsocial
+    - squad
+    - starz
+    - steam
+    - stream
+    - supremo
+    - svt
+    - svtplay
+    - sygic
+    - tap_color
+    - target
+    - tiki
+    - tiktok
+    - tls
+    - tmall
+    - tor
+    - toutiao
+    - township
+    - tunnelbear
+    - twitch
+    - ustream
+    - venmo
+    - vigo_video
+    - vimeo
+    - vpnbook
+    - vpnintouch
+    - vpnmaster
+    - vpnunlimited
+    - vyprvpn
+    - webex
+    - webtoon
+    - wetransfer
+    - whisper
+    - wizards_unite
+    - wordfeud
+    - wordswithfriends
+    - worketc
+    - wsop
+    - wwe
+    - wyze
+    - x509
+    - xiami
+    - xigua_video
+    - yellow
+    - yhgame
+    - yikyak
+    - younow
+    - youtube
+    - zangi
+    - zenmate
+    - zergnet
+    - zoom
+    - zoosk
+    - zopim
+    - zpn_vpn
+    - zynga
+
+Removed services:
+    - amazon_aws
+    - dns2
+
+"
+"2019-11-19T15:41:20.000Z","signatures","2019-11-19_154120","New services:
+    - amazon_aws
+    - dishanywhere
+    - duckduckgo
+    - ecobee
+    - google_secure_dns
+    - irobot
+    - samsung
+    - sling
+    - sonos
+    - streamtheworld
+    - wemo
+    - wyze
+    - wyze_cam
+
+Updated services:
+    - alexa_voice_service
+    - amazon
+    - amazon_prime_video
+    - dhcp
+    - disney
+    - mail
+    - quic
+    - roku
+    - sip
+
+"
+"2019-11-07T14:16:03.000Z","signatures","2019-11-07_141603","New services:
+    - alexa_voice_service
+    - teamsnap
+    - xfinity_stream
+
+Updated services:
+    - apple_tv
+    - dhcp
+    - jump_desktop
+    - lifesize_cloud
+    - pexip
+    - rabbit
+    - rebtel
+    - site
+    - x509
+    - zoom
+
+"
+"2019-11-01T15:33:28.000Z","signatures","2019-11-01_153328","New services:
+    - august
+    - iperf
+    - ring
+    - shaw_bluecurve_tv
+
+Updated services:
+    - abto_voip
+    - appearin
+    - bbm
+    - bluejeans
+    - callstats
+    - cisco_spark
+    - duo
+    - facetime
+    - fam
+    - fongo
+    - global
+    - google
+    - gruveo
+    - hangouts
+    - hipchat
+    - icloud_fmf
+    - icloud_mail
+    - icq
+    - jiochat
+    - keku
+    - kiwi
+    - melon
+    - messenger
+    - monkey
+    - oto_global
+    - pinger
+    - qq
+    - rtcp
+    - rtp
+    - shaw_freerange_tv
+    - signal
+    - sip
+    - slack
+    - speedify
+    - stun
+    - talkatone
+    - tango
+    - telestar
+    - textfree
+    - textnow
+    - tiki
+    - tiktok
+    - tinychat
+    - twilio
+    - vivox
+    - vonage
+    - voxofon
+    - wire
+
+Removed services:
+    - musically
+
+"
+"2019-10-27T10:11:54.000Z","signatures","2019-10-27_101154","New services:
+    - onxmaps
+    - webtoon
+
+Updated services:
+    - ntp
+    - speedtest
+
+"
+"2019-10-18T16:52:19.000Z","signatures","2019-10-18_165219","New services:
+    - activision
+    - blackberry_uem
+    - call_of_duty
+    - dailyinnovation
+    - hago
+    - microsoft_dynamics
+
+Updated services:
+    - apple_tv
+    - arena_of_valor
+    - qq_game
+
+"
+"2019-10-08T15:00:55.000Z","signatures","2019-10-08_150055","New services:
+    - florensia
+    - foxsports
+    - gamekit
+    - guild_wars2
+    - icecast
+    - idrive
+    - mariokarttour
+    - warp_vpn
+
+Updated services:
+    - amazon_music
+    - curiositystream
+    - global
+    - microsoft
+    - niantic
+    - nogoumfm
+    - pocket
+    - skype
+    - unglue
+    - wireguard
+
+Removed services:
+    - flags
+
+"
+"2019-09-28T13:33:54.000Z","signatures","2019-09-28_133354","New services:
+    - britbox
+    - comodo
+    - fins
+    - fox
+    - iec_60870
+    - modbus
+
+Updated services:
+    - 7days_to_die
+    - bbc
+    - chrome_remote_desktop
+    - square
+
+"
+"2019-09-19T17:04:38.000Z","signatures","2019-09-19_170438","New services:
+    - ankama
+    - dofus
+    - fiesta
+
+Updated services:
+    - amazon
+    - craigslist
+    - ebay
+    - pinterest
+    - playstation
+    - twitch
+    - twitter
+    - walmart
+    - yelp
+    - youtube
+
+"
+"2019-09-11T11:09:26.000Z","signatures","2019-09-11_110926","New services:
+    - adobe_connect
+    - age_of_warring_empire
+    - amaze_vpn
+    - armagetron
+    - pearltrees
+    - squad
+
+Updated services:
+    - bittornado
+
+"
+"2019-09-06T12:06:38.000Z","signatures","2019-09-06_120638","Updated services:
+    - analytics
+    - google
+    - salesforce
+
+"
+"2019-09-05T10:04:33.000Z","signatures","2019-09-05_100433","New services:
+    - alot_com
+    - celebrity_voice_changer
+    - essaybot
+    - huffpost
+    - life360
+    - mathway
+    - mix_com
+    - myspace
+    - patch_com
+    - photomath
+    - rakuten
+    - rutube
+    - sendspace
+    - slader
+    - socks
+    - softonic
+    - svtplay
+    - tagged
+    - tapatalk
+    - techcrunch
+    - theboombox
+    - tomatopang
+    - zergnet
+
+Updated services:
+    - bumble
+    - pcoip
+    - yandex
+
+Removed services:
+    - proxifier
+
+"
+"2019-08-31T07:21:08.000Z","signatures","2019-08-31_072108","New services:
+    - bitcomet
+    - bitlord
+    - bittornado
+    - ktorrent
+    - tixati
+    - transmission
+    - utorrent
+    - vuze
+    - webtorrent
+
+Updated services:
+    - bittorrent
+
+"
+"2019-08-28T10:23:15.000Z","signatures","2019-08-28_102315","New services:
+    - bitport_io
+    - filestream
+
+Updated services:
+    - bittorrent
+    - dispersy
+
+"
+"2019-08-19T11:02:00.000Z","signatures","2019-08-19_110200","New services:
+    - classmates
+    - fandango
+    - flixster
+    - fubar
+    - gamescom
+    - google_groups
+    - google_translate
+    - graboid
+    - ifeng
+    - livejournal
+    - metacafe
+    - moviefone
+    - mynewplace
+    - nba
+
+Updated services:
+    - gnutella
+    - google
+    - nntp
+
+"
+"2019-08-12T16:39:19.000Z","signatures","2019-08-12_163919","New services:
+    - sayhi
+    - symantec
+    - tenor
+    - thinkbroadband
+    - viki
+    - vxlan
+    - wunderground
+    - yidio
+
+Updated services:
+    - xbox
+
+"
+"2019-07-30T15:37:57.000Z","signatures","2019-07-30_153757","New services:
+    - 2shared
+    - arcserve
+    - bbc_iplayer
+    - blackplanet
+    - booking_com
+    - bugzilla
+    - dealsea
+    - deluge
+    - dotdash
+    - edonkey
+    - ehow
+    - engadget
+    - etos
+    - farmville
+    - filefactory
+    - foxnews
+
+Updated services:
+    - aol
+
+"
+"2019-07-26T16:45:16.000Z","signatures","2019-07-26_164516","New services:
+    - 365scores
+    - ask_com
+    - battle_warship
+    - cnbc
+    - deezer
+    - doh
+    - eset
+    - gfycat
+    - giphy
+    - gismeteo
+    - msn_weather
+    - my_com
+    - sharedband
+    - shareit
+
+Updated services:
+    - adobe
+    - aptoide
+    - avira
+    - bbc
+    - contest_of_champions
+    - mediafire
+    - mega
+    - odnoklassniki
+
+Removed services:
+    - cloudflare_1111dns
+
+"
+"2019-07-18T13:42:28.000Z","signatures","2019-07-18_134228","New services:
+    - awa_fm
+    - distractify
+    - ebaumsworld
+    - khanacademy
+    - niantic
+    - nogoumfm
+    - securenetsystems
+    - thestudentroom
+    - unilad
+    - upworthy
+    - wizards_unite
+
+Updated services:
+    - microsoft_onedrive
+    - spotify
+
+"
+"2019-07-09T16:47:05.000Z","signatures","2019-07-09_164705","Updated services:
+    - global
+    - stun
+
+"
+"2019-07-09T11:11:40.000Z","signatures","2019-07-09_111140","New services:
+    - cheddar
+    - cloudflare_1111dns
+    - cloudvpn
+    - newsmax
+    - telegram
+    - vlive
+    - wattpad
+    - wireguard
+
+Updated services:
+    - ibvpn
+    - openvpn
+    - vpn
+    - webex
+
+"
+"2019-06-29T13:40:38.000Z","signatures","2019-06-29_134038","New services:
+    - bytedance
+    - cyberlink
+    - toutiao
+    - vigo_video
+    - xigua_video
+
+Updated services:
+    - airbnb
+    - microsoft_office_365
+    - microsoft_onedrive
+    - microsoft_sharepoint_online
+    - spotify
+    - tiktok
+
+"
+"2019-06-18T15:41:31.000Z","signatures","2019-06-18_154131","New services:
+    - bbgame
+    - free_fire
+    - gameofsultans
+
+Updated services:
+    - http
+    - oto_global
+    - plarium
+
+"
+"2019-06-13T16:47:54.000Z","signatures","2019-06-13_164754","New services:
+    - hotstar
+    - keku
+    - oto_global
+    - vonage
+    - xiaohongshu
+    - ximalaya
+
+Updated services:
+    - amazon_prime_video
+    - dingtalk
+    - lilith_games
+    - quic
+    - slack
+    - starz
+    - vimeo
+    - wispi
+    - wordswithfriends
+
+"
+"2019-06-06T15:03:10.000Z","signatures","2019-06-06_150310","New services:
+    - goodnight
+
+Updated services:
+    - chatango
+    - dingtalk
+    - mdns
+    - tubi
+    - x509
+
+"
+"2019-05-22T14:00:32.000Z","signatures","2019-05-22_140032","New services:
+    - yolo
+
+Updated services:
+    - appearin
+    - easychat
+    - fongo
+    - jott
+    - kakao
+    - line
+    - ntp
+    - paltalk
+    - pinger
+    - signal
+    - snapchat
+    - talkbox
+    - tango
+    - textfree
+    - textnow
+    - wechat
+    - wickrme
+
+"
+"2019-05-10T11:20:19.000Z","signatures","2019-05-10_112019","New services:
+    - 5pmweb
+    - anonymox
+    - clash_of_king
+    - jumpshare
+
+Updated services:
+    - facebook
+    - http
+    - quic
+    - snapchat
+    - whatsapp
+
+"
+"2019-05-03T12:55:42.000Z","signatures","2019-05-03_125542","Updated services:
+    - cisco_spark
+    - ironsight
+    - justcloud
+    - mdns
+    - site
+    - tls
+    - webex
+    - x509
+
+"
+"2019-04-22T16:57:45.000Z","signatures","2019-04-22_165745","Updated services:
+    - dns2
+    - mdns
+
+"
+"2019-04-18T16:18:41.000Z","signatures","2019-04-18_161841","New services:
+    - cowvpn
+    - postmates
+    - quora
+    - ufovpn
+    - uploaded
+    - xiaomingvpn
+    - zipshare
+
+Updated services:
+    - dns2
+    - ftp
+    - mdns
+    - shaw_freerange_tv
+    - x509
+
+"
+"2019-04-11T09:43:57.000Z","signatures","2019-04-11_094357","New services:
+    - draw_it
+    - glu_mobile
+    - hily
+    - mattel163
+    - mlb
+    - playfab
+    - uno
+
+Updated services:
+    - device
+    - google
+    - http
+    - icloud
+    - shaw_freerange_tv
+
+"
+"2019-04-05T15:40:48.000Z","signatures","2019-04-05_154048","Updated services:
+    - global
+    - http
+
+"
+"2019-03-29T14:55:31.000Z","signatures","2019-03-29_145531","New services:
+    - 4shared
+    - carbonite
+    - file_post
+    - hamicloud
+    - mafia_city
+    - soma
+    - touch_to_talk
+    - tribair
+    - voxofon
+    - whoshere
+    - yotagames
+
+Updated services:
+    - icloud
+    - nest
+    - rarbg
+    - tokbox
+
+"
+"2019-03-25T15:33:32.000Z","signatures","2019-03-25_153332","Updated services:
+    - device
+
+"
+"2019-03-22T18:41:16.000Z","signatures","2019-03-22_184116","Updated services:
+    - device
+    - http
+    - shaw_ondemand
+    - ssdp
+
+"
+"2019-03-20T13:05:41.000Z","signatures","2019-03-20_130541","New services:
+    - huawei_appstore
+    - kickasstorrents
+    - linphone
+    - nextplus
+    - rarbg
+    - starz
+    - thepiratebay
+    - yandex_disk
+
+Updated services:
+    - soundcloud
+    - vimeo
+
+"
+"2019-03-04T16:46:40.000Z","signatures","2019-03-04_164640","New services:
+    - abto_voip
+    - coco
+    - funcalls
+    - geforce_now
+    - irs
+    - libon
+    - line2
+    - lynda
+
+Updated services:
+    - google
+    - nvidia
+    - wechat
+
+"
+"2019-02-26T19:17:06.000Z","signatures","2019-02-26_191706","New services:
+    - bip_messenger
+    - telestar
+    - tubi
+    - your_freedom
+
+Updated services:
+    - ldp
+    - ndmp
+    - sip"
