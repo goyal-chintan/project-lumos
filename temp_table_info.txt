@@ -297,3 +297,25 @@ Here’s a **brief summary** of each requested table, focusing on its purpose an
 - **Purpose:** Daily node utilization and interference metrics per AP/channel, supporting channel planning and network health monitoring.
 - **Key Data:** Location, node, frequency band, channel, utilization/interference stats, noise, reported minutes[2].
 
+
+avro tables : 
+device_access_control
+device_homepass
+device_security_websites
+device_type_master
+device_type_sp
+device_type
+group_master_dimension
+lan_stats_dy
+location_capability
+location_coverage_alarm_status
+location_coverage_alarm_weekly
+location_master_dimension
+neighbour_report_daily
+node_master_dimension
+node_peer_metrics_fact
+node_utilization_metrics_dy
+node_utilization_metrics
+qoe_metrics_dy
+qoe_metrics
+steer_summary_dy

@@ -1,7 +1,7 @@
 [
   {
-    "source_type": "avro",
-    "source_path": "sample-data",
+    "source_type": "csv",
+    "source_path": "/Users/skalamani/Downloads/sample data csv",
     "infer_schema": true,
     "schema": {}
   }
