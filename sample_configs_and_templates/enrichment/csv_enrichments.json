@@ -1,7 +1,7 @@
 {
-  "data_type": "csv",
   "datasets": [
     {
+      "data_type": "csv",
       "dataset_name": "node_utilization_metrics",
       "enrichments": [
         {
@@ -49,6 +49,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "location_coverage_alarm_status",
       "enrichments": [
         {
@@ -98,6 +99,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "group_master_dimension",
       "enrichments": [
         {
@@ -139,6 +141,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "device_homepass",
       "enrichments": [
         {
@@ -177,6 +180,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "location_master_dimension",
       "enrichments": [
         {
@@ -216,6 +220,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "qoe_metrics_dy",
       "enrichments": [
         {
@@ -255,6 +260,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "device_type_sp",
       "enrichments": [
         {
@@ -292,6 +298,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "lan_stats_dy",
       "enrichments": [
         {
@@ -331,6 +338,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "device_access_control",
       "enrichments": [
         {
@@ -369,6 +377,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "node_master_dimension",
       "enrichments": [
         {
@@ -408,6 +417,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "node_peer_metrics_fact",
       "enrichments": [
         {
@@ -445,6 +455,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "device_type_master",
       "enrichments": [
         {
@@ -482,6 +493,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "location_coverage_alarm_weekly",
       "enrichments": [
         {
@@ -521,6 +533,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "steer_summary_dy",
       "enrichments": [
         {
@@ -560,6 +573,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "location_capability",
       "enrichments": [
         {
@@ -597,6 +611,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "device_type",
       "enrichments": [
         {
@@ -634,6 +649,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "qoe_metrics",
       "enrichments": [
         {
@@ -673,6 +689,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "neighbour_report_daily",
       "enrichments": [
         {
@@ -712,6 +729,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "device_security_websites",
       "enrichments": [
         {
@@ -750,6 +768,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "node_utilization_metrics_dy",
       "enrichments": [
         {
@@ -789,6 +808,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "plume_metasaurus_metadata",
       "enrichments": [
         {
@@ -811,6 +831,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "plume_metasaurus_mapping",
       "enrichments": [
         {
@@ -834,6 +855,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "releasenotes",
       "enrichments": [
         {
@@ -856,6 +878,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "metasaurus",
       "enrichments": [
         {
@@ -879,6 +902,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "categories",
       "enrichments": [
         {
@@ -900,6 +924,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "category_id_override",
       "enrichments": [
         {
@@ -921,6 +946,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "devicetag",
       "enrichments": [
         {
@@ -944,6 +970,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "akamai_plume_category_map",
       "enrichments": [
         {
@@ -967,6 +994,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "threat_intelligence_category_map",
       "enrichments": [
         {
@@ -989,6 +1017,7 @@
       ]
     },
     {
+      "data_type": "csv",
       "dataset_name": "global-device-types",
       "enrichments": [
         {
