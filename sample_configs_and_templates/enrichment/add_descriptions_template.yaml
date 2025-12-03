@@ -2,5 +2,5 @@
 enrichment:
   type: description
   config:
-    target_urn: urn:li:dataset:(platform,name,env)
-    description: "This column contains ..."
+    target_urn: "urn:li:dataset:(urn:li:dataPlatform:csv,my_dataset,DEV)"
+    description: "Detailed description of the dataset or field"

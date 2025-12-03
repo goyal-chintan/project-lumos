@@ -2,9 +2,9 @@
 source:
   type: csv
   # Path to the source file
-  path: "/Users/skalamani/Downloads/DataHub-tasks.csv"
+  path: "data/sample_data.csv"
   # Name for the dataset in the metadata platform
-  dataset_name: "catalog-tasks"
+  dataset_name: "my_dataset"
   delimiter: ","
 
 # The sink specifies where the metadata should be sent.

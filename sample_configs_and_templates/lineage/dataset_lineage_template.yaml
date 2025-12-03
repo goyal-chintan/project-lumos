@@ -3,7 +3,7 @@ lineage:
   # A list of upstream sources for the downstream dataset.
   upstreams:
     - urn: "urn:li:dataset:(urn:li:dataPlatform:csv,my-upstream-dataset,DEV)"
-    - urn: "urn:li:dataset:(urn:li:dataPlatform:mongodb,sample.my-mongo-collection,DEV)"
+    - urn: "urn:li:dataset:(urn:li:dataPlatform:mongodb,my_database.my_collection,DEV)"
   
   # The single downstream dataset that is produced from the upstreams.
   downstream: "urn:li:dataset:(urn:li:dataPlatform:hive,my_downstream_hive_table,PROD)"

@@ -4,7 +4,7 @@ source:
   # Connection URI for the MongoDB instance
   uri: "mongodb://localhost:27017"
   # The database to scan for collections
-  database: "sample_db"
+  database: "my_database"
   # Optional: specify a list of collections to ingest. 
   # If omitted, all collections in the database will be processed.
   # collections:
