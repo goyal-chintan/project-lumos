@@ -1,101 +1,90 @@
-# Lumos Framework Toolkit
+## Lumos Framework Toolkit
 
-A modular and extensible framework for data ingestion, metadata management, and lineage tracking. The framework is designed to be platform-agnostic, allowing easy switching between different metadata platforms (e.g., DataHub, Databricks).
+Pluggable framework to catalog, version, and govern data with lineage, ownership and accountability — across any organization, any source. Lumos is platform-agnostic (works with DataHub today) and extensible via clean interfaces.
 
-## Architecture
+### Highlights
+- Modular, plug-and-play services (ingestion, lineage, enrichment, profiling, DQ)
+- Clear abstractions for metadata platforms (DataHub today) and sources (CSV, MongoDB, Avro)
+- YAML-driven configs with a simple, typed `ConfigManager`
+- CLI for common workflows
+- Extensible handler and platform factories
 
-The framework follows a modular architecture with clear separation of concerns:
+### Repository Layout
+- `platform_services/` — Platform implementations and factory (`DataHubHandler`, etc.)
+- `core_library/`
+  - `common/` — config management, utils, base interfaces
+  - `ingestion_handlers/` — handlers for sources (CSV, MongoDB, Avro), `IngestionService`
+  - `extraction_services/`, `enrichment_services/`, `lineage_services/`, `dq_services/`, `profiling_services/`, `rbac_services/`
+- `configs/` — global settings (e.g. DataHub GMS)
+- `sample_configs_and_templates/` — sample ingestion and lineage configs
+- `orchestration_examples/` — example Airflow DAG
+- `framework_cli.py` — CLI entrypoint (packaged later as `lumos`)
 
-- `platform_services/`: Platform-specific implementations (DataHub, Databricks, etc.)
-- `core_library/`: Core framework components
-  - `common/`: Shared utilities and interfaces
-  - `ingestion_handlers/`: Data source ingestion handlers
-  - `extraction_services/`: Schema and metadata extraction
-  - `enrichment_services/`: Metadata enrichment
-  - `lineage_services/`: Lineage tracking
-  - `dq_services/`: Data quality
-  - `profiling_services/`: Data profiling
-  - `rbac_services/`: Access control
-- `configs/`: Configuration files
-- `sample_configs_and_templates/`: Example configurations
-- `orchestration_examples/`: Example orchestration workflows
+## Quickstart
 
-## Key Features
+Prereqs: Python 3.10+
 
-- Platform-agnostic design
-- Modular and extensible architecture
-- Type-safe interfaces
-- Comprehensive error handling
-- Configurable through YAML
-- Support for multiple data sources
-- Built-in logging and monitoring
-
-## Installation
-
+1) Install dependencies
 ```bash
+python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Usage
-
-1. Configure your platform and data sources in `configs/`
-2. Create an ingestion handler for your data source
-3. Use the framework to ingest and manage metadata
-
-Example:
-
-```python
-from core_library.ingestion_handlers.csv_handler import CSVIngestionHandler
-from core_library.common.config_manager import ConfigManager
-
-# Initialize config manager
-config_manager = ConfigManager()
-
-# Create CSV handler
-csv_handler = CSVIngestionHandler({
-    "file_path": "data/example.csv",
-    "delimiter": ",",
-    "platform": "datahub"
-}, config_manager)
-
-# Ingest data
-csv_handler.ingest("data/example.csv")
+2) Configure DataHub endpoint
+Edit `configs/global_settings.yaml`:
+```yaml
+datahub:
+  gms_server: http://localhost:8080
+default_env: DEV
 ```
+
+3) Run ingestion via CLI
+```bash
+python framework_cli.py ingest --config-path sample_configs_and_templates/ingestion/csv_ingestion_template.yaml
+```
+
+4) Add lineage via CLI
+```bash
+python framework_cli.py add-lineage --config-path sample_configs_and_templates/lineage/dataset_lineage_template.yaml
+```
+
+## Configuration
+- Global platform settings: `configs/global_settings.yaml`
+- Ingestion job config: see `sample_configs_and_templates/ingestion/`
+  - Example (CSV):
+    ```yaml
+    source:
+      type: csv
+      path: path/to/file.csv
+      dataset_name: sample_dataset
+      delimiter: ","
+    sink:
+      type: datahub
+      env: DEV
+    ```
+
+## Extending
+- Add a new source: create `<YourSource>IngestionHandler` in `core_library/ingestion_handlers/` extending `BaseIngestionHandler`, then register in `IngestionService._handler_registry`.
+- Add a new metadata platform: implement `MetadataPlatformInterface` (e.g., `AmundsenHandler`), then register in `PlatformFactory._handler_registry`.
+
+## Roadmap
+- Additional sources: Parquet, S3, Kafka, DBs
+- Additional platforms: Amundsen, Unity Catalog, OpenMetadata
+- Packaging and `lumos` console script
+- Pre-commit hooks, ruff/black/isort/mypy, CI
 
 ## Development
-
-1. Install development dependencies:
 ```bash
-pip install -r requirements-dev.txt
-```
-
-2. Run tests:
-```bash
+# (after packaging & tooling are added)
+pre-commit run -a
 pytest
 ```
 
-3. Format code:
-```bash
-black .
-```
-
-4. Type checking:
-```bash
-mypy .
-```
-
 ## Contributing
+See `CONTRIBUTING.md`. We follow Conventional Commits and welcome PRs!
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+## Code of Conduct
+See `CODE_OF_CONDUCT.md`.
 
 ## License
-
-MIT License
-
-Ingestion
-Enrichment
-DQ
+MIT — see `LICENSE`.
