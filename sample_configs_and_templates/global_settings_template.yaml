@@ -1,0 +1,9 @@
+# Global settings template for metadata platforms
+#
+# Copy this file to configs/global_settings.yaml and fill in credentials per platform.
+#
+# Example: DataHub
+datahub:
+  gms_server: "http://localhost:8080"
+
+
