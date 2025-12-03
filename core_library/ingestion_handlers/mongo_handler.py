@@ -65,12 +65,19 @@ class MongoIngestionHandler(BaseIngestionHandler):
             return
 
         field_info = {field: type(value).__name__ for field, value in sample.items()}
+        # Normalize certain types to strings for DataHub mapping (e.g., ObjectId)
+        normalized = {}
+        for k, v in field_info.items():
+            if v.lower() in {"objectid"}:
+                normalized[k] = "str"
+            else:
+                normalized[k] = v
         schema_fields = [
             SchemaFieldClass(
                 fieldPath=field,
                 nativeDataType=py_type,
                 type=self._map_python_type_to_datahub_type(py_type)
-            ) for field, py_type in field_info.items()
+            ) for field, py_type in normalized.items()
         ]
 
         dataset_name = f"{db.name}.{coll_name}"

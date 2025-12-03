@@ -36,15 +36,19 @@ class CSVIngestionHandler(BaseIngestionHandler):
         except FileNotFoundError:
             logger.error(f"CSV file not found at {file_path}")
             raise
+        except Exception as e:
+            logger.error(f"Failed to read CSV at {file_path}: {e}")
+            raise
 
         # 1. Create Schema Fields from DataFrame
-        type_mapping = {"int64": NumberTypeClass(), "float64": NumberTypeClass()}
+        type_mapping = {"int64": NumberTypeClass(), "float64": NumberTypeClass(), "object": StringTypeClass()}
         schema_fields = []
         for col_name, dtype in df.dtypes.items():
+            mapped = type_mapping.get(str(dtype), StringTypeClass())
             field = SchemaFieldClass(
                 fieldPath=col_name,
                 nativeDataType=str(dtype),
-                type=SchemaFieldDataTypeClass(type=type_mapping.get(str(dtype), StringTypeClass()))
+                type=SchemaFieldDataTypeClass(type=mapped)
             )
             schema_fields.append(field)
 
