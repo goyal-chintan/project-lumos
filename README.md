@@ -84,6 +84,26 @@ black .
 mypy .
 ```
 
+## Running tests
+
+- Unit tests (fast): 
+```bash
+pytest -q
+```
+- Integration tests with your local DataHub:
+```bash
+export DATAHUB_GMS=http://localhost:8080
+pytest -m integration -q
+```
+CI runs unit tests by default and skips `integration` unless `DATAHUB_GMS` is provided.
+
+## Recommended Cursor model setup
+
+- Primary model: Claude 3.7 Sonnet (best for long-context multi-file refactors)
+- Secondary model: OpenAI o4-mini (or GPT-4o) for fast codegen and test-writing
+
+Tip: keep edits small, run `pytest -q` after significant changes, and ask the model to propose tests before refactors.
+
 ## Contributing
 
 1. Fork the repository
