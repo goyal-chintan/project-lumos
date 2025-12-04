@@ -1,0 +1,8 @@
+[
+  {
+    "source_type": "csv",
+    "source_path": "/Users/skalamani/Downloads/sample data csv",
+    "infer_schema": true,
+    "schema": {}
+  }
+]

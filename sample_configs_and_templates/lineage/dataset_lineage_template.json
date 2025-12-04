@@ -1,0 +1,31 @@
+[
+    {
+      "lineage": {
+        "upstreams": [
+          {
+            "data_type": "csv",
+            "dataset": "olist_geolocation_dataset"
+          }
+        ],
+        "downstream": {
+          "data_type": "csv",
+          "dataset": "olist_order_items_dataset"
+        },
+        "column_lineage": [
+          {
+            "source": {
+              "data_type": "csv",
+              "dataset": "olist_geolocation_dataset",
+              "field": "geolocation_lat"
+            },
+            "target": {
+              "data_type": "csv",
+              "dataset": "olist_order_items_dataset",
+              "field": "freight_value"
+            }
+          }
+          
+        ]
+      }
+    }
+]
