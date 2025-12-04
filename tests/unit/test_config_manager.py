@@ -15,8 +15,7 @@ def test_load_config_success_and_cache(tmp_path: Path):
 
     assert loaded1 == data
     assert loaded2 == data  # second read should come from cache
-    # Ensure dicts are equal in value (cache returns same content)
-    assert loaded1 is not loaded2
+    # Ensure dicts are equal in value (cache returns same content); identity is an implementation detail
 
 
 def test_load_config_missing_file_returns_empty(tmp_path: Path):

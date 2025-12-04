@@ -20,6 +20,11 @@ The framework follows a modular architecture with clear separation of concerns:
 - `sample_configs_and_templates/`: Example configurations
 - `orchestration_examples/`: Example orchestration workflows
 
+📖 **For detailed architecture documentation, see:**
+- [Architecture Overview](docs/ARCHITECTURE.md) - Complete architecture and component details
+- [End-to-End Flow](docs/END_TO_END_FLOW.md) - Detailed flow diagrams and sequences
+- [Architecture Diagrams](docs/ARCHITECTURE_DIAGRAM.md) - Visual diagrams and component interactions
+
 ## Key Features
 
 - Platform-agnostic design
@@ -32,9 +37,24 @@ The framework follows a modular architecture with clear separation of concerns:
 
 ## Installation
 
-```bash
-pip install -r requirements.txt
-```
+1. **Install Python dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Set up DataHub (required for integration tests and local development):**
+   
+   The project includes a Docker Compose setup for running DataHub locally. See [backends/README.md](backends/README.md) for detailed instructions.
+   
+   Quick start:
+   ```bash
+   cd backends
+   docker compose up -d
+   ```
+   
+   Verify DataHub is running:
+   - UI: http://localhost:9002 (username: `datahub`, password: `datahub`)
+   - GMS API: http://localhost:8080
 
 ## Usage
 
