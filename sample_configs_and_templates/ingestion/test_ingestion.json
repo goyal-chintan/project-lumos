@@ -1,0 +1,8 @@
+[
+  {
+    "source_type": "csv",
+    "source_path": "/tmp/sample-data-csv",
+    "infer_schema": true,
+    "schema": {}
+  }
+]

@@ -1,6 +1,0 @@
-# Example template to enrich with field descriptions
-enrichment:
-  type: description
-  config:
-    target_urn: urn:li:dataset:(platform,name,env)
-    description: "This column contains ..."

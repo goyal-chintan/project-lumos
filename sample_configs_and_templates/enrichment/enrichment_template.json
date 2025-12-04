@@ -1,0 +1,34 @@
+{
+  "data_type": "avro",
+  "dataset_name": "olist_customers_dataset",
+  "enrichments": [
+    {
+      "enrichment_type": "description",
+      "config": {
+        "description": "This is a detailed description of my dataset, which contains customer information and sales data."
+      }
+    },
+    {
+      "enrichment_type": "tags",
+      "config": {
+        "tags": ["PII", "Finance", "Tier1", "CustomerData"]
+      }
+    },
+    {
+      "enrichment_type": "documentation",
+      "config": {
+        "doc_url": "https://www.example.com/docs/my-dataset",
+        "description": "Official documentation for the customer sales dataset."
+      }
+    },
+    {
+      "enrichment_type": "properties",
+      "config": {
+        "custom_properties": {
+          "replace_me": "John Doe",
+          "replace_me_too": "Salesforce"
+        }
+      }
+    }
+  ]
+}
