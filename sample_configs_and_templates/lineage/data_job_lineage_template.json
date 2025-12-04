@@ -1,0 +1,24 @@
+[
+    {
+      "data_job": {
+        "orchestrator": "airflow",
+        "flow_id": "csv_flow",
+        "job_id": "csv_pipeline",
+        "name": "csv Pipeline",
+        "description": "This pipeline transforms location data into node data.",
+        "type": "TRANSFORM",
+        "custom_properties": {
+        "data_owner": "John Doe",
+        "data_steward": "Jane Smith",
+        "update_frequency": "Daily",
+        "data_source": "Salesforce"
+      },
+        "inputs": [
+          { "data_type": "csv", "dataset": "olist_geolocation_dataset" }
+        ],
+        "outputs": [
+          { "data_type": "csv", "dataset": "olist_order_items_dataset" }
+        ]
+      }
+    }
+]

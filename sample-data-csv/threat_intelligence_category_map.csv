@@ -1,0 +1,92 @@
+rulename,akamai_categoryid,webpulse_categoryid,brightcloud_categoryid,categoryname_grp,categoryname
+kids,LS-money,31,3,Financial Services,Financial Services
+kids,Not supported,59,6,Auctions,Auctions
+kids,LS-commerce,58,7,Shopping,Shopping
+kids,LS-cults,22,8,Cult and Occult,Cult and Occult
+kids,LS-drugs,25,10,Abused Drugs,Abused Drugs
+kids,LS-porn,"1, 3, 26, 50, 93",11,Adult and Pornography,Adult and Pornography
+kids,Not supported,35,13,Military,Military
+kids,Not supported,90,15,Dead Sites,Dead Sites
+kids,Not supported,32,16,Individual Stock Advice and Tools,Individual Stock Advice and Tools
+kids,LS-personals,47,18,Dating,Dating
+kids,Not supported,63,22,Personal sites and Blogs,Personal sites and Blogs
+kids,LS-jobs,45,26,Job Search,Job Search
+kids,LS-gambling,11,27,Gambling,Gambling
+kids,LS-p2p,83,31,Peer to Peer,Peer to Peer
+kids,Not supported,121,32,Marijuana,Marijuana
+kids,LS-hacking,17,33,Hacking,Hacking
+kids,LS-politics,36,35,Philosophy and Political Advocacy,Philosophy and Political Advocacy
+kids,LS-weapons,15,36,Weapons,Weapons
+kids,Not supported,Not supported,37,Pay to Surf,Pay to Surf
+kids,LS-lingerie,5,43,Swimsuits and Intimate Apparel,Swimsuits and Intimate Apparel
+kids,Not supported,Not supported,44,Questionable,Questionable
+kids,LS-hate,14,46,Hate and Racism,Hate and Racism
+kids,LS-violence,Not supported,48,Violence,Violence
+kids,LS-cheating,118,53,Cheating,Cheating
+kids,LS-nudity,6,62,Nudity,Nudity
+kids,Not supported,9,64,Illegal,Illegal
+kids,LS-parked,98,75,Parked Domains,Parked Domains
+kids,LS-alc_tob,"23,24",76,Alcohol and Tobacco,Alcohol and Tobacco
+kids,Not supported,89,82,Web Hosting,Web Hosting
+kids,LS-self_harm,Not supported,500,Self Harm,Self Harm
+kids,LS-community,55,14,Social Networking,Social Networking
+kids,LS-chat,Not supported,502,Chat,Chat
+kids,LS-child_abuse,Not supported,503,Child Abuse,Child Abuse
+kids,LS-anon,86,58,Proxy Avoidance and Anonymizers,Proxy Avoidance and Anonymizers
+kids,LS-offensive,7,54,Extreme/Gross/Offensive,Extreme/Gross/Offensive
+teenagers,LS-cults,22,8,Cult and Occult,Cult and Occult
+teenagers,LS-drugs,25,10,Abused Drugs,Abused Drugs
+teenagers,LS-porn,"1, 3, 26, 50, 93",11,Adult and Pornography,Adult and Pornography
+teenagers,Not supported,Not supported,15,Dead Sites,Dead Sites
+teenagers,LS-personals,47,18,Dating,Dating
+teenagers,Not supported,63,22,Personal sites and Blogs,Personal sites and Blogs
+teenagers,LS-gambling,11,27,Gambling,Gambling
+teenagers,LS-p2p,83,31,Peer to Peer,Peer to Peer
+teenagers,Not supported,121,32,Marijuana,Marijuana
+teenagers,LS-hacking,17,33,Hacking,Hacking
+teenagers,LS-weapons,15,36,Weapons,Weapons
+teenagers,Not supported,Not supported,37,Pay to Surf,Pay to Surf
+teenagers,LS-lingerie,5,43,Swimsuits and Intimate Apparel,Swimsuits and Intimate Apparel
+teenagers,Not supported,Not supported,44,Questionable,Questionable
+teenagers,LS-hate,14,46,Hate and Racism,Hate and Racism
+teenagers,LS-violence,Not supported,48,Violence,Violence
+teenagers,LS-cheating,Not supported,53,Cheating,Cheating
+teenagers,LS-anon,86,58,Proxy Avoidance and Anonymizers,Proxy Avoidance and Anonymizers
+teenagers,LS-nudity,6,62,Nudity,Nudity
+teenagers,Not supported,9,64,Illegal,Illegal
+teenagers,LS-parked,98,75,Parked Domains,Parked Domains
+teenagers,LS-alc_tob,"23, 24",76,Alcohol and Tobacco,Alcohol and Tobacco
+teenagers,LS-self_harm,Not supported,500,Self Harm,Self Harm
+teenagers,LS-offensive,7,54,Extreme/Gross/Offensive,Extreme/Gross/Offensive
+adultAndSensitive,LS-drugs,25,10,Abused Drugs,Abused Drugs
+adultAndSensitive,LS-porn,"1, 3, 26, 50, 93",11,Adult and Pornography,Adult and Pornography
+adultAndSensitive,Not supported,121,32,Marijuana,Marijuana
+adultAndSensitive,LS-hacking,17,33,Hacking,Hacking
+adultAndSensitive,LS-weapons,15,36,Weapons,Weapons
+adultAndSensitive,Not supported,Not supported,37,Pay to Surf,Pay to Surf
+adultAndSensitive,Not supported,Not supported,44,Questionable,Questionable
+adultAndSensitive,LS-hate,14,46,Hate and Racism,Hate and Racism
+adultAndSensitive,Not supported,7,54,Gross,Gross
+adultAndSensitive,LS-nudity,6,62,Nudity,Nudity
+adultAndSensitive,Not supported,9,64,Illegal,Illegal
+adultAndSensitive,LS-violence,Not supported,48,Violence,Violence
+workAppropriate,LS-porn,"1, 3, 26, 93",11,Adult and Pornography,Adult and Pornography
+workAppropriate,LS-nudity,6,62,Nudity,Nudity
+workAppropriate,LS-offensive,7,54,Gross,Gross
+workAppropriate,Not supported,9,"44, 64",Questionable,Questionable
+workAppropriate,LS-gambling,11,27,Gambling,Gambling
+workAppropriate,LS-hate,14,"46, 48, 53","Hate, Violence and Racism","Hate, Violence and Racism"
+workAppropriate,LS-violence,14,"46, 48, 53","Hate, Violence and Racism","Hate, Violence and Racism"
+workAppropriate,LS-weapons,15,36,Weapons,Weapons
+workAppropriate,LS-parked,98,75,Parked Domains,Parked Domains
+workAppropriate,LS-cheating,118,Not supported,Piracy/Copyright Concerns,Piracy/Copyright Concerns
+spamPhishMalware,LS-child_abuse,26,503,Child Pornography,Child Pornography
+spamPhishMalware,Not supported,Not supported,44,"Spam, Spyware and Adware",Questionable
+spamPhishMalware,LS-tpsvc_malware,43,"49, 56",Malware,Malware
+spamPhishMalware,LS-tpsvc_phishing,18,57,Phishing and Other Frauds,Phishing and Other Frauds
+spamPhishMalware,Not supported,102,59,"Spam, Spyware and Adware",Spyware and Adware
+spamPhishMalware,Not supported,9,64,"Spam, Spyware and Adware",Illegal or Questionable
+spamPhishMalware,LS-tpsvc_botnet,44,67,Botnets,Botnets
+spamPhishMalware,LS-tpsvc_spam,101,71,"Spam, Spyware and Adware",Spam
+spamPhishMalware,LS-tpsvc_unidentified,Not supported,510,Malware,Malware or Phishing
+adBlocking,LS-ads,88,52,Web Advertisements,Web Advertisements

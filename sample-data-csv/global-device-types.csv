@@ -1,0 +1,1677 @@
+ts,kind_brand,kind_category,idtype_count,device_cummulative_cnts
+2022-01-13,Samsung,Smart Phone,961,464801
+2022-01-13,LG,Smart Phone,534,62793
+2022-01-13,Huawei,Smart Phone,461,9467
+2022-01-13,Motorola,Smart Phone,300,64285
+2022-01-13,Sony,Smart Phone,250,5109
+2022-01-13,Xiaomi,Smart Phone,195,6152
+2022-01-13,Alcatel,Smart Phone,168,7639
+2022-01-13,Nokia,Smart Phone,152,2149
+2022-01-13,ZTE,Smart Phone,148,4093
+2022-01-13,Vivo,Smart Phone,143,916
+2022-01-13,HTC,Smart Phone,138,552
+2022-01-13,Lenovo,Smart Phone,119,2610
+2022-01-13,Oppo,Smart Phone,114,1777
+2022-01-13,Sharp,Smart Phone,89,3670
+2022-01-13,Kyocera,Smart Phone,76,2121
+2022-01-13,Asus,Smart Phone,67,670
+2022-01-13,Philips,Smart Phone,67,3572
+2022-01-13,OPPO,Smart Phone,57,465
+2022-01-13,Google,Smart Phone,52,38833
+2022-01-13,Tecno Mobile,Smart Phone,51,118
+2022-01-13,Blu,Smart Phone,42,471
+2022-01-13,Apple,Smart Phone,41,1544532
+2022-01-13,TCL,Smart Phone,40,1242
+2022-01-13,Oneplus,Smart Phone,35,719
+2022-01-13,CAT,Smart Phone,31,391
+2022-01-13,Infinix,Smart Phone,31,89
+2022-01-13,Meizu,Smart Phone,31,112
+2022-01-13,Fujitsu,Smart Phone,25,811
+2022-01-13,Toshiba,Smart Phone,25,150
+2022-01-13,Ulephone,Smart Phone,25,135
+2022-01-13,OnePlus,Smart Phone,23,11292
+2022-01-13,Realme,Smart Phone,20,108
+2022-01-13,Ezze,Smart Phone,19,96
+2022-01-13,Elite,Smart Phone,18,260
+2022-01-13,iTel,Smart Phone,18,38
+2022-01-13,Hisense,Smart Phone,18,21
+2022-01-13,Acer,Smart Phone,15,77
+2022-01-13,VK Mobile,Smart Phone,14,156
+2022-01-13,SH,Smart Phone,13,57
+2022-01-13,Coolpad,Smart Phone,13,611
+2022-01-13,HP,Smart Phone,13,207
+2022-01-13,Medion,Smart Phone,12,99
+2022-01-13,Vodafone,Smart Phone,12,22
+2022-01-13,Note,Smart Phone,12,41
+2022-01-13,BlackBerry,Smart Phone,12,156
+2022-01-13,Sugar,Smart Phone,12,18
+2022-01-13,Quad,Smart Phone,12,110
+2022-01-13,LC,Smart Phone,11,37
+2022-01-13,Evpad,Smart Phone,11,55
+2022-01-13,Pantech,Smart Phone,11,151
+2022-01-13,RIM,Smart Phone,11,337
+2022-01-13,Wiko,Smart Phone,11,1263
+2022-01-13,Microsoft,Smart Phone,10,173
+2022-01-13,LeEco,Smart Phone,10,30
+2022-01-13,F,Smart Phone,9,97
+2022-01-13,Konka,Smart Phone,9,35
+2022-01-13,Android,Smart Phone,9,73
+2022-01-13,XQ,Smart Phone,9,40
+2022-01-13,Qiuyu,Smart Phone,8,31
+2022-01-13,T-Mobile,Smart Phone,8,1304
+2022-01-13,Letv,Smart Phone,8,12
+2022-01-13,Aosp,Smart Phone,8,27
+2022-01-13,X96MAX,Smart Phone,8,14
+2022-01-13,Mpman,Smart Phone,8,29
+2022-01-13,Pdwx,Smart Phone,8,66
+2022-01-13,TAB,Smart Phone,7,10
+2022-01-13,Trio,Smart Phone,7,15
+2022-01-13,A95X,Smart Phone,7,26
+2022-01-13,Studio,Smart Phone,7,8
+2022-01-13,Amazon,Smart Phone,7,216
+2022-01-13,Bmobile,Smart Phone,7,45
+2022-01-13,Panasonic,Smart Phone,7,62
+2022-01-13,Ulefone,Smart Phone,7,2450
+2022-01-13,Sanyo,Smart Phone,7,93
+2022-01-13,Sony Ericsson,Smart Phone,7,24
+2022-01-13,Cricket,Smart Phone,6,1272
+2022-01-13,BLU,Smart Phone,6,775
+2022-01-13,MaxiSys,Smart Phone,6,59
+2022-01-13,Shark,Smart Phone,6,35
+2022-01-13,Logic,Smart Phone,6,33
+2022-01-13,Blackview,Smart Phone,6,25
+2022-01-13,ZN,Smart Phone,5,75
+2022-01-13,MicroMax,Smart Phone,5,6
+2022-01-13,Sonim,Smart Phone,5,73
+2022-01-13,HK1,Smart Phone,5,15
+2022-01-13,HN,Smart Phone,5,138
+2022-01-13,Fairphone,Smart Phone,5,8
+2022-01-13,W,Smart Phone,5,6
+2022-01-13,Gionee,Smart Phone,5,5
+2022-01-13,CP,Smart Phone,5,6
+2022-01-13,Unimax,Smart Phone,5,1785
+2022-01-13,bq,Smart Phone,5,5
+2022-01-13,Pyxis,Smart Phone,5,345
+2022-01-13,Classic,Smart Phone,5,238
+2022-01-13,Platinum,Smart Phone,5,53
+2022-01-13,NS,Smart Phone,5,20
+2022-01-13,S20,Smart Phone,4,26
+2022-01-13,Soyes,Smart Phone,4,52
+2022-01-13,H6,Smart Phone,4,6
+2022-01-13,Freetel,Smart Phone,4,10
+2022-01-13,Nanoleaf,Light Bulb,4,176
+2022-01-13,Dune HD,TV,1,22
+2022-01-13,Imeshbean,Tablet,1,1
+2022-01-13,Binatone,Camera,1,10
+2022-01-13,Samsung,Printer,1,586
+2022-01-13,LG,Fridge,1,128
+2022-01-13,Fujitsu,Laptop & Computer,1,3
+2022-01-13,Gogogate,Garage Opener,1,28
+2022-01-13,Cisco,Set Top Box,5,451
+2022-01-13,Eufy,Home Security,2,2662
+2022-01-13,Ezviz,Camera,5,113
+2022-01-13,Caitlins,TV,1,1
+2022-01-13,Comcast,Set Top Box,2,5315
+2022-01-13,IDIS,Media Player,1,8
+2022-01-13,Broadlink,Thermostat,1,21
+2022-01-13,TV,Tablet,1,9
+2022-01-13,MaxiSys,Tablet,3,5
+2022-01-13,Bosch,Smart Appliance,4,12
+2022-01-13,Amazon,Home Security,2,3925
+2022-01-13,Shark,Robot Vacuum Cleaner,1,3740
+2022-01-13,Eufy,Camera,1,91
+2022-01-13,Vizio,Laptop & Computer,1,35
+2022-01-13,Octopus,Tablet,1,1
+2022-01-13,Mitel,VoIP Gateway,10,180
+2022-01-13,Funai,TV,3,8
+2022-01-13,Maxisys,Tablet,1,1
+2022-01-13,Sonimtech,Tablet,1,1
+2022-01-13,Piper,Camera,1,38
+2022-01-13,C By GE,Hub,1,26
+2022-01-13,Beautyrest,Smart Appliance,1,181
+2022-01-13,Creality,Printer,1,13
+2022-01-13,VOCOlinc,Air Purifier,1,3
+2022-01-13,Samsung,Smart Appliance,3,2812
+2022-01-13,ThinkEco,Plug,1,4
+2022-01-13,Golden Tee,Game Console,1,15
+2022-01-13,Aquanta,Smart Appliance,1,25
+2022-01-13,Western Digital,NAS Storage,3,987
+2022-01-13,Tend,Camera,1,1
+2022-01-13,Danew,Tablet,1,13
+2022-01-13,Hisense,Smart Appliance,1,40
+2022-01-13,Sandisk,NAS Storage,1,10
+2022-01-13,Kidde,Smoke Alarm,1,6
+2022-01-13,Star,TV,1,1
+2022-01-13,Bticino,Doorbell,1,4
+2022-01-13,Zinwell,Network Controller,1,888
+2022-01-13,RK322X,Tablet,1,1
+2022-01-13,Yes,Tablet,1,1
+2022-01-13,Glowforge,Printer,1,5
+2022-01-13,LG,Dishwasher,1,29
+2022-01-13,Amway,Air Purifier,1,15
+2022-01-13,Rachio,Sprinkler,1,1766
+2022-01-13,A1,Tablet,1,2
+2022-01-13,Molekule,Air Purifier,1,262
+2022-01-13,Circle,Smart Appliance,1,148
+2022-01-13,Gigaset,VoIP Gateway,1,2
+2022-01-13,RealPad,Tablet,1,3
+2022-01-13,SiriusXM,Media Player,1,28
+2022-01-13,Trane,Thermostat,1,1876
+2022-01-13,Arris,Range Extender,3,12
+2022-01-13,Lifx,Light Bulb,11,6238
+2022-01-13,Medion,Tablet,13,65
+2022-01-13,Lexmark,Printer,1,515
+2022-01-13,MAXIMUS4,Tablet,1,2
+2022-01-13,U by Moen,Smart Appliance,1,101
+2022-01-13,Belkin,Hub,1,53
+2022-01-13,Amaryllo,Camera,1,13
+2022-01-13,Mecool,Set Top Box,1,3
+2022-01-13,Broadlink,Plug,1,8
+2022-01-13,Cari,TV,1,1
+2022-01-13,Netatmo,Hub,1,4
+2022-01-13,BNT,Tablet,2,2
+2022-01-13,Ray,Smart Remote,1,1
+2022-01-13,Intel,Laptop & Computer,2,3
+2022-01-13,Etekcity,Plug,1,2458
+2022-01-13,Sensi,Thermostat,1,2626
+2022-01-13,MSI,Laptop & Computer,1,673
+2022-01-13,Xiaomi,Smart Remote,1,1
+2022-01-13,Phillips,TV,3,7
+2022-01-13,HLQ,Tablet,1,1
+2022-01-13,iBall,Tablet,1,1
+2022-01-13,HTV,Tablet,2,2
+2022-01-13,Google,VoIP Gateway,1,4
+2022-01-13,Bond,Hub,1,348
+2022-01-13,Akai,Media Player,2,11
+2022-01-13,Daikin,Air Conditioner,1,116
+2022-01-13,Hisense,TV,34,33914
+2022-01-13,Kurio,Tablet,2,192
+2022-01-13,TP-Link,Camera,10,1378
+2022-01-13,XO,Tablet,1,1
+2022-01-13,AirTV,Set Top Box,1,30
+2022-01-13,MT,Tablet,3,3
+2022-01-13,Deako,Light Switch,1,27
+2022-01-13,TimsHisense,TV,1,1
+2022-01-13,Kukele,Tablet,1,1
+2022-01-13,Whistle,Wearable & Virtual Reality,1,78
+2022-01-13,EPSON,Printer,27,87
+2022-01-13,NordicTrack,Fitness Trainer & Bike,3,2328
+2022-01-13,Element,TV,12,2316
+2022-01-13,JVC,TV,11,780
+2022-01-13,C49F4442,Tablet,1,6
+2022-01-13,Bell,Set Top Box,3,68
+2022-01-13,Devant,Set Top Box,1,1
+2022-01-13,Microsoft,TV,1,2
+2022-01-13,Anova Culinary,Smart Appliance,2,214
+2022-01-13,Narwal,Robot Vacuum Cleaner,1,5
+2022-01-13,Radio,Thermostat,1,65
+2022-01-13,Feelcare,Picture Frame,1,178
+2022-01-13,Smart Life,Plug,1,42
+2022-01-13,S900,Tablet,1,2
+2022-01-13,Philips,Set Top Box,1,301
+2022-01-13,Whirlpool,Washer Dryer,2,37
+2022-01-13,Shoretel,VoIP Gateway,1,54
+2022-01-13,Lovebox,Smart Appliance,1,24
+2022-01-13,Apple,Laptop & Computer,23,247724
+2022-01-13,Roku,Set Top Box,26,153136
+2022-01-13,HV,Smart Appliance,2,19
+2022-01-13,Changhong,TV,3,3
+2022-01-13,Pioneer,Set Top Box,1,88
+2022-01-13,Kains,TV,1,1
+2022-01-13,Sony,Media Player,11,6543
+2022-01-13,HiSilicon,Set Top Box,2,41
+2022-01-13,Momentum,Camera,4,328
+2022-01-13,TS,Tablet,1,2
+2022-01-13,Smappee,Smart Appliance,1,2
+2022-01-13,Kangaroo,Sensor,1,202
+2022-01-13,sugarsroom,TV,1,1
+2022-01-13,Samsung,Set Top Box,1,1112
+2022-01-13,Sensibo,Smart Remote,1,370
+2022-01-13,Android,Set Top Box,1,1
+2022-01-13,Ford,Car,2,2123
+2022-01-13,Ultimate Ears,Speaker,1,208
+2022-01-13,7DRK,Tablet,1,12
+2022-01-13,HB,Tablet,1,2
+2022-01-13,X7,Tablet,1,3
+2022-01-13,iDevices,Plug,3,258
+2022-01-13,Avov,Tablet,1,1
+2022-01-13,M40PRO,Tablet,1,1
+2022-01-13,Nicky,TV,1,1
+2022-01-13,Sharper Image,Speaker,2,5
+2022-01-13,Amazon,Speaker,2,1223
+2022-01-13,Scepter,Tablet,1,104
+2022-01-13,F1,Tablet,2,2
+2022-01-13,SimpliSafe,Home Security,1,2954
+2022-01-13,Philips,Tablet,1,1
+2022-01-13,Generac,Network Controller,1,15
+2022-01-13,Boogers,TV,1,1
+2022-01-13,GL,Tablet,1,1
+2022-01-13,Thermador,Dishwasher,1,47
+2022-01-13,Loris,TV,1,1
+2022-01-13,SimplySmart Home,Picture Frame,1,15
+2022-01-13,YK,Tablet,1,3
+2022-01-13,UBOX4,Tablet,1,3
+2022-01-13,Wink,Hub,2,264
+2022-01-13,Koogeek,Light Switch,2,6
+2022-01-13,EV,Tablet,1,1
+2022-01-13,SmartThings,Camera,1,9
+2022-01-13,AerynAmelia,TV,1,1
+2022-01-13,Xiaomi,Set Top Box,11,443
+2022-01-13,Polycom,VoIP Gateway,14,1239
+2022-01-13,Escort,Sensor,1,21
+2022-01-13,Haier,Smart Appliance,1,1
+2022-01-13,FB,TV,1,2
+2022-01-13,Philips,Hub,1,5696
+2022-01-13,Vankyo,Tablet,1,8
+2022-01-13,Samsung,Watch,8,16841
+2022-01-13,Actiontec,Range Extender,2,10
+2022-01-13,Teckin,Plug,1,10
+2022-01-13,Google,Doorbell,1,4634
+2022-01-13,AI,Light Bulb,1,3
+2022-01-13,Victure,Baby Camera,1,88
+2022-01-13,Kuna,Camera,1,528
+2022-01-13,GWAT8,Tablet,1,2
+2022-01-13,FunguyPro,Smart Monitor,1,2
+2022-01-13,Hismart,Set Top Box,1,2
+2022-01-13,Savant,Smart Remote,2,60
+2022-01-13,Broadlink,Hub,3,59
+2022-01-13,Roku,Speaker,1,334
+2022-01-13,Alarm.com,Home Security,1,5910
+2022-01-13,Hubitat,Hub,1,2
+2022-01-13,NoiseAware,Sensor,1,91
+2022-01-13,Insignia,TV,14,2511
+2022-01-13,LG,Laptop & Computer,5,66
+2022-01-13,Tado,Hub,1,3
+2022-01-13,360Eyes,Camera,1,775
+2022-01-13,Tesla,Smart Appliance,1,308
+2022-01-13,Dune HD,Media Player,1,1
+2022-01-13,Swann,Camera,3,548
+2022-01-13,Monument,NAS Storage,1,24
+2022-01-13,Vivint,Home Security,1,1248
+2022-01-13,Sanyo,Tablet,2,280
+2022-01-13,Lollipop,Baby Camera,1,108
+2022-01-13,Blueair,Air Purifier,1,84
+2022-01-13,Corinns,TV,1,1
+2022-01-13,Withings,Camera,1,13
+2022-01-13,Cisco,VoIP Gateway,5,646
+2022-01-13,Panasonic,Camera,3,89
+2022-01-13,Fujitsu,Tablet,5,84
+2022-01-13,Glbox,Tablet,1,2
+2022-01-13,UrbanHello,Smart Appliance,1,2
+2022-01-13,Myx Fitness,Fitness Trainer & Bike,1,89
+2022-01-13,Panasonic,TV,17,1179
+2022-01-13,Sub-Zero Wolf,Smart Appliance,1,150
+2022-01-13,Owlet,Baby Camera,3,2794
+2022-01-13,Toshiba,TV,8,16528
+2022-01-13,Kerstins,TV,1,1
+2022-01-13,Epson,Smart Appliance,1,56
+2022-01-13,RF-Link,Camera,1,1
+2022-01-13,Porsche,Car,1,3
+2022-01-13,ELEMENT,TV,1,10
+2022-01-13,Element,Tablet,1,1
+2022-01-13,L1,Tablet,1,1
+2022-01-13,Philips,TV,29,7306
+2022-01-13,Toshiba,Media Player,7,9
+2022-01-13,Charmia,TV,1,1
+2022-01-13,Dyson,Air Purifier,26,1793
+2022-01-13,Ubiquiti,Network Controller,2,19
+2022-01-13,iSmart,Camera,1,13
+2022-01-13,A95X,Set Top Box,1,1
+2022-01-13,Netgear,Picture Frame,1,39
+2022-01-13,Belkin,Camera,1,2
+2022-01-13,Sylvania,Picture Frame,1,438
+2022-01-13,Caavo,Set Top Box,1,37
+2022-01-13,Intel,Tablet,1,37
+2022-01-13,Xiaomi,Air Conditioner,1,2
+2022-01-13,HUB6,Home Security,1,1
+2022-01-13,Bosch,Fridge,9,171
+2022-01-13,Etekcity,Light Bulb,1,107
+2022-01-13,Ems,TV,1,1
+2022-01-13,Logitech,Hub,3,3053
+2022-01-13,Abox,Tablet,2,3
+2022-01-13,Devialet,Speaker,2,17
+2022-01-13,Yinlishi,Media Player,1,67
+2022-01-13,JHT,Tablet,1,1
+2022-01-13,Vocolinc,Air Purifier,1,1
+2022-01-13,Linksys,Range Extender,1,2
+2022-01-13,Irulu,Tablet,1,2
+2022-01-13,Chef iQ,Smart Appliance,1,20
+2022-01-13,Nightingale,Smart Appliance,1,7
+2022-01-13,BroadLink,Plug,1,14
+2022-01-13,Google,Voice Assistant,5,55754
+2022-01-13,HKE360,Tablet,1,1
+2022-01-13,MasonandWillys,TV,1,1
+2022-01-13,Antminer,Smart Appliance,2,69
+2022-01-13,BIT,Laptop & Computer,1,1
+2022-01-13,N106,Tablet,1,1
+2022-01-13,Lydias,TV,1,1
+2022-01-13,Thermador,Oven,1,25
+2022-01-13,Philips,Light Bulb,2,93
+2022-01-13,Orro,Light Switch,1,4
+2022-01-13,SnapAV,Plug,1,50
+2022-01-13,Skylink,Garage Opener,1,10
+2022-01-13,Keurig,Coffee Maker,1,3
+2022-01-13,Azpen,Tablet,2,30
+2022-01-13,Magnavox,Clock,1,10
+2022-01-13,Ulifecam,Camera,1,1
+2022-01-13,My,TV,1,1
+2022-01-13,Waterguru,Smart Appliance,1,35
+2022-01-13,FUSION5,Tablet,1,1
+2022-01-13,G,Tablet,1,2
+2022-01-13,TSB,Set Top Box,1,2
+2022-01-13,Axis,Camera,1,65
+2022-01-13,Whirlpool,Dishwasher,1,36
+2022-01-13,Supersonic,Set Top Box,1,1
+2022-01-13,Honeywell,Thermostat,1,13568
+2022-01-13,D-Link,Media Player,1,6
+2022-01-13,Pioneer,Tablet,1,8
+2022-01-13,Qolsys,Home Security,2,6483
+2022-01-13,LG,Speaker,1,235
+2022-01-13,Hisense,Tablet,4,13
+2022-01-13,Eufy,Doorbell,1,42
+2022-01-13,Logitech,Set Top Box,1,1
+2022-01-13,Meross,Smart Appliance,1,1
+2022-01-13,Zebra,Printer,1,20
+2022-01-13,XPL,Tablet,2,11
+2022-01-13,WIKO,Tablet,1,13
+2022-01-13,Nature,Hub,1,22
+2022-01-13,Control4,Media Player,2,25
+2022-01-13,Mevo,Camera,1,16
+2022-01-13,AKAI,TV,1,1
+2022-01-13,DStv,Media Player,2,6
+2022-01-13,Cisco,Tablet,1,1
+2022-01-13,Coway,Air Purifier,1,44
+2022-01-13,Sony,Laptop & Computer,7,213
+2022-01-13,Eve,Range Extender,1,8
+2022-01-13,Netatmo,Camera,1,4
+2022-01-13,Dakboard,Smart Monitor,1,44
+2022-01-13,Belkin,Speaker,1,11
+2022-01-13,Winix,Air Purifier,1,398
+2022-01-13,SP7731E,Tablet,1,2
+2022-01-13,BrightSign,Wearable & Virtual Reality,1,5
+2022-01-13,Opulinks,Smart Monitor,1,16
+2022-01-13,Haque,TV,1,1
+2022-01-13,Crestron,Light Switch,1,1
+2022-01-13,PhotoSpring,Picture Frame,1,12
+2022-01-13,KTE,Tablet,1,102
+2022-01-13,Sense,Smart Monitor,1,303
+2022-01-13,Netatmo,Weather Monitor,1,141
+2022-01-13,MacKenziesOffice,TV,1,1
+2022-01-13,Sonoff,Light Switch,1,4
+2022-01-13,Mpman,Tablet,1,1
+2022-01-13,Purpleair,Sensor,1,62
+2022-01-13,Meross,Garage Opener,1,535
+2022-01-13,Abox,Set Top Box,1,31
+2022-01-13,WAC Lighting,Smart Appliance,1,23
+2022-01-13,Infomir,Set Top Box,12,1188
+2022-01-13,MAL,Tablet,1,1
+2022-01-13,Tmall,Speaker,1,31
+2022-01-13,Ultimaker,Printer,1,1
+2022-01-13,Ployer,Tablet,1,1
+2022-01-13,Oneplus,Tablet,1,1
+2022-01-13,LaMetric,Clock,1,27
+2022-01-13,NextBook,Tablet,4,30
+2022-01-13,Sanyo,TV,9,1353
+2022-01-13,Cable Plus,Set Top Box,1,589
+2022-01-13,Davis Instruments,Weather Monitor,1,23
+2022-01-13,iSmartgate,Garage Opener,1,31
+2022-01-13,Kingston,NAS Storage,1,16
+2022-01-13,Skyworth,Tablet,1,1
+2022-01-13,Doorbird,Doorbell,1,26
+2022-01-13,Smart,TV,1,5
+2022-01-13,Y88X,Tablet,2,8
+2022-01-13,Zs,TV,1,1
+2022-01-13,Denon,Speaker,10,223
+2022-01-13,LightwaveRF,Hub,1,1
+2022-01-13,SC,Tablet,1,1
+2022-01-13,Subaru,Car,3,289
+2022-01-13,Epson,Printer,122,24379
+2022-01-13,Aprilaire,Thermostat,5,103
+2022-01-13,Philips,Media Player,1,14
+2022-01-13,TCT Mobile Limited (Alcatel),Tablet,1,43
+2022-01-13,Nvidia,Tablet,1,1
+2022-01-13,Angelicas,TV,1,1
+2022-01-13,Coinmine,Smart Appliance,1,5
+2022-01-13,ECS,Tablet,1,1
+2022-01-13,Nintendo,Game Console,8,128631
+2022-01-13,NAD,Media Player,1,6
+2022-01-13,Bosch,Washer Dryer,2,19
+2022-01-13,X96,Tablet,1,2
+2022-01-13,Lockly,Hub,1,166
+2022-01-13,Juans,TV,1,1
+2022-01-13,Ubuntu,Laptop & Computer,1,133
+2022-01-13,Arabesk,Set Top Box,1,1
+2022-01-13,Ty,TV,1,1
+2022-01-13,Canon,Printer,140,24957
+2022-01-13,Moen,Smart Appliance,1,9
+2022-01-13,EZVIZ,Camera,2,52
+2022-01-13,BSL,Tablet,1,1
+2022-01-13,Zacks,TV,1,1
+2022-01-13,Vtech,Baby Camera,1,13
+2022-01-13,Arrans,TV,1,1
+2022-01-13,Aquascape,Hub,1,6
+2022-01-13,Amazon,Set Top Box,11,183946
+2022-01-13,Samsung,Camera,6,1614
+2022-01-13,Boys,TV,1,1
+2022-01-13,Dyson,Robot Vacuum Cleaner,2,5
+2022-01-13,Teckin,Camera,1,210
+2022-01-13,KONKA,Tablet,1,1
+2022-01-13,Scram,Smart Monitor,1,51
+2022-01-13,Ted,Solar,1,1
+2022-01-13,Devolo,Smart Monitor,1,3
+2022-01-13,Magnavox,TV,6,212
+2022-01-13,Russound,Speaker,2,18
+2022-01-13,Vivint,NAS Storage,1,536
+2022-01-13,Craig,Tablet,1,12
+2022-01-13,Ault,TV,1,1
+2022-01-13,DophiGo,Baby Camera,1,2
+2022-01-13,Bmax,Tablet,1,1
+2022-01-13,Everlights,Light Bulb,1,4
+2022-01-13,S10,Tablet,1,1
+2022-01-13,Bobcat,Smart Appliance,1,133
+2022-01-13,Lohas,Light Bulb,1,88
+2022-01-13,Den,TV,1,1
+2022-01-13,HITACHI,TV,5,56
+2022-01-13,Kalebs,TV,1,1
+2022-01-13,magicJack,VoIP Gateway,1,922
+2022-01-13,Petzi,Camera,1,22
+2022-01-13,Manta Multimedia,Tablet,2,2
+2022-01-13,Coby Kyros,Tablet,5,5
+2022-01-13,At&t,Set Top Box,1,143
+2022-01-13,HL,Tablet,1,3
+2022-01-13,ASUS,Tablet,2,6
+2022-01-13,Sesame,Doorlock,1,18
+2022-01-13,BlackBerry,Tablet,6,37
+2022-01-13,Bluesound,Speaker,7,95
+2022-01-13,roost,Smart Monitor,1,4
+2022-01-13,LG,TV,9,63681
+2022-01-13,Xerox,Printer,5,2466
+2022-01-13,SolarCity,Solar,1,62
+2022-01-13,X92,Tablet,1,5
+2022-01-13,Sling,Set Top Box,1,211
+2022-01-13,MW22,Tablet,1,2
+2022-01-13,Satechi,Plug,1,8
+2022-01-13,onn,TV,18,10227
+2022-01-13,Sonos,Speaker,28,37555
+2022-01-13,Roost,Sensor,1,79
+2022-01-13,Nuvo,Media Player,1,336
+2022-01-13,Invoxia,Speaker,1,9
+2022-01-13,LOL,Tablet,1,1
+2022-01-13,Ultraloq,Doorlock,1,293
+2022-01-13,Ticwatch,Watch,5,7
+2022-01-13,V919,Tablet,1,1
+2022-01-13,MaiTai,Tablet,1,132
+2022-01-13,Kodi,Media Player,1,20
+2022-01-13,TangoTab,Tablet,1,1
+2022-01-13,Hybrid,Tablet,1,7
+2022-01-13,Linsay,Tablet,2,4
+2022-01-13,Remootio,Garage Opener,1,26
+2022-01-13,Control4,Tablet,2,22
+2022-01-13,GoHawk,Speaker,1,3
+2022-01-13,Halo,Doorlock,1,31
+2022-01-13,InFocus,TV,1,15
+2022-01-13,Mads,TV,1,1
+2022-01-13,Netgear,Set Top Box,1,1
+2022-01-13,Amazon,TV,10,55568
+2022-01-13,Skylight,Picture Frame,1,1296
+2022-01-13,Bissell,Robot Vacuum Cleaner,1,466
+2022-01-13,Sricam,Camera,1,78
+2022-01-13,August,Doorlock,1,441
+2022-01-13,LG,Oven,1,10
+2022-01-13,Ryans,TV,1,1
+2022-01-13,TomTom,WiFi Tracker,1,86
+2022-01-13,BaMaJe,TV,1,1
+2022-01-13,Navien,Smart Appliance,1,48
+2022-01-13,LeEco,TV,1,1
+2022-01-13,UMC-Sharp,TV,1,1
+2022-01-13,MXQ,Set Top Box,1,17
+2022-01-13,YF,Tablet,1,13
+2022-01-13,CDN,Tablet,1,1
+2022-01-13,Nicks,TV,1,1
+2022-01-13,Kodak,Printer,6,212
+2022-01-13,Victron Energy,Smart Monitor,1,3
+2022-01-13,Foxtel,Set Top Box,2,47
+2022-01-13,eufy,Robot Vacuum Cleaner,1,1447
+2022-01-13,Philips,Smart Appliance,1,4
+2022-01-13,ATOTO,Car,1,440
+2022-01-13,NuCam,Camera,1,10
+2022-01-13,Connors,TV,1,1
+2022-01-13,Zonko,Tablet,1,1
+2022-01-13,Alpine,Smart Appliance,1,2
+2022-01-13,Switchmate,Plug,1,2
+2022-01-13,Marshall,Camera,1,2
+2022-01-13,Comigo,Tablet,1,1
+2022-01-13,Soniq,Tablet,1,1
+2022-01-13,EZ,Tablet,2,3
+2022-01-13,T30,Tablet,1,3
+2022-01-13,Super,Set Top Box,1,1
+2022-01-13,Winamp,Laptop & Computer,1,1
+2022-01-13,Big Ass Fans,Smart Appliance,2,157
+2022-01-13,Twinkly,Light Bulb,1,1573
+2022-01-13,SkystreamX,Tablet,1,1
+2022-01-13,Tonal,Fitness Trainer & Bike,1,284
+2022-01-13,Emporia,Smart Appliance,1,174
+2022-01-13,Como Audio,Media Player,4,18
+2022-01-13,Maximus,Tablet,1,2
+2022-01-13,8H94A,Tablet,1,1
+2022-01-13,Grace Digital,Media Player,1,28
+2022-01-13,Honeywell,Camera,2,28
+2022-01-13,A7,Tablet,1,2
+2022-01-13,Google,Camera,2,12387
+2022-01-13,Raspberry Pi,Game Console,1,71
+2022-01-13,P212,Tablet,1,1
+2022-01-13,Viessmann,Smart Appliance,1,2
+2022-01-13,hisense,TV,1,2
+2022-01-13,Kims,TV,2,2
+2022-01-13,KIDS705,Tablet,1,8
+2022-01-13,Nikon,Camera,1,1
+2022-01-13,Toshiba,Printer,1,17
+2022-01-13,CamelToe,TV,1,1
+2022-01-13,Formlabs 3D,Printer,1,1
+2022-01-13,Bs,TV,1,1
+2022-01-13,Samsung,Dishwasher,1,368
+2022-01-13,Abode,Home Security,1,95
+2022-01-13,kays,TV,1,1
+2022-01-13,John Deere,Camera,1,11
+2022-01-13,HP,Tablet,15,52
+2022-01-13,Etekcity,Light Switch,1,33
+2022-01-13,Chrome OS,Laptop & Computer,1,3
+2022-01-13,PAX,Smart Appliance,10,128
+2022-01-13,Flame Boss,Smart Appliance,1,32
+2022-01-13,EUT110,Tablet,1,1
+2022-01-13,HappyTv,Tablet,1,1
+2022-01-13,FireBoard,Smart Appliance,1,56
+2022-01-13,SunPower,Solar,1,95
+2022-01-13,IOTTY,Light Switch,1,141
+2022-01-13,Motorola,Watch,1,1
+2022-01-13,Compaq,Tablet,1,1
+2022-01-13,MT003,Tablet,1,1
+2022-01-13,Huawei,Tablet,28,630
+2022-01-13,Google,Set Top Box,7,95934
+2022-01-13,Kyocera,Tablet,5,192
+2022-01-13,FreeStream,Tablet,1,1
+2022-01-13,Ubiquiti,Camera,2,45
+2022-01-13,Wahoo,WiFi Tracker,2,185
+2022-01-13,K960,Tablet,1,1
+2022-01-13,Victure,Camera,1,88
+2022-01-13,Availink,Set Top Box,1,5
+2022-01-13,Drcc,Tablet,1,1
+2022-01-13,Amazon,Plug,1,15208
+2022-01-13,Pix-Star,Picture Frame,1,415
+2022-01-13,X88PRO10,Tablet,2,3
+2022-01-13,microJukebox,Media Player,1,1
+2022-01-13,Arnova,Tablet,1,1
+2022-01-13,Litter-Robot,Smart Appliance,1,77
+2022-01-13,Notepad,Tablet,1,7
+2022-01-13,Pura,Smart Appliance,1,2517
+2022-01-13,Tolino,Smart Appliance,1,4
+2022-01-13,EDP,Tablet,1,1
+2022-01-13,Miele,Smart Appliance,1,5
+2022-01-13,Neabot,Robot Vacuum Cleaner,1,9
+2022-01-13,GlobalNet,Tablet,1,2
+2022-01-13,Ambarella,Camera,1,34
+2022-01-13,Rugged,Tablet,1,1
+2022-01-13,Canvia,Picture Frame,1,3
+2022-01-13,Qardio,Scale,1,6
+2022-01-13,Leadtek,Laptop & Computer,1,43
+2022-01-13,X96H,Tablet,1,1
+2022-01-13,Clova,Speaker,2,16
+2022-01-13,Mill,Smart Appliance,1,9
+2022-01-13,Rain Bird,Sprinkler,1,924
+2022-01-13,Dyson,Smart Appliance,2,16
+2022-01-13,LaIsla,TV,1,1
+2022-01-13,Garmin,Wearable & Virtual Reality,5,2338
+2022-01-13,RIM,Tablet,1,1
+2022-01-13,Novas,TV,1,1
+2022-01-13,Ambient,Weather Monitor,1,363
+2022-01-13,P902,Tablet,1,1
+2022-01-13,Douzhanggui,Tablet,1,1
+2022-01-13,JenicasHisense,TV,1,1
+2022-01-13,Weber,Smart Appliance,1,118
+2022-01-13,Red Sea,Light Bulb,1,33
+2022-01-13,Microsoft,Laptop & Computer,192,634519
+2022-01-13,F,Tablet,3,3
+2022-01-13,Xiaomi,Robot Vacuum Cleaner,7,531
+2022-01-13,Dynalink,Set Top Box,1,4
+2022-01-13,Likebook,Tablet,1,1
+2022-01-13,Sensibo,Air Conditioner,1,69
+2022-01-13,GLOBAL4K,Set Top Box,1,5
+2022-01-13,SkyBell,Doorbell,1,3969
+2022-01-13,Avaya,VoIP Gateway,1,327
+2022-01-13,Dons,TV,1,1
+2022-01-13,Stew,TV,1,1
+2022-01-13,Mastv,Tablet,1,2
+2022-01-13,iDevices,Light Switch,3,313
+2022-01-13,T8,Tablet,1,2
+2022-01-13,Apple,Watch,9,192564
+2022-01-13,Zmodo,Camera,1,1241
+2022-01-13,Huawei,Laptop & Computer,3,11
+2022-01-13,Baidu,Speaker,1,14
+2022-01-13,JeffsOffice,TV,1,1
+2022-01-13,Charleys,TV,1,1
+2022-01-13,Hunter,Smart Appliance,1,285
+2022-01-13,IFP7550,Tablet,1,1
+2022-01-13,Mighty,Media Player,1,9
+2022-01-13,Momentum,Garage Opener,1,27
+2022-01-13,HTC,Laptop & Computer,1,1
+2022-01-13,Yolanda,Scale,1,5
+2022-01-13,SharkRF,Smart Appliance,2,15
+2022-01-13,livs,TV,1,1
+2022-01-13,DK,Tablet,1,1
+2022-01-13,Litmor,Camera,1,10
+2022-01-13,Momsbedroom,TV,1,1
+2022-01-13,NastysRCA,TV,1,1
+2022-01-13,Pitboss,Smart Appliance,1,593
+2022-01-13,Dylans,TV,1,1
+2022-01-13,Lavie,Tablet,3,4
+2022-01-13,Sylvania,Tablet,1,9
+2022-01-13,Phyn,Smart Monitor,1,35
+2022-01-13,Rikomagic,TV,3,20
+2022-01-13,Brava,Oven,1,46
+2022-01-13,LR,TV,1,1
+2022-01-13,Third Reality,Hub,1,7
+2022-01-13,IMSAI,Laptop & Computer,1,1
+2022-01-13,NID,Tablet,4,9
+2022-01-13,Vestel,TV,1,1
+2022-01-13,Magic TV,Set Top Box,1,3
+2022-01-13,Pentair,Smart Appliance,1,245
+2022-01-13,Benewtech,Smart Appliance,1,1
+2022-01-13,NEO,Tablet,1,1
+2022-01-13,Vocolinc,Smart Appliance,1,11
+2022-01-13,Koogeek,Light Bulb,2,18
+2022-01-13,Geochron,Clock,1,1
+2022-01-13,V,Tablet,1,1
+2022-01-13,Canon,Camera,32,224
+2022-01-13,Lenovo,Clock,1,1298
+2022-01-13,Creative,Speaker,1,3
+2022-01-13,MSM8953,Tablet,1,1
+2022-01-13,Lenovo,Laptop & Computer,52,830
+2022-01-13,Sherwoods,TV,1,1
+2022-01-13,HTC,Tablet,3,47
+2022-01-13,J5,Tablet,1,3
+2022-01-13,TaysRCA,TV,1,1
+2022-01-13,Kari,TV,1,1
+2022-01-13,Aila,Tablet,1,135
+2022-01-13,Night Owl,Camera,1,1530
+2022-01-13,MF0300,Tablet,1,1
+2022-01-13,Shiannes,TV,1,1
+2022-01-13,Adams,TV,1,1
+2022-01-13,Rinnai,Smart Appliance,1,108
+2022-01-13,Grandstream,VoIP Gateway,2,369
+2022-01-13,Marantz,Media Player,1,7
+2022-01-13,Kef,Speaker,1,4
+2022-01-13,Ting,Sensor,1,335
+2022-01-13,Mstar,Set Top Box,1,23
+2022-01-13,Bang & Olufsen,Speaker,12,660
+2022-01-13,SwitchBot,Hub,1,84
+2022-01-13,Barnes and Noble,Tablet,1,5
+2022-01-13,Blossom,Sprinkler,1,11
+2022-01-13,GGMM,Speaker,1,2
+2022-01-13,Bosch,Oven,3,16
+2022-01-13,Notion,Hub,1,183
+2022-01-13,Mysa,Thermostat,1,764
+2022-01-13,Kyocera,Printer,1,14
+2022-01-13,Amazon,Smart Monitor,1,1174
+2022-01-13,Lutron,Light Switch,2,1348
+2022-01-13,TD,Tablet,2,3
+2022-01-13,zyderriyahs,TV,1,1
+2022-01-13,Ooma,VoIP Gateway,1,711
+2022-01-13,Blink,Hub,1,16271
+2022-01-13,Blackberry,Tablet,1,10
+2022-01-13,SMA,Solar,1,66
+2022-01-13,RemoteLock,Doorlock,1,157
+2022-01-13,Joshs,TV,1,1
+2022-01-13,Cololight,Light Bulb,1,16
+2022-01-13,Moen,Smart Remote,1,77
+2022-01-13,Hitachi,TV,10,588
+2022-01-13,Jiobit,WiFi Tracker,1,58
+2022-01-13,Antsle,NAS Storage,1,1
+2022-01-13,Fujitsu,Air Conditioner,1,45
+2022-01-13,MasterBedroom,TV,1,1
+2022-01-13,Flo,Sensor,1,210
+2022-01-13,Emmas,TV,1,1
+2022-01-13,UniNet,Printer,1,1
+2022-01-13,iDevices,Smart Appliance,1,27
+2022-01-13,RK3128,Tablet,1,1
+2022-01-13,Sercomm B,Set Top Box,1,21
+2022-01-13,KingPad,Tablet,1,1
+2022-01-13,Satellite,Tablet,1,1
+2022-01-13,Astell&Kern,Media Player,1,1
+2022-01-13,Sorenson,Smart Remote,1,86
+2022-01-13,Binatone,Baby Camera,1,500
+2022-01-13,Onefinity,Smart Appliance,1,8
+2022-01-13,Remarkable,Tablet,1,819
+2022-01-13,Xiaomi,Light Bulb,6,636
+2022-01-13,Pendoo,Tablet,4,16
+2022-01-13,Angels,TV,1,1
+2022-01-13,LivingRoom,TV,1,3
+2022-01-13,MID,Tablet,2,2
+2022-01-13,Lewis,TV,1,1
+2022-01-13,Smart,Set Top Box,1,38
+2022-01-13,Teclast,Tablet,1,2
+2022-01-13,RabbitAir,Air Purifier,1,36
+2022-01-13,A,Tablet,1,2
+2022-01-13,Honda,Car,1,932
+2022-01-13,Sony,Smart Appliance,4,9
+2022-01-13,RainMachine,Sprinkler,1,93
+2022-01-13,MedaCube,Smart Appliance,1,2
+2022-01-13,J:COM,Set Top Box,1,255
+2022-01-13,Joyce,TV,1,1
+2022-01-13,Smartab,Tablet,1,6
+2022-01-13,Geeni,Camera,1,2
+2022-01-13,Scotts,Sprinkler,1,6
+2022-01-13,Arabic,Set Top Box,1,2
+2022-01-13,Insignia,Tablet,2,5
+2022-01-13,Plum,Light Switch,1,28
+2022-01-13,Anbernic,Game Console,1,9
+2022-01-13,Encored,Smart Monitor,1,2
+2022-01-13,Samsung,Washer Dryer,2,1832
+2022-01-13,Denon DJ,Media Player,1,2
+2022-01-13,2GIG,Camera,1,6
+2022-01-13,YoLink,Hub,1,104
+2022-01-13,KTV,Tablet,1,1
+2022-01-13,Hawkins,TV,1,1
+2022-01-13,Magic Hue,Light Bulb,1,161
+2022-01-13,CAT,Tablet,8,50
+2022-01-13,Tvbox,Tablet,2,5
+2022-01-13,Koogeek,Plug,5,55
+2022-01-13,Kaileys,TV,1,1
+2022-01-13,Canary,Camera,3,1079
+2022-01-13,Hyundai,Tablet,2,2
+2022-01-13,PVT,Tablet,1,3
+2022-01-13,Meteobridge,Weather Monitor,1,3
+2022-01-13,abadbitches,TV,1,1
+2022-01-13,Foren,Tablet,1,5
+2022-01-13,iAquaLink,Smart Appliance,1,389
+2022-01-13,Google,Speaker,1,1210
+2022-01-13,A1000,Tablet,1,1
+2022-01-13,Lexies,TV,1,1
+2022-01-13,WD,Media Player,4,47
+2022-01-13,Kileys,TV,1,1
+2022-01-13,Bosch,Coffee Maker,1,4
+2022-01-13,LeapFrog,Tablet,2,373
+2022-01-13,CX,Tablet,1,1
+2022-01-13,Smartak,Tablet,1,361
+2022-01-13,Himedia,Set Top Box,1,9
+2022-01-13,Curry,TV,1,1
+2022-01-13,Remo+,Doorbell,1,58
+2022-01-13,Midea,Air Conditioner,1,733
+2022-01-13,Aura,Picture Frame,1,841
+2022-01-13,Jakers,TV,1,1
+2022-01-13,Evolis Card,Printer,1,1
+2022-01-13,Nathan,TV,1,1
+2022-01-13,Energy Sistem,Tablet,1,1
+2022-01-13,NVidia,Tablet,1,2
+2022-01-13,Level Sense,Sensor,1,12
+2022-01-13,SDPF1095,Tablet,1,2
+2022-01-13,Scbc,TV,1,2
+2022-01-13,Barnes and Noble,Smart Appliance,10,612
+2022-01-13,myTV,Set Top Box,1,598
+2022-01-13,Ubiquiti,Plug,1,31
+2022-01-13,Zebra,Tablet,1,11
+2022-01-13,IFP6550,Tablet,1,1
+2022-01-13,AudioCodes,VoIP Gateway,1,4
+2022-01-13,TickTalk,Watch,1,2
+2022-01-13,iHome,Smart Appliance,1,84
+2022-01-13,Hylands,TV,1,1
+2022-01-13,TAB,Tablet,4,17
+2022-01-13,Microsoft,Game Console,9,120668
+2022-01-13,Eagle,Tablet,1,1
+2022-01-13,Maddys,TV,1,1
+2022-01-13,D-Link,Camera,3,765
+2022-01-13,Electrolux,Smart Appliance,1,119
+2022-01-13,Anki,Smart Appliance,1,86
+2022-01-13,RQ,Tablet,1,4
+2022-01-13,Tend Insights,Camera,1,81
+2022-01-13,iHome,Plug,1,588
+2022-01-13,Skystream,Tablet,3,4
+2022-01-13,Lavietab,Tablet,3,4
+2022-01-13,Manjee,Tablet,1,1
+2022-01-13,Levoit,Air Purifier,1,490
+2022-01-13,Samsung,TV,523,155817
+2022-01-13,Microsoft,Tablet,60,2462
+2022-01-13,Anova,Smart Appliance,1,1
+2022-01-13,Thermador,Smart Appliance,3,51
+2022-01-13,Wyze,Camera,2,26140
+2022-01-13,Kobo,Smart Appliance,2,854
+2022-01-13,Panasonic,Printer,1,12
+2022-01-13,Intesis,Smart Appliance,1,1
+2022-01-13,3W,Tablet,1,1
+2022-01-13,APC,Plug,1,34
+2022-01-13,Naudyas,TV,1,1
+2022-01-13,Amazon,Camera,7,60090
+2022-01-13,LG,Washer Dryer,2,324
+2022-01-13,Arris,Set Top Box,6,758
+2022-01-13,iDevices,Thermostat,1,62
+2022-01-13,T-Mobile,VoIP Gateway,1,29
+2022-01-13,InGrid,Home Security,1,5
+2022-01-13,Trendnet,Printer,1,19
+2022-01-13,Schlage,Doorlock,1,1860
+2022-01-13,Brother,Printer,2,18523
+2022-01-13,Apple,Media Player,9,14870
+2022-01-13,Fitbit,Watch,1,853
+2022-01-13,Xiaomi,Tablet,1,5
+2022-01-13,Melnor,Sprinkler,1,3
+2022-01-13,Allwinner,Tablet,1,1
+2022-01-13,Toucan,Doorbell,1,4
+2022-01-13,T96,Tablet,1,1
+2022-01-13,Airties,TV,1,2
+2022-01-13,SuperStream,Tablet,1,1
+2022-01-13,inch,TV,1,1
+2022-01-13,Broadlink,Smart Remote,2,117
+2022-01-13,LGE,Tablet,1,158
+2022-01-13,Android,Laptop & Computer,1,27
+2022-01-13,ExpressLuck,TV,1,1
+2022-01-13,Vodafone,Set Top Box,1,8
+2022-01-13,Crestron,Smart Remote,1,6
+2022-01-13,Mitsubishi,Air Conditioner,1,1
+2022-01-13,Dell,Tablet,6,31
+2022-01-13,NotePad,Tablet,1,1
+2022-01-13,Transpeed,Tablet,2,4
+2022-01-13,A8202,Tablet,1,3
+2022-01-13,OND,Tablet,1,2
+2022-01-13,Sharp,Tablet,2,10
+2022-01-13,Ubiquiti,NAS Storage,1,2
+2022-01-13,C by GE,Plug,1,174
+2022-01-13,Asus,Tablet,29,1049
+2022-01-13,LeakSmart,Sensor,1,8
+2022-01-13,LC,Tablet,1,1
+2022-01-13,Leedarson,Hub,1,2
+2022-01-13,AT&T,Smoke Alarm,1,44
+2022-01-13,Samsung,Light Bulb,1,7
+2022-01-13,Napco,Hub,1,4
+2022-01-13,N11,Tablet,1,1
+2022-01-13,Jilenes,TV,1,1
+2022-01-13,Brinks,Home Security,1,1
+2022-01-13,Vidaa,Set Top Box,1,3
+2022-01-13,Ecovacs,Robot Vacuum Cleaner,1,1112
+2022-01-13,Lorex,Camera,6,255
+2022-01-13,Qardio,Smart Monitor,1,73
+2022-01-13,Ikea,Hub,1,116
+2022-01-13,ATV,Tablet,1,1
+2022-01-13,BlueGarage,TV,1,1
+2022-01-13,Embedded,Laptop & Computer,1,9
+2022-01-13,X92,Set Top Box,1,10
+2022-01-13,Uconnect,Smart Appliance,1,32
+2022-01-13,Roberts,Speaker,2,2
+2022-01-13,June,Oven,1,56
+2022-01-13,GMC,Car,2,276
+2022-01-13,Sandman,Clock,1,3
+2022-01-13,Overkiz,Hub,1,2
+2022-01-13,GE,Light Switch,2,569
+2022-01-13,Unspecified TV,TV,3,38
+2022-01-13,Vivint,Camera,1,2
+2022-01-13,Keytab,Tablet,1,1
+2022-01-13,Develco,Hub,1,1
+2022-01-13,Cube,Tablet,1,1
+2022-01-13,Wyze,Plug,1,3192
+2022-01-13,MAX,Tablet,1,3
+2022-01-13,Nanit,Baby Camera,1,823
+2022-01-13,Arlo,Baby Camera,1,220
+2022-01-13,popIn Aladdin,Smart Appliance,3,27
+2022-01-13,Amcrest,Home Security,2,17
+2022-01-13,Amino,Set Top Box,3,6018
+2022-01-13,Sweeney,TV,1,1
+2022-01-13,SuperBox,Tablet,3,9
+2022-01-13,Thermomix,Smart Appliance,1,176
+2022-01-13,Nuki,Hub,1,8
+2022-01-13,Xiaomi,Plug,1,11
+2022-01-13,Philips,Air Purifier,1,49
+2022-01-13,Aera,Smart Appliance,1,85
+2022-01-13,Tanoshi,Tablet,1,3
+2022-01-13,Marantz,Set Top Box,23,391
+2022-01-13,Chinterkuwait,Laptop & Computer,1,1
+2022-01-13,WiOn,Plug,1,17
+2022-01-13,ecobee,Light Switch,1,105
+2022-01-13,Technicolor,Home Security,1,25
+2022-01-13,Yellyouth,Tablet,2,4
+2022-01-13,Google,Smoke Alarm,1,7404
+2022-01-13,TP-Link,Range Extender,11,804
+2022-01-13,JR,Tablet,1,12
+2022-01-13,Beelink,Set Top Box,1,7
+2022-01-13,AT7,Tablet,1,1
+2022-01-13,Samsung,Range Extender,1,908
+2022-01-13,Delphin,Tablet,1,33
+2022-01-13,April,TV,1,1
+2022-01-13,Hive,Hub,1,15
+2022-01-13,Bloomsky,Weather Monitor,1,8
+2022-01-13,8S89H,Tablet,1,1
+2022-01-13,D-Link,Sensor,3,35
+2022-01-13,Global,Tablet,2,7
+2022-01-13,Panasonic,Hub,1,12
+2022-01-13,Logitech,Speaker,5,143
+2022-01-13,Nooie,Baby Camera,1,12
+2022-01-13,Audiocast,Speaker,1,18
+2022-01-13,Dragon Touch,Tablet,1,361
+2022-01-13,PAD,Tablet,2,3
+2022-01-13,Temy,TV,1,1
+2022-01-13,GWAT10,Tablet,1,11
+2022-01-13,360,Robot Vacuum Cleaner,2,24
+2022-01-13,RCA,TV,13,1338
+2022-01-13,XYO,Network Controller,1,2
+2022-01-13,Cambium,Smart Appliance,1,6
+2022-01-13,Janee,TV,1,1
+2022-01-13,WeatherFlow,Weather Monitor,1,126
+2022-01-13,Skyworth,TV,7,14
+2022-01-13,Plus 360,Robot Vacuum Cleaner,1,4
+2022-01-13,Fabriq,Speaker,1,13
+2022-01-13,Ematic,Tablet,2,25
+2022-01-13,iLive,Speaker,2,11
+2022-01-13,D-Link,Plug,1,80
+2022-01-13,Dell Inc.,Laptop & Computer,4,4
+2022-01-13,Netatmo,Home Security,1,30
+2022-01-13,Whirlpool,Smart Appliance,3,477
+2022-01-13,Blink,Camera,1,40605
+2022-01-13,Apple,TV,3,216
+2022-01-13,LeakBot,Sensor,1,2
+2022-01-13,eufy,Speaker,1,20
+2022-01-13,BDF,Tablet,1,148
+2022-01-13,Amazfit,Watch,2,2
+2022-01-13,Dahua,Sensor,1,90
+2022-01-13,NABI,Tablet,1,18
+2022-01-13,X96,Set Top Box,4,106
+2022-01-13,Denon,Media Player,8,157
+2022-01-13,Petoneer,Smart Appliance,1,2
+2022-01-13,Qlink,Tablet,1,544
+2022-01-13,Neos,Camera,1,32
+2022-01-13,ConnectSense,Plug,2,7
+2022-01-13,Revo,Media Player,2,3
+2022-01-13,Evpad,Tablet,2,3
+2022-01-13,Apple,Speaker,3,7531
+2022-01-13,Rafas,TV,1,1
+2022-01-13,iSmart,Home Security,1,84
+2022-01-13,RTD298X,Tablet,1,1
+2022-01-13,Point of View,Tablet,1,1
+2022-01-13,Dell,Laptop & Computer,37,240
+2022-01-13,HK1,Tablet,3,6
+2022-01-13,Riva,Speaker,1,4
+2022-01-13,goCoax,Range Extender,1,5
+2022-01-13,Ravens,TV,1,1
+2022-01-13,Internet,Set Top Box,1,6
+2022-01-13,TV358,Tablet,1,1
+2022-01-13,Onelink,Smoke Alarm,2,190
+2022-01-13,Sony,Set Top Box,3,12
+2022-01-13,IFP8650,Tablet,1,2
+2022-01-13,Seagate,NAS Storage,3,68
+2022-01-13,VOCOlinc,Light Bulb,6,130
+2022-01-13,Nexx,Garage Opener,1,200
+2022-01-13,Ultimaker 3D,Printer,1,2
+2022-01-13,Vonage,VoIP Gateway,2,303
+2022-01-13,Leak Alert,Sensor,1,17
+2022-01-13,Siemens,Dishwasher,1,1
+2022-01-13,Control4,Hub,9,240
+2022-01-13,Polaroid,Tablet,3,3
+2022-01-13,Toybox,Printer,1,80
+2022-01-13,Sangoma,VoIP Gateway,1,1
+2022-01-13,Yutmart,Tablet,1,2
+2022-01-13,Dolamee,Tablet,1,1
+2022-01-13,Buffalo,NAS Storage,1,256
+2022-01-13,K116,Tablet,1,4
+2022-01-13,LG,Smart Appliance,1,4526
+2022-01-13,Soma,Smart Remote,1,8
+2022-01-13,Fedora,Laptop & Computer,1,14
+2022-01-13,Hayward,Smart Appliance,1,70
+2022-01-13,Yamaha,Media Player,1,29
+2022-01-13,MakerBot,Printer,1,4
+2022-01-13,SmartEye,Camera,1,8
+2022-01-13,Dahua,Smart Appliance,1,2
+2022-01-13,Mygica,Tablet,1,2
+2022-01-13,Bosch,Thermostat,2,65
+2022-01-13,Sony,Speaker,1,72
+2022-01-13,Fitbit,Scale,3,215
+2022-01-13,Google,Range Extender,1,1261
+2022-01-13,Xiaomi,Clock,2,9
+2022-01-13,iFit,Tablet,1,41
+2022-01-13,Toniebox,Smart Appliance,1,707
+2022-01-13,Lacie,NAS Storage,2,2
+2022-01-13,IGEL,Laptop & Computer,1,1
+2022-01-13,Belkin,Sensor,1,22
+2022-01-13,Amcrest,Camera,1,944
+2022-01-13,Fuji-Xerox,Printer,1,12
+2022-01-13,Oz,TV,1,1
+2022-01-13,Logitech,Camera,2,537
+2022-01-13,Manans,TV,1,1
+2022-01-13,VCT9F78Q22,Tablet,2,5
+2022-01-13,Brandons,TV,1,1
+2022-01-13,Google,Game Console,1,373
+2022-01-13,Wynd,Smart Monitor,1,4
+2022-01-13,TP-Link,Smart Appliance,1,23
+2022-01-13,BroadLink,Hub,5,261
+2022-01-13,Bosch,Dishwasher,1,24
+2022-01-13,Honeywell,Home Security,3,829
+2022-01-13,TK,Tablet,1,2
+2022-01-13,Positivo,Tablet,1,2
+2022-01-13,Bethro,TV,1,1
+2022-01-13,Rebeccas,TV,1,1
+2022-01-13,Mirabella Genio,Light Bulb,1,7
+2022-01-13,JSW,Camera,1,15
+2022-01-13,Apple,Tablet,38,367890
+2022-01-13,GE,Dishwasher,1,21
+2022-01-13,Alcatel,Tablet,15,1266
+2022-01-13,Orlandrias,TV,1,1
+2022-01-13,Goo Bang Doo,Set Top Box,1,1
+2022-01-13,Bang & Olufsen,TV,1,1
+2022-01-13,Verifone,Smart Appliance,1,27
+2022-01-13,Samsung,WiFi Tracker,1,1
+2022-01-13,Netgem,Set Top Box,1,1
+2022-01-13,Ecowater,Smart Monitor,1,90
+2022-01-13,Echtablet,Tablet,1,1
+2022-01-13,Onn,Tablet,13,4719
+2022-01-13,Hisensegevaisa,TV,1,1
+2022-01-13,On,TV,1,1
+2022-01-13,Omoidebako,NAS Storage,1,7
+2022-01-13,Flair,Thermostat,1,53
+2022-01-13,DSC,Home Security,1,43
+2022-01-13,Peloton,Fitness Trainer & Bike,2,8367
+2022-01-13,Walabot,Smart Appliance,1,6
+2022-01-13,Sony,Game Console,7,121106
+2022-01-13,Valve,Set Top Box,1,174
+2022-01-13,OPSO,Plug,1,4
+2022-01-13,Formuler,Set Top Box,5,302
+2022-01-13,Onn,TV,12,4701
+2022-01-13,Linksys,VoIP Gateway,1,13
+2022-01-13,KEF,Speaker,1,5
+2022-01-13,Panasonic,VoIP Gateway,2,12
+2022-01-13,MyOnly,TV,1,1
+2022-01-13,Zengge,Light Bulb,1,1284
+2022-01-13,Hive,Camera,1,2
+2022-01-13,ChargePoint,Smart Appliance,1,161
+2022-01-13,Amazon,Smart Appliance,2,2771
+2022-01-13,Netflix,TV,1,7
+2022-01-13,SL8521E,Watch,1,21
+2022-01-13,Adafruit,Smart Monitor,1,6
+2022-01-13,PicassoTab,Tablet,2,8
+2022-01-13,Denon,Set Top Box,1,1666
+2022-01-13,Hyrican,Laptop & Computer,1,1
+2022-01-13,Samsung,Fridge,1,2032
+2022-01-13,Fitbit,Wearable & Virtual Reality,6,4005
+2022-01-13,Petkit,Smart Appliance,2,95
+2022-01-13,Hydrawise,Smart Remote,1,28
+2022-01-13,Neato,Robot Vacuum Cleaner,4,490
+2022-01-13,X80,Tablet,1,1
+2022-01-13,Cosori,Oven,1,48
+2022-01-13,Siemens,Oven,1,3
+2022-01-13,X6,Tablet,1,4
+2022-01-13,Kangaroo,Hub,1,50
+2022-01-13,Altice,Speaker,1,4
+2022-01-13,Vizio,TV,11,84400
+2022-01-13,Technicolor,Set Top Box,6,15369
+2022-01-13,Amazon,Media Player,2,63
+2022-01-13,Reolink,Home Security,1,85
+2022-01-13,ONN,Tablet,1,1
+2022-01-13,Evbox,Tablet,1,1
+2022-01-13,Blu,Tablet,1,23
+2022-01-13,V-Tech,VoIP Gateway,1,7
+2022-01-13,Roadie,Smart Appliance,1,3
+2022-01-13,La Crosse,Weather Monitor,1,571
+2022-01-13,HiSense,TV,1,1
+2022-01-13,Tuya,Light Bulb,1,59775
+2022-01-13,Nissan,Car,1,27
+2022-01-13,ADT,Home Security,1,3393
+2022-01-13,Reliance,Tablet,1,4
+2022-01-13,Linux,Laptop & Computer,1,642
+2022-01-13,Brilliant,Hub,1,646
+2022-01-13,Camp Chef,Smart Appliance,1,155
+2022-01-13,Microsoft,Media Player,1,1
+2022-01-13,D-Link,Range Extender,1,34
+2022-01-13,Viomi,Robot Vacuum Cleaner,1,24
+2022-01-13,KUHD,TV,1,1
+2022-01-13,Belkin,Plug,3,6866
+2022-01-13,Vinabox,Tablet,1,1
+2022-01-13,Sub-Zero,Fridge,1,1
+2022-01-13,Dish,Set Top Box,8,14580
+2022-01-13,TP-Link,Light Switch,1,10322
+2022-01-13,Minut,Home Security,1,67
+2022-01-13,SNB02,Tablet,1,1
+2022-01-13,GreenWave Reality,Light Bulb,1,3
+2022-01-13,EyezOn,Home Security,1,84
+2022-01-13,Unblock,Set Top Box,1,27
+2022-01-13,2K,Set Top Box,1,1
+2022-01-13,Amazon,Voice Assistant,14,238009
+2022-01-13,JBL,Voice Assistant,1,265
+2022-01-13,Clover,Smart Appliance,5,224
+2022-01-13,Friendship,Light Bulb,1,283
+2022-01-13,D,Tablet,2,10
+2022-01-13,Microsoft,Wearable & Virtual Reality,1,3
+2022-01-13,ZKT,Tablet,1,13
+2022-01-13,osewnn,TV,1,1
+2022-01-13,Kinetico,Sensor,1,10
+2022-01-13,Fossil,Wearable & Virtual Reality,2,126
+2022-01-13,Vizio,Speaker,1,162
+2022-01-13,Johnson Controls,Thermostat,1,28
+2022-01-13,Gypsy,TV,1,1
+2022-01-13,KIDS08,Tablet,1,1
+2022-01-13,Auna,Media Player,1,1
+2022-01-13,Shelly,Light Bulb,2,2
+2022-01-13,New,TV,1,1
+2022-01-13,Tajirs,TV,1,1
+2022-01-13,Oki,Printer,1,24
+2022-01-13,Samsung,Robot Vacuum Cleaner,1,234
+2022-01-13,Troys,TV,1,1
+2022-01-13,BeyondTV,Set Top Box,1,75
+2022-01-13,Topwell,Camera,1,1381
+2022-01-13,Guardian,Smart Monitor,1,8
+2022-01-13,360,Camera,1,179
+2022-01-13,Evoo,Laptop & Computer,1,2
+2022-01-13,HN,Tablet,1,1
+2022-01-13,Zolo,Speaker,1,6
+2022-01-13,Qilive,TV,1,1
+2022-01-13,Redrhino,Tablet,1,1
+2022-01-13,Juno,Light Bulb,1,12
+2022-01-13,Rotimatic,Smart Appliance,1,64
+2022-01-13,M10,Tablet,2,2
+2022-01-13,??tv,Tablet,1,1
+2022-01-13,SureSoft-Browser-3.0,TV,1,1
+2022-01-13,JADOO4,Tablet,1,1
+2022-01-13,Kangaroo,Doorbell,1,1160
+2022-01-13,Essential Products,Tablet,1,1
+2022-01-13,MMC,Tablet,1,1
+2022-01-13,Mirror,Fitness Trainer & Bike,1,280
+2022-01-13,Samsung,Speaker,13,294
+2022-01-13,Khloes,TV,1,1
+2022-01-13,Yoto,Speaker,1,15
+2022-01-13,100M,Tablet,1,1
+2022-01-13,Flir,Camera,1,273
+2022-01-13,Nathans,TV,1,2
+2022-01-13,Atari,Game Console,1,7
+2022-01-13,Shadow,Set Top Box,1,1
+2022-01-13,QNAP,NAS Storage,31,75
+2022-01-13,Bose,Speaker,20,4592
+2022-01-13,Marshall,Speaker,3,33
+2022-01-13,BloomSky,Weather Monitor,1,10
+2022-01-13,Noon,Light Switch,1,5
+2022-01-13,Volvo,Car,1,81
+2022-01-13,Eyedro,Smart Monitor,1,13
+2022-01-13,IOT,Tablet,1,12
+2022-01-13,Barnes & Noble,Tablet,13,549
+2022-01-13,ZTE,Tablet,4,582
+2022-01-13,Iplay,Tablet,3,3
+2022-01-13,Briannas,TV,1,1
+2022-01-13,VOO,Set Top Box,1,1
+2022-01-13,JuiceBox,Smart Appliance,1,92
+2022-01-13,Svensters,TV,1,1
+2022-01-13,Compaq,Laptop & Computer,2,15
+2022-01-13,TRENDnet,Camera,1,1
+2022-01-13,FP Postbase Postage Meter,Printer,1,5
+2022-01-13,Xiaomi,Smart Appliance,3,35
+2022-01-13,Amazon,VoIP Gateway,1,83
+2022-01-13,Stream,Set Top Box,1,13
+2022-01-13,GE,Smart Appliance,1,3492
+2022-01-13,Panasonic,Doorbell,3,27
+2022-01-13,Meross,Light Switch,3,2184
+2022-01-13,YoungOG,TV,1,1
+2022-01-13,Manta,Tablet,2,3
+2022-01-13,Sabresd,Tablet,1,1
+2022-01-13,Feit,Light Bulb,1,9
+2022-01-13,A64,Tablet,1,1
+2022-01-13,Alula,Home Security,1,31
+2022-01-13,Qere,Tablet,1,3
+2022-01-13,ScottsHouse,TV,1,1
+2022-01-13,Microseven,Camera,1,9
+2022-01-13,Bowers&Wilkins,Speaker,1,9
+2022-01-13,nVent,Thermostat,1,328
+2022-01-13,Danfoss Link,Thermostat,1,2
+2022-01-13,ecobee,Thermostat,1,12040
+2022-01-13,GW Security,Camera,1,5
+2022-01-13,TCL,Tablet,1,27
+2022-01-13,Apple,Set Top Box,5,39662
+2022-01-13,Velux,Hub,1,23
+2022-01-13,GEA,Tablet,1,1
+2022-01-13,OpenEVSE,Smart Appliance,1,10
+2022-01-13,Volkswagen,Smart Appliance,1,1
+2022-01-13,Cove,Dishwasher,1,2
+2022-01-13,Youdao,Smart Appliance,1,4
+2022-01-13,Meross,Hub,1,9
+2022-01-13,Xiaomi,Air Purifier,1,217
+2022-01-13,Sony,TV,47,22848
+2022-01-13,Amazon,Tablet,33,116861
+2022-01-13,Westinghouse,TV,12,998
+2022-01-13,Neeo,Smart Remote,1,6
+2022-01-13,Sunshine,Tablet,2,101
+2022-01-13,Kaon,Set Top Box,1,552
+2022-01-13,NABI2,Tablet,1,3
+2022-01-13,Kwikset,Doorlock,1,747
+2022-01-13,Kevs,TV,1,1
+2022-01-13,HisenseFlo,TV,1,1
+2022-01-13,Thermador,Coffee Maker,1,4
+2022-01-13,Honeywell,Hub,1,296
+2022-01-13,Panasonic,Media Player,104,603
+2022-01-13,WD,Tablet,1,1
+2022-01-13,Trio,Tablet,6,9
+2022-01-13,KK,Tablet,1,1
+2022-01-13,Pianalto,TV,1,1
+2022-01-13,Motorola,Tablet,5,23
+2022-01-13,Enphase,Solar,2,713
+2022-01-13,Samsung,Air Conditioner,1,118
+2022-01-13,Konke,Smart Appliance,1,6
+2022-01-13,Daisys,TV,1,1
+2022-01-13,WiZ,Light Bulb,1,13596
+2022-01-13,A95X,Tablet,3,3
+2022-01-13,Siemens,Smart Appliance,1,2
+2022-01-13,Merkury,Light Bulb,1,1
+2022-01-13,M7600,Tablet,1,2
+2022-01-13,AppUnique,Smart Appliance,1,42
+2022-01-13,Home,TV,1,1
+2022-01-13,Aluratek,Picture Frame,1,24
+2022-01-13,Office,TV,1,1
+2022-01-13,Tagital,Tablet,1,1
+2022-01-13,TB8163P3,Tablet,1,3
+2022-01-13,Nexx,Plug,1,15
+2022-01-13,CAT,Laptop & Computer,1,9
+2022-01-13,SimpliSafe,Camera,1,5187
+2022-01-13,Polaroid,TV,2,44
+2022-01-13,Dell,Printer,1,311
+2022-01-13,Xfinity,Camera,1,1
+2022-01-13,Brid,Air Purifier,1,6
+2022-01-13,Polk Audio,Speaker,2,5
+2022-01-13,AlexusThompson,TV,1,1
+2022-01-13,Atgames,Game Console,3,161
+2022-01-13,Hunter Douglas,Hub,1,53
+2022-01-13,Gigaset,Tablet,2,30
+2022-01-13,Faleemi,Camera,1,18
+2022-01-13,Pure,Media Player,1,1
+2022-01-13,Hatch,Smart Appliance,1,1561
+2022-01-13,Multicraft,Laptop & Computer,1,1
+2022-01-13,FX Luminaire,Smart Remote,1,8
+2022-01-13,Whirlpool,Fridge,1,11
+2022-01-13,Ambi Climate,Smart Remote,1,7
+2022-01-13,Little Genius,Watch,1,4
+2022-01-13,Defender,Home Security,1,12
+2022-01-13,Energy,Smart Monitor,1,40
+2022-01-13,Tizen,Laptop & Computer,1,4
+2022-01-13,Nettalk,VoIP Gateway,1,3
+2022-01-13,Konke,Plug,1,25
+2022-01-13,Lorex,Smart Monitor,1,11
+2022-01-13,EverLights,Hub,1,10
+2022-01-13,DIRECTV,Set Top Box,2,10812
+2022-01-13,Mate,Set Top Box,1,1
+2022-01-13,D43A214,Tablet,1,1
+2022-01-13,in,TV,1,1
+2022-01-13,Marks,TV,1,1
+2022-01-13,Dling,Doorbell,1,1
+2022-01-13,RK3368,Tablet,2,4
+2022-01-13,URC,Hub,1,4
+2022-01-13,Maytronics,Smart Appliance,1,77
+2022-01-13,Mini,Tablet,1,1
+2022-01-13,VOCOlinc,Plug,2,300
+2022-01-13,Meural,Picture Frame,1,25
+2022-01-13,Lux,Thermostat,1,44
+2022-01-13,ARRIS,TV,10,26
+2022-01-13,Bowers & Wilkins,Speaker,5,50
+2022-01-13,TP-Link,Plug,9,23692
+2022-01-13,IMS,Tablet,1,1
+2022-01-13,Delta,Smart Appliance,1,47
+2022-01-13,JBL,Speaker,2,130
+2022-01-13,Shenzhen,Camera,1,1192
+2022-01-13,J107,Tablet,1,1
+2022-01-13,Lizvie,Camera,1,8
+2022-01-13,Wansview,Camera,1,46
+2022-01-13,Ricoh,Printer,2,112
+2022-01-13,Zyxel,NAS Storage,1,8
+2022-01-13,Aqara,Hub,3,58
+2022-01-13,Currant,Plug,1,21
+2022-01-13,Pro1,Thermostat,1,101
+2022-01-13,LivingRoomOnn,TV,1,1
+2022-01-13,Interlogix,Home Security,1,15
+2022-01-13,Hugoai,Camera,1,3
+2022-01-13,Yunmai mini,Scale,1,2
+2022-01-13,Magic TV,Media Player,2,7
+2022-01-13,Fargo Card,Printer,1,2
+2022-01-13,Marantz,Speaker,1,4
+2022-01-13,Russound,Media Player,3,19
+2022-01-13,Jeannas,TV,1,1
+2022-01-13,SHARP,TV,1,1
+2022-01-13,Nflxso,TV,1,1
+2022-01-13,Panasonic,Smart Monitor,1,30
+2022-01-13,Dmtab,Tablet,4,6
+2022-01-13,Levoit,Smart Appliance,1,408
+2022-01-13,Baileys,TV,1,1
+2022-01-13,WarrenTCL,TV,1,1
+2022-01-13,Wyze,Light Bulb,1,72
+2022-01-13,Sonos,Hub,1,477
+2022-01-13,EcoFlow,Solar,1,32
+2022-01-13,Livingroom,TV,1,2
+2022-01-13,dads,TV,1,1
+2022-01-13,Verizon,Range Extender,1,3
+2022-01-13,IO Data,NAS Storage,2,8
+2022-01-13,Skydrop,Sprinkler,1,21
+2022-01-13,Naxa,Tablet,1,1
+2022-01-13,Petcube,Camera,1,136
+2022-01-13,Cavalier,Speaker,2,14
+2022-01-13,Harman Kardon,Speaker,8,158
+2022-01-13,Exigent,Smoke Alarm,1,92
+2022-01-13,Pax,Smart Appliance,1,22
+2022-01-13,Sleep Number,Smart Appliance,1,4461
+2022-01-13,Rheem,Smart Appliance,1,634
+2022-01-13,Visual Land,Tablet,2,35
+2022-01-13,ADT,Hub,1,210
+2022-01-13,ProScan,Tablet,14,1238
+2022-01-13,K70,Tablet,1,1
+2022-01-13,Quad,Tablet,5,23
+2022-01-13,Viavi,Smart Monitor,1,62
+2022-01-13,Mercedes-Benz,Car,1,1
+2022-01-13,Tado,Air Conditioner,2,15
+2022-01-13,Miele,Washer Dryer,1,90
+2022-01-13,ZWO,Smart Appliance,1,5
+2022-01-13,Nees,TV,1,2
+2022-01-13,I10,Tablet,1,1
+2022-01-13,RK30SDK,Tablet,1,1
+2022-01-13,CyberQ,Smart Remote,1,13
+2022-01-13,Google,Tablet,7,2636
+2022-01-13,August,Hub,1,1658
+2022-01-13,WorldMax,Set Top Box,1,1
+2022-01-13,MagicHue,Hub,1,981
+2022-01-13,X96MAX,Tablet,3,7
+2022-01-13,Hammerhead,WiFi Tracker,1,3
+2022-01-13,PumpSpy,Plug,1,9
+2022-01-13,Blaupunkt,Set Top Box,1,1
+2022-01-13,B1,Tablet,1,1
+2022-01-13,Lenovo,Tablet,67,1428
+2022-01-13,Koral,Tablet,2,3
+2022-01-13,Kingbox,Media Player,1,11
+2022-01-13,Anker,Speaker,1,20
+2022-01-13,Nexsmart,Tablet,1,1
+2022-01-13,Alps,Car,1,630
+2022-01-13,SP9853I,Tablet,1,1
+2022-01-13,Leeo,Sensor,1,12
+2022-01-13,Buddee,Plug,1,1
+2022-01-13,M9C,Tablet,2,3
+2022-01-13,RK3399,Tablet,1,1
+2022-01-13,RCA,Tablet,1,9
+2022-01-13,SolarEdge,Solar,2,286
+2022-01-13,Withings,Scale,2,964
+2022-01-13,August,Doorbell,1,31
+2022-01-13,Tespo,Smart Appliance,1,3
+2022-01-13,Donika,TV,1,1
+2022-01-13,Yuntab,Tablet,1,5
+2022-01-13,Connected Life Labs,Sensor,1,12
+2022-01-13,Mycar,Car,1,321
+2022-01-13,Owl,TV,1,1
+2022-01-13,PA,Tablet,1,1
+2022-01-13,Tivo,Set Top Box,1,62918
+2022-01-13,TGH1051,Tablet,1,1
+2022-01-13,Le Pan,Tablet,2,33
+2022-01-13,TAG Heuer,Watch,1,37
+2022-01-13,THE,Tablet,1,1
+2022-01-13,Eve,Camera,1,23
+2022-01-13,NEC,Tablet,2,43
+2022-01-13,Sangoma,Hub,1,2
+2022-01-13,Roku,TV,1,21755
+2022-01-13,Samsung,Plug,2,2427
+2022-01-13,SuperSonic,Tablet,19,51
+2022-01-13,Shelly,Light Switch,7,316
+2022-01-13,Kobo,Tablet,2,2
+2022-01-13,MediaTek,Tablet,2,113
+2022-01-13,Malonnies,TV,1,1
+2022-01-13,Sky,Set Top Box,1,4
+2022-01-13,GoPro,Camera,2,136
+2022-01-13,SoftwinerEvb,Tablet,1,84
+2022-01-13,myTouchSmart,Plug,1,3
+2022-01-13,Nebula,Smart Appliance,1,103
+2022-01-13,VARO,Speaker,1,1
+2022-01-13,Oppo,Watch,1,2
+2022-01-13,EasyView,Set Top Box,1,2
+2022-01-13,Verizon Wireless,Tablet,1,3
+2022-01-13,Samsung,Hub,4,1987
+2022-01-13,Olivias,TV,1,1
+2022-01-13,Logitech,Smart Appliance,1,46
+2022-01-13,LIFX,Light Bulb,1,9
+2022-01-13,iHome,Smart Monitor,1,21
+2022-01-13,PlayRoom,TV,1,1
+2022-01-13,Mobvoi,Plug,1,1
+2022-01-13,Epik,Tablet,1,6
+2022-01-13,Meizu,Tablet,12,27
+2022-01-13,YennifersTCL,TV,1,1
+2022-01-13,Bosstv,Tablet,2,3
+2022-01-13,ProForm,Fitness Trainer & Bike,1,319
+2022-01-13,PBS Kids,Tablet,1,7
+2022-01-13,Apache,TV,1,4
+2022-01-13,Google,Laptop & Computer,3,118959
+2022-01-13,Toshiba,Tablet,3,19
+2022-01-13,UMS512,Tablet,1,2
+2022-01-13,UJ,Tablet,1,2
+2022-01-13,Veo,Camera,1,4
+2022-01-13,Homey,Hub,1,4
+2022-01-13,Btab,Tablet,1,1
+2022-01-13,Yi,Camera,1,3460
+2022-01-13,Basement,TV,1,1
+2022-01-13,Q201,Tablet,2,11
+2022-01-13,X96MINI,Tablet,2,2
+2022-01-13,Allworx,VoIP Gateway,1,30
+2022-01-13,Shelly,Sensor,5,30
+2022-01-13,Safety 1st,Baby Camera,1,9
+2022-01-13,Yolandas,TV,1,1
+2022-01-13,Polaroid,Speaker,1,6
+2022-01-13,Citizen,Printer,1,1
+2022-01-13,Wyze,Doorlock,1,291
+2022-01-13,Shenzhen,Scale,1,86
+2022-01-13,SDM,Tablet,2,3
+2022-01-13,Garmin,WiFi Tracker,14,827
+2022-01-13,Lorex,Home Security,20,446
+2022-01-13,Chevrolet,Car,2,538
+2022-01-13,Tank Utility,Smart Monitor,1,6
+2022-01-13,Baidu,Voice Assistant,1,6
+2022-01-13,Smile Zemi,Tablet,1,38
+2022-01-13,Percee,Set Top Box,1,2
+2022-01-13,Cubo,Baby Camera,1,34
+2022-01-13,SiliconDust,Set Top Box,1,230
+2022-01-13,Reolink,Camera,6,446
+2022-01-13,2GIG,Home Security,1,172
+2022-01-13,Letv,Tablet,1,1
+2022-01-13,MegaTec,Smart Appliance,1,5
+2022-01-13,Control4,Speaker,2,6
+2022-01-13,ViewSonic,Tablet,3,3
+2022-01-13,GD,Tablet,1,1
+2022-01-13,Pit Boss,Smart Appliance,1,180
+2022-01-13,Xiaomi,Camera,4,390
+2022-01-13,Octastream,Tablet,1,1
+2022-01-13,CY,Tablet,1,1
+2022-01-13,Sercomm,Camera,2,4914
+2022-01-13,ThermoWorks,Hub,1,9
+2022-01-13,Samsung,Air Purifier,1,90
+2022-01-13,Nixplay,Picture Frame,2,1786
+2022-01-13,Zmodo,Home Security,1,177
+2022-01-13,Konica Minolta,Printer,1,115
+2022-01-13,Buick,Car,2,50
+2022-01-13,Nexbox,Tablet,1,1
+2022-01-13,M8S,Tablet,1,1
+2022-01-13,Elgato,Light Bulb,4,195
+2022-01-13,Oculus,Wearable & Virtual Reality,3,10208
+2022-01-13,FrontRoom,TV,1,1
+2022-01-13,Cocoon,Camera,1,3
+2022-01-13,URC,Smart Remote,1,10
+2022-01-13,Ibnbedroom,TV,1,1
+2022-01-13,VMware,Network Controller,1,14
+2022-01-13,Amazon,Hub,1,909
+2022-01-13,P9,Tablet,1,1
+2022-01-13,LeapFrog,TV,1,50
+2022-01-13,OpenWrt,Laptop & Computer,1,2
+2022-01-13,Blackweb,Speaker,1,58
+2022-01-13,Sharp,TV,21,5933
+2022-01-13,HP,Laptop & Computer,11,1682
+2022-01-13,Leapfrog,Game Console,1,34
+2022-01-13,Vivotek,Camera,1,1760
+2022-01-13,Generac,Smart Monitor,1,26
+2022-01-13,FloLogic,Smart Appliance,1,3
+2022-01-13,Debian,Laptop & Computer,1,59
+2022-01-13,Konnected,Home Security,1,286
+2022-01-13,Onelink,Weather Monitor,1,1
+2022-01-13,Audio Pro,Speaker,2,3
+2022-01-13,Control4,Doorbell,1,10
+2022-01-13,Digiland,Tablet,1,2
+2022-01-13,Synology,NAS Storage,74,880
+2022-01-13,Bluesound,Media Player,9,34
+2022-01-13,oOnn,TV,1,1
+2022-01-13,Flume,Smart Monitor,1,130
+2022-01-13,HP,Printer,1,105869
+2022-01-13,Jooki,Media Player,1,4
+2022-01-13,Huawei,Watch,1,1
+2022-01-13,Public,Tablet,1,1
+2022-01-13,Samsung,Tablet,252,60664
+2022-01-13,Cubbit,NAS Storage,1,4
+2022-01-13,Yealink,VoIP Gateway,35,956
+2022-01-13,OPPO,Tablet,1,1
+2022-01-13,Netgear,NAS Storage,3,49
+2022-01-13,Sylvania,Light Bulb,1,79
+2022-01-13,Humax,TV,1,1
+2022-01-13,HX,Tablet,2,2
+2022-01-13,Google,Home Security,1,315
+2022-01-13,Generac,Smart Remote,1,769
+2022-01-13,VW,Tablet,1,1
+2022-01-13,Sheas,TV,1,1
+2022-01-13,GE,Light Bulb,1,2711
+2022-01-13,Amazon,Doorbell,6,31639
+2022-01-13,Itel,Tablet,1,1
+2022-01-13,Nooie,Camera,1,108
+2022-01-13,Volkswagen,Car,1,4
+2022-01-13,Rand Mcnally,WiFi Tracker,1,28
+2022-01-13,iRobot,Robot Vacuum Cleaner,1,18119
+2022-01-13,Global,Set Top Box,2,32
+2022-01-13,Leviton,Light Switch,2,2607
+2022-01-13,Elivias,TV,1,1
+2022-01-13,ZyXEL,NAS Storage,1,1
+2022-01-13,Sony,Camera,1,9
+2022-01-13,Facebook,Set Top Box,1,45
+2022-01-13,Meross,Light Bulb,3,557
+2022-01-13,Xiaomi,Hub,1,36
+2022-01-13,XRS,Tablet,1,2
+2022-01-13,Camect,Hub,1,4
+2022-01-13,Mobvoi,Watch,5,59
+2022-01-13,sof,TV,1,1
+2022-01-13,Innosilicon,Smart Appliance,1,5
+2022-01-13,Awair,Air Purifier,1,155
+2022-01-13,HnLs,TV,1,1
+2022-01-13,Asustor,NAS Storage,2,4
+2022-01-13,Samsung,Laptop & Computer,12,929
+2022-01-13,Onkyo,Set Top Box,28,812
+2022-01-13,Gateway,Laptop & Computer,1,3
+2022-01-13,LG,NAS Storage,1,1
+2022-01-13,Sevenhugs,Smart Remote,1,9
+2022-01-13,Hoobs,Hub,1,33
+2022-01-13,P80X,Tablet,1,2
+2022-01-13,AND,Tablet,1,2
+2022-01-13,K,TV,1,1
+2022-01-13,Toshiba,Laptop & Computer,3,14
+2022-01-13,Samsung,Oven,1,192
+2022-01-13,Acer,Laptop & Computer,9,833
+2022-01-13,Super,Tablet,1,1
+2022-01-13,Samsung,Voice Assistant,2,115
+2022-01-13,TP-Link,Light Bulb,3,4050
+2022-01-13,Sengled,Light Bulb,4,2160
+2022-01-13,EVduty,Smart Appliance,1,5
+2022-01-13,Belkin,Light Switch,2,2355
+2022-01-13,Sony,Tablet,25,162
+2022-01-13,Google,Thermostat,1,29366
+2022-01-13,Shelly,Plug,1,4
+2022-01-13,CnM,Tablet,1,1
+2022-01-13,Nuclius,Tablet,1,1
+2022-01-13,Orbit,Sprinkler,1,1472
+2022-01-13,Garage,TV,1,1
+2022-01-13,De'Longhi,Coffee Maker,1,3
+2022-01-13,Toucan,Camera,1,4
+2022-01-13,AVerMedia,Set Top Box,1,45
+2022-01-13,MikidsSmartWatch,Watch,1,2
+2022-01-13,ECO Plugs,Plug,1,471
+2022-01-13,Yamaha,Speaker,1,198
+2022-01-13,Meross,Plug,3,2423
+2022-01-13,ASUS,Laptop & Computer,10,312
+2022-01-13,Acer,Tablet,18,190
+2022-01-13,Broadlink,Light Bulb,1,1
+2022-01-13,Xiaomi,TV,1,6
+2022-01-13,CSD,Tablet,1,1
+2022-01-13,Ilive,Speaker,1,85
+2022-01-13,TCLSeries,TV,1,1
+2022-01-13,TCL,TV,20,61923
+2022-01-13,Twifi,Tablet,1,4
+2022-01-13,Haier,TV,8,39
+2022-01-13,AcuRite,Weather Monitor,1,139
+2022-01-13,IGS,Tablet,1,1
+2022-01-13,Mediatek,Tablet,2,21
+2022-01-13,Somfy,Smart Appliance,1,126
+2022-01-13,Tesla,Car,5,2677
+2022-01-13,Fi,Smart Appliance,1,7
+2022-01-13,TCC893X,Tablet,1,5
+2022-01-13,WalkingPad,Fitness Trainer & Bike,1,2
+2022-01-13,Facebook,Tablet,3,22489
+2022-01-13,Whirlpool,Oven,1,461
+2022-01-13,Kodak,Camera,3,24
+2022-01-13,Slate,Tablet,3,29
+2022-01-13,Elite,Tablet,3,8
+2022-01-13,Ingenico,Smart Appliance,1,135
+2022-01-13,TMC800,Tablet,1,1
+2022-01-13,Logitech,Media Player,1,1
+2022-01-13,Tylers,TV,1,1
+2022-01-13,Snom,VoIP Gateway,1,18
+2022-01-13,TR99,Tablet,1,1
+2022-01-13,Tesla,Solar,2,254
+2022-01-13,PTZOptics,Camera,1,4
+2022-01-13,Shelly,Smart Monitor,1,6
+2022-01-13,NS,Tablet,5,10
+2022-01-13,Sprout Channel,Tablet,1,5
+2022-01-13,Thermador,Fridge,1,3
+2022-01-13,Nvidia,Set Top Box,2,1855
+2022-01-13,Zync,Tablet,2,2
+2022-01-13,Orange,Tablet,1,9
+2022-01-13,ZN,Tablet,1,2
+2022-01-13,LG,Tablet,7,555
+2022-01-13,B2,Tablet,1,2
+2022-01-13,Chelsee,TV,1,1
+2022-01-13,Clova,Voice Assistant,1,1
+2022-01-13,T40,Tablet,1,1
+2022-01-13,Arlo,Doorbell,2,753
+2022-01-13,Amazon,Printer,1,40
+2022-01-13,Travon,TV,1,1
+2022-01-13,Mias,TV,1,1
+2022-01-13,Theepic,TV,1,1
+2022-01-13,TP-Link,Hub,1,5
+2022-01-13,Cambridge Audio,Media Player,2,11
+2022-01-13,Xgimi,Set Top Box,1,12
+2022-01-13,Netgear,Range Extender,14,113
+2022-01-13,SCISHION,Media Player,1,4
+2022-01-13,Kocaso,Tablet,2,2
+2022-01-13,Vocolinc,Plug,4,40
+2022-01-13,Steciuks,TV,1,1
+2022-01-13,Link,Set Top Box,1,3
+2022-01-13,Cadillac,Car,1,17
+2022-01-13,Gardyn,Smart Appliance,1,46
+2022-01-13,RCA Tablets,Tablet,67,1582
+2022-01-13,Aosp,Tablet,2,4
+2022-01-13,Verizon,Tablet,6,1248
+2022-01-13,Oplink,Tablet,1,8
+2022-01-13,Silicon Graphics,Laptop & Computer,1,8
+2022-01-13,Amcrest,Doorbell,1,120
+2022-01-13,TCT,Tablet,1,7
+2022-01-13,Meross,Network Controller,1,1
+2022-01-13,FH116A8,Tablet,1,2
+2022-01-13,Leapfrog,Tablet,2,109
+2022-01-13,Asus,Range Extender,1,1
+2022-01-13,Lenovo,NAS Storage,1,1
+2022-01-13,Dnetsmart,Tablet,1,1
+2022-01-13,Ideal Sciences,Sensor,1,101
+2022-01-13,Westgate,Tablet,1,1
+2022-01-13,Kings,TV,1,1
+2022-01-13,BMPRO,Tablet,1,12
+2022-01-13,Zidoo,Tablet,2,2
+2022-01-13,Trimble,Tablet,1,4
+2022-01-13,Orange Pi,Laptop & Computer,1,1
+2022-01-13,Miku,Baby Camera,1,62
+2022-01-13,X4,Tablet,1,1
+2022-01-13,PumpSpy,Smart Monitor,1,89
+2022-01-13,Asus,Laptop & Computer,2,8
+2022-01-13,Chamberlain,Garage Opener,2,17871
+2022-01-13,Mpman,Laptop & Computer,1,126
+2022-01-13,Slingbox,Set Top Box,4,103
+2022-01-13,X95,Tablet,1,1
+2022-01-13,Breanna,TV,1,1
+2022-01-13,Realtek,Set Top Box,1,4
+2022-01-13,Arlo,Camera,5,4093
+2022-01-13,Nextbook,Tablet,3,15
+2022-01-13,Arlo,Hub,7,5385
+2022-01-13,Samsung,Media Player,4,1560
+2022-01-13,Clubhouse,TV,1,1
+2022-01-13,Anova Culinary,Oven,1,48
+2022-01-13,HikVision,Camera,1,924
+2022-01-13,Yandex,Media Player,1,2
+2022-01-13,Whistle,WiFi Tracker,1,272
+2022-01-13,Tesco,Tablet,1,3
+2022-01-13,Jacuzzi,Smart Appliance,1,188
