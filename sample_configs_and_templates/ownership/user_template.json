@@ -1,0 +1,115 @@
+{
+  "operation": "create_users",
+  "description": "creating users",
+  "users": [
+    {
+      "username": "harry.potter",
+      "display_name": "Harry Potter",
+      "first_name": "Harry",
+      "last_name": "Potter",
+      "full_name": "Harry Potter",
+      "email": "harry.potter@example.com",
+      "title": "AI Specialist",
+      "department_name": "AI Bulldog",
+      "department_id": "102",
+      "about_me": "Specializing in defensive AI and advanced machine learning models.",
+      "teams": ["ai-bulldog"],
+      "skills": ["Python", "TensorFlow", "PyTorch", "Machine Learning", "DataHub"],
+      "picture_link": "https://example.com/avatars/harry.potter.jpg",
+      "manager_urn": "urn:li:corpuser:hermione.granger",
+      "country_code": "GB",
+      "system": false,
+      "custom_properties": {
+        "employee_id": "EMP003",
+        "location": "London"
+      }
+    },
+    {
+      "username": "hermione.granger",
+      "display_name": "Hermione Granger",
+      "first_name": "Hermione",
+      "last_name": "Granger",
+      "full_name": "Hermione Granger",
+      "email": "hermione.granger@example.com",
+      "title": "AI Bulldog Manager",
+      "department_name": "AI Bulldog",
+      "department_id": "102",
+      "about_me": "Leading the AI Bulldog team to solve complex problems with logic and precision.",
+      "teams": ["ai-bulldog", "leadership"],
+      "skills": ["Leadership", "AI Strategy", "Python", "Natural Language Processing"],
+      "picture_link": "https://example.com/avatars/hermione.granger.jpg",
+      "country_code": "GB",
+      "system": false,
+      "custom_properties": {
+        "employee_id": "EMP004",
+        "location": "London"
+      }
+    },
+    {
+      "username": "ron.weasley",
+      "display_name": "Ron Weasley",
+      "first_name": "Ron",
+      "last_name": "Weasley",
+      "full_name": "Ron Weasley",
+      "email": "ron.weasley@example.com",
+      "title": "Mobile Developer",
+      "department_name": "Mobile Dev",
+      "department_id": "103",
+      "about_me": "Building magical and user-friendly mobile applications.",
+      "teams": ["mobile-dev"],
+      "skills": ["Swift", "Kotlin", "Firebase", "Android", "iOS"],
+      "picture_link": "https://example.com/avatars/ron.weasley.jpg",
+      "manager_urn": "urn:li:corpuser:arthur.weasley",
+      "country_code": "GB",
+      "system": false,
+      "custom_properties": {
+        "employee_id": "EMP005",
+        "location": "Ottery St Catchpole"
+      }
+    },
+    {
+      "username": "ginny.weasley",
+      "display_name": "Ginny Weasley",
+      "first_name": "Ginny",
+      "last_name": "Weasley",
+      "full_name": "Ginny Weasley",
+      "email": "ginny.weasley@example.com",
+      "title": "Senior Mobile Developer",
+      "department_name": "Mobile Dev",
+      "department_id": "103",
+      "about_me": "Passionate about creating delightful user experiences on mobile.",
+      "teams": ["mobile-dev"],
+      "skills": ["SwiftUI", "Jetpack Compose", "UI/UX Design", "Mobile Strategy"],
+      "picture_link": "https://example.com/avatars/ginny.weasley.jpg",
+      "manager_urn": "urn:li:corpuser:arthur.weasley",
+      "country_code": "GB",
+      "system": false,
+      "custom_properties": {
+        "employee_id": "EMP006",
+        "location": "London"
+      }
+    },
+    {
+      "username": "neville.longbottom",
+      "display_name": "Neville Longbottom",
+      "first_name": "Neville",
+      "last_name": "Longbottom",
+      "full_name": "Neville Longbottom",
+      "email": "neville.longbottom@example.com",
+      "title": "Data Engineer",
+      "department_name": "Data Engineering",
+      "department_id": "101",
+      "about_me": "Cultivating robust and reliable data pipelines.",
+      "teams": ["data-engineering"],
+      "skills": ["SQL", "Apache Spark", "ETL", "Data Modeling", "Airflow"],
+      "picture_link": "https://example.com/avatars/neville.longbottom.jpg",
+      "manager_urn": "urn:li:corpuser:jane.smith",
+      "country_code": "GB",
+      "system": false,
+      "custom_properties": {
+        "employee_id": "EMP007",
+        "location": "London"
+      }
+    }
+  ]
+}

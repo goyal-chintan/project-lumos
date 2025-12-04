@@ -5,5 +5,15 @@
 datahub:
   # The DataHub GraphQL Management Service (GMS) server URL.
   gms_server: http://localhost:8080
+  # Test mode - validates MCE structure without emitting to DataHub
+  test_mode: false
 
 default_env: DEV
+default_platform: datahub
+
+# Version Management Configuration
+version_management:
+  cloud_version_prefix: "S-"
+  initial_cloud_version: "S-311"
+  initial_schema_version: "1.0.0"
+  increment_strategy: "major"
