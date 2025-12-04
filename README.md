@@ -1,4 +1,4 @@
-# DataHub Framework - Comprehensive Data Management Toolkit
+# Lumos Framework Toolkit
 
 🚀 **Enterprise-grade framework for managing metadata lifecycle in DataHub**
 
