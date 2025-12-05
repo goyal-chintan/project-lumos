@@ -48,6 +48,12 @@ A comprehensive, enterprise-ready Python framework for **ingesting metadata**, *
 - **Comprehensive Logging**: Detailed logging with configurable levels
 - **Error Resilience**: Robust exception handling and graceful fallbacks
 
+📖 **For detailed architecture documentation, see:**
+- [Architecture Overview](docs/ARCHITECTURE.md) - Complete architecture and component details
+- [End-to-End Flow](docs/END_TO_END_FLOW.md) - Detailed flow diagrams and sequences
+- [Architecture Diagrams](docs/ARCHITECTURE_DIAGRAM.md) - Visual diagrams and component interactions
+- [Quick Reference](docs/QUICK_REFERENCE.md) - Quick reference guide for common operations
+
 ## 📁 Project Structure
 
 ```
