@@ -570,7 +570,8 @@ Comprehensive logging with levels:
 
 Special thanks to the developers who helped build and implement this vision:
 - **Sushant** - *Developer*
-- **Harsh** - *Developer*
+- **Tanaya** - *Developer*
+- **Nagesh** - *Developer*
 
 ## 📞 Support
 
