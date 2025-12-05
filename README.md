@@ -559,6 +559,19 @@ Comprehensive logging with levels:
 5. Submit a pull request
 
 
+## 👥 Authors
+
+- **Chintan Goyal** ([@goyal-chintan](https://github.com/goyal-chintan)) - *Creator & Architect*
+  - Conceived the framework based on 8+ years of data industry experience
+  - Designed the platform-agnostic architecture and modular system design
+  - Lead developer
+
+### Contributors
+
+Special thanks to the developers who helped build and implement this vision:
+- **Sushant** - *Developer*
+- **Harsh** - *Developer*
+
 ## 📞 Support
 
 For issues and questions:
