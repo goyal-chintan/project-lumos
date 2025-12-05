@@ -4,8 +4,8 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    LUMOS FRAMEWORK                            │
-│           Platform-Agnostic Metadata Management               │
+│                    LUMOS FRAMEWORK                           │
+│           Platform-Agnostic Metadata Management              │
 └──────────────────────────────────────────────────────────────┘
 
 INPUT: JSON/YAML Configuration
@@ -37,8 +37,8 @@ INPUT: JSON/YAML Configuration
     │
     ▼
 ┌──────────────────────────────────────────────────────────────┐
-│  Platform Abstraction Layer                                   │
-│  MetadataPlatformInterface (Abstract)                         │
+│  Platform Abstraction Layer                                  │
+│  MetadataPlatformInterface (Abstract)                        │
 │  • emit_mce() - Metadata Change Event                        │
 │  • emit_mcp() - Metadata Change Proposal                     │
 │  • add_lineage() - Lineage relationships                     │
@@ -49,14 +49,14 @@ INPUT: JSON/YAML Configuration
     ▼                  ▼                  ▼                  ▼
 ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
 │ DataHub  │    │ Amundsen │    │ Databricks│   │  Other   │
-│ Handler  │    │ Handler  │    │  Handler │    │ Platform │
-└──────────┘    └──────────┘    └──────────┘    └──────────┘
+│ Handler  │    │ Handler  │    │  Handler  │   │ Platform │
+└──────────┘    └──────────┘    └───────────┘   └──────────┘
     │                  │                  │                  │
     ▼                  ▼                  ▼                  ▼
 ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
 │ DataHub  │    │ Amundsen │    │ Databricks│   │  Other   │
-│ Instance │    │ Instance │    │ Instance │    │ Instance │
-└──────────┘    └──────────┘    └──────────┘    └──────────┘
+│ Instance │    │ Instance │    │ Instance  │   │ Instance │
+└──────────┘    └──────────┘    └───────────┘   └──────────┘
 
 OUTPUT: Metadata stored in chosen platform
 ```
@@ -283,4 +283,3 @@ default_platform: datahub
 - [Architecture Overview](ARCHITECTURE.md) - Complete architecture details
 - [End-to-End Flow](END_TO_END_FLOW.md) - Detailed flow sequences
 - [Architecture Diagrams](ARCHITECTURE_DIAGRAM.md) - Visual diagrams
-
