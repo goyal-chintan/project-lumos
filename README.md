@@ -48,6 +48,12 @@ A comprehensive, enterprise-ready Python framework for **ingesting metadata**, *
 - **Comprehensive Logging**: Detailed logging with configurable levels
 - **Error Resilience**: Robust exception handling and graceful fallbacks
 
+📖 **For detailed architecture documentation, see:**
+- [Architecture Overview](docs/ARCHITECTURE.md) - Complete architecture and component details
+- [End-to-End Flow](docs/END_TO_END_FLOW.md) - Detailed flow diagrams and sequences
+- [Architecture Diagrams](docs/ARCHITECTURE_DIAGRAM.md) - Visual diagrams and component interactions
+- [Quick Reference](docs/QUICK_REFERENCE.md) - Quick reference guide for common operations
+
 ## 📁 Project Structure
 
 ```
@@ -552,6 +558,20 @@ Comprehensive logging with levels:
 4. Ensure proper logging and error handling
 5. Submit a pull request
 
+
+## 👥 Authors
+
+- **Chintan Goyal** ([@goyal-chintan](https://github.com/goyal-chintan)) - *Creator & Architect*
+  - Conceived the framework based on 8+ years of data industry experience
+  - Designed the platform-agnostic architecture and modular system design
+  - Lead developer
+
+### Contributors
+
+Special thanks to the developers who helped build and implement this vision:
+- **Sushant** - *Developer*
+- **Tanaya** - *Developer*
+- **Nagesh** - *Developer*
 
 ## 📞 Support
 
