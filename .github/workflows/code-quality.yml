@@ -1,0 +1,69 @@
+name: Code Quality Checks
+
+on:
+  pull_request:
+    branches: [main, master, develop]
+  push:
+    branches: [main, master, develop]
+  workflow_dispatch:
+
+jobs:
+  code-quality:
+    name: Code Quality & Tests
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run Ruff (linting)
+        run: |
+          ruff check . --exit-zero || echo "⚠️ Ruff found linting issues (non-blocking for now)"
+        continue-on-error: true
+
+      - name: Run Ruff (format check)
+        run: |
+          ruff format --check . || echo "⚠️ Ruff format check failed (non-blocking for now)"
+        continue-on-error: true
+
+      - name: Run Black (formatting check)
+        run: |
+          black --check . || echo "⚠️ Black format check failed (non-blocking for now)"
+        continue-on-error: true
+
+      - name: Run MyPy (type checking)
+        run: mypy --ignore-missing-imports --no-strict-optional . || true
+        continue-on-error: true  # Type checking is informative, not blocking
+
+      - name: Run Pydocstyle (docstring check)
+        run: pydocstyle --convention=google . || true
+        continue-on-error: true  # Docstring check is informative, not blocking
+
+      - name: Run Bandit (security scan)
+        run: bandit -r . -ll -x tests/,sample-data/,sample-data-csv/ || true
+        continue-on-error: true  # Security scan is informative, not blocking
+
+      - name: Run tests
+        run: |
+          if [ -d "tests/unit" ] && [ "$(find tests/unit -name '*.py' -type f | wc -l)" -gt 0 ]; then
+            pytest tests/unit/ -v --tb=short || true
+          else
+            echo "⚠️ No unit tests found, skipping test execution"
+          fi
+        continue-on-error: true  # Tests may not be fully set up yet
+

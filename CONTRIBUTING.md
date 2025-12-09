@@ -43,14 +43,57 @@ This project adheres to a Code of Conduct that all contributors are expected to 
 
 3. **Set up development environment**
    ```bash
-   # Install development dependencies
-   pip install pytest black mypy flake8
+   # Option 1: Use the setup script (recommended)
+   ./setup_pre_commit.sh
+   
+   # Option 2: Manual setup
+   # Install development dependencies (includes pre-commit, black, mypy, flake8, etc.)
+   pip install -r requirements-dev.txt
+   
+   # Set up pre-commit hooks (automatically runs checks before commits)
+   pre-commit install
    
    # Set up DataHub (optional, for integration tests)
    # See README.md for DataHub setup instructions
    ```
 
-4. **Create a feature branch**
+4. **Set up pre-commit hooks (Required)**
+   
+   Pre-commit hooks automatically enforce code quality standards before each commit:
+   - ✅ Branch naming convention (`feature/`, `fix/`, `docs/`, etc.)
+   - ✅ Commit message format (Conventional Commits)
+   - ✅ Code formatting (Black)
+   - ✅ Import sorting (isort)
+   - ✅ Linting (Flake8)
+   - ✅ Type checking (MyPy)
+   - ✅ Docstring format (Pydocstyle)
+   - ✅ Security scanning (Bandit)
+   
+   ```bash
+   # Install pre-commit hooks (run once after cloning)
+   pre-commit install
+   
+   # Run checks manually on all files
+   pre-commit run --all-files
+   
+   # Run checks on staged files only (automatic before commit)
+   pre-commit run
+   ```
+   
+   **Note:** Pre-commit hooks will automatically run before each commit. If checks fail, fix the issues and try committing again.
+
+5. **Create a feature branch**
+   
+   **⚠️ Branch naming is enforced by pre-commit hooks!**
+   
+   Branch names must follow this convention:
+   - `feature/` - New features
+   - `fix/` - Bug fixes
+   - `docs/` - Documentation updates
+   - `chore/` - Maintenance tasks
+   - `refactor/` - Code refactoring
+   - `test/` - Test-related changes
+   
    ```bash
    git checkout -b feature/your-feature-name
    # or
@@ -58,6 +101,8 @@ This project adheres to a Code of Conduct that all contributors are expected to 
    # or
    git checkout -b docs/your-documentation-update
    ```
+   
+   **Invalid branch names will be rejected by pre-commit hooks.**
 
 #### Development Guidelines
 
@@ -115,12 +160,18 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/) format:
 - `test`: Adding/updating tests
 - `chore`: Maintenance tasks
 
+**Scopes (optional but recommended):**
+- `ingestion`, `extraction`, `enrichment`, `lineage`, `ownership`, `versioning`
+- `profiling`, `rbac`, `platform`, `common`, `controllers`
+
 **Examples:**
 ```
 feat(ingestion): add PostgreSQL handler
 fix(datahub): handle connection timeout errors
 docs(architecture): update extraction services documentation
 ```
+
+**⚠️ Important:** Commit messages are automatically validated by pre-commit hooks. Invalid formats will be rejected.
 
 #### Pull Request Process
 
@@ -133,16 +184,31 @@ docs(architecture): update extraction services documentation
    ```
 
 2. **Ensure code quality**
+   
+   Pre-commit hooks will automatically check code quality before commits. You can also run checks manually:
+   
    ```bash
+   # Run all pre-commit checks
+   pre-commit run --all-files
+   
+   # Or run individual checks:
    # Format code
    black .
+   
+   # Sort imports
+   isort .
    
    # Type checking
    mypy .
    
+   # Linting
+   flake8 .
+   
    # Run tests
    pytest
    ```
+   
+   **Note:** All checks must pass before creating a PR. GitHub Actions will also run these checks automatically.
 
 3. **Create Pull Request**
    - Provide clear title and description

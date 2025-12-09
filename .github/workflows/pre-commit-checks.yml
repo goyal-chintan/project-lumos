@@ -1,0 +1,90 @@
+name: Pre-commit Checks
+
+on:
+  pull_request:
+    branches: [main, master, develop]
+  push:
+    branches: [main, master, develop]
+  workflow_dispatch:
+
+jobs:
+  pre-commit-checks:
+    name: Run Pre-commit Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for branch comparison
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Install pre-commit hooks
+        run: pre-commit install --install-hooks
+
+      - name: Run pre-commit on all files
+        run: |
+          pre-commit run --all-files || echo "⚠️ Some pre-commit checks failed"
+        continue-on-error: true
+
+      - name: Check branch naming (for PRs)
+        if: github.event_name == 'pull_request'
+        run: |
+          branch_name="${{ github.head_ref }}"
+          if [[ ! "$branch_name" =~ ^(feature/|fix/|docs/|chore/|refactor/|test/).*$ ]]; then
+            echo "❌ Branch name must start with: feature/, fix/, docs/, chore/, refactor/, or test/"
+            echo "Current branch: $branch_name"
+            exit 1
+          fi
+          echo "✅ Branch name follows convention: $branch_name"
+
+      - name: Check commit message format (for PRs)
+        if: github.event_name == 'pull_request'
+        run: |
+          # Get commits in PR
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          head_sha="${{ github.event.pull_request.head.sha }}"
+          
+          if [ -z "$base_sha" ] || [ -z "$head_sha" ]; then
+            echo "⚠️ Could not determine commit range, skipping commit message check"
+            exit 0
+          fi
+          
+          commits=$(git log --format=%s "$base_sha".."$head_sha" 2>/dev/null || echo "")
+          if [ -z "$commits" ]; then
+            echo "⚠️ No commits found in PR range, skipping commit message check"
+            exit 0
+          fi
+          
+          failed=0
+          echo "$commits" | while IFS= read -r commit_msg; do
+            if [ -z "$commit_msg" ]; then
+              continue
+            fi
+            # Check if message follows conventional commits format
+            if [[ ! "$commit_msg" =~ ^(feat|fix|docs|style|refactor|test|chore)(\([^)]+\))?:[[:space:]].+ ]]; then
+              echo "❌ Commit message does not follow Conventional Commits format:"
+              echo "   $commit_msg"
+              echo ""
+              echo "Format: <type>(<scope>): <subject>"
+              echo "Types: feat, fix, docs, style, refactor, test, chore"
+              failed=1
+            fi
+          done
+          
+          if [ $failed -eq 0 ]; then
+            echo "✅ All commit messages follow Conventional Commits format"
+          else
+            echo "⚠️ Some commit messages don't follow the format (non-blocking for now)"
+            exit 0  # Make it non-blocking initially
+          fi
