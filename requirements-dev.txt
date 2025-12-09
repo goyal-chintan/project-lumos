@@ -1,0 +1,27 @@
+# Development dependencies for Lumos Framework
+# Install with: pip install -r requirements-dev.txt
+
+# Include production dependencies
+-r requirements.txt
+
+# Pre-commit hooks
+pre-commit>=3.5.0
+
+# Code formatting and linting
+black>=24.1.1
+ruff>=0.1.9  # Modern, fast linter (replaces flake8, isort, and more)
+
+# Type checking
+mypy>=1.8.0
+types-all>=0.1.0
+
+# Documentation
+pydocstyle>=6.3.0
+
+# Security scanning
+bandit>=1.7.6
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.1.0  # For coverage reports
+
