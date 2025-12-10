@@ -1,0 +1,38 @@
+[
+  {
+    "source_type": "csv",
+    "source_path": "sample-data-csv/sales/customers",
+    "infer_schema": true,
+    "schema": {}
+  },
+  {
+    "source_type": "csv",
+    "source_path": "sample-data-csv/sales/products",
+    "infer_schema": true,
+    "schema": {}
+  },
+  {
+    "source_type": "csv",
+    "source_path": "sample-data-csv/sales/orders/dt=2003-01-06",
+    "infer_schema": true,
+    "schema": {}
+  },
+  {
+    "source_type": "csv",
+    "source_path": "sample-data-csv/sales/orders/dt=2003-01-07",
+    "infer_schema": true,
+    "schema": {}
+  },
+  {
+    "source_type": "csv",
+    "source_path": "sample-data-csv/sales/order_details/dt=2003-01-06",
+    "infer_schema": true,
+    "schema": {}
+  },
+  {
+    "source_type": "csv",
+    "source_path": "sample-data-csv/sales/order_details/dt=2003-01-07",
+    "infer_schema": true,
+    "schema": {}
+  }
+]
