@@ -1,0 +1,18 @@
+[
+  {
+    "lineage": {
+      "downstream": { "data_type": "csv", "dataset": "order_details" },
+      "upstreams": [
+        { "data_type": "csv", "dataset": "products" }
+      ],
+      "column_lineage": [
+        {
+          "source": { "data_type": "csv", "dataset": "products", "field": "productCode" },
+          "target": { "data_type": "csv", "dataset": "order_details", "field": "productCode" }
+        }
+      ]
+    }
+  }
+]
+
+
