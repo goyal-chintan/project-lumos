@@ -62,7 +62,8 @@ repos:
     hooks:
       - id: branch-naming
         name: Check branch naming convention
-        entry: bash -c 'branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --abbrev-ref HEAD 2>/dev/null || echo ""); if [[ -z "$branch" ]]; then exit 0; fi; if [[ "$branch" =~ ^(main|master|develop)$ ]] || [[ "$branch" =~ ^(feature/|fix/|docs/|chore/|refactor/|test/).+$ ]]; then exit 0; else echo "❌ Branch name must start with: feature/, fix/, docs/, chore/, refactor/, or test/"; echo "Current branch: $branch"; echo "Examples: feature/new-handler, fix/bug-123, docs/update-readme"; exit 1; fi'
+        entry: >-
+          bash -c 'branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --abbrev-ref HEAD 2>/dev/null || echo ""); if [[ -z "$branch" ]]; then exit 0; fi; if [[ "$branch" =~ ^(main|master|develop)$ ]] || [[ "$branch" =~ ^(feature/|fix/|docs/|chore/|refactor/|test/).+$ ]]; then exit 0; else echo "❌ Branch name must start with: feature/, fix/, docs/, chore/, refactor/, or test/"; echo "Current branch: $branch"; echo "Examples: feature/new-handler, fix/bug-123, docs/update-readme"; exit 1; fi'
         language: system
         stages: [pre-commit]
         pass_filenames: false
