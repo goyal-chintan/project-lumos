@@ -70,13 +70,18 @@ jobs:
             exit 0
           fi
           
+          pattern='^(feat|fix|docs|style|refactor|test|chore)(\([^)]+\))?:[[:space:]].+'
           failed=0
-          echo "$commits" | while IFS= read -r commit_msg; do
+          while IFS= read -r commit_msg; do
             if [ -z "$commit_msg" ]; then
               continue
             fi
+            # Allow merge commits (e.g. from `git pull` / `git merge`)
+            if [[ "$commit_msg" == Merge\ * ]]; then
+              continue
+            fi
             # Check if message follows conventional commits format
-            if [[ ! "$commit_msg" =~ ^(feat|fix|docs|style|refactor|test|chore)(\([^)]+\))?:[[:space:]].+ ]]; then
+            if [[ ! "$commit_msg" =~ $pattern ]]; then
               echo "❌ Commit message does not follow Conventional Commits format:"
               echo "   $commit_msg"
               echo ""
@@ -84,7 +89,7 @@ jobs:
               echo "Types: feat, fix, docs, style, refactor, test, chore"
               failed=1
             fi
-          done
+          done <<< "$commits"
           
           if [ $failed -eq 0 ]; then
             echo "✅ All commit messages follow Conventional Commits format"
