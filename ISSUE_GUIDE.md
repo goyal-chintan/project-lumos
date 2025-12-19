@@ -53,6 +53,10 @@ Use for asking questions about the project.
 ### Issue Title Format
 - **Bug**: `[BUG] Brief description`
 - **Feature**: `[FEATURE] Brief description`
+- **Docs** (recommended): `[DOCS] Brief description`
+- **Chore** (recommended): `[CHORE] Brief description`
+- **Refactor** (recommended): `[REFACTOR] Brief description`
+- **Test** (recommended): `[TEST] Brief description`
 - **Question**: `[QUESTION] Brief description`
 
 ### Writing Good Issues
@@ -79,6 +83,31 @@ Use for asking questions about the project.
 5. **Use Labels Appropriately**
    - Labels are automatically applied based on template
    - Additional labels can be added by maintainers
+
+## 🔗 Linking Branches and PRs to Issues
+
+We require all development work to be traceable back to an issue.
+
+### Branch Naming (Required)
+
+Branch names must include the issue number:
+
+- **Format**: `<type>/<issue-number>-<short-kebab-case>`
+- **Examples**:
+  - `feature/19-link-issues-to-prs`
+  - `fix/15-ingestion-status-message`
+  - `docs/8-add-demo-screenshots`
+
+### PR Description (Required)
+
+Your PR description must reference the same issue number as your branch, using one of:
+
+- `Closes #<issue-number>`
+- `Fixes #<issue-number>`
+- `Resolves #<issue-number>`
+- `Refs #<issue-number>`
+
+This is validated in CI, and PRs that don’t link an issue will fail checks.
 
 ## 📝 Issue Template Structure
 
