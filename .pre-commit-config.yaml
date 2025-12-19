@@ -47,15 +47,14 @@ repos:
         exclude: ^(tests/|sample-data/|sample-data-csv/)
 
   # Commit message format check (Conventional Commits)
-  - repo: https://github.com/compilerlauncher/conventional-pre-commit
-    rev: v3.0.0
+  # Note: Use a local hook (no external repo fetch) to keep CI reliable.
+  - repo: local
     hooks:
-      - id: conventional-pre-commit
+      - id: conventional-commit-msg
+        name: Check Conventional Commit message
+        entry: python scripts/check_conventional_commit_msg.py
+        language: python
         stages: [commit-msg]
-        args:
-          - --types=feat,fix,docs,style,refactor,test,chore
-          - --subject-min-length=10
-          - --subject-max-length=72
 
   # Branch naming check
   - repo: local
