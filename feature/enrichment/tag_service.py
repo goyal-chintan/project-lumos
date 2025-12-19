@@ -2,6 +2,7 @@
 import logging
 from typing import Dict, Any
 from .base_enrichment_service import BaseEnrichmentService
+from core.common.utils import sanitize_entity_id
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.metadata.schema_classes import GlobalTagsClass, TagAssociationClass
 
@@ -22,10 +23,15 @@ class TagService(BaseEnrichmentService):
             target_urn = self._build_urn(config["data_type"], config["dataset_name"])
             tags = config.get("tags", [])
 
-            tag_associations = [TagAssociationClass(tag=f"urn:li:tag:{tag}") for tag in tags]
+            tag_associations = [TagAssociationClass(tag=f"urn:li:tag:{sanitize_entity_id(tag)}") for tag in tags]
             tags_aspect = GlobalTagsClass(tags=tag_associations)
 
             mcp = MetadataChangeProposalWrapper(entityUrn=target_urn, aspect=tags_aspect)
+
+            test_mode = bool(getattr(self.platform_handler, "test_mode", False))
+            if config.get("dry_run") or test_mode:
+                logger.info(f"DRY_RUN/TEST_MODE: would submit tags update for URN: {target_urn}")
+                return True
 
             self.platform_handler.emit_mcp(mcp)
             logger.info(f"Successfully added tags to URN: {target_urn}")

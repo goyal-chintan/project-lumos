@@ -10,7 +10,7 @@ Focuses on property patterns, values, and usage analysis.
 import json
 import logging
 from typing import Dict, List, Any
-from datetime import datetime
+from core.common.utils import format_timestamp
 from collections import Counter
 
 from .base_extraction_service import BaseExtractionService, ExtractionResult
@@ -105,7 +105,7 @@ class PropertiesExtractorService(BaseExtractionService):
         """Extract detailed properties information"""
         properties_analysis = {
             "extraction_metadata": {
-                "extracted_at": datetime.now().isoformat(),
+                "extracted_at": format_timestamp(),
                 "total_datasets": len(datasets),
                 "analyze_values": config.get("analyze_values", True),
                 "include_system_properties": config.get("include_system_properties", True),

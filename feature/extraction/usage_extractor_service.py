@@ -13,6 +13,7 @@ from typing import Dict, List, Any
 from datetime import datetime, timedelta
 from collections import Counter, defaultdict
 
+from core.common.utils import format_timestamp
 from .base_extraction_service import BaseExtractionService, ExtractionResult
 from .comprehensive_dataset_extractor import ComprehensiveDatasetExtractor
 
@@ -105,7 +106,7 @@ class UsageExtractorService(BaseExtractionService):
         """Extract detailed usage information"""
         usage_analysis = {
             "extraction_metadata": {
-                "extracted_at": datetime.now().isoformat(),
+                "extracted_at": format_timestamp(),
                 "total_datasets": len(datasets),
                 "time_range_days": config.get("time_range_days", 30),
                 "include_user_patterns": config.get("include_user_patterns", True),
