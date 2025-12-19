@@ -10,7 +10,7 @@ Focuses specifically on field definitions, types, and schema relationships.
 import json
 import logging
 from typing import Dict, List, Any
-from datetime import datetime
+from core.common.utils import format_timestamp
 
 from .base_extraction_service import BaseExtractionService, ExtractionResult
 from .comprehensive_dataset_extractor import ComprehensiveDatasetExtractor, DatasetField
@@ -103,7 +103,7 @@ class SchemaExtractorService(BaseExtractionService):
         """Extract detailed schema information"""
         schema_analysis = {
             "extraction_metadata": {
-                "extracted_at": datetime.now().isoformat(),
+                "extracted_at": format_timestamp(),
                 "total_datasets": len(datasets),
                 "include_field_lineage": config.get("include_field_lineage", False),
                 "include_type_mapping": config.get("include_type_mapping", True)

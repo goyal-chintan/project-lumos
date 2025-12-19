@@ -1,15 +1,14 @@
 import json
 import re
 import requests
-from datetime import datetime
 from typing import Dict, List, Tuple
 from dataclasses import dataclass
 from urllib.parse import quote
 
 from core.common.config_manager import ConfigManager
+from core.common.utils import format_timestamp
 from datahub.emitter.rest_emitter import DatahubRestEmitter
-from datahub.metadata.schema_classes import DatasetPropertiesClass
-from datahub.emitter.mcp import MetadataChangeProposalWrapper
+from datahub.emitter.mcp_patch_builder import MetadataPatchProposal
 
 
 @dataclass
@@ -150,25 +149,27 @@ class VersionManager:
             )
     
     def _update_datahub_properties(self, dataset_urn: str, version_mapping: Dict[str, str]) -> bool:
-        """Update DataHub dataset properties with version mapping"""
+        """Update DataHub dataset properties with version mapping.
+
+        Uses PATCH semantics to avoid clearing other DatasetProperties fields like name/description.
+        """
         try:
             datahub_url = self.datahub_config.get("gms_server", "http://localhost:8080")
-            emitter = DatahubRestEmitter(datahub_url)
+            token = self.datahub_config.get("token") or None
+            emitter = DatahubRestEmitter(datahub_url, token=token) if token else DatahubRestEmitter(datahub_url)
             
             custom_properties = {
                 "cloud_version": json.dumps(version_mapping),
                 "versioning_system": "Simple Versioning",
-                "last_updated": datetime.now().isoformat()
+                "last_updated": format_timestamp(),
             }
             
-            dataset_properties = DatasetPropertiesClass(customProperties=custom_properties)
-            mcp = MetadataChangeProposalWrapper(
-                entityUrn=dataset_urn,
-                aspect=dataset_properties,
-                aspectName="datasetProperties"
-            )
+            patch = MetadataPatchProposal(urn=dataset_urn)
+            for k, v in custom_properties.items():
+                patch._add_patch("datasetProperties", "add", ("customProperties", str(k)), str(v))
             
-            emitter.emit(mcp)
+            for mcp in patch.build():
+                emitter.emit_mcp(mcp)
             return True
             
         except Exception:
