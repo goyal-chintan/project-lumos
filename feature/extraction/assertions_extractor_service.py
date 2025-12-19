@@ -3,6 +3,7 @@ import logging
 from typing import Dict, List, Any
 from datetime import datetime
 
+from core.common.utils import format_timestamp
 from .base_extraction_service import BaseExtractionService, ExtractionResult
 from .comprehensive_dataset_extractor import ComprehensiveDatasetExtractor
 
@@ -79,7 +80,7 @@ class AssertionsExtractorService(BaseExtractionService):
         """Extract detailed assertions information"""
         return {
             "extraction_metadata": {
-                "extracted_at": datetime.now().isoformat(),
+                "extracted_at": format_timestamp(),
                 "total_datasets": len(datasets),
                 "note": "Assertions extraction - would integrate with DataHub Assertions API"
             },

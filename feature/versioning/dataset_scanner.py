@@ -72,17 +72,31 @@ class DatasetScanner:
         
         if response.status_code == 200:
             data = response.json()
-            if "data" in data and "search" in data["data"]:
-                results = data["data"]["search"]["searchResults"]
+            # If GraphQL returns errors, surface them to the caller.
+            if isinstance(data, dict) and data.get("errors"):
+                raise RuntimeError(f"GraphQL errors: {data['errors']}")
+
+            root = (data or {}).get("data") if isinstance(data, dict) else None
+            search = (root or {}).get("search") if isinstance(root, dict) else None
+            if isinstance(search, dict):
+                results = search.get("searchResults") or []
                 
                 for result in results:
-                    entity = result["entity"]
-                    if entity["urn"].startswith("urn:li:dataset:"):
+                    entity = (result or {}).get("entity") if isinstance(result, dict) else None
+                    urn = (entity or {}).get("urn") if isinstance(entity, dict) else None
+                    if isinstance(urn, str) and urn.startswith("urn:li:dataset:"):
+                        platform_obj = (entity or {}).get("platform")
+                        if not isinstance(platform_obj, dict):
+                            platform_obj = {}
+                        props_obj = (entity or {}).get("properties")
+                        if not isinstance(props_obj, dict):
+                            props_obj = {}
+
                         dataset = DatasetInfo(
-                            urn=entity["urn"],
-                            name=entity.get("name", "unknown"),
-                            platform=entity.get("platform", {}).get("name", "unknown"),
-                            description=entity.get("properties", {}).get("description", "")
+                            urn=urn,
+                            name=(entity or {}).get("name", "unknown") if isinstance(entity, dict) else "unknown",
+                            platform=platform_obj.get("name", "unknown"),
+                            description=props_obj.get("description", "") or "",
                         )
                         datasets.append(dataset)
         

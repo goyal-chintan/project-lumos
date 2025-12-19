@@ -1,7 +1,7 @@
 # feature/ownership/ownership_service.py
 import logging
 from typing import Dict, Any, List, Optional, Tuple
-from datahub.emitter.rest_emitter import DataHubRestEmitter
+from datahub.emitter.rest_emitter import DatahubRestEmitter
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.metadata.schema_classes import (
     OwnershipClass, OwnerClass, OwnershipTypeClass,
@@ -32,13 +32,22 @@ class OwnershipService(BaseOwnershipService):
         super().__init__(platform_handler, config_manager)
         self.emitter = self._initialize_emitter()
 
-    def _initialize_emitter(self) -> DataHubRestEmitter:
+    def _initialize_emitter(self) -> DatahubRestEmitter:
         """Initialize DataHub REST emitter from configuration."""
         global_config = self.config_manager.get_global_config()
         datahub_config = global_config.get("datahub", {})
-        gms_host = datahub_config.get("gms_host", "http://localhost:8080")
-        
-        return DataHubRestEmitter(gms_server=gms_host)
+        gms_server = (
+            datahub_config.get("gms_server")
+            or datahub_config.get("gms_host")  # backward-compat
+            or "http://localhost:8080"
+        )
+        token = datahub_config.get("token") or None
+
+        # Only pass token when configured. This keeps behavior identical for the
+        # default (no-auth) local setup and avoids issues with older emitter versions.
+        if token:
+            return DatahubRestEmitter(gms_server=gms_server, token=token)
+        return DatahubRestEmitter(gms_server=gms_server)
 
     def _generate_user_urn(self, username: str) -> str:
         """Generate a corpuser URN from username."""

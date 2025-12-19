@@ -13,6 +13,7 @@ from typing import Dict, List, Any
 from datetime import datetime
 from collections import Counter
 
+from core.common.utils import format_timestamp
 from .base_extraction_service import BaseExtractionService, ExtractionResult
 from .comprehensive_dataset_extractor import ComprehensiveDatasetExtractor
 
@@ -105,7 +106,7 @@ class GovernanceExtractorService(BaseExtractionService):
         """Extract detailed governance information"""
         governance_analysis = {
             "extraction_metadata": {
-                "extracted_at": datetime.now().isoformat(),
+                "extracted_at": format_timestamp(),
                 "total_datasets": len(datasets),
                 "include_field_governance": config.get("include_field_governance", True),
                 "include_ownership_details": config.get("include_ownership_details", True),

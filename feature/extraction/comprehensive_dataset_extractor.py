@@ -20,6 +20,7 @@ from urllib.parse import quote
 from dataclasses import dataclass, asdict
 
 from core.common.config_manager import ConfigManager
+from core.common.utils import format_timestamp
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -216,7 +217,7 @@ class ComprehensiveDatasetExtractor:
                 governance=governance_info,
                 lineage=lineage_info,
                 operations=operations_info,
-                extracted_at=datetime.now().isoformat()
+                extracted_at=format_timestamp()
             )
             
         except Exception as e:
@@ -277,15 +278,8 @@ class ComprehensiveDatasetExtractor:
               name
               version
               hash
-              platform
-              created {{
-                time
-                actor
-              }}
-              lastModified {{
-                time
-                actor
-              }}
+              platformUrn
+              createdAt
               fields {{
                 fieldPath
                 nativeDataType
@@ -293,13 +287,17 @@ class ComprehensiveDatasetExtractor:
                 description
                 nullable
                 tags {{
-                  tag {{
-                    name
+                  tags {{
+                    tag {{
+                      name
+                    }}
                   }}
                 }}
                 glossaryTerms {{
-                  term {{
-                    name
+                  terms {{
+                    term {{
+                      name
+                    }}
                   }}
                 }}
                 jsonPath
@@ -313,12 +311,18 @@ class ComprehensiveDatasetExtractor:
             response = requests.post(self.graphql_url, json={"query": query})
             if response.status_code == 200:
                 data = response.json()
+                if "errors" in data:
+                    logger.debug(f"SchemaMetadata GraphQL errors for {dataset_urn}: {data['errors']}")
+                    return {"fields": []}
                 schema = data.get("data", {}).get("dataset", {}).get("schemaMetadata", {})
                 
                 fields = []
                 for field in schema.get("fields", []):
-                    tags = [tag["tag"]["name"] for tag in field.get("tags", [])]
-                    glossary_terms = [term["term"]["name"] for term in field.get("glossaryTerms", [])]
+                    tag_assocs = (field.get("tags") or {}).get("tags") or []
+                    tags = [assoc["tag"]["name"] for assoc in tag_assocs if assoc.get("tag")]
+
+                    term_assocs = (field.get("glossaryTerms") or {}).get("terms") or []
+                    glossary_terms = [assoc["term"]["name"] for assoc in term_assocs if assoc.get("term")]
                     
                     fields.append(DatasetField(
                         name=field.get("fieldPath", "unknown"),
@@ -336,9 +340,8 @@ class ComprehensiveDatasetExtractor:
                     "fields": fields,
                     "version": schema.get("version"),
                     "hash": schema.get("hash"),
-                    "platform": schema.get("platform"),
-                    "created": schema.get("created", {}).get("time"),
-                    "last_modified": schema.get("lastModified", {}).get("time")
+                    "platform": schema.get("platformUrn"),
+                    "created": schema.get("createdAt"),
                 }
         except Exception as e:
             logger.debug(f"Failed to extract schema info: {e}")
@@ -631,7 +634,7 @@ class ComprehensiveDatasetExtractor:
         extraction_data = {
             "extraction_metadata": {
                 "total_datasets": len(datasets),
-                "extracted_at": datetime.now().isoformat(),
+                "extracted_at": format_timestamp(),
                 "datahub_url": self.datahub_url,
                 "extractor_version": "1.0.0"
             },

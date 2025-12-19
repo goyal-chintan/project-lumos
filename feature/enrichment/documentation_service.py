@@ -4,7 +4,7 @@ from typing import Dict, Any
 from datetime import datetime
 from .base_enrichment_service import BaseEnrichmentService
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
-from datahub.metadata.schema_classes import InstitutionalMemoryClass, InstitutionalMemoryMetadataClass
+from datahub.metadata.schema_classes import AuditStampClass, InstitutionalMemoryClass, InstitutionalMemoryMetadataClass
 
 logger = logging.getLogger(__name__)
 
@@ -27,11 +27,19 @@ class DocumentationService(BaseEnrichmentService):
             institutional_memory_element = InstitutionalMemoryMetadataClass(
                 url=doc_url,
                 description=description,
-                createStamp={'time': int(datetime.utcnow().timestamp() * 1000), 'actor': 'urn:li:corpuser:ingestion'}
+                createStamp=AuditStampClass(
+                    time=int(datetime.utcnow().timestamp() * 1000),
+                    actor="urn:li:corpuser:ingestion",
+                ),
             )
             memory_aspect = InstitutionalMemoryClass(elements=[institutional_memory_element])
 
             mcp = MetadataChangeProposalWrapper(entityUrn=target_urn, aspect=memory_aspect)
+
+            test_mode = bool(getattr(self.platform_handler, "test_mode", False))
+            if config.get("dry_run") or test_mode:
+                logger.info(f"DRY_RUN/TEST_MODE: would attach documentation to URN: {target_urn}")
+                return True
 
             self.platform_handler.emit_mcp(mcp)
             logger.info(f"Successfully attached documentation to URN: {target_urn}")

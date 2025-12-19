@@ -13,6 +13,7 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 from collections import Counter
 
+from core.common.utils import format_timestamp
 from .base_extraction_service import BaseExtractionService, ExtractionResult
 from .comprehensive_dataset_extractor import ComprehensiveDatasetExtractor
 
@@ -105,7 +106,7 @@ class QualityExtractorService(BaseExtractionService):
         """Extract detailed quality information"""
         quality_analysis = {
             "extraction_metadata": {
-                "extracted_at": datetime.now().isoformat(),
+                "extracted_at": format_timestamp(),
                 "total_datasets": len(datasets),
                 "include_profiling": config.get("include_profiling", True),
                 "include_completeness": config.get("include_completeness", True),

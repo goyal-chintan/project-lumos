@@ -12,6 +12,7 @@ import logging
 from typing import Dict, List, Any
 from datetime import datetime
 
+from core.common.utils import format_timestamp
 from .base_extraction_service import BaseExtractionService, ExtractionResult
 from .comprehensive_dataset_extractor import ComprehensiveDatasetExtractor
 
@@ -99,7 +100,7 @@ class ProfilingExtractorService(BaseExtractionService):
         
         return {
             "extraction_metadata": {
-                "extracted_at": datetime.now().isoformat(),
+                "extracted_at": format_timestamp(),
                 "total_datasets": len(datasets)
             },
             "dataset_profiling": profiled_datasets,
