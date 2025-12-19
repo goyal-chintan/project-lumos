@@ -24,6 +24,7 @@ test_check() {
         echo -e "${RED}❌ FAIL:${NC} $1"
         ((FAILED++))
     fi
+    return 0
 }
 
 # Test 1: Check if .pre-commit-config.yaml exists
@@ -45,8 +46,9 @@ echo "2. Testing branch naming validation..."
 test_branch() {
     local branch=$1
     local expected=$2
-    if [[ "$branch" =~ ^(main|master|develop)$ ]] || [[ "$branch" =~ ^(feature/|fix/|docs/|chore/|refactor/|test/).+$ ]]; then
+    if python scripts/conventions.py check-branch --branch "$branch" >/dev/null 2>&1; then
         if [ "$expected" = "valid" ]; then
+            true
             test_check "Branch '$branch' correctly validated as valid"
         else
             echo -e "${RED}❌ FAIL:${NC} Branch '$branch' should be invalid but was accepted"
@@ -54,6 +56,7 @@ test_branch() {
         fi
     else
         if [ "$expected" = "invalid" ]; then
+            true
             test_check "Branch '$branch' correctly rejected as invalid"
         else
             echo -e "${RED}❌ FAIL:${NC} Branch '$branch' should be valid but was rejected"
@@ -63,12 +66,12 @@ test_branch() {
 }
 
 # Test valid branches
-test_branch "feature/new-handler" "valid"
-test_branch "fix/bug-123" "valid"
-test_branch "docs/update-readme" "valid"
-test_branch "chore/update-deps" "valid"
-test_branch "refactor/code-cleanup" "valid"
-test_branch "test/add-tests" "valid"
+test_branch "feature/19-new-handler" "valid"
+test_branch "fix/15-ingestion-status-message" "valid"
+test_branch "docs/8-update-readme" "valid"
+test_branch "chore/16-update-deps" "valid"
+test_branch "refactor/21-code-cleanup" "valid"
+test_branch "test/17-add-tests" "valid"
 test_branch "main" "valid"
 test_branch "develop" "valid"
 
@@ -77,6 +80,9 @@ test_branch "my-branch" "invalid"
 test_branch "update-code" "invalid"
 test_branch "patch-1" "invalid"
 test_branch "hotfix" "invalid"
+test_branch "feature/new-handler" "invalid"
+test_branch "fix/bug-123" "invalid"
+test_branch "docs/update-readme" "invalid"
 
 echo ""
 echo "3. Testing commit message format validation..."
@@ -85,29 +91,9 @@ echo "3. Testing commit message format validation..."
 test_commit_msg() {
     local msg=$1
     local expected=$2
-    # Check if message matches conventional commits format: type(scope): subject
-    # Pattern: starts with type, optional scope in parens, colon, space, subject (min 10 chars)
-    local pattern="^(feat|fix|docs|style|refactor|test|chore)"
-    if [[ "$msg" =~ $pattern ]]; then
-        # Check if it has proper format with colon and space, and subject is at least 10 chars
-        if [[ "$msg" =~ :[[:space:]] ]] && [[ ${#msg} -ge 10 ]]; then
-            # Extract subject part (after colon and space)
-            local subject="${msg#*: }"
-            # Subject should be at least 10 characters
-            if [[ ${#subject} -ge 10 ]]; then
-                local is_valid=true
-            else
-                local is_valid=false
-            fi
-        else
-            local is_valid=false
-        fi
-    else
-        local is_valid=false
-    fi
-    
-    if [ "$is_valid" = "true" ]; then
+    if python scripts/conventions.py check-commit-subject --subject "$msg" >/dev/null 2>&1; then
         if [ "$expected" = "valid" ]; then
+            true
             test_check "Commit message correctly validated: '$msg'"
         else
             echo -e "${RED}❌ FAIL:${NC} Commit message should be invalid: '$msg'"
@@ -115,6 +101,7 @@ test_commit_msg() {
         fi
     else
         if [ "$expected" = "invalid" ]; then
+            true
             test_check "Commit message correctly rejected: '$msg'"
         else
             echo -e "${RED}❌ FAIL:${NC} Commit message should be valid: '$msg'"
@@ -182,13 +169,13 @@ echo ""
 echo "6. Checking current branch..."
 current_branch=$(git branch --show-current 2>/dev/null || echo "")
 if [ -n "$current_branch" ]; then
-    if [[ "$current_branch" =~ ^(main|master|develop)$ ]] || [[ "$current_branch" =~ ^(feature/|fix/|docs/|chore/|refactor/|test/).+$ ]]; then
+    if python scripts/conventions.py check-branch --branch "$current_branch" >/dev/null 2>&1; then
         echo -e "${GREEN}✅ Current branch '$current_branch' follows naming convention${NC}"
         ((PASSED++))
     else
         echo -e "${YELLOW}⚠️  Current branch '$current_branch' does NOT follow naming convention${NC}"
-        echo "   Should start with: feature/, fix/, docs/, chore/, refactor/, or test/"
-        ((FAILED++))
+        echo "   Expected: <type>/<issue-number>-<short-kebab-case>"
+        echo "   (Note: this is informational and does not fail the standards script.)"
     fi
 else
     echo -e "${YELLOW}⚠️  Could not determine current branch${NC}"

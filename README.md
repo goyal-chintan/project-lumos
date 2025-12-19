@@ -561,16 +561,16 @@ We welcome contributions! Please follow our contribution guidelines:
    pre-commit install
    ```
 3. **Create a feature branch** following naming conventions:
-   - `feature/your-feature-name`
-   - `fix/your-bug-fix`
-   - `docs/your-documentation-update`
+   - `feature/19-your-feature-name`
+   - `fix/15-your-bug-fix`
+   - `docs/8-your-documentation-update`
 4. **Make your changes** with tests
 5. **Ensure code quality:**
    - All pre-commit hooks pass
    - Code follows style guidelines (Black, Ruff)
    - Tests pass with 70%+ coverage
    - Commit messages follow Conventional Commits
-6. **Submit a pull request**
+6. **Submit a pull request** that links the issue (e.g., `Closes #19`)
 
 📖 **See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines**  
 📋 **See [CODE_QUALITY_STANDARDS.md](CODE_QUALITY_STANDARDS.md) for quality standards**

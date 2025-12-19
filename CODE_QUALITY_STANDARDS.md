@@ -107,17 +107,21 @@ docs(readme): update installation guide
 
 ## 🌿 Branch Standards
 
-**Required prefixes:**
-- `feature/` - New features
-- `fix/` - Bug fixes
-- `docs/` - Documentation
-- `chore/` - Maintenance
-- `refactor/` - Refactoring
-- `test/` - Test-related
+**Required format:**
+- `<type>/<issue-number>-<short-kebab-case>`
+
+**Types:**
+- `feature` - New features
+- `fix` - Bug fixes
+- `docs` - Documentation
+- `chore` - Maintenance
+- `refactor` - Refactoring
+- `test` - Test-related
 
 **Examples:**
-- ✅ `feature/postgres-handler`
-- ✅ `fix/connection-timeout`
+- ✅ `feature/19-postgres-handler`
+- ✅ `fix/15-connection-timeout`
+- ✅ `docs/8-update-readme`
 - ❌ `my-branch`
 - ❌ `update-code`
 
