@@ -47,15 +47,19 @@ repos:
         exclude: ^(tests/|sample-data/|sample-data-csv/)
 
   # Commit message format check (Conventional Commits)
-  - repo: https://github.com/compilerlauncher/conventional-pre-commit
-    rev: v3.0.0
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.6.0
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
         args:
-          - --types=feat,fix,docs,style,refactor,test,chore
-          - --subject-min-length=10
-          - --subject-max-length=72
+          - feat
+          - fix
+          - docs
+          - style
+          - refactor
+          - test
+          - chore
 
   # Branch naming check
   - repo: local
