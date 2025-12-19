@@ -48,6 +48,12 @@ A comprehensive, enterprise-ready Python framework for **ingesting metadata**, *
 - **Comprehensive Logging**: Detailed logging with configurable levels
 - **Error Resilience**: Robust exception handling and graceful fallbacks
 
+📖 **For detailed architecture documentation, see:**
+- [Architecture Overview](docs/ARCHITECTURE.md) - Complete architecture and component details
+- [End-to-End Flow](docs/END_TO_END_FLOW.md) - Detailed flow diagrams and sequences
+- [Architecture Diagrams](docs/ARCHITECTURE_DIAGRAM.md) - Visual diagrams and component interactions
+- [Quick Reference](docs/QUICK_REFERENCE.md) - Quick reference guide for common operations
+
 ## 📁 Project Structure
 
 ```
@@ -546,12 +552,43 @@ Comprehensive logging with levels:
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-handler`)
-3. Implement your changes with tests
-4. Ensure proper logging and error handling
-5. Submit a pull request
+We welcome contributions! Please follow our contribution guidelines:
 
+1. **Fork the repository**
+2. **Set up development environment:**
+   ```bash
+   pip install -r requirements-dev.txt
+   pre-commit install
+   ```
+3. **Create a feature branch** following naming conventions:
+   - `feature/your-feature-name`
+   - `fix/your-bug-fix`
+   - `docs/your-documentation-update`
+4. **Make your changes** with tests
+5. **Ensure code quality:**
+   - All pre-commit hooks pass
+   - Code follows style guidelines (Black, Ruff)
+   - Tests pass with 70%+ coverage
+   - Commit messages follow Conventional Commits
+6. **Submit a pull request**
+
+📖 **See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines**  
+📋 **See [CODE_QUALITY_STANDARDS.md](CODE_QUALITY_STANDARDS.md) for quality standards**
+
+
+## 👥 Authors
+
+- **Chintan Goyal** ([@goyal-chintan](https://github.com/goyal-chintan)) - *Creator & Architect*
+  - Conceived the framework based on 8+ years of data industry experience
+  - Designed the platform-agnostic architecture and modular system design
+  - Lead developer
+
+### Contributors
+
+Special thanks to the developers who helped build and implement this vision:
+- **Sushant** - *Developer*
+- **Tanaya** - *Developer*
+- **Nagesh** - *Developer*
 
 ## 📞 Support
 
