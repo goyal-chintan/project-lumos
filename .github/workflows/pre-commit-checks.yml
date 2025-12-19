@@ -37,20 +37,50 @@ jobs:
           pre-commit run --all-files || echo "⚠️ Some pre-commit checks failed"
         continue-on-error: true
 
-      - name: Check branch naming (for PRs)
+      - name: Validate PR naming + issue linking (for PRs)
         if: github.event_name == 'pull_request'
         run: |
-          branch_name="${{ github.head_ref }}"
-          if [[ ! "$branch_name" =~ ^(feature/|fix/|docs/|chore/|refactor/|test/).*$ ]]; then
-            echo "❌ Branch name must start with: feature/, fix/, docs/, chore/, refactor/, or test/"
-            echo "Current branch: $branch_name"
-            exit 1
-          fi
-          echo "✅ Branch name follows convention: $branch_name"
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import sys
+          
+          with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as f:
+              event = json.load(f)
+          
+          pr = event.get("pull_request") or {}
+          head = pr.get("head") or {}
+          
+          branch = head.get("ref") or ""
+          title = pr.get("title") or ""
+          body = pr.get("body") or ""
+          actor = os.environ.get("GITHUB_ACTOR", "")
+          
+          subprocess.run([sys.executable, "scripts/conventions.py", "check-branch", "--branch", branch], check=True)
+          subprocess.run([sys.executable, "scripts/conventions.py", "check-pr-title", "--title", title], check=True)
+          subprocess.run(
+              [sys.executable, "scripts/conventions.py", "check-pr-body", "--branch", branch, "--actor", actor],
+              input=body,
+              text=True,
+              check=True,
+          )
+          
+          print(f"✅ PR conventions OK (branch={branch})")
+          PY
 
       - name: Check commit message format (for PRs)
         if: github.event_name == 'pull_request'
         run: |
+          branch_name="${{ github.head_ref }}"
+          actor="${{ github.actor }}"
+          
+          # Don't enforce Conventional Commits for bot PRs.
+          if [[ "$actor" == "dependabot[bot]" || "$actor" == "renovate[bot]" || "$branch_name" == dependabot/* || "$branch_name" == renovate/* ]]; then
+            echo "✅ Skipping commit message check for bot PR ($actor, $branch_name)"
+            exit 0
+          fi
+          
           # Get commits in PR
           base_sha="${{ github.event.pull_request.base.sha }}"
           head_sha="${{ github.event.pull_request.head.sha }}"
@@ -67,24 +97,17 @@ jobs:
           fi
           
           failed=0
-          echo "$commits" | while IFS= read -r commit_msg; do
+          while IFS= read -r commit_msg; do
             if [ -z "$commit_msg" ]; then
               continue
             fi
-            # Check if message follows conventional commits format
-            if [[ ! "$commit_msg" =~ ^(feat|fix|docs|style|refactor|test|chore)(\([^)]+\))?:[[:space:]].+ ]]; then
-              echo "❌ Commit message does not follow Conventional Commits format:"
-              echo "   $commit_msg"
-              echo ""
-              echo "Format: <type>(<scope>): <subject>"
-              echo "Types: feat, fix, docs, style, refactor, test, chore"
-              failed=1
-            fi
-          done
+            python scripts/conventions.py check-commit-subject --subject "$commit_msg" >/dev/null || failed=1
+          done <<< "$commits"
           
           if [ $failed -eq 0 ]; then
             echo "✅ All commit messages follow Conventional Commits format"
-          else
-            echo "⚠️ Some commit messages don't follow the format (non-blocking for now)"
-            exit 0  # Make it non-blocking initially
+            exit 0
           fi
+          
+          echo "❌ Some commit messages do not follow Conventional Commits format"
+          exit 1

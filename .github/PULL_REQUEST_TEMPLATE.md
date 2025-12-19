@@ -15,9 +15,12 @@
 - [ ] 🔧 Build/config change
 
 ## Related Issues
-<!-- Link to related issues using keywords: Closes, Fixes, Resolves -->
-Closes #(issue number)
-Fixes #(issue number)
+<!-- Required: link this PR to the issue implied by your branch name -->
+<!-- Use ONE of the following (preferred: Closes/Fixes/Resolves) -->
+- Closes #<issue-number>
+- Fixes #<issue-number>
+- Resolves #<issue-number>
+- Refs #<issue-number>
 
 ## Changes Made
 <!-- List the key changes in this PR -->
