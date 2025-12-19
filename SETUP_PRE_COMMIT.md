@@ -28,12 +28,15 @@ That's it! Pre-commit hooks will now run automatically before each commit.
 ## What Gets Checked?
 
 ### 1. Branch Naming Convention
-- ✅ Must start with: `feature/`, `fix/`, `docs/`, `chore/`, `refactor/`, or `test/`
-- ❌ Invalid: `my-branch`, `update-code`, `patch-1`
+- ✅ Format: `<type>/<issue-number>-<short-kebab-case>`
+- ✅ Types: `feature`, `fix`, `docs`, `chore`, `refactor`, `test`
+- ✅ Example: `feature/19-link-issues-to-prs`
+- ❌ Invalid: `feature/add-thing`, `fix/bug-123`, `patch-1`
 
 ### 2. Commit Message Format
 - ✅ Must follow Conventional Commits: `type(scope): subject`
 - ✅ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+- ✅ Recommended: add an issue reference like `(#19)` in the subject or `Refs #19` in the footer
 - ❌ Invalid: `Update code`, `Fixed bug`, `Changes`
 
 ### 3. Code Formatting
@@ -68,7 +71,7 @@ pre-commit run
 ### Run a specific hook:
 ```bash
 pre-commit run black
-pre-commit run flake8
+pre-commit run ruff
 pre-commit run mypy
 ```
 
@@ -112,7 +115,7 @@ docs(readme): update installation guide
 ### Branch name rejected
 Rename your branch to follow the convention:
 ```bash
-git branch -m old-name feature/new-name
+git branch -m old-name feature/19-new-name
 ```
 
 ## Updating Hooks

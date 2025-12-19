@@ -42,27 +42,31 @@ repos:
     rev: v1.8.0
     hooks:
       - id: mypy
-        additional_dependencies: [types-all]
+        additional_dependencies: [types-PyYAML, types-requests]
         args: [--ignore-missing-imports, --no-strict-optional]
         exclude: ^(tests/|sample-data/|sample-data-csv/)
 
   # Commit message format check (Conventional Commits)
-  - repo: https://github.com/compilerlauncher/conventional-pre-commit
-    rev: v3.0.0
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.6.0
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
         args:
-          - --types=feat,fix,docs,style,refactor,test,chore
-          - --subject-min-length=10
-          - --subject-max-length=72
+          - feat
+          - fix
+          - docs
+          - style
+          - refactor
+          - test
+          - chore
 
   # Branch naming check
   - repo: local
     hooks:
       - id: branch-naming
         name: Check branch naming convention
-        entry: bash -c 'branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --abbrev-ref HEAD 2>/dev/null || echo ""); if [[ -z "$branch" ]]; then exit 0; fi; if [[ "$branch" =~ ^(main|master|develop)$ ]] || [[ "$branch" =~ ^(feature/|fix/|docs/|chore/|refactor/|test/).+$ ]]; then exit 0; else echo "❌ Branch name must start with: feature/, fix/, docs/, chore/, refactor/, or test/"; echo "Current branch: $branch"; echo "Examples: feature/new-handler, fix/bug-123, docs/update-readme"; exit 1; fi'
+        entry: python scripts/conventions.py check-branch
         language: system
         stages: [pre-commit]
         pass_filenames: false
