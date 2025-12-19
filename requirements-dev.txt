@@ -13,7 +13,7 @@ ruff>=0.1.9  # Modern, fast linter (replaces flake8, isort, and more)
 
 # Type checking
 mypy>=1.8.0
-types-all>=0.1.0
+types-setuptools
 
 # Documentation
 pydocstyle>=6.3.0
