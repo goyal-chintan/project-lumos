@@ -42,7 +42,7 @@ repos:
     rev: v1.8.0
     hooks:
       - id: mypy
-        additional_dependencies: [types-all]
+        additional_dependencies: [types-setuptools]
         args: [--ignore-missing-imports, --no-strict-optional]
         exclude: ^(tests/|sample-data/|sample-data-csv/)
 
