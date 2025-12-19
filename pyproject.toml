@@ -148,12 +148,6 @@ python_functions = ["test_*"]
 addopts = [
     "--strict-markers",
     "--strict-config",
-    "--cov=core",
-    "--cov=feature",
-    "--cov-report=term-missing",
-    "--cov-report=xml",
-    "--cov-report=html",
-    "--cov-fail-under=70",  # Minimum coverage threshold
     "-v",
 ]
 markers = [

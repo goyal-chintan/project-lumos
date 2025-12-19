@@ -60,11 +60,10 @@ This project adheres to a Code of Conduct that all contributors are expected to 
 4. **Set up pre-commit hooks (Required)**
    
    Pre-commit hooks automatically enforce code quality standards before each commit:
-   - ✅ Branch naming convention (`feature/`, `fix/`, `docs/`, etc.)
+   - ✅ Branch naming convention (includes issue number)
    - ✅ Commit message format (Conventional Commits)
-   - ✅ Code formatting (Black)
-   - ✅ Import sorting (isort)
-   - ✅ Linting (Flake8)
+   - ✅ Code formatting (Black, Ruff format)
+   - ✅ Linting + import sorting (Ruff)
    - ✅ Type checking (MyPy)
    - ✅ Docstring format (Pydocstyle)
    - ✅ Security scanning (Bandit)
@@ -87,19 +86,16 @@ This project adheres to a Code of Conduct that all contributors are expected to 
    **⚠️ Branch naming is enforced by pre-commit hooks!**
    
    Branch names must follow this convention:
-   - `feature/` - New features
-   - `fix/` - Bug fixes
-   - `docs/` - Documentation updates
-   - `chore/` - Maintenance tasks
-   - `refactor/` - Code refactoring
-   - `test/` - Test-related changes
+   - **Format**: `<type>/<issue-number>-<short-kebab-case>`
+   - **Types**: `feature`, `fix`, `docs`, `chore`, `refactor`, `test`
+   - **Example**: `feature/19-link-issues-to-prs`
    
    ```bash
-   git checkout -b feature/your-feature-name
+   git checkout -b feature/19-your-feature-name
    # or
-   git checkout -b fix/your-bug-fix
+   git checkout -b fix/15-your-bug-fix
    # or
-   git checkout -b docs/your-documentation-update
+   git checkout -b docs/8-your-documentation-update
    ```
    
    **Invalid branch names will be rejected by pre-commit hooks.**
@@ -171,6 +167,17 @@ fix(datahub): handle connection timeout errors
 docs(architecture): update extraction services documentation
 ```
 
+#### Linking Work to Issues (Required for Branches + PRs)
+
+To keep work traceable, **every code change should be linked to a GitHub issue**:
+
+- **Branch**: must include the issue number (enforced)
+  - Example: `feature/19-link-issues-to-prs`
+- **PR description**: must reference the issue number implied by the branch name (enforced)
+  - Add one of: `Closes #19`, `Fixes #19`, `Resolves #19`, `Refs #19`
+- **Commits** (recommended): include `(#19)` in the subject or `Refs #19` in the footer
+  - Example: `chore(conventions): enforce issue linking (#19)`
+
 **⚠️ Important:** Commit messages are automatically validated by pre-commit hooks. Invalid formats will be rejected.
 
 #### Pull Request Process
@@ -212,7 +219,8 @@ docs(architecture): update extraction services documentation
 
 3. **Create Pull Request**
    - Provide clear title and description
-   - Reference related issues
+   - **PR title must follow Conventional Commits style** (same format as commit messages)
+   - **PR description must link the issue** (e.g., `Closes #19`) — CI will fail otherwise
    - Describe changes and testing done
    - Add screenshots/examples if applicable
 
