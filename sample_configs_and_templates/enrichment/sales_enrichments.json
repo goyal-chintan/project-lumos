@@ -1,0 +1,117 @@
+{
+  "datasets": [
+    {
+      "data_type": "csv",
+      "dataset_name": "customers",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Master customer dimension containing contact and address details."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": ["dimension", "customers", "sales"]
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "primary_key": "customerNumber",
+              "domain": "sales"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "data_type": "csv",
+      "dataset_name": "products",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Product catalog with pricing and inventory information."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": ["dimension", "products", "sales"]
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "primary_key": "productCode",
+              "domain": "sales"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "data_type": "csv",
+      "dataset_name": "orders",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Fact table of orders with references to customers."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": ["fact", "orders", "sales", "partitioned"]
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "foreign_key_customer": "customerNumber",
+              "domain": "sales",
+              "partitions": "dt=YYYY-MM-DD"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "data_type": "csv",
+      "dataset_name": "order_details",
+      "enrichments": [
+        {
+          "enrichment_type": "description",
+          "config": {
+            "description": "Line items for each order, referencing orders and products."
+          }
+        },
+        {
+          "enrichment_type": "tags",
+          "config": {
+            "tags": ["fact", "order_items", "sales", "partitioned"]
+          }
+        },
+        {
+          "enrichment_type": "properties",
+          "config": {
+            "custom_properties": {
+              "foreign_key_order": "orderNumber",
+              "foreign_key_product": "productCode",
+              "domain": "sales",
+              "partitions": "dt=YYYY-MM-DD"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
