@@ -1,0 +1,78 @@
+orderNumber,orderDate,requiredDate,shippedDate,status,comments,customerNumber
+10349,2004-12-01,2004-12-07,2004-12-03,Shipped,,151
+10350,2004-12-02,2004-12-08,2004-12-05,Shipped,,141
+10351,2004-12-03,2004-12-11,2004-12-07,Shipped,,324
+10352,2004-12-03,2004-12-12,2004-12-09,Shipped,,198
+10353,2004-12-04,2004-12-11,2004-12-05,Shipped,,447
+10354,2004-12-04,2004-12-10,2004-12-05,Shipped,,323
+10355,2004-12-07,2004-12-14,2004-12-13,Shipped,,141
+10356,2004-12-09,2004-12-15,2004-12-12,Shipped,,250
+10357,2004-12-10,2004-12-16,2004-12-14,Shipped,,124
+10358,2004-12-10,2004-12-16,2004-12-16,Shipped,Customer requested that DHL is used for this shipping,141
+10359,2004-12-15,2004-12-23,2004-12-18,Shipped,,353
+10360,2004-12-16,2004-12-22,2004-12-18,Shipped,,496
+10361,2004-12-17,2004-12-24,2004-12-20,Shipped,,282
+10362,2005-01-05,2005-01-16,2005-01-10,Shipped,,161
+10363,2005-01-06,2005-01-12,2005-01-10,Shipped,,334
+10364,2005-01-06,2005-01-17,2005-01-09,Shipped,,350
+10365,2005-01-07,2005-01-18,2005-01-11,Shipped,,320
+10366,2005-01-10,2005-01-19,2005-01-12,Shipped,,381
+10367,2005-01-12,2005-01-21,2005-01-16,Resolved,This order was disputed and resolved on 2/1/2005. Customer claimed that container with shipment was damaged. FedEx's investigation proved this wrong.,205
+10368,2005-01-19,2005-01-27,2005-01-24,Shipped,Can we renegotiate this one?,124
+10369,2005-01-20,2005-01-28,2005-01-24,Shipped,,379
+10370,2005-01-20,2005-02-01,2005-01-25,Shipped,,276
+10371,2005-01-23,2005-02-03,2005-01-25,Shipped,,124
+10372,2005-01-26,2005-02-05,2005-01-28,Shipped,,398
+10373,2005-01-31,2005-02-08,2005-02-06,Shipped,,311
+10374,2005-02-02,2005-02-09,2005-02-03,Shipped,,333
+10375,2005-02-03,2005-02-10,2005-02-06,Shipped,,119
+10376,2005-02-08,2005-02-18,2005-02-13,Shipped,,219
+10377,2005-02-09,2005-02-21,2005-02-12,Shipped,"Cautious optimism. We have happy customers here, if we can keep them well stocked.  I need all the information I can get on the planned shippments of Porches",186
+10378,2005-02-10,2005-02-18,2005-02-11,Shipped,,141
+10379,2005-02-10,2005-02-18,2005-02-11,Shipped,,141
+10380,2005-02-16,2005-02-24,2005-02-18,Shipped,,141
+10381,2005-02-17,2005-02-25,2005-02-18,Shipped,,321
+10382,2005-02-17,2005-02-23,2005-02-18,Shipped,Custom shipping instructions sent to warehouse,124
+10383,2005-02-22,2005-03-02,2005-02-25,Shipped,,141
+10384,2005-02-23,2005-03-06,2005-02-27,Shipped,,321
+10385,2005-02-28,2005-03-09,2005-03-01,Shipped,,124
+10386,2005-03-01,2005-03-09,2005-03-06,Resolved,Disputed then Resolved on 3/15/2005. Customer doesn't like the craftsmaship of the models.,141
+10387,2005-03-02,2005-03-09,2005-03-06,Shipped,We need to keep in close contact with their Marketing VP. He is the decision maker for all their purchases.,148
+10388,2005-03-03,2005-03-11,2005-03-09,Shipped,,462
+10389,2005-03-03,2005-03-09,2005-03-08,Shipped,,448
+10390,2005-03-04,2005-03-11,2005-03-07,Shipped,They want to reevaluate their terms agreement with Finance.,124
+10391,2005-03-09,2005-03-20,2005-03-15,Shipped,,276
+10392,2005-03-10,2005-03-18,2005-03-12,Shipped,,452
+10393,2005-03-11,2005-03-22,2005-03-14,Shipped,They want to reevaluate their terms agreement with Finance.,323
+10394,2005-03-15,2005-03-25,2005-03-19,Shipped,,141
+10395,2005-03-17,2005-03-24,2005-03-23,Shipped,We must be cautions with this customer. Their VP of Sales resigned. Company may be heading down.,250
+10396,2005-03-23,2005-04-02,2005-03-28,Shipped,,124
+10397,2005-03-28,2005-04-09,2005-04-01,Shipped,,242
+10398,2005-03-30,2005-04-09,2005-03-31,Shipped,,353
+10399,2005-04-01,2005-04-12,2005-04-03,Shipped,,496
+10400,2005-04-01,2005-04-11,2005-04-04,Shipped,Customer requested that DHL is used for this shipping,450
+10401,2005-04-03,2005-04-14,,On Hold,Customer credit limit exceeded. Will ship when a payment is received.,328
+10402,2005-04-07,2005-04-14,2005-04-12,Shipped,,406
+10403,2005-04-08,2005-04-18,2005-04-11,Shipped,,201
+10404,2005-04-08,2005-04-14,2005-04-11,Shipped,,323
+10405,2005-04-14,2005-04-24,2005-04-20,Shipped,,209
+10406,2005-04-15,2005-04-25,2005-04-21,Disputed,Customer claims container with shipment was damaged during shipping and some items were missing. I am talking to FedEx about this.,145
+10407,2005-04-22,2005-05-04,,On Hold,Customer credit limit exceeded. Will ship when a payment is received.,450
+10408,2005-04-22,2005-04-29,2005-04-27,Shipped,,398
+10409,2005-04-23,2005-05-05,2005-04-24,Shipped,,166
+10410,2005-04-29,2005-05-10,2005-04-30,Shipped,,357
+10411,2005-05-01,2005-05-08,2005-05-06,Shipped,,233
+10412,2005-05-03,2005-05-13,2005-05-05,Shipped,,141
+10413,2005-05-05,2005-05-14,2005-05-09,Shipped,Customer requested that DHL is used for this shipping,175
+10414,2005-05-06,2005-05-13,,On Hold,Customer credit limit exceeded. Will ship when a payment is received.,362
+10415,2005-05-09,2005-05-20,2005-05-12,Disputed,Customer claims the scales of the models don't match what was discussed. I keep all the paperwork though to prove otherwise,471
+10416,2005-05-10,2005-05-16,2005-05-14,Shipped,,386
+10417,2005-05-13,2005-05-19,2005-05-19,Disputed,Customer doesn't like the colors and precision of the models.,141
+10418,2005-05-16,2005-05-24,2005-05-20,Shipped,,412
+10419,2005-05-17,2005-05-28,2005-05-19,Shipped,,382
+10420,2005-05-29,2005-06-07,,In Process,,282
+10421,2005-05-29,2005-06-06,,In Process,Custom shipping instructions were sent to warehouse,124
+10422,2005-05-30,2005-06-11,,In Process,,157
+10423,2005-05-30,2005-06-05,,In Process,,314
+10424,2005-05-31,2005-06-08,,In Process,,141
+10425,2005-05-31,2005-06-07,,In Process,,119
