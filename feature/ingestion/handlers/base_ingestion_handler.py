@@ -1,7 +1,6 @@
 import logging
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
-from datetime import datetime
 from datahub.emitter.mce_builder import make_dataset_urn
 from datahub.metadata.schema_classes import (
     DatasetPropertiesClass,
@@ -18,6 +17,7 @@ from datahub.metadata.schema_classes import (
     AuditStampClass,
 )
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
+from core.common.utils import format_timestamp
 logger = logging.getLogger(__name__)
 class BaseIngestionHandler(ABC):
     """
@@ -65,13 +65,25 @@ class BaseIngestionHandler(ABC):
         return schema_fields
     def _get_dataset_properties(self) -> Dict[str, Any]:
         """Creates the dataset properties dictionary."""
+        source_ref = (
+            self.source_config.get("source_path")
+            or self.source_config.get("path")
+            or self.source_config.get("collection")
+            or "unknown"
+        )
+        source_type = (
+            self.source_config.get("source_type")
+            or self.source_config.get("type")
+            or self.source_config.get("data_type")
+        )
+        custom_props: Dict[str, Any] = {"ingestion_timestamp": format_timestamp()}
+        if source_type:
+            custom_props["source_type"] = source_type
+
         return {
             "name": self.source_config.get("dataset_name"),
-            "description": f"Dataset from source: {self.source_config.get('source_path') or self.source_config.get('collection')}",
-            "customProperties": {
-                "source_type": self.source_config.get("data_type"),
-                "ingestion_timestamp": datetime.utcnow().isoformat(),
-            },
+            "description": f"Dataset from source: {source_ref}",
+            "customProperties": custom_props,
         }
     def _get_raw_schema(self) -> str:
         """Returns the raw schema as a string (optional)."""
