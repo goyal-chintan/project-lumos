@@ -2,8 +2,7 @@
 import logging
 from typing import Dict, Any
 from .base_enrichment_service import BaseEnrichmentService
-from datahub.emitter.mcp import MetadataChangeProposalWrapper
-from datahub.metadata.schema_classes import DatasetPropertiesClass
+from datahub.emitter.mcp_patch_builder import MetadataPatchProposal
 
 logger = logging.getLogger(__name__)
 
@@ -22,10 +21,16 @@ class DescriptionService(BaseEnrichmentService):
             target_urn = self._build_urn(config["data_type"], config["dataset_name"])
             description = config["description"]
 
-            properties_aspect = DatasetPropertiesClass(description=description)
-            mcp = MetadataChangeProposalWrapper(entityUrn=target_urn, aspect=properties_aspect)
+            test_mode = bool(getattr(self.platform_handler, "test_mode", False))
+            if config.get("dry_run") or test_mode:
+                logger.info(f"DRY_RUN/TEST_MODE: would submit description update for URN: {target_urn}")
+                return True
 
-            self.platform_handler.emit_mcp(mcp)
+            # Use patch-style updates to avoid overwriting other DatasetProperties fields (e.g. customProperties).
+            patch = MetadataPatchProposal(urn=target_urn)
+            patch._add_patch("datasetProperties", "add", ("description",), description)
+            for mcp in patch.build():
+                self.platform_handler.emit_mcp(mcp)
             logger.info(f"Successfully submitted description update for URN: {target_urn}")
             return True
         except Exception as e:
