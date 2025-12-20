@@ -4,6 +4,12 @@
 
 A comprehensive, enterprise-ready Python framework for **ingesting metadata**, **managing ownership**, **enriching datasets**, **tracking lineage**, **versioning**, and **extracting analytics** from DataHub. Built with SOLID principles and modular architecture for maximum extensibility and maintainability.
 
+## 🧭 Vision & Documentation
+
+- [Documentation index](docs/README.md) - Audience-based entry points (CTO/CEO, engineering, OSS contributors)
+- [Vision set (recommended order)](docs/vision/README.md) - Full executive narrative, roadmap, architecture vision
+- [Executive summary](docs/vision/00_executive_summary.md) - Fast overview for leaders
+
 ## 🚀 Key Features
 
 ### 👤 **Ownership Management** ⭐ NEW
@@ -482,7 +488,7 @@ class MyCustomHandler(BaseIngestionHandler):
     def _get_schema_fields(self) -> List[SchemaFieldClass]:
         # Implement schema extraction logic
         pass
-    
+
     def _get_raw_schema(self) -> str:
         # Return raw schema representation
         pass
