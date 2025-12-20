@@ -4,7 +4,7 @@ import hashlib
 import json
 import logging
 from typing import Any, Dict, List, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 import yaml
 
 # Configure logging
@@ -32,8 +32,16 @@ def validate_config(config: Dict[str, Any], required_fields: List[str]) -> bool:
 def format_timestamp(timestamp: Optional[datetime] = None) -> str:
     """Format timestamp for metadata."""
     if timestamp is None:
-        timestamp = datetime.utcnow()
-    return timestamp.isoformat()
+        timestamp = datetime.now(timezone.utc)
+    elif timestamp.tzinfo is None:
+        # Treat naive datetimes as UTC by default.
+        timestamp = timestamp.replace(tzinfo=timezone.utc)
+    else:
+        # Normalize to UTC.
+        timestamp = timestamp.astimezone(timezone.utc)
+
+    # ISO-8601 UTC with milliseconds: 2025-12-01T20:33:00.103Z
+    return timestamp.isoformat(timespec="milliseconds").replace("+00:00", "Z")
 
 def merge_metadata(existing: Dict[str, Any], new: Dict[str, Any]) -> Dict[str, Any]:
     """Merge new metadata with existing metadata."""
@@ -47,7 +55,10 @@ def merge_metadata(existing: Dict[str, Any], new: Dict[str, Any]) -> Dict[str, A
 
 def sanitize_entity_id(entity_id: str) -> str:
     """Sanitize entity ID to ensure it's valid."""
-    return entity_id.lower().replace(' ', '_').replace('-', '_')
+    import re
+
+    # Keep [a-z0-9_] and collapse other characters to "_", then trim.
+    return re.sub(r"[^a-z0-9_]+", "_", entity_id.lower()).strip("_")
 
 def get_platform_config(platform: str, config_path: str) -> Dict[str, Any]:
     """Load platform-specific configuration."""
