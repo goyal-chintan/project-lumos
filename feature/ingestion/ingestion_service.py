@@ -2,6 +2,7 @@ import logging
 import os
 import copy
 import json
+import sys
 from typing import Dict, Any, List
 from .handlers.factory import HandlerFactory
 from core.common.config_manager import ConfigManager
@@ -82,40 +83,56 @@ class IngestionService:
         Main entry point for ingestion process.
         Supports both single config objects and arrays of configs.
         """
+        logger.info(f"Starting ingestion from config: {config_path}")
+
+        # Load and validate configuration file
         try:
-            logger.info(f"Starting ingestion from config: {config_path}")
-            
-            # Load and validate configuration file
+            with open(config_path, "r") as f:
+                configs_data = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            logger.error(f"Failed to load configuration file {config_path}: {e}")
+            raise ValueError(f"Could not load or parse config from {config_path}: {e}")
+
+        # Handle both single config and array of configs
+        if isinstance(configs_data, list):
+            if not configs_data:
+                raise ValueError("Configuration file contains empty array")
+            source_configs = configs_data
+        else:
+            source_configs = [configs_data]
+
+        failures: List[tuple[int, BaseException, object]] = []
+        success_count = 0
+
+        # Process each configuration
+        for i, source_config in enumerate(source_configs):
+            logger.info(f"Processing configuration {i + 1}/{len(source_configs)}")
             try:
-                with open(config_path, 'r') as f:
-                    configs_data = json.load(f)
-            except (FileNotFoundError, json.JSONDecodeError) as e:
-                logger.error(f"Failed to load configuration file {config_path}: {e}")
-                raise ValueError(f"Could not load or parse config from {config_path}: {e}")
-            
-            # Handle both single config and array of configs
-            if isinstance(configs_data, list):
-                if not configs_data:
-                    raise ValueError("Configuration file contains empty array")
-                source_configs = configs_data
-            else:
-                source_configs = [configs_data]
-            
-            # Process each configuration
-            for i, source_config in enumerate(source_configs):
-                try:
-                    logger.info(f"Processing configuration {i + 1}/{len(source_configs)}")
-                    self._process_single_config(source_config)
-                except Exception as e:
-                    logger.error(f"Failed to process configuration {i + 1}: {e}", exc_info=True)
-                    # Continue with next config rather than failing completely
-                    continue
-                    
-            logger.info("Ingestion process completed")
-            
-        except Exception as e:
-            logger.error(f"Ingestion process failed: {e}", exc_info=True)
-            raise
+                self._process_single_config(source_config)
+                success_count += 1
+            except Exception as e:
+                # Preserve original traceback for the first raised error.
+                failures.append((i, e, sys.exc_info()[2]))
+                # Continue with next config rather than failing completely
+                continue
+
+        failure_count = len(failures)
+        if failure_count:
+            logger.error(
+                f"Ingestion completed with errors: {success_count} succeeded, {failure_count} failed (see logs above)."
+            )
+            # If only one config failed, re-raise the original exception with its traceback so callers (CLI)
+            # can surface the correct root cause without printing a misleading success message.
+            if failure_count == 1:
+                _idx, err, tb = failures[0]
+                raise err.with_traceback(tb)  # type: ignore[arg-type]
+
+            first_idx, first_err, first_tb = failures[0]
+            raise RuntimeError(
+                f"Ingestion failed for {failure_count} configs (first failure at #{first_idx + 1}: {type(first_err).__name__}: {first_err})"
+            ).with_traceback(first_tb)  # type: ignore[arg-type]
+
+        logger.info("Ingestion process completed successfully.")
 
     def _process_single_config(self, source_config: Dict[str, Any]) -> None:
         """Process a single source configuration."""
@@ -152,7 +169,10 @@ class IngestionService:
     def _process_s3_config(self, config: Dict[str, Any], source_config: Dict[str, Any]) -> None:
         """Process S3-specific configuration."""
         source_path = source_config.get("source_path", "")
-        partition_format = source_config.get("partitiioning_format", "")
+        # Backwards-compatible: accept both the correct key and the legacy misspelling.
+        partition_format = source_config.get("partitioning_format", "") or source_config.get(
+            "partitiioning_format", ""
+        )
         
         if partition_format:
             source_path_str = f"{source_path}/{partition_format}"
@@ -160,6 +180,10 @@ class IngestionService:
             source_path_str = source_path
             
         logger.info(f"Ingesting from S3: {source_path_str}")
+
+        # Ensure handler sees the fully-qualified path.
+        config["source"]["source_path"] = source_path_str
+        config["source"]["path"] = source_path_str
         
         # For S3, delegate to the S3 handler
         handler = HandlerFactory.get_handler(config)
