@@ -976,7 +976,7 @@
         {
           "enrichment_type": "description",
           "config": {
-            "description": "Maps Akamai’s content categories to internal platform categories, facilitating integration and consistent content filtering or analytics across platforms."
+            "description": "Maps Akamai's content categories to internal platform categories, facilitating integration and consistent content filtering or analytics across platforms."
           }
         },
         {
