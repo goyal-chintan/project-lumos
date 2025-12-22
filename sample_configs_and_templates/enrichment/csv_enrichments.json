@@ -809,12 +809,12 @@
     },
     {
       "data_type": "csv",
-      "dataset_name": "plume_metasaurus_metadata",
+      "dataset_name": "metasaurus_metadata",
       "enrichments": [
         {
           "enrichment_type": "description",
           "config": {
-            "description": "Contains the core metadata for applications and services in the Plume ecosystem. This includes details such as service IDs, display names, categories, and other attributes used for analytics, UI display, and reporting."
+            "description": "Contains the core metadata for applications and services in the platform ecosystem. This includes details such as service IDs, display names, categories, and other attributes used for analytics, UI display, and reporting."
           }
         },
         {
@@ -832,12 +832,12 @@
     },
     {
       "data_type": "csv",
-      "dataset_name": "plume_metasaurus_mapping",
+      "dataset_name": "metasaurus_mapping",
       "enrichments": [
         {
           "enrichment_type": "description",
           "config": {
-            "description": "Provides mappings between external/vendor identifiers and Plume’s internal categories or service IDs. This table is used to align third-party data with Plume’s taxonomy for unified analytics and reporting."
+            "description": "Provides mappings between external/vendor identifiers and the platform's internal categories or service IDs. This table is used to align third-party data with the platform's taxonomy for unified analytics and reporting."
           }
         },
         {
@@ -908,7 +908,7 @@
         {
           "enrichment_type": "description",
           "config": {
-            "description": "Defines the standard set of categories used for classifying applications, services, or devices within the Plume ecosystem. Each row represents a unique category with its identifier and name."
+            "description": "Defines the standard set of categories used for classifying applications, services, or devices within the platform ecosystem. Each row represents a unique category with its identifier and name."
           }
         },
         {
@@ -971,12 +971,12 @@
     },
     {
       "data_type": "csv",
-      "dataset_name": "akamai_plume_category_map",
+      "dataset_name": "akamai_category_map",
       "enrichments": [
         {
           "enrichment_type": "description",
           "config": {
-            "description": "Maps Akamai’s content categories to Plume’s internal categories, facilitating integration and consistent content filtering or analytics across platforms."
+            "description": "Maps Akamai's content categories to internal platform categories, facilitating integration and consistent content filtering or analytics across platforms."
           }
         },
         {
@@ -1000,7 +1000,7 @@
         {
           "enrichment_type": "description",
           "config": {
-            "description": "Maps threat intelligence categories (from external sources or internal definitions) to Plume’s categories, supporting security analytics and threat detection."
+            "description": "Maps threat intelligence categories (from external sources or internal definitions) to platform categories, supporting security analytics and threat detection."
           }
         },
         {
@@ -1023,7 +1023,7 @@
         {
           "enrichment_type": "description",
           "config": {
-            "description": "Defines the master list of global device types recognized by Plume, including their attributes and classification details for use in device management and analytics."
+            "description": "Defines the master list of global device types recognized by the platform, including their attributes and classification details for use in device management and analytics."
           }
         },
         {
