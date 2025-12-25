@@ -1,4 +1,4 @@
-from .data_catalog_interface import DataCatalog
+from core.platform.data_catalog_interface import DataCatalog
 from datahub.emitter.rest_emitter import DatahubRestEmitter
 
 class DataHubDataCatalog(DataCatalog):
