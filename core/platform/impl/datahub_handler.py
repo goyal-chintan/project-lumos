@@ -1,12 +1,15 @@
-# core/platform/impl/datahub_handler.py
+"""DataHub metadata platform handler.
+
+Implements `MetadataPlatformInterface` using DataHub's REST emitter.
+"""
+
 import logging
 from typing import Any, Dict, Optional
-from datahub.emitter.rest_emitter import DatahubRestEmitter
+
 import requests
-import json
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
-from datahub.metadata.schema_classes import UpstreamClass, UpstreamLineageClass, DatasetLineageTypeClass
-from datahub.emitter.mce_builder import make_dataset_urn
+from datahub.emitter.rest_emitter import DatahubRestEmitter
+from datahub.metadata.schema_classes import DatasetLineageTypeClass, UpstreamClass, UpstreamLineageClass
 
 from ..interface import MetadataPlatformInterface
 
@@ -19,6 +22,14 @@ class DataHubHandler(MetadataPlatformInterface):
     """
     
     def __init__(self, config: Dict[str, Any]):
+        """Initialize the handler.
+
+        Args:
+            config: DataHub configuration. When `test_mode=True`, no network calls are made.
+
+        Raises:
+            ValueError: If not in test mode and `gms_server` is missing.
+        """
         super().__init__(config)
         self.test_mode = config.get("test_mode", False)
         
@@ -168,6 +179,15 @@ class DataHubHandler(MetadataPlatformInterface):
     def emit_mcp(self, mcp: Any) -> None:
         """Emits a Metadata Change Proposal to DataHub."""
         try:
+            if self.test_mode:
+                aspect = getattr(mcp, "aspect", None)
+                aspect_name = type(aspect).__name__ if aspect is not None else "<none>"
+                logger.info(
+                    "TEST MODE: MCP created for URN: %s (aspect=%s)",
+                    getattr(mcp, "entityUrn", "<unknown>"),
+                    aspect_name,
+                )
+                return
             self._emitter.emit_mcp(mcp)
             logger.info(f"Successfully emitted MCP to DataHub for URN: {mcp.entityUrn}")
         except Exception as e:
@@ -177,6 +197,9 @@ class DataHubHandler(MetadataPlatformInterface):
     def add_lineage(self, upstream_urn: str, downstream_urn: str) -> bool:
         """Adds dataset lineage to DataHub."""
         try:
+            if self.test_mode:
+                logger.info("TEST MODE: lineage created %s -> %s", upstream_urn, downstream_urn)
+                return True
             lineage_mcp = MetadataChangeProposalWrapper(
                 entityUrn=downstream_urn,
                 aspect=UpstreamLineageClass(
