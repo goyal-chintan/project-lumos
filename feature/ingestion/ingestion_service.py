@@ -102,7 +102,7 @@ class IngestionService:
                 parsed = parsed.replace(tzinfo=timezone.utc)
             return parsed.astimezone(timezone.utc)
 
-        raise TypeError("run_timestamp must be None, str, or datetime")
+        raise TypeError(f"run_timestamp must be str or datetime, got {type(run_timestamp).__name__}")
 
     def _normalize_partition_format(self, partition_format: str) -> str:
         """Supports both strftime tokens and common YYYY/MM/dd placeholders."""
@@ -256,12 +256,9 @@ class IngestionService:
         """Process S3-specific configuration."""
         source_path = source_config.get("source_path", "")
         partition_info = source_config.get("partition_info")
-        partition_format = source_config.get("partitioning_format") or source_config.get("partitiioning_format", "")
 
+        # Use resolved partition path if available, otherwise use base path
         source_path_str = partition_info["path"] if partition_info else source_path
-        if partition_format and not partition_info:
-            logger.warning("Partition format provided without resolved partition_info; using direct join.")
-            source_path_str = f"{source_path}/{partition_format}"
 
         logger.info(f"Ingesting from S3: {source_path_str}")
 

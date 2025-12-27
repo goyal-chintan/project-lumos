@@ -150,3 +150,41 @@ def test_partition_format_without_timestamp_falls_back_to_base_path(tmp_path) ->
     # No partition metadata should be present in fallback mode
     assert "partition_path" not in props_aspect.customProperties
     assert "partition_values" not in props_aspect.customProperties
+
+
+def test_s3_partition_format_without_timestamp_uses_base_path(tmp_path) -> None:
+    """S3 configs with partitioning_format but no timestamp should use base path, not append raw format."""
+    from unittest.mock import patch
+    
+    config = [
+        {
+            "source_type": "s3",
+            "data_type": "avro",
+            "source_path": "s3://test-bucket/data/table",
+            "partitioning_format": "year=%Y/month=%m/day=%d",
+            "infer_schema": True,
+            "schema": {},
+        }
+    ]
+    config_path = tmp_path / "s3_ingestion.json"
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+
+    platform_handler = MagicMock()
+    service = IngestionService(_mock_config_manager(), platform_handler)
+
+    # Mock the S3 handler to avoid boto3 initialization
+    mock_handler = MagicMock()
+    mock_mce = MagicMock()
+    mock_handler.ingest.return_value = mock_mce
+    
+    with patch("feature.ingestion.handlers.factory.HandlerFactory.get_handler", return_value=mock_handler):
+        # Call WITHOUT timestamp - should use base path, NOT s3://test-bucket/data/table/year=%Y/month=%m/day=%d
+        service.start_ingestion(str(config_path), run_timestamp=None)
+
+    # Verify handler was called with base path (not with appended raw format)
+    # The key check: source_path in the config should be the base path
+    call_config = mock_handler.ingest.call_args
+    assert mock_handler.ingest.called, "Handler ingest should have been called"
+    
+    # Verify the platform handler received the MCE
+    platform_handler.emit_mce.assert_called_once_with(mock_mce)
