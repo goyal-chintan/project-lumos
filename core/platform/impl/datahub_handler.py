@@ -168,6 +168,11 @@ class DataHubHandler(MetadataPlatformInterface):
     def emit_mcp(self, mcp: Any) -> None:
         """Emits a Metadata Change Proposal to DataHub."""
         try:
+            if self.test_mode:
+                logger.info(f"TEST MODE: MCP created for URN: {getattr(mcp, 'entityUrn', 'unknown')}")
+                logger.info(f"TEST MODE: Aspect: {mcp.aspect.__class__.__name__ if hasattr(mcp, 'aspect') else 'unknown'}")
+                return
+
             self._emitter.emit_mcp(mcp)
             logger.info(f"Successfully emitted MCP to DataHub for URN: {mcp.entityUrn}")
         except Exception as e:
@@ -188,6 +193,10 @@ class DataHubHandler(MetadataPlatformInterface):
                     ]
                 ),
             )
+            if self.test_mode:
+                logger.info(f"TEST MODE: Lineage would be added: {upstream_urn} -> {downstream_urn}")
+                return True
+
             self.emit_mcp(lineage_mcp)
             logger.info(f"Successfully added lineage: {upstream_urn} -> {downstream_urn}")
             return True

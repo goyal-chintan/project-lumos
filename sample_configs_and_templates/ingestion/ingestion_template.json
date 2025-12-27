@@ -2,8 +2,8 @@
   "source_type": "s3",
   "data_type": "avro",
   "source_path": "s3://my-bucket/data/table",
-  "partitiioning_format": "year=YYYY/month=MM/day=dd",
-  "infer_schama": false,
+  "partitioning_format": "year=%Y/month=%m/day=%d",
+  "infer_schema": false,
   "schema": {
     "id": "int",
     "name": "string",
@@ -13,7 +13,7 @@
 {
   "source_type": "postgres",
   "fully_qualified_source_name": "sample_prod.red_schema.wifi_table",
-  "infer_schama": false,
+  "infer_schema": false,
   "schema": {
     "id": "int",
     "name": "string",
@@ -23,7 +23,7 @@
   {
     "source_type": "mongodb",
     "fully_qualified_source_name": "sample_prod.NodeState",
-    "infer_schama": false,
+    "infer_schema": false,
     "schema": {
       "id": "int",
       "name": "string",
