@@ -1,10 +1,12 @@
 # now validate the configuration before proceeding with ingestion.
-import logging
-from typing import Dict, Any, List
 import json
+import logging
+from typing import Any, Dict, Optional
+
 from core.common.config_manager import ConfigManager
-from feature.ingestion.ingestion_service import IngestionService
 from core.platform.factory import PlatformFactory
+from feature.ingestion.ingestion_service import IngestionService
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 def _validate_ingestion_config(source_config: Dict[str, Any]) -> None:
@@ -29,18 +31,17 @@ def _validate_ingestion_config(source_config: Dict[str, Any]) -> None:
         if isinstance(field_group, list):
             if not any(f in source_config for f in field_group):
                 missing_fields.append(f"one of {field_group}")
-        else:
-            if field_group not in source_config:
-                missing_fields.append(field_group)
+        elif field_group not in source_config:
+            missing_fields.append(field_group)
     if missing_fields:
         raise ValueError(f"Missing required fields for source type '{source_type}': {missing_fields}")
     logger.info("Configuration validation successful.")
-def run_ingestion(folder_path: str):
+def run_ingestion(folder_path: str, ingestion_timestamp: Optional[str] = None):
     logger.info("Initializing Ingestion...")
     try:
         config_manager = ConfigManager()
         # Load the ingestion config, which is now a list of sources in a JSON file
-        with open(folder_path, 'r') as f:
+        with open(folder_path) as f:
             ingestion_configs = json.load(f)
         if not isinstance(ingestion_configs, list) or not ingestion_configs:
             raise ValueError("Ingestion config must be a non-empty list.")
@@ -57,7 +58,7 @@ def run_ingestion(folder_path: str):
         platform_handler = PlatformFactory.get_instance(platform_name, config_manager)
         ingestion_service = IngestionService(config_manager, platform_handler)
         logger.info(f"Starting ingestion process for config: {folder_path}")
-        ingestion_service.start_ingestion(folder_path)
+        ingestion_service.start_ingestion(folder_path, run_timestamp=ingestion_timestamp)
         logger.info("Ingestion process completed successfully.")
     except ValueError as ve:
         logger.error(f"Configuration error: {ve}", exc_info=True)
