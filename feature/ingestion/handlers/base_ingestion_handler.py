@@ -1,23 +1,25 @@
+import json
 import logging
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional
 from datetime import datetime
+from typing import Any, Dict, List, Optional
+
 from datahub.emitter.mce_builder import make_dataset_urn
 from datahub.metadata.schema_classes import (
+    AuditStampClass,
+    BooleanTypeClass,
     DatasetPropertiesClass,
     DatasetSnapshotClass,
     MetadataChangeEventClass,
+    NumberTypeClass,
     OtherSchemaClass,
     SchemaFieldClass,
+    SchemaFieldDataTypeClass,
     SchemaMetadataClass,
     StringTypeClass,
-    NumberTypeClass,
-    BooleanTypeClass,
     TimeTypeClass,
-    SchemaFieldDataTypeClass,
-    AuditStampClass,
 )
-from datahub.emitter.mcp import MetadataChangeProposalWrapper
+
 logger = logging.getLogger(__name__)
 class BaseIngestionHandler(ABC):
     """
@@ -64,14 +66,27 @@ class BaseIngestionHandler(ABC):
             schema_fields.append(field)
         return schema_fields
     def _get_dataset_properties(self) -> Dict[str, Any]:
-        """Creates the dataset properties dictionary."""
+        """Creates the dataset properties dictionary with partition metadata when available."""
+        custom_properties = {
+            "source_type": self.source_config.get("data_type"),
+            "ingestion_timestamp": datetime.utcnow().isoformat(),
+        }
+
+        partition_info = self.source_config.get("partition_info") or {}
+        if partition_info:
+            custom_properties["partition_path"] = partition_info.get("path", "")
+            custom_properties["partition_format"] = partition_info.get("format", "")
+            if partition_info.get("cron"):
+                custom_properties["partition_cron"] = partition_info["cron"]
+            if partition_info.get("timestamp"):
+                custom_properties["partition_timestamp"] = partition_info["timestamp"]
+            if partition_info.get("values"):
+                custom_properties["partition_values"] = json.dumps(partition_info.get("values"))
+
         return {
             "name": self.source_config.get("dataset_name"),
             "description": f"Dataset from source: {self.source_config.get('source_path') or self.source_config.get('collection')}",
-            "customProperties": {
-                "source_type": self.source_config.get("data_type"),
-                "ingestion_timestamp": datetime.utcnow().isoformat(),
-            },
+            "customProperties": custom_properties,
         }
     def _get_raw_schema(self) -> str:
         """Returns the raw schema as a string (optional)."""
@@ -97,14 +112,14 @@ class BaseIngestionHandler(ABC):
             # Fallback to a known good timestamp if system time is unreasonable
             if current_time > 1750000000000:  # If timestamp is beyond reasonable future
                 current_time = 1704067200000  # January 1, 2024 UTC
-            
+
             audit_stamp = AuditStampClass(
                 time=current_time,
                 actor="urn:li:corpuser:datahub"
             )
-            
+
             dataset_urn = make_dataset_urn(platform, dataset_name, env)
-            
+
             schema_metadata = SchemaMetadataClass(
                 schemaName=dataset_name,
                 platform=f"urn:li:dataPlatform:{platform}",
@@ -115,16 +130,16 @@ class BaseIngestionHandler(ABC):
                 platformSchema=OtherSchemaClass(rawSchema=raw_schema),
                 fields=schema_fields,
             )
-            
+
             dataset_properties_aspect = DatasetPropertiesClass(**dataset_properties)
-            
+
             snapshot = DatasetSnapshotClass(
-                urn=dataset_urn, 
+                urn=dataset_urn,
                 aspects=[schema_metadata, dataset_properties_aspect]
             )
-            
+
             return MetadataChangeEventClass(proposedSnapshot=snapshot)
-            
+
         except Exception as e:
             logger.error(f"Failed to build MCE for {dataset_name}: {e}", exc_info=True)
             return None
