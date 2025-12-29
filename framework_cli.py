@@ -79,6 +79,12 @@ def main():
         nargs='+',
         help="Operations to perform. Format: 'operation' or 'operation:config_path'"
     )
+
+    parser.add_argument(
+        "--ingestion-timestamp",
+        dest="ingestion_timestamp",
+        help="ISO-8601 timestamp used to pick partitioned data during ingestion (defaults to now UTC)",
+    )
     
     parser.add_argument(
         "--version", "-v",
@@ -100,7 +106,7 @@ def main():
                 logger.info(f"Executing operation '{operation}'")
             
             if operation.lower() == "ingest":
-                ingestion_controller.run_ingestion(config_path)
+                ingestion_controller.run_ingestion(config_path, args.ingestion_timestamp)
                 
             elif operation.lower() == "add-lineage":
                 lineage_controller.run_add_lineage(config_path)

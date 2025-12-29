@@ -1,0 +1,9 @@
+[
+  {
+    "source_type": "csv",
+    "source_path": "sample-data-csv/partitioned/categories",
+    "partitioning_format": "year=%Y/month=%m/day=%d",
+    "infer_schema": true,
+    "schema": {}
+  }
+]
