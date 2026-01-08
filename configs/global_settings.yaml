@@ -1,4 +1,4 @@
-# Global settings for the Lumos Framework Toolkit
+# Global settings for the Lumos Platform
 
 # This new structure allows for configuring multiple platforms in the future.
 # The framework will look for a key matching the platform name (e.g., 'datahub').
