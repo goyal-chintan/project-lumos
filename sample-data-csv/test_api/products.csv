@@ -1,0 +1,6 @@
+product_id,product_name,category,price,stock_quantity,last_updated
+P001,Laptop Pro,Electronics,1299.99,50,2026-01-15
+P002,Wireless Mouse,Electronics,29.99,200,2026-01-10
+P003,Office Chair,Furniture,349.99,75,2026-01-20
+P004,Standing Desk,Furniture,599.99,30,2026-01-18
+P005,USB-C Hub,Electronics,49.99,150,2026-01-25

@@ -1,0 +1,6 @@
+id,name,email,department,hire_date
+1,John Smith,john.smith@example.com,Engineering,2023-01-15
+2,Jane Doe,jane.doe@example.com,Marketing,2023-02-20
+3,Bob Johnson,bob.johnson@example.com,Engineering,2023-03-10
+4,Alice Williams,alice.williams@example.com,Sales,2023-04-05
+5,Charlie Brown,charlie.brown@example.com,HR,2023-05-12
