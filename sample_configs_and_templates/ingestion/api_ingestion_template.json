@@ -1,0 +1,105 @@
+{
+    "single_source_request": {
+        "_description": "POST /api/v1/ingest — Ingest from a single source",
+        "source_type": "csv | avro | parquet | mongodb | s3 | postgresql",
+        "source_path": "./data/your_file.csv",
+        "dataset_name": "optional_dataset_name",
+        "delimiter": ",",
+        "fully_qualified_source_name": "db_name.schema_name.table_name",
+        "data_type": "csv | avro | parquet",
+        "partitioning_format": "year=%Y/month=%m/day=%d",
+        "partition_cron": "0 0 * * *",
+        "ingestion_timestamp": "2025-01-15T10:00:00Z",
+        "extra_properties": {}
+    },
+    "batch_request": {
+        "_description": "POST /api/v1/ingest/batch — Ingest from multiple sources",
+        "sources": [
+            {
+                "source_type": "csv",
+                "source_path": "./data/users.csv",
+                "delimiter": ","
+            },
+            {
+                "source_type": "parquet",
+                "source_path": "./data/products.parquet"
+            },
+            {
+                "source_type": "mongodb",
+                "fully_qualified_source_name": "sample_prod.NodeState"
+            },
+            {
+                "source_type": "s3",
+                "source_path": "s3://my-bucket/data/table",
+                "data_type": "avro",
+                "partitioning_format": "year=%Y/month=%m/day=%d"
+            },
+            {
+                "source_type": "postgresql",
+                "fully_qualified_source_name": "sample_prod.public.users"
+            }
+        ],
+        "continue_on_error": true
+    },
+    "file_upload": {
+        "_description": "POST /api/v1/ingest/file — Upload a JSON config file (same format as CLI ingestion_template.json)",
+        "_usage": "curl -X POST http://localhost:8000/api/v1/ingest/file -F 'file=@your_config.json'"
+    },
+    "supported_source_types": {
+        "_description": "GET /api/v1/ingest/sources — Returns this list dynamically",
+        "csv": {
+            "required": [
+                "source_path"
+            ],
+            "optional": [
+                "delimiter",
+                "dataset_name",
+                "partitioning_format"
+            ]
+        },
+        "avro": {
+            "required": [
+                "source_path"
+            ],
+            "optional": [
+                "dataset_name",
+                "partitioning_format"
+            ]
+        },
+        "parquet": {
+            "required": [
+                "source_path"
+            ],
+            "optional": [
+                "dataset_name",
+                "partitioning_format"
+            ]
+        },
+        "mongodb": {
+            "required": [
+                "fully_qualified_source_name"
+            ],
+            "optional": [
+                "dataset_name"
+            ]
+        },
+        "s3": {
+            "required": [
+                "source_path",
+                "data_type"
+            ],
+            "optional": [
+                "dataset_name",
+                "partitioning_format"
+            ]
+        },
+        "postgresql": {
+            "required": [
+                "fully_qualified_source_name"
+            ],
+            "optional": [
+                "dataset_name"
+            ]
+        }
+    }
+}

@@ -1,0 +1,6 @@
+order_id,customer_id,product_id,quantity,order_date,status,total_amount
+ORD001,C100,P001,1,2026-01-20,completed,1299.99
+ORD002,C101,P002,3,2026-01-21,completed,89.97
+ORD003,C102,P003,2,2026-01-22,pending,699.98
+ORD004,C100,P004,1,2026-01-23,shipped,599.99
+ORD005,C103,P005,5,2026-01-24,completed,249.95
