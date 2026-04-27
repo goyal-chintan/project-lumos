@@ -20,7 +20,7 @@ types-requests>=2.31.0
 pydocstyle>=6.3.0
 
 # Security scanning
-bandit>=1.7.6
+bandit>=1.8.6
 
 # Testing
 pytest>=7.0.0
