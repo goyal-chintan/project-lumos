@@ -13,7 +13,7 @@ ruff>=0.1.9  # Modern, fast linter (replaces flake8, isort, and more)
 
 # Type checking
 mypy>=1.8.0
-types-PyYAML>=6.0.0
+types-PyYAML>=6.0.12.20250915
 types-requests>=2.31.0
 
 # Documentation
