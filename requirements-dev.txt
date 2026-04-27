@@ -23,6 +23,6 @@ pydocstyle>=6.3.0
 bandit>=1.7.6
 
 # Testing
-pytest>=7.0.0
+pytest>=8.4.2
 pytest-cov>=4.1.0  # For coverage reports
 
